@@ -27,6 +27,14 @@ export default {
         "off-white": "hsl(var(--off-white))",
         "paper-white": "hsl(var(--paper-white))",
         
+        // Sticky note colors
+        "mint-green": "hsl(var(--mint-green))",
+        "peach-orange": "hsl(var(--peach-orange))",
+        "lavender-purple": "hsl(var(--lavender-purple))",
+        "sky-blue": "hsl(var(--sky-blue))",
+        "lemon-yellow": "hsl(var(--lemon-yellow))",
+        "coral-pink": "hsl(var(--coral-pink))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

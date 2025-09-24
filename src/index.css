@@ -13,6 +13,14 @@
     --off-white: 40 20% 98%;
     --paper-white: 0 0% 100%;
     
+    /* Sticky Note Colors */
+    --mint-green: 145 60% 85%;
+    --peach-orange: 25 85% 80%;
+    --lavender-purple: 260 50% 85%;
+    --sky-blue: 200 70% 85%;
+    --lemon-yellow: 51 85% 85%;
+    --coral-pink: 350 70% 85%;
+    
     /* Background with subtle grid */
     --background: 40 20% 98%;
     --foreground: 0 0% 10%;
@@ -119,6 +127,53 @@
     border-radius: 2px;
     box-shadow: 0 2px 4px hsl(0 0% 0% / 0.1);
   }
+
+  /* Sticky Note Color Variants */
+  .sticky-mint { background: hsl(var(--mint-green)); }
+  .sticky-peach { background: hsl(var(--peach-orange)); }
+  .sticky-lavender { background: hsl(var(--lavender-purple)); }
+  .sticky-sky { background: hsl(var(--sky-blue)); }
+  .sticky-lemon { background: hsl(var(--lemon-yellow)); }
+  .sticky-coral { background: hsl(var(--coral-pink)); }
+
+  /* Paper Clip Accessory */
+  .paper-clip::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    width: 20px;
+    height: 35px;
+    border: 2px solid hsl(200 20% 60%);
+    border-radius: 8px 8px 0 0;
+    background: transparent;
+    transform: rotate(-15deg);
+    z-index: 10;
+  }
+
+  /* Push Pin Accessory */
+  .push-pin::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: hsl(0 85% 60%);
+    border-radius: 50%;
+    border: 2px solid hsl(0 85% 50%);
+    box-shadow: 0 2px 4px hsl(0 0% 0% / 0.2);
+    z-index: 10;
+  }
+
+  /* Random Rotations */
+  .rotate-random-1 { transform: rotate(-2deg); }
+  .rotate-random-2 { transform: rotate(1.5deg); }
+  .rotate-random-3 { transform: rotate(-1deg); }
+  .rotate-random-4 { transform: rotate(2.5deg); }
+  .rotate-random-5 { transform: rotate(-3deg); }
+  .rotate-random-6 { transform: rotate(1deg); }
 
   /* Tape variants */
   .tape-corner::after {

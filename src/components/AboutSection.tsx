@@ -49,11 +49,11 @@ const AboutSection = () => {
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="sticky-note p-8 max-w-2xl mx-auto">
+          <div className="sticky-peach push-pin rotate-random-3 p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Why Choose <span className="text-tape-yellow">Us?</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-charcoal/70">
               We're not just another video editing service. Here's what makes us different.
             </p>
           </div>
@@ -62,12 +62,12 @@ const AboutSection = () => {
         {/* Comparison Table */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Our Agency */}
-          <div className="sticky-note p-8">
+          <div className="sticky-mint paper-clip rotate-random-1 p-8">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-charcoal mb-2">
                 Our <span className="text-tape-yellow">Agency</span>
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-charcoal/70">
                 Specialized video editing that drives results
               </p>
             </div>
@@ -94,12 +94,12 @@ const AboutSection = () => {
           </div>
 
           {/* Other Agencies */}
-          <div className="sticky-note p-8 opacity-75">
+          <div className="sticky-lavender rotate-random-2 p-8 opacity-75">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-charcoal mb-2">
-                Other <span className="text-muted-foreground">Agencies</span>
+                Other <span className="text-charcoal/60">Agencies</span>
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-charcoal/60">
                 Standard editing services with limited scope
               </p>
             </div>

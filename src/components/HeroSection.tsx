@@ -53,11 +53,11 @@ const HeroSection = () => {
           </Button>
         </div>
 
-        {/* Floating Software Logos */}
+        {/* Floating Software Logos & Sticky Notes */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Adobe Premiere Pro */}
           <div className="absolute top-20 left-16 animate-float-1 opacity-60">
-            <div className="sticky-note p-3 bg-gradient-to-br from-purple-100 to-purple-200 border border-purple-300/30">
+            <div className="sticky-lavender paper-clip rotate-random-1 p-3">
               <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-purple-800 rounded-md flex items-center justify-center text-xs font-bold text-white">
                 Pr
               </div>
@@ -66,7 +66,7 @@ const HeroSection = () => {
 
           {/* After Effects */}
           <div className="absolute top-32 right-20 animate-float-2 opacity-60">
-            <div className="sticky-note p-3 bg-gradient-to-br from-blue-100 to-blue-200 border border-blue-300/30">
+            <div className="sticky-sky push-pin rotate-random-3 p-3">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-md flex items-center justify-center text-xs font-bold text-white">
                 Ae
               </div>
@@ -75,7 +75,7 @@ const HeroSection = () => {
 
           {/* CapCut */}
           <div className="absolute bottom-40 left-20 animate-float-3 opacity-60">
-            <div className="sticky-note p-3 bg-gradient-to-br from-pink-100 to-pink-200 border border-pink-300/30">
+            <div className="sticky-coral paper-clip rotate-random-2 p-3">
               <div className="w-8 h-8 bg-gradient-to-br from-pink-600 to-pink-800 rounded-md flex items-center justify-center text-xs font-bold text-white">
                 CC
               </div>
@@ -84,7 +84,7 @@ const HeroSection = () => {
 
           {/* DaVinci Resolve */}
           <div className="absolute bottom-60 right-24 animate-float-4 opacity-60">
-            <div className="sticky-note p-3 bg-gradient-to-br from-orange-100 to-orange-200 border border-orange-300/30">
+            <div className="sticky-peach rotate-random-4 p-3">
               <div className="w-8 h-8 bg-gradient-to-br from-orange-600 to-orange-800 rounded-md flex items-center justify-center text-xs font-bold text-white">
                 DR
               </div>
@@ -93,20 +93,22 @@ const HeroSection = () => {
 
           {/* Final Cut Pro */}
           <div className="absolute top-60 left-32 animate-float-5 opacity-60">
-            <div className="sticky-note p-3 bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-300/30">
+            <div className="sticky-lemon push-pin rotate-random-5 p-3">
               <div className="w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-900 rounded-md flex items-center justify-center text-xs font-bold text-white">
                 FC
               </div>
             </div>
           </div>
 
-          {/* Decorative paper clips and tape */}
-          <div className="absolute top-28 right-32 animate-wiggle opacity-40">
-            <div className="w-4 h-8 bg-tape-yellow/60 rounded-sm transform rotate-12"></div>
+          {/* Creative Task Notes */}
+          <div className="absolute top-16 right-1/4 sticky-mint paper-clip rotate-random-2 animate-float-1 p-3 text-xs">
+            <p className="text-charcoal font-medium">Edit Timeline</p>
           </div>
-          
-          <div className="absolute bottom-48 left-40 animate-pulse opacity-40">
-            <div className="w-6 h-3 bg-coral-accent/40 rounded-full transform -rotate-12"></div>
+          <div className="absolute bottom-1/3 left-1/4 sticky-peach push-pin rotate-random-4 animate-float-3 p-3 text-xs">
+            <p className="text-charcoal font-medium">Color Grade</p>
+          </div>
+          <div className="absolute top-1/3 right-12 sticky-lavender rotate-random-1 animate-float-2 p-3 text-xs">
+            <p className="text-charcoal font-medium">Sound Mix</p>
           </div>
         </div>
       </div>
