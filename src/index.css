@@ -250,4 +250,77 @@
   .slide-in-right {
     animation: slideInRight 0.6s ease-out;
   }
+
+  /* Drawing animation for SVG paths */
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-draw-line {
+    animation: drawLine 3s ease-in-out forwards;
+  }
+
+  /* Enhanced floating animations */
+  @keyframes float-enhanced-1 {
+    0%, 100% { 
+      transform: translateY(0px) rotate(-2deg) scale(1); 
+    }
+    25% { 
+      transform: translateY(-8px) rotate(1deg) scale(1.05); 
+    }
+    50% { 
+      transform: translateY(-15px) rotate(2deg) scale(1); 
+    }
+    75% { 
+      transform: translateY(-5px) rotate(-1deg) scale(1.02); 
+    }
+  }
+
+  @keyframes float-enhanced-2 {
+    0%, 100% { 
+      transform: translateY(0px) rotate(1deg) scale(1); 
+    }
+    33% { 
+      transform: translateY(-12px) rotate(-2deg) scale(1.03); 
+    }
+    66% { 
+      transform: translateY(-8px) rotate(1deg) scale(1.01); 
+    }
+  }
+
+  /* Pulse glow effect */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 5px hsl(var(--tape-yellow) / 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--tape-yellow) / 0.8), 0 0 30px hsl(var(--coral-accent) / 0.4);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  /* Market-style annotation arrows */
+  .market-arrow::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid hsl(var(--coral-accent));
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+  }
+
+  /* Enhanced sticky note hover effects */
+  .sticky-note:hover {
+    transform: rotate(0deg) translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-hover), 0 0 15px hsl(var(--tape-yellow) / 0.3);
+  }
 }
