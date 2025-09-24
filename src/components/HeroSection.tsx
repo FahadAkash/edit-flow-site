@@ -8,11 +8,11 @@ const HeroSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
-      <div className="max-w-4xl mx-auto text-center relative z-10">
+    <section className="h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      <div className="max-w-5xl mx-auto text-center relative z-10 h-full flex flex-col justify-center">
         {/* ...existing code... */}
 
-        <div className="sticky-note p-8 mb-8 max-w-2xl mx-auto relative">
+        <div className="sticky-note p-1 mb-8  mx-auto relative">
           {/* Animated editing overlays (left + right) */}
           <div className="editing-overlay-left pointer-events-none">
             <svg viewBox="0 0 120 64" width="120" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,10 +44,10 @@ const HeroSection = () => {
 
           {/* Pen drawing animation headline */}
           <h1 className="text-5xl md:text-7xl font-bold text-charcoal mb-6 leading-tight relative">
-            <span className="pen-draw block">Your Story,</span>
-            <span className="text-coral-accent pen-draw block">Perfectly</span>
-            <br />
-            <span className="text-tape-yellow pen-draw block">Edited</span>
+            <span className="pen-draw block"> Launch a done-for-you</span>
+            <span className="text-coral-accent pen-draw block">Video Sales engine</span>
+           
+            <span className="text-tape-yellow pen-draw block">this month.</span>
             {/* Animated hand-drawn underline */}
             <svg className="absolute left-0 -bottom-2 w-full h-6 pointer-events-none" viewBox="0 0 400 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 20 Q 200 2 390 20" stroke="#FFB300" strokeWidth="4" strokeLinecap="round">
@@ -55,49 +55,54 @@ const HeroSection = () => {
               </path>
             </svg>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-lg mx-auto">
-            We transform your raw footage into compelling stories that captivate and inspire your audience.
-          </p>
         </div>
 
-        {/* Client Testimonials Strip */}
-        <div className="p-4 mb-8 max-w-3xl mx-auto">
-          <div className="flex flex-col items-center space-y-3">
-            <div className="flex items-center -space-x-3">
-              <img
-                src="https://ui-avatars.com/api/?name=John+D&background=random"
-                alt="Client avatar"
-                className="w-12 h-12 rounded-full border-2 border-white"
-              />
-              <img
-                src="https://ui-avatars.com/api/?name=Sarah+M&background=random"
-                alt="Client avatar"
-                className="w-12 h-12 rounded-full border-2 border-white"
-              />
-              <img
-                src="https://ui-avatars.com/api/?name=Mike+R&background=random"
-                alt="Client avatar"
-                className="w-12 h-12 rounded-full border-2 border-white"
-              />
-              <img
-                src="https://ui-avatars.com/api/?name=Emma+K&background=random"
-                alt="Client avatar"
-                className="w-12 h-12 rounded-full border-2 border-white"
-              />
-              <div className="w-12 h-12 rounded-full bg-tape-yellow/20 border-2 border-white flex items-center justify-center text-sm font-medium text-charcoal">
-                500+
+        {/* Trusted By Section */}
+        <div className="mb-8">
+          <div className="flex justify-center -space-x-4 mb-3">
+            {[
+              '1644180906552.png',
+              '7HdwNsOD_400x400.png',
+              'FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png',
+              'VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png',
+              'zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png'
+            ].map((image, index) => (
+              <div
+                key={index}
+                className="relative w-14 h-14 rounded-full border-2 border-white overflow-hidden transition-transform hover:scale-110 hover:z-10 shadow-lg"
+                style={{
+                  transform: `translateX(${index * 2}px)`,
+                  zIndex: 5 - index,
+                }}
+              >
+                <img
+                  src={`/entrepreneurs/${image}`}
+                  alt={`Trusted Entrepreneur ${index + 1}`}
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-charcoal">Loved by 500+ Businesses worldwide.</h3>
-              <p className="text-muted-foreground">Our Clients Speak for Us</p>
+            ))}
+            {/* Plus 9 More Circle */}
+            <div
+              className="relative w-14 h-14 rounded-full border-2 border-white overflow-hidden transition-transform hover:scale-110 hover:z-10 shadow-lg bg-tape-yellow/90 flex items-center justify-center group"
+              style={{
+                transform: `translateX(10px)`,
+                zIndex: 0,
+              }}
+            >
+              <span className="text-charcoal font-bold text-sm group-hover:scale-110 transition-transform">
+                +9
+              </span>
             </div>
           </div>
+          <p className="text-lg text-charcoal/80 font-medium mt-6">
+            Trusted by <span className="text-tape-yellow font-bold">100+</span> Entrepreneurs Building Real Influence
+          </p>
         </div>
 
         {/* Video Player */}
         <div className="relative mb-8 group">
-          <div className="sticky-note p-4 max-w-3xl mx-auto">
+          <div className="sticky-note p-4 max-w-2xl mx-auto">
             <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
               <img 
                 src={heroVideoPoster}

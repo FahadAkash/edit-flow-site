@@ -1,8 +1,10 @@
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 import { Card } from "@/components/ui/card";
 import { TrendingUp, Users, Eye, DollarSign } from "lucide-react";
+import { useIntersection } from "@/hooks/use-intersection";
 
 const CaseStudies = () => {
+  const { elementRef, isIntersecting } = useIntersection();
   const chartData1 = [
     { month: 'Jan', before: 45, after: 120 },
     { month: 'Feb', before: 52, after: 185 },
@@ -108,7 +110,7 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-accent/20">
+    <section className="py-20 px-4 bg-accent/20" ref={elementRef}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="sticky-note p-8 max-w-2xl mx-auto">
@@ -177,7 +179,9 @@ const CaseStudies = () => {
 
               {/* Chart */}
               <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                <div className="sticky-note p-6">
+                <div className={`sticky-note p-6 transition-all duration-1000 transform ${
+                  isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}>
                   <Card className="border-none shadow-none bg-transparent p-4">
                     {study.chartComponent}
                   </Card>
