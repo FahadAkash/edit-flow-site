@@ -2,95 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Video Editor Agency Design System - Sticky Note Aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors */
+    --tape-yellow: 51 100% 50%;
+    --coral-accent: 6 93% 71%;
+    --charcoal: 0 0% 10%;
+    --off-white: 40 20% 98%;
+    --paper-white: 0 0% 100%;
+    
+    /* Background with subtle grid */
+    --background: 40 20% 98%;
+    --foreground: 0 0% 10%;
 
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Interactive elements */
+    --primary: 51 100% 50%;
+    --primary-foreground: 0 0% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: 6 93% 71%;
+    --secondary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Muted elements */
+    --muted: 40 15% 94%;
+    --muted-foreground: 0 0% 45%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent elements */
+    --accent: 51 100% 95%;
+    --accent-foreground: 0 0% 10%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    /* System colors */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 51 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Gradients */
+    --gradient-tape: linear-gradient(135deg, hsl(var(--tape-yellow)), hsl(51 100% 45%));
+    --gradient-coral: linear-gradient(135deg, hsl(var(--coral-accent)), hsl(6 93% 65%));
+    --gradient-paper: linear-gradient(180deg, hsl(var(--paper-white)), hsl(40 15% 97%));
+    
+    /* Shadows */
+    --shadow-sticky: 0 4px 12px -2px hsl(0 0% 0% / 0.1), 0 0 0 1px hsl(0 0% 0% / 0.05);
+    --shadow-doodle: 2px 4px 0px hsl(0 0% 0% / 0.1);
+    --shadow-hover: 0 8px 25px -5px hsl(0 0% 0% / 0.15);
+    
+    /* Animations */
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -101,5 +69,111 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 1px 1px, hsl(var(--muted-foreground) / 0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  /* Sticky Note Components */
+  .sticky-note {
+    @apply bg-card relative;
+    box-shadow: var(--shadow-sticky);
+    transform: rotate(-0.5deg);
+    transition: var(--transition-bounce);
+  }
+
+  .sticky-note:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .sticky-note::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    width: 40px;
+    height: 20px;
+    background: var(--gradient-tape);
+    transform: rotate(-10deg);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px hsl(0 0% 0% / 0.1);
+  }
+
+  /* Tape variants */
+  .tape-corner::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 30px;
+    height: 30px;
+    background: var(--gradient-tape);
+    transform: rotate(45deg);
+    border-radius: 2px;
+  }
+
+  /* Doodle shadows */
+  .doodle-shadow {
+    box-shadow: var(--shadow-doodle);
+    border: 2px solid hsl(var(--charcoal));
+    border-radius: 8px;
+  }
+
+  /* Hand-drawn arrow */
+  .arrow-doodle {
+    position: relative;
+  }
+
+  .arrow-doodle::after {
+    content: '→';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-5deg);
+    font-size: 1.5rem;
+    color: hsl(var(--coral-accent));
+  }
+
+  /* Marquee animation */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Timeline reveal animations */
+  @keyframes slideInLeft {
+    from { 
+      opacity: 0; 
+      transform: translateX(-50px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+
+  @keyframes slideInRight {
+    from { 
+      opacity: 0; 
+      transform: translateX(50px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out;
   }
 }
