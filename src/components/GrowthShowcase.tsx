@@ -38,12 +38,12 @@ const GrowthShowcase = () => {
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="sticky-note p-8 max-w-2xl mx-auto">
+          <div className="sticky-mint paper-clip rotate-random-1 p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Real Results for 
               <span className="text-coral-accent"> Real Clients</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-charcoal/70">
               We don't just edit videos—we engineer viral content that drives measurable growth
             </p>
           </div>
@@ -62,26 +62,32 @@ const GrowthShowcase = () => {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <div key={index} className="sticky-note p-6 hover:scale-105 transition-transform duration-300">
-              <Card className="border-none shadow-none bg-transparent p-0">
-                <div className="text-center">
-                  <div className={`inline-flex p-3 rounded-full bg-muted mb-4 ${stat.color}`}>
-                    <stat.icon className="w-6 h-6" />
+          {stats.map((stat, index) => {
+            const colors = ['sticky-peach', 'sticky-sky', 'sticky-lavender', 'sticky-lemon'];
+            const accessories = ['paper-clip', 'push-pin', '', 'paper-clip'];
+            const rotations = ['rotate-random-1', 'rotate-random-3', 'rotate-random-2', 'rotate-random-4'];
+            
+            return (
+              <div key={index} className={`${colors[index]} ${accessories[index]} ${rotations[index]} p-6 hover:scale-105 transition-transform duration-300`}>
+                <Card className="border-none shadow-none bg-transparent p-0">
+                  <div className="text-center">
+                    <div className={`inline-flex p-3 rounded-full bg-charcoal/10 mb-4 ${stat.color}`}>
+                      <stat.icon className="w-6 h-6" />
+                    </div>
+                    <div className="text-3xl font-bold text-charcoal mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm font-medium text-charcoal/70 mb-2">
+                      {stat.label}
+                    </div>
+                    <div className={`text-sm font-semibold ${stat.color}`}>
+                      {stat.change}
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-charcoal mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm font-medium text-muted-foreground mb-2">
-                    {stat.label}
-                  </div>
-                  <div className={`text-sm font-semibold ${stat.color}`}>
-                    {stat.change}
-                  </div>
-                </div>
-              </Card>
-            </div>
-          ))}
+                </Card>
+              </div>
+            );
+          })}
         </div>
 
         {/* Client testimonial snippet */}

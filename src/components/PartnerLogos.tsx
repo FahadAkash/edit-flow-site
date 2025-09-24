@@ -10,9 +10,9 @@ const PartnerLogos = () => {
   return (
     <section className="py-16 overflow-hidden border-y border-border">
       <div className="max-w-6xl mx-auto px-4 mb-8">
-        <div className="sticky-note p-6 max-w-lg mx-auto text-center">
+        <div className="sticky-coral push-pin rotate-random-2 p-6 max-w-lg mx-auto text-center">
           <h2 className="text-2xl font-bold text-charcoal mb-2">Trusted by</h2>
-          <p className="text-muted-foreground">Leading brands worldwide</p>
+          <p className="text-charcoal/70">Leading brands worldwide</p>
         </div>
       </div>
 
