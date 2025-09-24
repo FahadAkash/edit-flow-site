@@ -1,8 +1,52 @@
-import { TrendingUp, Users, Eye, MessageCircle, BarChart3 } from "lucide-react";
+import { TrendingUp, Users, Eye, MessageCircle, BarChart3, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import youtubeGrowth from "@/assets/youtube-growth.jpg";
 
 const GrowthShowcase = () => {
+  const [currentSet, setCurrentSet] = useState(0);
+  
+  const imageSets = [
+    // Set 1
+    {
+      main: youtubeGrowth,
+      scattered: [
+        { src: youtubeGrowth, position: "-top-10 -left-8", rotate: "-rotate-6" },
+        { src: youtubeGrowth, position: "top-20 -right-4", rotate: "rotate-3" },
+        { src: youtubeGrowth, position: "bottom-0 -left-12", rotate: "rotate-6" },
+        { src: youtubeGrowth, position: "bottom-10 -right-8", rotate: "-rotate-3" }
+      ]
+    },
+    // Set 2
+    {
+      main: youtubeGrowth,
+      scattered: [
+        { src: youtubeGrowth, position: "-top-8 -right-10", rotate: "rotate-6" },
+        { src: youtubeGrowth, position: "top-16 -left-8", rotate: "-rotate-4" },
+        { src: youtubeGrowth, position: "bottom-4 -right-12", rotate: "-rotate-6" },
+        { src: youtubeGrowth, position: "bottom-12 -left-6", rotate: "rotate-3" }
+      ]
+    },
+    // Set 3
+    {
+      main: youtubeGrowth,
+      scattered: [
+        { src: youtubeGrowth, position: "-top-12 left-1/4", rotate: "-rotate-3" },
+        { src: youtubeGrowth, position: "top-24 right-1/4", rotate: "rotate-6" },
+        { src: youtubeGrowth, position: "bottom-8 left-1/3", rotate: "-rotate-6" },
+        { src: youtubeGrowth, position: "bottom-16 right-1/3", rotate: "rotate-4" }
+      ]
+    }
+  ];
+
+  const nextSet = () => {
+    setCurrentSet((prev) => (prev + 1) % imageSets.length);
+  };
+
+  const prevSet = () => {
+    setCurrentSet((prev) => (prev - 1 + imageSets.length) % imageSets.length);
+  };
   const stats = [
     {
       icon: Users,
@@ -49,14 +93,76 @@ const GrowthShowcase = () => {
           </div>
         </div>
 
-        {/* Main showcase image */}
-        <div className="sticky-note p-6 mb-16 max-w-4xl mx-auto">
-          <div className="aspect-video rounded-lg overflow-hidden">
-            <img 
-              src={youtubeGrowth}
-              alt="YouTube growth analytics dashboard"
-              className="w-full h-full object-cover"
-            />
+        {/* Scattered images showcase */}
+        <div className="relative min-h-[600px] mb-16">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={currentSet}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              {/* Main central image */}
+              <motion.div 
+                className="sticky-note p-6 max-w-4xl mx-auto z-10 relative"
+              >
+                <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src={imageSets[currentSet].main}
+                    alt="YouTube growth analytics dashboard"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Scattered images */}
+              {imageSets[currentSet].scattered.map((image, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`sticky-note p-4 w-64 absolute ${image.position} transform hover:z-20 hover:scale-105 transition-all`}
+                >
+                  <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                    <img src={image.src} alt={`Growth metrics ${index + 1}`} className="w-full h-full object-cover" />
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Decorative elements */}
+              <div className="absolute top-1/4 right-1/3 w-20 h-6 bg-tape-yellow/80 transform rotate-45 z-30"></div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation Arrows */}
+          <button 
+            onClick={prevSet}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-tape-yellow rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+          >
+            <ChevronLeft className="w-6 h-6 text-charcoal" />
+          </button>
+          <button 
+            onClick={nextSet}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-tape-yellow rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+          >
+            <ChevronRight className="w-6 h-6 text-charcoal" />
+          </button>
+
+          {/* Navigation Dots */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {imageSets.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSet(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  currentSet === index ? 'bg-tape-yellow' : 'bg-gray-300'
+                }`}
+              />
+            ))}
           </div>
         </div>
 

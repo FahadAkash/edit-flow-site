@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 const TestimonialCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const testimonials = [
     {
@@ -70,6 +71,26 @@ const TestimonialCarousel = () => {
     }
   ];
 
+  // Gentle auto-scroll effect
+  useEffect(() => {
+    if (isHovered) return;
+    const container = scrollRef.current;
+    if (!container) return;
+    let frame: number;
+    const scrollStep = 0.3; // px per frame, very gentle
+    function animate() {
+      if (!container) return;
+      container.scrollLeft += scrollStep;
+      // Loop scroll
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
+        container.scrollLeft = 0;
+      }
+      frame = requestAnimationFrame(animate);
+    }
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [isHovered]);
+
   const scroll = (direction: 'left' | 'right') => {
     const container = scrollRef.current;
     if (!container) return;
@@ -105,6 +126,8 @@ const TestimonialCarousel = () => {
 
           <div 
             ref={scrollRef}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
