@@ -3,16 +3,13 @@ import { Play, Pause } from "lucide-react";
 import { useState } from "react";
 import heroVideoPoster from "@/assets/hero-video-poster.jpg";
 
-
 const HeroSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="h-screen flex items-center justify-center px-4 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto text-center relative z-10 h-full flex flex-col justify-center">
-        {/* ...existing code... */}
-
-        <div className="sticky-note p-1 mb-8  mx-auto relative">
+    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="sticky-note p-8 mb-8 max-w-2xl mx-auto relative">
           {/* Animated editing overlays (left + right) */}
           <div className="editing-overlay-left pointer-events-none">
             <svg viewBox="0 0 120 64" width="120" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,52 +54,9 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Trusted By Section */}
-        <div className="mb-8">
-          <div className="flex justify-center -space-x-4 mb-3">
-            {[
-              '1644180906552.png',
-              '7HdwNsOD_400x400.png',
-              'FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png',
-              'VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png',
-              'zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png'
-            ].map((image, index) => (
-              <div
-                key={index}
-                className="relative w-14 h-14 rounded-full border-2 border-white overflow-hidden transition-transform hover:scale-110 hover:z-10 shadow-lg"
-                style={{
-                  transform: `translateX(${index * 2}px)`,
-                  zIndex: 5 - index,
-                }}
-              >
-                <img
-                  src={`/entrepreneurs/${image}`}
-                  alt={`Trusted Entrepreneur ${index + 1}`}
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-            ))}
-            {/* Plus 9 More Circle */}
-            <div
-              className="relative w-14 h-14 rounded-full border-2 border-white overflow-hidden transition-transform hover:scale-110 hover:z-10 shadow-lg bg-tape-yellow/90 flex items-center justify-center group"
-              style={{
-                transform: `translateX(10px)`,
-                zIndex: 0,
-              }}
-            >
-              <span className="text-charcoal font-bold text-sm group-hover:scale-110 transition-transform">
-                +9
-              </span>
-            </div>
-          </div>
-          <p className="text-lg text-charcoal/80 font-medium mt-6">
-            Trusted by <span className="text-tape-yellow font-bold">100+</span> Entrepreneurs Building Real Influence
-          </p>
-        </div>
-
         {/* Video Player */}
         <div className="relative mb-8 group">
-          <div className="sticky-note p-4 max-w-2xl mx-auto">
+          <div className="sticky-note p-4 max-w-3xl mx-auto">
             <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
               <img 
                 src={heroVideoPoster}
@@ -134,13 +88,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Marquee with agency highlights (moved here) */}
-        <div className="overflow-hidden mb-4">
-          <div className="marquee whitespace-nowrap text-coral-accent text-lg font-bold tracking-wider" style={{fontFamily: 'Comic Sans MS, Marker Felt, cursive'}}>
-            Award-winning editors &bull; 100+ happy brands &bull; Viral content experts &bull; Fast turnaround &bull; Social-first storytelling &bull; Creative direction &bull; YouTube, TikTok, Reels, Shorts &bull; Big agency energy &bull; <span className="text-tape-yellow">Hand-drawn magic</span> &bull; <span className="text-charcoal">Let’s create together!</span>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="arrow-doodle">
           <Button variant="default" size="lg" className="text-lg px-8 py-4">
@@ -148,8 +95,8 @@ const HeroSection = () => {
           </Button>
         </div>
 
-  {/* Floating Software Logos & More (start lower so they don't overlap the header/video) */}
-  <div className="absolute inset-x-0 top-[65%] h-[35%] overflow-visible pointer-events-none z-0">
+        {/* Floating Software Logos & More (start lower so they don't overlap the header/video) */}
+        <div className="absolute inset-x-0 top-[65%] h-[35%] overflow-visible pointer-events-none z-0">
           {/* Adobe Premiere Pro */}
           <div className="absolute bottom-32 left-16 animate-float-1 opacity-60">
             <div className="sticky-note p-3 bg-gradient-to-br from-purple-100 to-purple-200 border border-purple-300/30">
