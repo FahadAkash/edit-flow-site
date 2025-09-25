@@ -11,7 +11,7 @@ const PartnerLogos = () => {
   ];
 
   return (
-    <section className="py-16 border-y border-border">
+  <section className="py-16 border-y border-border bg-muted/40">
       <div className="max-w-6xl mx-auto px-4 mb-8">
         <div className="sticky-coral push-pin rotate-random-2 p-6 max-w-lg mx-auto text-center">
           <h2 className="text-2xl font-bold text-charcoal mb-2">Trusted by</h2>

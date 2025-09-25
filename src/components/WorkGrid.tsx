@@ -2,61 +2,149 @@ import { useState } from "react";
 import { Play, X } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import videoPortfolio from "@/assets/video-portfolio.jpg";
 
 const WorkGrid = () => {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState("shorts");
 
-  const workItems = [
-    {
-      id: 1,
-      title: "Tech Product Launch",
-      thumbnail: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&h=400&fit=crop",
-      category: "Product",
-      duration: "2:45",
-      client: "TechCorp"
-    },
-    {
-      id: 2,
-      title: "Brand Documentary",
-      thumbnail: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop",
-      category: "Documentary",
-      duration: "5:20",
-      client: "MediaFlow"
-    },
-    {
-      id: 3,
-      title: "Social Campaign",
-      thumbnail: "https://images.unsplash.com/photo-1626544827763-d516dce335e2?w=600&h=400&fit=crop",
-      category: "Social",
-      duration: "1:30",
-      client: "Creative Co"
-    },
-    {
-      id: 4,
-      title: "Event Highlight Reel",
-      thumbnail: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=400&fit=crop",
-      category: "Event",
-      duration: "3:15",
-      client: "VideoLab"
-    },
-    {
-      id: 5,
-      title: "Tutorial Series",
-      thumbnail: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop",
-      category: "Education",
-      duration: "4:10",
-      client: "StreamPro"
-    },
-    {
-      id: 6,
-      title: "Testimonial Compilation",
-      thumbnail: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&h=400&fit=crop",
-      category: "Testimonial",
-      duration: "2:30",
-      client: "ContentMax"
-    }
+  const workItems = {
+    youtube: [
+      {
+        id: 1,
+        title: "How to Build a SaaS in 2024",
+        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        category: "Tutorial",
+        duration: "12:45",
+        client: "TechCorp",
+        type: "youtube"
+      },
+      {
+        id: 2,
+        title: "Complete React Course for Beginners",
+        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        category: "Education",
+        duration: "45:20",
+        client: "CodeAcademy",
+        type: "youtube"
+      },
+      {
+        id: 3,
+        title: "AI Tools That Will Change Your Business",
+        thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+        category: "Business",
+        duration: "8:30",
+        client: "AI Solutions",
+        type: "youtube"
+      }
+    ],
+    shorts: [
+      {
+        id: 4,
+        title: "Quick CSS Tip",
+        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        category: "Tips",
+        duration: "0:45",
+        client: "WebDev Pro",
+        type: "short"
+      },
+      {
+        id: 5,
+        title: "JavaScript Hack",
+        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        category: "Coding",
+        duration: "0:58",
+        client: "Code Ninja",
+        type: "short"
+      },
+      {
+        id: 6,
+        title: "Design in 60 Seconds",
+        thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+        category: "Design",
+        duration: "1:00",
+        client: "Design Studio",
+        type: "short"
+      },
+      {
+        id: 7,
+        title: "Marketing Trick",
+        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        category: "Marketing",
+        duration: "0:35",
+        client: "Growth Hacker",
+        type: "short"
+      },
+      {
+        id: 8,
+        title: "Productivity Hack",
+        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        category: "Lifestyle",
+        duration: "0:42",
+        client: "Life Coach",
+        type: "short"
+      },
+      {
+        id: 9,
+        title: "Tech Review",
+        thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+        category: "Tech",
+        duration: "0:55",
+        client: "Tech Reviewer",
+        type: "short"
+      }
+    ],
+    saas: [
+      {
+        id: 10,
+        title: "SaaS Dashboard Demo",
+        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        category: "Demo",
+        duration: "3:45",
+        client: "SaaS Company",
+        type: "saas"
+      },
+      {
+        id: 11,
+        title: "Product Walkthrough",
+        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        category: "Product",
+        duration: "5:20",
+        client: "StartupXYZ",
+        type: "saas"
+      }
+    ],
+    ads: [
+      {
+        id: 12,
+        title: "Facebook Ad Campaign",
+        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        category: "Advertisement",
+        duration: "0:30",
+        client: "Ad Agency",
+        type: "ad"
+      },
+      {
+        id: 13,
+        title: "VSL for E-commerce",
+        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        category: "VSL",
+        duration: "2:15",
+        client: "E-commerce Brand",
+        type: "ad"
+      }
+    ]
+  };
+
+  const tabs = [
+    { id: "youtube", label: "Youtube Videos" },
+    { id: "shorts", label: "Shorts" },
+    { id: "saas", label: "SAAS Videos" },
+    { id: "ads", label: "Ad Creatives & VSL" }
   ];
+
+  const getCurrentItems = () => {
+    return workItems[activeTab] || [];
+  };
 
   const openModal = (id: number) => {
     setSelectedVideo(id);
@@ -66,101 +154,314 @@ const WorkGrid = () => {
     setSelectedVideo(null);
   };
 
-  return (
-    <section className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="sticky-note p-8 max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
-              Our <span className="text-tape-yellow">Portfolio</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Every project tells a story. Here are some of our favorites.
-            </p>
-          </div>
-        </div>
+  const getSelectedVideo = () => {
+    const allItems = [...workItems.youtube, ...workItems.shorts, ...workItems.saas, ...workItems.ads];
+    return allItems.find(item => item.id === selectedVideo);
+  };
 
-        {/* Work Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {workItems.map((item, index) => (
-            <div
-              key={item.id}
-              className="sticky-note p-4 hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => openModal(item.id)}
-            >
-              <Card className="border-none shadow-none bg-transparent p-0 overflow-hidden">
-                <div className="relative group">
-                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+  const isShorts = activeTab === "shorts";
+
+  return (
+    <>
+      <style>{`
+        .paper-texture {
+          background-color: #f7f6f4;
+          background-image: 
+            radial-gradient(circle at 25px 25px, rgba(139, 69, 19, 0.1) 2%, transparent 2%),
+            radial-gradient(circle at 75px 75px, rgba(139, 69, 19, 0.08) 1%, transparent 1%),
+            radial-gradient(circle at 100px 50px, rgba(160, 82, 45, 0.06) 1%, transparent 1%);
+          background-size: 100px 100px, 150px 150px, 80px 80px;
+        }
+        
+        .sketchy-border {
+          border: 2px solid #2c1810;
+          border-radius: 8px;
+          position: relative;
+          filter: drop-shadow(2px 3px 4px rgba(44, 24, 16, 0.3));
+        }
+        
+        .sketchy-border::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          border: 1px solid #8b4513;
+          border-radius: 8px;
+          opacity: 0.6;
+        }
+        
+        .ink-text {
+          color: #2c1810;
+          font-family: 'Courier New', monospace;
+          font-weight: 600;
+          text-shadow: 1px 1px 0px rgba(44, 24, 16, 0.1);
+        }
+        
+        .handwritten {
+          font-family: 'Comic Sans MS', cursive, sans-serif;
+          transform: rotate(-0.5deg);
+        }
+        
+        .sketch-tab {
+          background: #f9f8f6;
+          border: 2px solid #5d4037;
+          border-radius: 12px;
+          position: relative;
+          transform: rotate(0.5deg);
+          transition: all 0.2s ease;
+        }
+        
+        .sketch-tab:hover {
+          transform: rotate(-0.2deg) scale(1.02);
+          box-shadow: 3px 4px 8px rgba(93, 64, 55, 0.2);
+        }
+        
+        .sketch-tab.active {
+          background: #e8f4fd;
+          border-color: #1976d2;
+          transform: rotate(-0.3deg);
+          box-shadow: 2px 3px 6px rgba(25, 118, 210, 0.3);
+        }
+        
+        .paper-card {
+          background: #fefefe;
+          border: 2px solid #4a4a4a;
+          border-radius: 6px;
+          position: relative;
+          transform: rotate(0deg);
+          transition: all 0.3s ease;
+          box-shadow: 3px 4px 6px rgba(74, 74, 74, 0.2);
+        }
+        
+        .paper-card:hover {
+          transform: rotate(-1deg) scale(1.02);
+          box-shadow: 5px 7px 12px rgba(74, 74, 74, 0.3);
+        }
+        
+        .ink-badge {
+          background: #ff6b6b;
+          color: white;
+          border: 1px solid #d63031;
+          font-family: 'Courier New', monospace;
+          font-size: 11px;
+          font-weight: bold;
+          transform: rotate(-2deg);
+        }
+        
+        .duration-badge {
+          background: rgba(44, 24, 16, 0.9);
+          color: #f7f6f4;
+          border: 1px solid #2c1810;
+          font-family: 'Courier New', monospace;
+          font-size: 11px;
+          transform: rotate(1deg);
+        }
+        
+        .play-sketch {
+          background: #ffd93d;
+          border: 2px solid #f39c12;
+          color: #2c1810;
+          box-shadow: inset 0 0 0 1px #f1c40f;
+        }
+        
+        .doodle-line {
+          position: relative;
+        }
+        
+        .doodle-line::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: repeating-linear-gradient(
+            to right,
+            #2c1810 0px,
+            #2c1810 4px,
+            transparent 4px,
+            transparent 8px
+          );
+          opacity: 0.3;
+        }
+      `}</style>
+      
+      <section className="py-8 sm:py-16 lg:py-20 px-4 paper-texture min-h-screen">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-8 sm:mb-16">
+            <div className="relative inline-block">
+              <p className="ink-text text-sm sm:text-base mb-2 tracking-wider uppercase handwritten">
+                ✨ Our Creative Work ✨
+              </p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl ink-text mb-2 handwritten doodle-line">
+                Some Of Our
+              </h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl ink-text mb-4 font-bold">
+                Featured Projects
+              </h2>
+              
+              {/* Hand-drawn arrow */}
+              <div className="absolute -right-16 top-8 text-2xl transform rotate-12 opacity-70">
+                ↗️
+              </div>
+            </div>
+          </div>
+
+          {/* Category Tabs */}
+          <div className="flex justify-center mb-8 sm:mb-12">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-full">
+              {tabs.map((tab, index) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`sketch-tab px-4 sm:px-6 py-3 text-sm sm:text-base font-medium ink-text transition-all whitespace-nowrap ${
+                    activeTab === tab.id ? "active" : ""
+                  }`}
+                  style={{ 
+                    transform: `rotate(${(index % 2 === 0 ? 0.5 : -0.5)}deg)` 
+                  }}
+                >
+                  {tab.label}
+                  {activeTab === tab.id && (
+                    <span className="inline-block ml-2">📌</span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Video Grid */}
+          <div className={`grid gap-6 sm:gap-8 ${
+            isShorts 
+              ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5" 
+              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          }`}>
+            {getCurrentItems().map((item, index) => (
+              <div
+                key={item.id}
+                className="group cursor-pointer"
+                onClick={() => openModal(item.id)}
+                style={{ 
+                  transform: `rotate(${(index % 3 === 0 ? 0.5 : index % 3 === 1 ? -0.3 : 0.2)}deg)` 
+                }}
+              >
+                <div className="paper-card overflow-hidden">
+                  <div className="relative">
+                    <div className={`overflow-hidden bg-gray-100 ${
+                      item.type === "short" ? "aspect-[9/16]" : "aspect-video"
+                    }`}>
+                      <img 
+                        src={item.thumbnail}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        onError={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          img.style.backgroundColor = '#e0e0e0';
+                          img.style.display = 'none';
+                        }}
+                      />
+                      
+                      {/* Play Button Overlay */}
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 play-sketch rounded-full flex items-center justify-center shadow-lg transform rotate-12">
+                          <Play className="w-4 h-4 sm:w-6 sm:h-6 text-amber-800 ml-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Duration Badge */}
+                    <div className="absolute bottom-2 right-2 duration-badge px-2 py-1 rounded font-medium">
+                      {item.duration}
+                    </div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-2 left-2 ink-badge px-2 py-1 rounded-full font-medium">
+                      {item.category}
+                    </div>
+                  </div>
+                  
+                  {/* Video Info */}
+                  <div className={`p-3 sm:p-4 ${isShorts ? "text-center" : ""}`}>
+                    <h3 className={`ink-text mb-1 line-clamp-2 handwritten ${
+                      isShorts ? "text-sm font-medium" : "text-base sm:text-lg font-semibold"
+                    }`}>
+                      {item.title}
+                    </h3>
+                    <p className={`text-gray-600 ${isShorts ? "text-xs" : "text-sm"}`} style={{ fontFamily: 'Courier New, monospace' }}>
+                      ~ {item.client} ~
+                    </p>
+                  </div>
+                  
+                  {/* Decorative doodle corner */}
+                  <div className="absolute top-1 right-1 text-amber-600 opacity-30 text-xs">
+                    ✦
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Empty State */}
+          {getCurrentItems().length === 0 && (
+            <div className="text-center py-16">
+              <div className="ink-text text-lg mb-4 handwritten">📝 No videos in this section yet!</div>
+              <p className="text-gray-600" style={{ fontFamily: 'Courier New, monospace' }}>
+                ~ Coming soon ~ ✨
+              </p>
+            </div>
+          )}
+
+          {/* Modal */}
+          {selectedVideo && (
+            <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+              <div className="relative max-w-4xl w-full">
+                <div className="sketchy-border bg-white p-4 sm:p-6 shadow-2xl">
+                  <div className="aspect-video bg-gray-100 overflow-hidden mb-4 relative border-2 border-gray-300 rounded">
                     <img 
-                      src={item.thumbnail}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      src={getSelectedVideo()?.thumbnail}
+                      alt="Video player"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-charcoal/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-tape-yellow/90 rounded-full flex items-center justify-center">
-                        <Play className="w-6 h-6 text-charcoal ml-1" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 play-sketch rounded-full flex items-center justify-center shadow-lg transform rotate-6">
+                        <Play className="w-6 h-6 sm:w-8 sm:h-8 text-amber-800 ml-1" />
                       </div>
                     </div>
                   </div>
-                  <div className="absolute top-3 left-3 bg-coral-accent text-white text-xs px-2 py-1 rounded">
-                    {item.category}
-                  </div>
-                  <div className="absolute top-3 right-3 bg-charcoal/80 text-white text-xs px-2 py-1 rounded">
-                    {item.duration}
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-charcoal text-lg mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    Client: {item.client}
-                  </p>
-                </div>
-              </Card>
-            </div>
-          ))}
-        </div>
-
-        {/* Modal */}
-        {selectedVideo && (
-          <div className="fixed inset-0 bg-charcoal/80 flex items-center justify-center z-50 p-4">
-            <div className="relative max-w-4xl w-full">
-              <div className="sticky-note p-6">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-4">
-                  <img 
-                    src={videoPortfolio}
-                    alt="Video player"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-tape-yellow/90 rounded-full flex items-center justify-center">
-                      <Play className="w-8 h-8 text-charcoal ml-1" />
+                  <div className="text-center">
+                    <h3 className="text-xl sm:text-2xl ink-text font-bold mb-2 handwritten">
+                      {getSelectedVideo()?.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4" style={{ fontFamily: 'Courier New, monospace' }}>
+                      Client: {getSelectedVideo()?.client} ✨
+                    </p>
+                    <div className="flex justify-center gap-3 flex-wrap">
+                      <span className="ink-badge px-3 py-1 rounded-full font-medium">
+                        {getSelectedVideo()?.category}
+                      </span>
+                      <span className="duration-badge px-3 py-1 rounded-full font-medium">
+                        ⏱️ {getSelectedVideo()?.duration}
+                      </span>
                     </div>
                   </div>
                 </div>
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-charcoal mb-2">
-                    {workItems.find(item => item.id === selectedVideo)?.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {workItems.find(item => item.id === selectedVideo)?.client}
-                  </p>
-                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={closeModal}
+                  className="absolute -top-12 right-0 text-white hover:text-white hover:bg-white/20 w-10 h-10 rounded-full border-2 border-white"
+                >
+                  <X className="w-6 h-6" />
+                </Button>
               </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={closeModal}
-                className="absolute -top-12 right-0 text-white hover:text-white hover:bg-white/20"
-              >
-                <X className="w-6 h-6" />
-              </Button>
             </div>
-          </div>
-        )}
-      </div>
-    </section>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className="sticky-note p-8 mb-8 max-w-2xl mx-auto relative">
+        <div >
           {/* Animated editing overlays (left + right) */}
           <div className="editing-overlay-left pointer-events-none">
             <svg viewBox="0 0 120 64" width="120" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
