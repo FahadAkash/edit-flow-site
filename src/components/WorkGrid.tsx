@@ -3,11 +3,22 @@ import { Play, X } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+type VideoItem = {
+  id: number;
+  title: string;
+  thumbnail: string;
+  category: string;
+  duration: string;
+  client: string;
+  type: string;
+  videoUrl?: string;
+};
+
 const WorkGrid = () => {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState("shorts");
 
-  const workItems = {
+  const workItems: Record<'youtube' | 'shorts' | 'saas' | 'ads', VideoItem[]> = {
     youtube: [
       {
         id: 1,
@@ -41,57 +52,34 @@ const WorkGrid = () => {
       {
         id: 4,
         title: "Quick CSS Tip",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/dRfEYs-SFPE/maxresdefault.jpg",
         category: "Tips",
         duration: "0:45",
         client: "WebDev Pro",
-        type: "short"
+        type: "short",
+        videoUrl: "https://www.youtube.com/watch?v=dRfEYs-SFPE"
       },
       {
         id: 5,
         title: "JavaScript Hack",
-        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/CSw91MyV5Ig/maxresdefault.jpg",
         category: "Coding",
         duration: "0:58",
         client: "Code Ninja",
-        type: "short"
+        type: "short",
+        videoUrl: "https://www.youtube.com/watch?v=CSw91MyV5Ig"
       },
       {
         id: 6,
         title: "Design in 60 Seconds",
-        thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/9EoL1YkEIG8/maxresdefault.jpg",
         category: "Design",
         duration: "1:00",
         client: "Design Studio",
-        type: "short"
+        type: "short",
+        videoUrl: "https://www.youtube.com/watch?v=9EoL1YkEIG8"
       },
-      {
-        id: 7,
-        title: "Marketing Trick",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        category: "Marketing",
-        duration: "0:35",
-        client: "Growth Hacker",
-        type: "short"
-      },
-      {
-        id: 8,
-        title: "Productivity Hack",
-        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
-        category: "Lifestyle",
-        duration: "0:42",
-        client: "Life Coach",
-        type: "short"
-      },
-      {
-        id: 9,
-        title: "Tech Review",
-        thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
-        category: "Tech",
-        duration: "0:55",
-        client: "Tech Reviewer",
-        type: "short"
-      }
+      
     ],
     saas: [
       {
@@ -160,6 +148,9 @@ const WorkGrid = () => {
   };
 
   const isShorts = activeTab === "shorts";
+
+  // current selected video object (typed)
+  const selected: VideoItem | undefined = getSelectedVideo();
 
   return (
     <>
@@ -286,6 +277,24 @@ const WorkGrid = () => {
           );
           opacity: 0.3;
         }
+
+        /* Entrance animation for cards */
+        @keyframes enterUp {
+          0% { opacity: 0; transform: translateY(12px) scale(0.995); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .animate-card {
+          opacity: 0;
+          transform: translateY(12px) scale(0.995);
+          animation: enterUp 420ms cubic-bezier(.2,.9,.2,1) forwards;
+          animation-delay: var(--animate-delay, 0ms);
+        }
+
+        /* Slight float on hover for the card to enhance interactivity */
+        .paper-card:hover {
+          transform: translateY(-6px) rotate(0deg) !important;
+        }
       `}</style>
       
       <section className="py-8 sm:py-16 lg:py-20 px-4 paper-texture min-h-screen">
@@ -334,21 +343,21 @@ const WorkGrid = () => {
           </div>
 
           {/* Video Grid */}
-          <div className={`grid gap-6 sm:gap-8 ${
-            isShorts 
-              ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5" 
-              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          }`}>
-            {getCurrentItems().map((item, index) => (
+          <div className="flex justify-center">
+            <div className={`flex flex-wrap justify-center gap-6 sm:gap-8`}>
+              {getCurrentItems().map((item, index) => (
               <div
                 key={item.id}
-                className="group cursor-pointer"
+                className={`group cursor-pointer ${item.type === 'short' ? 'w-40 sm:w-48 md:w-56' : 'w-full sm:w-80 lg:w-96'}`}
                 onClick={() => openModal(item.id)}
                 style={{ 
                   transform: `rotate(${(index % 3 === 0 ? 0.5 : index % 3 === 1 ? -0.3 : 0.2)}deg)` 
                 }}
               >
-                <div className="paper-card overflow-hidden">
+                <div
+                  className="paper-card overflow-hidden animate-card"
+                  style={{ ['--animate-delay' as unknown as keyof React.CSSProperties]: `${index * 80}ms` } as React.CSSProperties}
+                >
                   <div className="relative">
                     <div className={`overflow-hidden bg-gray-100 ${
                       item.type === "short" ? "aspect-[9/16]" : "aspect-video"
@@ -402,6 +411,7 @@ const WorkGrid = () => {
                 </div>
               </div>
             ))}
+            </div>
           </div>
 
           {/* Empty State */}
@@ -420,11 +430,22 @@ const WorkGrid = () => {
               <div className="relative max-w-4xl w-full">
                 <div className="sketchy-border bg-white p-4 sm:p-6 shadow-2xl">
                   <div className="aspect-video bg-gray-100 overflow-hidden mb-4 relative border-2 border-gray-300 rounded">
-                    <img 
-                      src={getSelectedVideo()?.thumbnail}
-                      alt="Video player"
-                      className="w-full h-full object-cover"
-                    />
+                    {selected?.videoUrl ? (
+                      <iframe
+                        src={`${selected.videoUrl.replace("watch?v=","embed/")}?autoplay=1&rel=0&modestbranding=1`}
+                        title={selected?.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <img 
+                        src={selected?.thumbnail}
+                        alt="Video player"
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-16 h-16 sm:w-20 sm:h-20 play-sketch rounded-full flex items-center justify-center shadow-lg transform rotate-6">
                         <Play className="w-6 h-6 sm:w-8 sm:h-8 text-amber-800 ml-1" />
