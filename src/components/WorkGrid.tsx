@@ -12,6 +12,9 @@ type VideoItem = {
   client: string;
   type: string;
   videoUrl?: string;
+  clientMessage?: string;
+  clientLogo?: string;
+  rating?: number;
 };
 
 const WorkGrid = () => {
@@ -27,7 +30,10 @@ const WorkGrid = () => {
         category: "Tutorial",
         duration: "12:45",
         client: "TechCorp",
-        type: "youtube"
+        type: "youtube",
+        clientMessage: "This video helped us increase our signups by 300%",
+        clientLogo: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png",
+        rating: 5
       },
       {
         id: 2,
@@ -36,7 +42,10 @@ const WorkGrid = () => {
         category: "Education",
         duration: "45:20",
         client: "CodeAcademy",
-        type: "youtube"
+        type: "youtube",
+        clientMessage: "Our students love the clear explanations",
+        clientLogo: "/brands/1667599512761.png",
+        rating: 4
       },
       {
         id: 3,
@@ -45,7 +54,10 @@ const WorkGrid = () => {
         category: "Business",
         duration: "8:30",
         client: "AI Solutions",
-        type: "youtube"
+        type: "youtube",
+        clientMessage: "Perfect for our target audience",
+        clientLogo: "/brands/acer-predator-logo-png_seeklogo-441422.png",
+        rating: 5
       }
     ],
     shorts: [
@@ -57,7 +69,10 @@ const WorkGrid = () => {
         duration: "0:45",
         client: "WebDev Pro",
         type: "short",
-        videoUrl: "https://www.youtube.com/watch?v=dRfEYs-SFPE"
+        videoUrl: "https://www.youtube.com/watch?v=dRfEYs-SFPE",
+        clientMessage: "Short and impactful!",
+        clientLogo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png",
+        rating: 5
       },
       {
         id: 5,
@@ -67,7 +82,10 @@ const WorkGrid = () => {
         duration: "0:58",
         client: "Code Ninja",
         type: "short",
-        videoUrl: "https://www.youtube.com/watch?v=CSw91MyV5Ig"
+        videoUrl: "https://www.youtube.com/watch?v=CSw91MyV5Ig",
+        clientMessage: "Saved us hours of development time",
+        clientLogo: "/brands/Logo_Blackberry_Large_a979164e-916a-4c09-bbac-51df3d96f65a_1200x1200.png",
+        rating: 4
       },
       {
         id: 6,
@@ -77,7 +95,10 @@ const WorkGrid = () => {
         duration: "1:00",
         client: "Design Studio",
         type: "short",
-        videoUrl: "https://www.youtube.com/watch?v=9EoL1YkEIG8"
+        videoUrl: "https://www.youtube.com/watch?v=9EoL1YkEIG8",
+        clientMessage: "Beautiful visuals and clear instructions",
+        clientLogo: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png",
+        rating: 5
       },
       
     ],
@@ -89,7 +110,10 @@ const WorkGrid = () => {
         category: "Demo",
         duration: "3:45",
         client: "SaaS Company",
-        type: "saas"
+        type: "saas",
+        clientMessage: "Our conversion rate increased by 150% after this demo",
+        clientLogo: "/brands/1667599512761.png",
+        rating: 5
       },
       {
         id: 11,
@@ -98,7 +122,10 @@ const WorkGrid = () => {
         category: "Product",
         duration: "5:20",
         client: "StartupXYZ",
-        type: "saas"
+        type: "saas",
+        clientMessage: "Customers understand our product 3x faster now",
+        clientLogo: "/brands/acer-predator-logo-png_seeklogo-441422.png",
+        rating: 4
       }
     ],
     ads: [
@@ -109,7 +136,10 @@ const WorkGrid = () => {
         category: "Advertisement",
         duration: "0:30",
         client: "Ad Agency",
-        type: "ad"
+        type: "ad",
+        clientMessage: "ROAS increased by 400% with this ad",
+        clientLogo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png",
+        rating: 5
       },
       {
         id: 13,
@@ -118,7 +148,10 @@ const WorkGrid = () => {
         category: "VSL",
         duration: "2:15",
         client: "E-commerce Brand",
-        type: "ad"
+        type: "ad",
+        clientMessage: "Sales increased by 300% in the first month",
+        clientLogo: "/brands/Logo_Blackberry_Large_a979164e-916a-4c09-bbac-51df3d96f65a_1200x1200.png",
+        rating: 5
       }
     ]
   };
@@ -148,6 +181,24 @@ const WorkGrid = () => {
   };
 
   const isShorts = activeTab === "shorts";
+
+  // Star rating component
+  const StarRating = ({ rating }: { rating: number }) => {
+    return (
+      <div className="flex items-center gap-1">
+        {[...Array(5)].map((_, i) => (
+          <svg
+            key={i}
+            className={`w-4 h-4 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+    );
+  };
 
   // current selected video object (typed)
   const selected: VideoItem | undefined = getSelectedVideo();
@@ -297,10 +348,10 @@ const WorkGrid = () => {
         }
       `}</style>
       
-      <section className="py-8 sm:py-16 lg:py-20 px-4 paper-texture min-h-screen">
+      <section className="py-12 px-4 paper-texture min-h-screen">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-16">
+          <div className="text-center mb-12">
             <div className="relative inline-block">
               <p className="ink-text text-sm sm:text-base mb-2 tracking-wider uppercase handwritten">
                 ✨ Our Creative Work ✨
@@ -402,6 +453,38 @@ const WorkGrid = () => {
                     <p className={`text-gray-600 ${isShorts ? "text-xs" : "text-sm"}`} style={{ fontFamily: 'Courier New, monospace' }}>
                       ~ {item.client} ~
                     </p>
+                    
+                    {/* Client Message, Logo, and Rating in Circular Design */}
+                    {item.clientMessage && (
+                      <div className="mt-3 flex items-start gap-2">
+                        {/* Client Logo (Circular) */}
+                        {item.clientLogo && (
+                          <div className="flex-shrink-0">
+                            <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-amber-200">
+                              <img 
+                                src={item.clientLogo} 
+                                alt={`${item.client} logo`} 
+                                className="w-full h-full object-contain bg-white p-1"
+                                onError={(e) => {
+                                  const img = e.target as HTMLImageElement;
+                                  img.parentElement!.style.display = 'none';
+                                }}
+                              />
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Client Message and Rating */}
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs text-gray-600 italic line-clamp-2">{item.clientMessage}</p>
+                          {item.rating && (
+                            <div className="mt-1">
+                              <StarRating rating={item.rating} />
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                   
                   {/* Decorative doodle corner */}

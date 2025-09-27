@@ -14,7 +14,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
+    <section className="min-h-screen flex items-center justify-center px-4 py-8 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div>
           {/* Animated editing overlays (left + right) */}
@@ -47,10 +47,10 @@ const HeroSection = () => {
           </div>
 
           {/* Pen drawing animation headline */}
-          <h1 className={`text-5xl md:text-7xl font-bold text-charcoal mb-4 leading-[1.02] relative transform transition-all duration-800 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}>
-            <span className={`pen-draw block transition-all duration-700 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-100' : 'opacity-0 translate-y-3'}`}> Launch a done-for-you</span>
-            <span className={`text-coral-accent pen-draw block transition-all duration-800 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-200' : 'opacity-0 translate-y-3'}`}>Video Sales engine</span>
-            <span className={`text-tape-yellow pen-draw block transition-all duration-900 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-3'}`}>this month.</span>
+          <h1 className={`text-5xl md:text-7xl font-bold text-charcoal mb-1 leading-[0.9] relative transform transition-all duration-800 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}>
+            <span className={`pen-draw block transition-all duration-700 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-50' : 'opacity-0 translate-y-2'}`}> Launch a done-for-you</span>
+            <span className={`text-coral-accent pen-draw block transition-all duration-800 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-100' : 'opacity-0 translate-y-2'}`}>Video Sales engine</span>
+            <span className={`text-tape-yellow pen-draw block transition-all duration-900 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-150' : 'opacity-0 translate-y-2'}`}>this month.</span>
             {/* Animated hand-drawn underline */}
             <svg className="absolute left-0 -bottom-2 w-full h-6 pointer-events-none" viewBox="0 0 400 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 20 Q 200 2 390 20" stroke="#FFB300" strokeWidth="4" strokeLinecap="round">
@@ -60,7 +60,7 @@ const HeroSection = () => {
           </h1>
 
           {/* Brand logos (entrepreneurs) - placed right after the header */}
-          <div className={`-mt-4 flex justify-center transition-all duration-700 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-350' : 'opacity-0 translate-y-4'}`}>
+          <div className={`mt-4 flex justify-center transition-all duration-700 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-350' : 'opacity-0 translate-y-4'}`}>
             <div className="relative">
               <div className="flex items-center -space-x-3">
                 <img src="/entrepreneurs/7HdwNsOD_400x400.png" alt="brand" className="w-12 h-12 rounded-full object-cover ring-2 ring-white shadow-sm" />
@@ -77,7 +77,7 @@ const HeroSection = () => {
         </div>
 
         {/* Video Player */}
-        <div className="relative mt-6 mb-8 group">
+        <div className="relative mt-6 mb-4 group">
           <div className={`sticky-note p-4 max-w-3xl mx-auto transform transition-all duration-900 ease-out ${mounted ? 'opacity-100 scale-100 translate-y-0 delay-400' : 'opacity-0 scale-95 translate-y-6'}`}>
             <div className="relative aspect-video bg-muted rounded-lg overflow-hidden shadow-md">
               <img

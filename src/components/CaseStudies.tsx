@@ -110,9 +110,9 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-accent/20">
+    <section className="py-8 px-4 bg-accent/20">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <div className="sticky-note p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               <span className="text-coral-accent">Success</span> Stories

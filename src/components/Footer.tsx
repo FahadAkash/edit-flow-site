@@ -3,10 +3,10 @@ import { Mail, Phone, MapPin, Youtube, Instagram, Twitter, Linkedin } from "luci
 
 const Footer = () => {
   return (
-    <footer className="py-20 px-4 bg-charcoal text-white">
+    <footer className="py-12 px-4 bg-charcoal text-white">
       <div className="max-w-6xl mx-auto">
         {/* Main CTA */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className="sticky-note p-8 max-w-2xl mx-auto bg-paper-white">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Ready to Go <span className="text-coral-accent">Viral?</span>
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
 
         {/* Footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company info */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-tape-yellow mb-4">
@@ -87,7 +87,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-white/20 pt-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-white/60 text-sm">
             © 2024 VideoCreators Pro. All rights reserved.
           </div>

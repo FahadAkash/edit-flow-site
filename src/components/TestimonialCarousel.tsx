@@ -105,9 +105,9 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="py-20 px-4 overflow-hidden">
+    <section className="py-12 px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className="sticky-note p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               What Clients <span className="text-tape-yellow">Say</span>
@@ -208,7 +208,7 @@ const TestimonialCarousel = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
           {[
             { value: "500+", label: "Happy Clients" },
             { value: "2000+", label: "Videos Created" },

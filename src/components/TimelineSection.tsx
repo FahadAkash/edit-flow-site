@@ -116,7 +116,7 @@ const ProcessTimeline = () => {
   }, [visibleItems]);
 
   return (
-    <section className="py-20 px-4 relative overflow-hidden" ref={containerRef}>
+    <section className="py-12 px-4 relative overflow-hidden" ref={containerRef}>
       {/* Paper texture background */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -132,7 +132,7 @@ const ProcessTimeline = () => {
 
       <div className="max-w-5xl mx-auto relative">
         {/* Header */}
-        <div className="text-center mb-20 relative">
+        <div className="text-center mb-12 relative">
           <div className="relative inline-block">
             <div className="absolute -inset-4 bg-white/80 rounded-lg transform -rotate-1 shadow-lg border border-gray-200"></div>
             <div className="relative bg-white/90 p-8 rounded-lg border-2 border-gray-300 shadow-xl transform rotate-1 backdrop-blur-sm">
@@ -171,7 +171,7 @@ const ProcessTimeline = () => {
               <div
                 key={item.id}
                 data-id={item.id}
-                className={`relative mb-20 ${isLeft ? 'pr-1/2' : 'pl-1/2 flex justify-end'}`}
+                className={`relative mb-12 ${isLeft ? 'pr-1/2' : 'pl-1/2 flex justify-end'}`}
               >
                 {/* Animated timeline dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
@@ -251,7 +251,7 @@ const ProcessTimeline = () => {
         </div>
 
         {/* Bottom decoration */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12">
           <div className="relative inline-block">
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full blur-lg opacity-50"></div>
             <div className="relative bg-white border-2 border-gray-300 rounded-full px-8 py-4 shadow-lg">

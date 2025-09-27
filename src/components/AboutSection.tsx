@@ -46,9 +46,9 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className="sticky-peach push-pin rotate-random-3 p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Why Choose <span className="text-tape-yellow">Us?</span>
@@ -127,7 +127,7 @@ const AboutSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12">
           <div className="sticky-note p-6 max-w-lg mx-auto bg-coral-accent/10">
             <h3 className="text-2xl font-bold text-charcoal mb-3">
               Ready to see the difference?

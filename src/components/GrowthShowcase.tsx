@@ -79,9 +79,9 @@ const GrowthShowcase = () => {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className="sticky-mint paper-clip rotate-random-1 p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Real Results for 
@@ -94,7 +94,7 @@ const GrowthShowcase = () => {
         </div>
 
         {/* Scattered images showcase */}
-        <div className="relative min-h-[600px] mb-16">
+        <div className="relative min-h-[600px] mb-12">
           <AnimatePresence mode="wait">
             <motion.div 
               key={currentSet}
