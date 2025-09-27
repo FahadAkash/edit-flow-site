@@ -106,11 +106,11 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="py-12 px-4 overflow-hidden">
+    <section className="py-6 px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="sticky-note p-8 max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
+        <div className="text-center mb-6">
+          <div className="p-4 max-w-2xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-2">
               What Clients <span className="text-tape-yellow">Say</span>
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -120,13 +120,12 @@ const TestimonialCarousel = () => {
         </div>
 
         {/* Work Grid System */}
-
+        <div className="mb-6 -mx-4">
           <WorkGrid />
-        
+        </div>
 
         {/* Testimonial Carousel */}
-        
-        <div className="relative">
+        <div className="relative mt-2">
           {/* Fade gradients */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
@@ -135,44 +134,44 @@ const TestimonialCarousel = () => {
             ref={scrollRef}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
+            className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="sticky-note p-6 shrink-0 w-96 hover:scale-105 transition-transform duration-300"
+                className="p-4 shrink-0 w-96 hover:scale-105 transition-transform duration-300"
               >
                 <Card className="border-none shadow-none bg-transparent p-0 h-full">
                   {/* Quote icon */}
-                  <div className="mb-4">
-                    <Quote className="w-8 h-8 text-coral-accent" />
+                  <div className="mb-3">
+                    <Quote className="w-6 h-6 text-coral-accent" />
                   </div>
 
                   {/* Content */}
-                  <div className="mb-6">
-                    <p className="text-charcoal leading-relaxed italic">
+                  <div className="mb-4">
+                    <p className="text-charcoal leading-relaxed italic text-sm">
                       "{testimonial.content}"
                     </p>
                   </div>
 
                   {/* Rating */}
-                  <div className="flex items-center gap-1 mb-4">
+                  <div className="flex items-center gap-1 mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-tape-yellow text-tape-yellow" />
+                      <Star key={i} className="w-3 h-3 fill-tape-yellow text-tape-yellow" />
                     ))}
                   </div>
 
                   {/* Result highlight */}
-                  <div className="bg-accent p-3 rounded-lg mb-4">
-                    <p className="text-sm font-semibold text-coral-accent">
+                  <div className="bg-accent p-2 rounded-lg mb-3">
+                    <p className="text-xs font-semibold text-coral-accent">
                       Result: {testimonial.result}
                     </p>
                   </div>
 
                   {/* Author */}
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-muted">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full overflow-hidden bg-muted">
                       <img 
                         src={testimonial.avatar}
                         alt={testimonial.name}
@@ -180,10 +179,10 @@ const TestimonialCarousel = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-charcoal">
+                      <h4 className="font-semibold text-charcoal text-sm">
                         {testimonial.name}
                       </h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-xs text-muted-foreground">
                         {testimonial.role}, {testimonial.company}
                       </p>
                     </div>
@@ -194,28 +193,28 @@ const TestimonialCarousel = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="flex justify-center gap-3 mt-4">
             <Button
               variant="outline"
               size="icon"
               onClick={() => scroll('left')}
-              className="rounded-full"
+              className="rounded-full w-8 h-8"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-3 h-3" />
             </Button>
             <Button
               variant="outline"
               size="icon"
               onClick={() => scroll('right')}
-              className="rounded-full"
+              className="rounded-full w-8 h-8"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-3 h-3" />
             </Button>
           </div>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
           {[
             { value: "500+", label: "Happy Clients" },
             { value: "2000+", label: "Videos Created" },
@@ -223,11 +222,11 @@ const TestimonialCarousel = () => {
             { value: "98%", label: "Client Retention" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="sticky-note p-4">
-                <div className="text-3xl font-bold text-coral-accent mb-2">
+              <div className="p-3">
+                <div className="text-2xl font-bold text-coral-accent mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-xs text-muted-foreground">
                   {stat.label}
                 </div>
               </div>
