@@ -367,7 +367,7 @@ const TestimonialsSection = () => {
                   <motion.div
                     layoutId="activeDot"
                     className="w-full h-full bg-amber-400 rounded-full"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    transition={{ stiffness: 400, damping: 30 }}
                   />
                 )}
               </motion.button>
