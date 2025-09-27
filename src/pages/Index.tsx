@@ -1,6 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import PartnerLogos from "@/components/PartnerLogos";
-import ShortFormSection from "@/components/ShortFormSection";
 import GrowthShowcase from "@/components/GrowthShowcase";
 import ReelsCarousel from "@/components/ReelsCarousel";
 import WorkGrid from "@/components/WorkGrid";
@@ -13,16 +11,14 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <HeroSection />
-      <PartnerLogos />
-      <ShortFormSection />
+  <HeroSection />
       <GrowthShowcase />
       <ReelsCarousel />
-      <WorkGrid />
-      <CaseStudies />
-      <AboutSection />
-      <TimelineSection />
-      <TestimonialCarousel />
+  <WorkGrid />
+  <TestimonialCarousel />
+  <CaseStudies />
+  <AboutSection />
+  <TimelineSection />
       <Footer />
     </div>
   );

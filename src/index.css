@@ -15,9 +15,10 @@
 
 @layer base {
   :root {
-    /* Brand Colors */
-    --tape-yellow: 51 100% 50%;
-    --coral-accent: 6 93% 71%;
+  /* Brand Colors */
+  /* Brand red: #c1121f -> approx HSL(356 83% 41%) */
+  --tape-yellow: 356 83% 41%;
+  --coral-accent: 6 93% 71%;
     --charcoal: 0 0% 10%;
     --off-white: 40 20% 98%;
     --paper-white: 0 0% 100%;
@@ -30,9 +31,9 @@
     --card: 0 0% 100%;
     --card-foreground: 0 0% 10%;
 
-    /* Interactive elements */
-    --primary: 51 100% 50%;
-    --primary-foreground: 0 0% 10%;
+  /* Interactive elements (primary uses brand red) */
+  --primary: 356 83% 41%;
+  --primary-foreground: 0 0% 100%;
 
     --secondary: 6 93% 71%;
     --secondary-foreground: 0 0% 100%;
@@ -41,9 +42,9 @@
     --muted: 40 15% 94%;
     --muted-foreground: 0 0% 45%;
 
-    /* Accent elements */
-    --accent: 51 100% 95%;
-    --accent-foreground: 0 0% 10%;
+  /* Accent elements (light tint of brand red) */
+  --accent: 356 83% 95%;
+  --accent-foreground: 0 0% 10%;
 
     /* System colors */
     --destructive: 0 84.2% 60.2%;
@@ -51,12 +52,12 @@
 
     --border: 40 15% 88%;
     --input: 40 15% 88%;
-    --ring: 51 100% 50%;
+  --ring: 356 83% 41%;
 
     --radius: 0.75rem;
 
-    /* Gradients */
-    --gradient-tape: linear-gradient(135deg, hsl(var(--tape-yellow)), hsl(51 100% 45%));
+  /* Gradients */
+  --gradient-tape: linear-gradient(135deg, hsl(var(--tape-yellow)), hsl(356 83% 35%));
     --gradient-coral: linear-gradient(135deg, hsl(var(--coral-accent)), hsl(6 93% 65%));
     --gradient-paper: linear-gradient(180deg, hsl(var(--paper-white)), hsl(40 15% 97%));
     

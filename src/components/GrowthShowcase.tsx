@@ -197,7 +197,7 @@ const GrowthShowcase = () => {
         </div>
 
         {/* Client testimonial snippet */}
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <div className="sticky-note p-6 max-w-2xl mx-auto bg-accent">
             <blockquote className="text-lg italic text-charcoal mb-4">
               "Our channel went from 50K to 2.5M subscribers in just 6 months. 
@@ -207,7 +207,7 @@ const GrowthShowcase = () => {
               — Sarah Chen, TechReview Pro
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
