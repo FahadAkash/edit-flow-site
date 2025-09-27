@@ -121,7 +121,7 @@ const HeroSection = () => {
         {/* Brand logos row (entrepreneurs) - full-bleed red bar */}
         <div className="mt-10">
           <div className={`relative left-1/2 right-1/2 w-screen -translate-x-1/2 transform transition-all duration-900 ease-out ${mounted ? 'opacity-100 translate-y-0 delay-500' : 'opacity-0 translate-y-6'}`}>
-            <div className="bg-red-100 border-t-2 border-b-2 border-red-300 py-4">
+            <div className="bg-red-500 border-t-2 border-b-2 border-red-600 py-4">
               <div className="max-w-6xl mx-auto px-4">
                 <div className="flex items-center justify-center gap-16 flex-wrap">
                   <img src="/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" alt="brand" className="max-h-12 object-contain" />

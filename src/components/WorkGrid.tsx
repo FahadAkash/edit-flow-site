@@ -450,7 +450,7 @@ const WorkGrid = () => {
                     }`}>
                       {item.title}
                     </h3>
-                    <p className={`text-gray-600 ${isShorts ? "text-xs" : "text-sm"}`} style={{ fontFamily: 'Courier New, monospace' }}>
+                    <p className={`text-gray-600 ${isShorts ? "text-xs" : "text-sm"}`} style={{ fontFamily: 'Europa Grotesk SH, -apple-system, BlinkMacSystemFont, sans-serif' }}>
                       ~ {item.client} ~
                     </p>
                     
@@ -476,7 +476,7 @@ const WorkGrid = () => {
                         
                         {/* Client Message and Rating */}
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs text-gray-600 italic line-clamp-2">{item.clientMessage}</p>
+                          <p className="text-xs text-gray-600 italic line-clamp-2" style={{ fontFamily: 'Europa Grotesk SH, -apple-system, BlinkMacSystemFont, sans-serif' }}>{item.clientMessage}</p>
                           {item.rating && (
                             <div className="mt-1">
                               <StarRating rating={item.rating} />
