@@ -351,7 +351,7 @@ const WorkGrid = () => {
       <section className="py-12 px-4 paper-texture min-h-screen">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
+          {/* <div className="text-center mb-12">
             <div className="relative inline-block">
               <p className="ink-text text-sm sm:text-base mb-2 tracking-wider uppercase handwritten">
                 ✨ Our Creative Work ✨
@@ -363,12 +363,12 @@ const WorkGrid = () => {
                 Featured Projects
               </h2>
               
-              {/* Hand-drawn arrow */}
+               
               <div className="absolute -right-16 top-8 text-2xl transform rotate-12 opacity-70">
                 ↗️
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Category Tabs */}
           <div className="flex justify-center mb-8 sm:mb-12">

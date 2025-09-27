@@ -14,7 +14,7 @@ const Index = () => {
   <HeroSection />
       <GrowthShowcase />
       <ReelsCarousel />
-  <WorkGrid />
+
   <TestimonialCarousel />
   <CaseStudies />
   <AboutSection />

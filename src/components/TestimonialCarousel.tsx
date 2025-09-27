@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import WorkGrid from "./WorkGrid";
 
 const TestimonialCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -118,7 +119,13 @@ const TestimonialCarousel = () => {
           </div>
         </div>
 
+        {/* Work Grid System */}
+
+          <WorkGrid />
+        
+
         {/* Testimonial Carousel */}
+        
         <div className="relative">
           {/* Fade gradients */}
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
