@@ -2,7 +2,7 @@ import { TrendingUp, Users, Eye, MessageCircle, BarChart3, ChevronLeft, ChevronR
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import youtubeGrowth from "@/assets/youtube-growth.jpg";
+import youtubeGrowth from "/results/banner1.png";
 
 const GrowthShowcase = () => {
   const [currentSet, setCurrentSet] = useState(0);
@@ -47,6 +47,7 @@ const GrowthShowcase = () => {
   const prevSet = () => {
     setCurrentSet((prev) => (prev - 1 + imageSets.length) % imageSets.length);
   };
+  
   const stats = [
     {
       icon: Users,
@@ -78,9 +79,61 @@ const GrowthShowcase = () => {
     }
   ];
 
+  // Dust particles animation
+  const dustParticles = Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    duration: Math.random() * 10 + 15,
+    delay: Math.random() * 5
+  }));
+
   return (
-    <section className="py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-12 px-4 relative overflow-hidden">
+      {/* Dust particles overlay */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {dustParticles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className="absolute rounded-full bg-gray-400/20"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              x: [0, Math.random() * 50 - 25, 0],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: particle.delay,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Add global styles for better image handling */}
+      <style>{`
+        .image-container {
+          isolation: isolate;
+        }
+        .no-bg {
+          background: transparent !important;
+        }
+        .image-fix {
+          background: transparent !important;
+          border: none !important;
+          outline: none !important;
+        }
+      `}</style>
+
+      <div className="max-w-6xl mx-auto relative">
         <div className="text-center mb-12">
           <div className="sticky-mint paper-clip rotate-random-1 p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
@@ -106,14 +159,43 @@ const GrowthShowcase = () => {
             >
               {/* Main central image */}
               <motion.div 
-                className="sticky-note p-6 max-w-4xl mx-auto z-10 relative"
+                className="max-w-4xl mx-auto z-10 relative"
+                whileHover={{ scale: 1.02, rotate: 0.5 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
-                  <img 
+                <div className=" overflow-visible  relative group bg-transparent image-container no-bg">
+                  <motion.img 
                     src={imageSets[currentSet].main}
                     alt="YouTube growth analytics dashboard"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover bg-transparent image-fix"
+                    style={{
+                      clipPath: `polygon(
+                        2% 1%, 5% 0.5%, 8% 1.5%, 12% 0.8%, 15% 1.2%, 18% 0.5%, 22% 1%, 25% 0.3%, 
+                        28% 1.5%, 32% 0.7%, 35% 1%, 38% 0.5%, 42% 1.2%, 45% 0.8%, 48% 1%, 52% 0.5%, 
+                        55% 1.2%, 58% 0.7%, 62% 1%, 65% 0.5%, 68% 1.5%, 72% 0.8%, 75% 1%, 78% 0.5%, 
+                        82% 1.2%, 85% 0.7%, 88% 1%, 92% 0.5%, 95% 1.2%, 98% 0.7%,
+                        99% 5%, 99.5% 8%, 98.5% 12%, 99.2% 15%, 98.8% 18%, 99.5% 22%, 99% 25%, 
+                        99.7% 28%, 98.5% 32%, 99.3% 35%, 99% 38%, 99.5% 42%, 98.8% 45%, 99% 48%, 
+                        99.5% 52%, 98.8% 55%, 99.3% 58%, 99% 62%, 99.5% 65%, 98.5% 68%, 99.2% 72%, 
+                        99% 75%, 99.5% 78%, 98.8% 82%, 99.3% 85%, 99% 88%, 99.5% 92%, 98.7% 95%, 99% 98%,
+                        98% 99%, 95% 99.5%, 92% 98.5%, 88% 99.2%, 85% 98.8%, 82% 99.5%, 78% 99%, 
+                        75% 99.7%, 72% 98.5%, 68% 99.3%, 65% 99%, 62% 99.5%, 58% 98.8%, 55% 99%, 
+                        52% 99.5%, 48% 98.8%, 45% 99.3%, 42% 99%, 38% 99.5%, 35% 98.5%, 32% 99.2%, 
+                        28% 99%, 25% 99.5%, 22% 98.8%, 18% 99.3%, 15% 99%, 12% 99.5%, 8% 98.7%, 5% 99%, 2% 98.5%,
+                        1% 95%, 0.5% 92%, 1.5% 88%, 0.8% 85%, 1.2% 82%, 0.5% 78%, 1% 75%, 0.3% 72%, 
+                        1.5% 68%, 0.7% 65%, 1% 62%, 0.5% 58%, 1.2% 55%, 0.8% 52%, 1% 48%, 0.5% 45%, 
+                        1.2% 42%, 0.7% 38%, 1% 35%, 0.5% 32%, 1.5% 28%, 0.8% 25%, 1% 22%, 0.5% 18%, 
+                        1.2% 15%, 0.7% 12%, 1% 8%, 0.5% 5%, 1.2% 2%
+                      )`,
+                      filter: 'contrast(1.05) brightness(0.98)',
+                    }}
                   />
+                  
+                  {/* Paper texture overlay */}
+                  {/* Removed to prevent white background issues */}
+                  
+                  {/* Subtle edge shadow */}
+                  {/* Removed to prevent white background issues */}
                 </div>
               </motion.div>
 
@@ -121,14 +203,48 @@ const GrowthShowcase = () => {
               {imageSets[currentSet].scattered.map((image, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20, rotate: 0 }}
+                  animate={{ opacity: 1, y: 0, rotate: parseInt(image.rotate.match(/-?\d+/)[0]) }}
                   exit={{ opacity: 0, y: -20 }}
+                  whileHover={{ scale: 1.1, rotate: 0, zIndex: 50 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`sticky-note p-4 w-64 absolute ${image.position} transform hover:z-20 hover:scale-105 transition-all`}
+                  className={`w-64 absolute ${image.position} transform transition-all cursor-pointer`}
                 >
-                  <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
-                    <img src={image.src} alt={`Growth metrics ${index + 1}`} className="w-full h-full object-cover" />
+                  <div className="aspect-video overflow-visible shadow-xl relative bg-transparent image-container no-bg">
+                    <img 
+                      src={image.src} 
+                      alt={`Growth metrics ${index + 1}`} 
+                      className="w-full h-full object-cover bg-transparent image-fix"
+                      style={{
+                        clipPath: `polygon(
+                          ${2 + index}% ${1 + index * 0.3}%, ${5 + index * 0.5}% ${0.5 + index * 0.2}%, ${8 + index * 0.3}% ${1.5 + index * 0.4}%, 
+                          ${12 - index * 0.2}% ${0.8 + index * 0.3}%, ${15 + index * 0.4}% ${1.2 - index * 0.2}%, ${18 - index * 0.3}% ${0.5 + index * 0.5}%, 
+                          ${22 + index * 0.2}% ${1 + index * 0.3}%, ${25 - index * 0.4}% ${0.3 + index * 0.6}%, ${28 + index * 0.3}% ${1.5 - index * 0.2}%, 
+                          ${32 - index * 0.2}% ${0.7 + index * 0.4}%, ${35 + index * 0.5}% ${1 - index * 0.3}%, ${38 - index * 0.3}% ${0.5 + index * 0.5}%, 
+                          ${42 + index * 0.2}% ${1.2 - index * 0.2}%, ${45 + index * 0.4}% ${0.8 + index * 0.3}%, ${48 - index * 0.2}% ${1 + index * 0.2}%, 
+                          ${52 + index * 0.3}% ${0.5 - index * 0.1}%, ${55 - index * 0.4}% ${1.2 + index * 0.4}%, ${58 + index * 0.2}% ${0.7 - index * 0.2}%, 
+                          ${62 - index * 0.3}% ${1 + index * 0.3}%, ${65 + index * 0.4}% ${0.5 + index * 0.5}%, ${68 - index * 0.2}% ${1.5 - index * 0.3}%, 
+                          ${72 + index * 0.3}% ${0.8 + index * 0.4}%, ${75 - index * 0.4}% ${1 - index * 0.2}%, ${78 + index * 0.2}% ${0.5 + index * 0.3}%, 
+                          ${82 - index * 0.3}% ${1.2 + index * 0.2}%, ${85 + index * 0.4}% ${0.7 - index * 0.3}%, ${88 - index * 0.2}% ${1 + index * 0.4}%, 
+                          ${92 + index * 0.3}% ${0.5 - index * 0.2}%, ${95 - index * 0.4}% ${1.2 + index * 0.5}%, ${98 + index * 0.2}% ${0.7 - index * 0.3}%,
+                          99% 5%, 99.5% 8%, 98.5% 12%, 99.2% 15%, 98.8% 18%, 99.5% 22%, 99% 25%, 
+                          99.7% 28%, 98.5% 32%, 99.3% 35%, 99% 38%, 99.5% 42%, 98.8% 45%, 99% 48%, 
+                          99.5% 52%, 98.8% 55%, 99.3% 58%, 99% 62%, 99.5% 65%, 98.5% 68%, 99.2% 72%, 
+                          99% 75%, 99.5% 78%, 98.8% 82%, 99.3% 85%, 99% 88%, 99.5% 92%, 98.7% 95%, 99% 98%,
+                          98% 99%, 95% 99.5%, 92% 98.5%, 88% 99.2%, 85% 98.8%, 82% 99.5%, 78% 99%, 
+                          75% 99.7%, 72% 98.5%, 68% 99.3%, 65% 99%, 62% 99.5%, 58% 98.8%, 55% 99%, 
+                          52% 99.5%, 48% 98.8%, 45% 99.3%, 42% 99%, 38% 99.5%, 35% 98.5%, 32% 99.2%, 
+                          28% 99%, 25% 99.5%, 22% 98.8%, 18% 99.3%, 15% 99%, 12% 99.5%, 8% 98.7%, 5% 99%, 2% 98.5%,
+                          1% 95%, 0.5% 92%, 1.5% 88%, 0.8% 85%, 1.2% 82%, 0.5% 78%, 1% 75%, 0.3% 72%, 
+                          1.5% 68%, 0.7% 65%, 1% 62%, 0.5% 58%, 1.2% 55%, 0.8% 52%, 1% 48%, 0.5% 45%, 
+                          1.2% 42%, 0.7% 38%, 1% 35%, 0.5% 32%, 1.5% 28%, 0.8% 25%, 1% 22%, 0.5% 18%, 
+                          1.2% 15%, 0.7% 12%, 1% 8%, 0.5% 5%, 1.2% 2%
+                        )`
+                      }}
+                    />
+
+                    {/* Edge shadow for scattered images */}
+                    {/* Removed to prevent white background issues */}
                   </div>
                 </motion.div>
               ))}
@@ -195,22 +311,9 @@ const GrowthShowcase = () => {
             );
           })}
         </div>
-
-        {/* Client testimonial snippet */}
-        {/* <div className="mt-16 text-center">
-          <div className="sticky-note p-6 max-w-2xl mx-auto bg-accent">
-            <blockquote className="text-lg italic text-charcoal mb-4">
-              "Our channel went from 50K to 2.5M subscribers in just 6 months. 
-              The editing quality and storytelling completely transformed our content."
-            </blockquote>
-            <div className="text-sm font-semibold text-coral-accent">
-              — Sarah Chen, TechReview Pro
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );
 };
 
-export default GrowthShowcase;
+export default GrowthShowcase; 
