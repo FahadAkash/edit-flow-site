@@ -131,6 +131,95 @@ const GrowthShowcase = () => {
           border: none !important;
           outline: none !important;
         }
+        
+        /* Additional animation styles */
+        .floating-animation {
+          animation: floating 6s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+          animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .rotate-animation {
+          animation: rotate 20s linear infinite;
+        }
+        
+        .sway-animation {
+          animation: sway 8s ease-in-out infinite;
+        }
+        
+        .image-entrance {
+          animation: entrance 0.8s ease-out forwards;
+        }
+        
+        .parallax-container {
+          perspective: 1000px;
+        }
+        
+        .parallax-element {
+          transform-style: preserve-3d;
+          transition: transform 0.5s ease;
+        }
+        
+        .shimmer-effect {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .shimmer-effect::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          animation: shimmer 3s infinite;
+        }
+        
+        .glow-effect {
+          box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+          transition: box-shadow 0.3s ease;
+        }
+        
+        .glow-effect:hover {
+          box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes floating {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.02); }
+          100% { transform: scale(1); }
+        }
+        
+        @keyframes rotate {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes sway {
+          0% { transform: rotate(-2deg); }
+          50% { transform: rotate(2deg); }
+          100% { transform: rotate(-2deg); }
+        }
+        
+        @keyframes entrance {
+          0% { opacity: 0; transform: scale(0.8) rotate(-5deg); }
+          70% { opacity: 1; transform: scale(1.05) rotate(2deg); }
+          100% { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+        
+        @keyframes shimmer {
+          0% { left: -100%; }
+          100% { left: 100%; }
+        }
       `}</style>
 
       <div className="max-w-6xl mx-auto relative">
@@ -155,15 +244,15 @@ const GrowthShowcase = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative"
+              className="relative image-entrance"
             >
               {/* Main central image */}
               <motion.div 
-                className="max-w-4xl mx-auto z-10 relative"
+                className="max-w-4xl mx-auto z-10 relative floating-animation parallax-container"
                 whileHover={{ scale: 1.02, rotate: 0.5 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className=" overflow-visible  relative group bg-transparent image-container no-bg">
+                <div className="aspect-video overflow-visible shadow-2xl relative group bg-transparent image-container no-bg parallax-element shimmer-effect">
                   <motion.img 
                     src={imageSets[currentSet].main}
                     alt="YouTube growth analytics dashboard"
@@ -208,7 +297,11 @@ const GrowthShowcase = () => {
                   exit={{ opacity: 0, y: -20 }}
                   whileHover={{ scale: 1.1, rotate: 0, zIndex: 50 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`w-64 absolute ${image.position} transform transition-all cursor-pointer`}
+                  className={`w-64 absolute ${image.position} transform transition-all cursor-pointer ${
+                    index % 4 === 0 ? 'pulse-animation' : 
+                    index % 4 === 1 ? 'sway-animation' : 
+                    index % 4 === 2 ? 'floating-animation' : 'rotate-animation'
+                  }`}
                 >
                   <div className="aspect-video overflow-visible shadow-xl relative bg-transparent image-container no-bg">
                     <img 
