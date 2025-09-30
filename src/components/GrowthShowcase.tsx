@@ -1,147 +1,54 @@
 import { TrendingUp, Users, Eye, MessageCircle, BarChart3, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
-import youtubeGrowth from "/results/banner1.png";
+import banner1 from "/results/banner1.png";
+import mellanda from "/results/mellanda.png";
 
 const GrowthShowcase = () => {
   const [currentSet, setCurrentSet] = useState(0);
+  const [slideDirection, setSlideDirection] = useState('right');
   
-  // Define analytics data instead of image sets with meaningful information
-  const analyticsSets = [
-    // Set 1 - YouTube Growth Focus
+  const analyticsData = [
+    // Set 1
     {
-      main: youtubeGrowth,
-      analytics: [
-        { 
-          type: "bar", 
-          title: "Subscriber Growth",
-          data: [150, 220, 350, 580, 920, 1450, 2500], 
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-          position: { top: "-2.5rem", left: "-2rem" }, 
-          rotate: "-rotate-6",
-          color: "bg-coral-accent"
-        },
-        { 
-          type: "line", 
-          title: "View Retention %",
-          data: [30, 45, 50, 60, 55, 70, 80], 
-          labels: ["10s", "20s", "30s", "40s", "50s", "60s", "70s"],
-          position: { top: "5rem", right: "-1rem" }, 
-          rotate: "rotate-3",
-          color: "bg-tape-yellow"
-        },
-        { 
-          type: "pie", 
-          title: "Content Type",
-          segments: [40, 30, 20, 10], 
-          labels: ["Tutorials", "Reviews", "Vlogs", "Shorts"],
-          position: { bottom: "0", left: "-3rem" }, 
-          rotate: "rotate-6",
-          colors: ["bg-coral-accent", "bg-tape-yellow", "bg-primary", "bg-charcoal"]
-        },
-        { 
-          type: "area", 
-          title: "Watch Time (hrs)",
-          data: [200, 350, 400, 500, 450, 600, 700], 
-          labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7"],
-          position: { bottom: "2.5rem", right: "-2rem" }, 
-          rotate: "-rotate-3",
-          color: "bg-primary"
-        }
+      main: banner1,
+      metrics: [
+        { title: "Subscriber Growth", value: "+2.5M", subtitle: "Last 6 Months", color: "bg-sticky-peach" },
+        { title: "Watch Time", value: "47M hrs", subtitle: "Total Hours", color: "bg-sticky-sky" },
+        { title: "Engagement Rate", value: "12.8%", subtitle: "Avg. Per Video", color: "bg-sticky-lavender" },
+        { title: "Revenue", value: "$2.1M", subtitle: "This Quarter", color: "bg-sticky-lemon" }
       ]
     },
-    // Set 2 - Engagement Focus
+    // Set 2
     {
-      main: youtubeGrowth,
-      analytics: [
-        { 
-          type: "bar", 
-          title: "Monthly Views",
-          data: [4500, 7200, 12500, 18900, 25600, 32100, 47000], 
-          labels: ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
-          position: { top: "-2rem", right: "-2.5rem" }, 
-          rotate: "rotate-6",
-          color: "bg-tape-yellow"
-        },
-        { 
-          type: "line", 
-          title: "Avg. Watch Time",
-          data: [25, 40, 45, 55, 50, 65, 75], 
-          labels: ["V1", "V2", "V3", "V4", "V5", "V6", "V7"],
-          position: { top: "4rem", left: "-2rem" }, 
-          rotate: "-rotate-4",
-          color: "bg-coral-accent"
-        },
-        { 
-          type: "pie", 
-          title: "Audience Demographics",
-          segments: [35, 35, 20, 10], 
-          labels: ["18-24", "25-34", "35-44", "45+"],
-          position: { bottom: "1rem", right: "-3rem" }, 
-          rotate: "-rotate-6",
-          colors: ["bg-tape-yellow", "bg-coral-accent", "bg-primary", "bg-charcoal"]
-        },
-        { 
-          type: "area", 
-          title: "Earnings ($)",
-          data: [1500, 3000, 3500, 4500, 4000, 5500, 6500], 
-          labels: ["M1", "M2", "M3", "M4", "M5", "M6", "M7"],
-          position: { bottom: "3rem", left: "-1.5rem" }, 
-          rotate: "rotate-3",
-          color: "bg-coral-accent"
-        }
+      main: mellanda,
+      metrics: [
+        { title: "Video Uploads", value: "156", subtitle: "This Year", color: "bg-sticky-sky" },
+        { title: "Avg. View Duration", value: "8.2 min", subtitle: "Per Session", color: "bg-sticky-lemon" },
+        { title: "Click-Through Rate", value: "15.3%", subtitle: "Thumbnail CTR", color: "bg-sticky-peach" },
+        { title: "Comments", value: "89K", subtitle: "Total Interactions", color: "bg-sticky-lavender" }
       ]
     },
-    // Set 3 - Performance Focus
+    // Set 3
     {
-      main: youtubeGrowth,
-      analytics: [
-        { 
-          type: "bar", 
-          title: "Subscribers Gained",
-          data: [5500, 7500, 9800, 12500, 15600, 18900, 25000], 
-          labels: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
-          position: { top: "-3rem", left: "25%" }, 
-          rotate: "-rotate-3",
-          color: "bg-primary"
-        },
-        { 
-          type: "line", 
-          title: "Engagement Rate %",
-          data: [35, 50, 55, 65, 60, 75, 85], 
-          labels: ["E1", "E2", "E3", "E4", "E5", "E6", "E7"],
-          position: { top: "6rem", right: "25%" }, 
-          rotate: "rotate-6",
-          color: "bg-tape-yellow"
-        },
-        { 
-          type: "pie", 
-          title: "Traffic Sources",
-          segments: [30, 40, 20, 10], 
-          labels: ["Suggested", "Search", "External", "Direct"],
-          position: { bottom: "2rem", left: "33%" }, 
-          rotate: "-rotate-6",
-          colors: ["bg-primary", "bg-coral-accent", "bg-tape-yellow", "bg-charcoal"]
-        },
-        { 
-          type: "area", 
-          title: "Impressions",
-          data: [25000, 40000, 45000, 55000, 50000, 65000, 75000], 
-          labels: ["D1", "D2", "D3", "D4", "D5", "D6", "D7"],
-          position: { bottom: "4rem", right: "33%" }, 
-          rotate: "rotate-4",
-          color: "bg-coral-accent"
-        }
+      main: banner1,
+      metrics: [
+        { title: "Viral Videos", value: "23", subtitle: "Over 1M Views", color: "bg-sticky-lavender" },
+        { title: "Retention Rate", value: "78%", subtitle: "Avg. Retention", color: "bg-sticky-peach" },
+        { title: "Shares", value: "145K", subtitle: "Social Shares", color: "bg-sticky-sky" },
+        { title: "ROI", value: "400%", subtitle: "Investment Return", color: "bg-sticky-lemon" }
       ]
     }
   ];
 
   const nextSet = () => {
-    setCurrentSet((prev) => (prev + 1) % analyticsSets.length);
+    setSlideDirection('right');
+    setCurrentSet((prev) => (prev + 1) % analyticsData.length);
   };
 
   const prevSet = () => {
-    setCurrentSet((prev) => (prev - 1 + analyticsSets.length) % analyticsSets.length);
+    setSlideDirection('left');
+    setCurrentSet((prev) => (prev - 1 + analyticsData.length) % analyticsData.length);
   };
   
   const stats = [
@@ -175,348 +82,13 @@ const GrowthShowcase = () => {
     }
   ];
 
-  // Function to render hand-drawn bar chart
-  const renderBarChart = (data: number[], color: string, title: string, labels: string[]) => {
-    return (
-      <div className="flex flex-col h-full">
-        <div className="text-xs font-bold text-charcoal p-1 text-center">{title}</div>
-        <div className="flex items-end h-full gap-1 p-2 flex-grow">
-          {data.map((value, index) => (
-            <div 
-              key={index} 
-              className={`${color} w-3 rounded-t-sm relative group transition-all duration-500 ease-out hover:scale-110`}
-              style={{ 
-                height: `${(value / Math.max(...data)) * 80 + 10}%`,
-                transform: `rotate(${Math.random() * 4 - 2}deg)`,
-                animation: `growUp 0.5s ease-out ${index * 0.1}s both`
-              }}
-            >
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-bold text-charcoal whitespace-nowrap">
-                {value >= 1000 ? `${(value/1000).toFixed(1)}k` : value}
-              </div>
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-charcoal/70 whitespace-nowrap">
-                {labels[index]}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-
-  // Function to render hand-drawn line chart
-  const renderLineChart = (data: number[], color: string, title: string, labels: string[]) => {
-    // Create SVG path for line chart
-    let pathData = "";
-    let points = "";
-    
-    data.forEach((value, index) => {
-      const x = (index / (data.length - 1)) * 100;
-      const y = 100 - (value / Math.max(...data)) * 80 - 10;
-      
-      if (index === 0) {
-        pathData += `M ${x} ${y} `;
-      } else {
-        pathData += `L ${x} ${y} `;
-      }
-      
-      points += `${x},${y} `;
-    });
-    
-    return (
-      <div className="flex flex-col h-full">
-        <div className="text-xs font-bold text-charcoal p-1 text-center">{title}</div>
-        <div className="w-full h-full p-2 flex-grow">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            {/* Grid lines */}
-            {[0, 25, 50, 75, 100].map((y, i) => (
-              <line 
-                key={i} 
-                x1="0" 
-                y1={y} 
-                x2="100" 
-                y2={y} 
-                stroke="#e5e5e5" 
-                strokeWidth="0.5" 
-                strokeDasharray="2,2"
-              />
-            ))}
-            
-            {/* Line path */}
-            <path 
-              d={pathData} 
-              fill="none" 
-              stroke={`hsl(${color === 'bg-coral-accent' ? '6, 93%, 71%' : color === 'bg-tape-yellow' ? '356, 83%, 41%' : '0, 0%, 10%'})`} 
-              strokeWidth="2" 
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{
-                strokeDasharray: 100,
-                strokeDashoffset: 100,
-                animation: `drawLine 1s ease-out ${0.3}s forwards`
-              }}
-            />
-            
-            {/* Data points */}
-            {data.map((value, index) => {
-              const x = (index / (data.length - 1)) * 100;
-              const y = 100 - (value / Math.max(...data)) * 80 - 10;
-              return (
-                <circle 
-                  key={index} 
-                  cx={x} 
-                  cy={y} 
-                  r="2" 
-                  fill={`hsl(${color === 'bg-coral-accent' ? '6, 93%, 71%' : color === 'bg-tape-yellow' ? '356, 83%, 41%' : '0, 0%, 10%'})`}
-                  style={{
-                    animation: `popIn 0.3s ease-out ${0.5 + index * 0.1}s both`
-                  }}
-                >
-                  <title>{value}{title.includes('%') ? '%' : ''}</title>
-                </circle>
-              );
-            })}
-            
-            {/* X-axis labels */}
-            {labels.map((label, index) => {
-              const x = (index / (labels.length - 1)) * 100;
-              return (
-                <text 
-                  key={index}
-                  x={x} 
-                  y="100" 
-                  textAnchor="middle" 
-                  fontSize="3" 
-                  fill="hsl(0, 0%, 10%)"
-                  className="text-charcoal/70"
-                >
-                  {label}
-                </text>
-              );
-            })}
-          </svg>
-        </div>
-      </div>
-    );
-  };
-
-  // Function to render hand-drawn pie chart
-  const renderPieChart = (segments: number[], colors: string[], title: string, labels: string[]) => {
-    let cumulativePercentage = 0;
-    const radius = 35;
-    const centerX = 50;
-    const centerY = 45;
-    
-    return (
-      <div className="flex flex-col h-full">
-        <div className="text-xs font-bold text-charcoal p-1 text-center">{title}</div>
-        <div className="w-full h-full flex items-center justify-center p-2 flex-grow">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            {segments.map((percentage, index) => {
-              const startAngle = (cumulativePercentage / 100) * 360;
-              cumulativePercentage += percentage;
-              const endAngle = (cumulativePercentage / 100) * 360;
-              
-              // Convert angles to radians
-              const startAngleRad = (startAngle - 90) * Math.PI / 180;
-              const endAngleRad = (endAngle - 90) * Math.PI / 180;
-              
-              // Calculate start and end points
-              const startX = centerX + radius * Math.cos(startAngleRad);
-              const startY = centerY + radius * Math.sin(startAngleRad);
-              const endX = centerX + radius * Math.cos(endAngleRad);
-              const endY = centerY + radius * Math.sin(endAngleRad);
-              
-              // Determine if large arc is needed
-              const largeArcFlag = percentage > 50 ? 1 : 0;
-              
-              // Create path data
-              const pathData = `M ${centerX} ${centerY} L ${startX} ${startY} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY} Z`;
-              
-              return (
-                <g key={index}>
-                  <path 
-                    d={pathData}
-                    fill={`hsl(${colors[index] === 'bg-coral-accent' ? '6, 93%, 71%' : 
-                          colors[index] === 'bg-tape-yellow' ? '356, 83%, 41%' : 
-                          colors[index] === 'bg-primary' ? '356, 83%, 41%' : '0, 0%, 10%'})`}
-                    stroke="white"
-                    strokeWidth="1"
-                    style={{
-                      transform: `rotate(${Math.random() * 4 - 2}deg)`,
-                      transformOrigin: "center",
-                      animation: `fadeIn 0.5s ease-out ${index * 0.2}s both`
-                    }}
-                  />
-                  <text
-                    x={(startX + endX) / 2}
-                    y={(startY + endY) / 2}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fontSize="4"
-                    fontWeight="bold"
-                    fill="white"
-                  >
-                    {percentage}%
-                  </text>
-                </g>
-              );
-            })}
-            
-            {/* Legend */}
-            {labels.map((label, index) => (
-              <g key={index}>
-                <rect 
-                  x="5" 
-                  y={70 + index * 6} 
-                  width="4" 
-                  height="4" 
-                  fill={`hsl(${colors[index] === 'bg-coral-accent' ? '6, 93%, 71%' : 
-                        colors[index] === 'bg-tape-yellow' ? '356, 83%, 41%' : 
-                        colors[index] === 'bg-primary' ? '356, 83%, 41%' : '0, 0%, 10%'})`}
-                />
-                <text 
-                  x="10" 
-                  y={73 + index * 6} 
-                  fontSize="3" 
-                  fill="hsl(0, 0%, 10%)"
-                  className="text-charcoal"
-                >
-                  {label}
-                </text>
-              </g>
-            ))}
-          </svg>
-        </div>
-      </div>
-    );
-  };
-
-  // Function to render hand-drawn area chart
-  const renderAreaChart = (data: number[], color: string, title: string, labels: string[]) => {
-    // Create SVG path for area chart
-    let pathData = "";
-    let points = "";
-    
-    data.forEach((value, index) => {
-      const x = (index / (data.length - 1)) * 100;
-      const y = 100 - (value / Math.max(...data)) * 80 - 10;
-      
-      if (index === 0) {
-        pathData += `M ${x} 100 L ${x} ${y} `;
-      } else {
-        pathData += `L ${x} ${y} `;
-      }
-      
-      points += `${x},${y} `;
-    });
-    
-    // Close the path
-    pathData += `L 100 100 Z`;
-    
-    return (
-      <div className="flex flex-col h-full">
-        <div className="text-xs font-bold text-charcoal p-1 text-center">{title}</div>
-        <div className="w-full h-full p-2 flex-grow">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            {/* Grid lines */}
-            {[0, 25, 50, 75, 100].map((y, i) => (
-              <line 
-                key={i} 
-                x1="0" 
-                y1={y} 
-                x2="100" 
-                y2={y} 
-                stroke="#e5e5e5" 
-                strokeWidth="0.5" 
-                strokeDasharray="2,2"
-              />
-            ))}
-            
-            {/* Area path */}
-            <path 
-              d={pathData} 
-              fill={`hsl(${color === 'bg-coral-accent' ? '6, 93%, 71%, 0.3' : 
-                         color === 'bg-tape-yellow' ? '356, 83%, 41%, 0.3' : 
-                         color === 'bg-primary' ? '356, 83%, 41%, 0.3' : '0, 0%, 10%, 0.3'})`}
-              stroke={`hsl(${color === 'bg-coral-accent' ? '6, 93%, 71%' : 
-                           color === 'bg-tape-yellow' ? '356, 83%, 41%' : 
-                           color === 'bg-primary' ? '356, 83%, 41%' : '0, 0%, 10%'})`}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{
-                strokeDasharray: 200,
-                strokeDashoffset: 200,
-                animation: `drawLine 1.2s ease-out forwards`
-              }}
-            />
-            
-            {/* Line path */}
-            <path 
-              d={pathData.split('L')[0] + ' ' + pathData.split('L').slice(1).join('L').split('L')[0] + ' ' + pathData.split('L').slice(2).join('L').replace(' Z', '')} 
-              fill="none" 
-              stroke={`hsl(${color === 'bg-coral-accent' ? '6, 93%, 71%' : 
-                           color === 'bg-tape-yellow' ? '356, 83%, 41%' : 
-                           color === 'bg-primary' ? '356, 83%, 41%' : '0, 0%, 10%'})`}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{
-                strokeDasharray: 100,
-                strokeDashoffset: 100,
-                animation: `drawLine 1s ease-out 0.3s forwards`
-              }}
-            />
-            
-            {/* Data points */}
-            {data.map((value, index) => {
-              const x = (index / (data.length - 1)) * 100;
-              const y = 100 - (value / Math.max(...data)) * 80 - 10;
-              return (
-                <circle 
-                  key={index} 
-                  cx={x} 
-                  cy={y} 
-                  r="2" 
-                  fill={`hsl(${color === 'bg-coral-accent' ? '6, 93%, 71%' : 
-                               color === 'bg-tape-yellow' ? '356, 83%, 41%' : 
-                               color === 'bg-primary' ? '356, 83%, 41%' : '0, 0%, 10%'})`}
-                  style={{
-                    animation: `popIn 0.3s ease-out ${0.5 + index * 0.1}s both`
-                  }}
-                >
-                  <title>{value}{title.includes('$') ? '$' : title.includes('hrs') ? 'hrs' : ''}</title>
-                </circle>
-              );
-            })}
-            
-            {/* X-axis labels */}
-            {labels.map((label, index) => {
-              const x = (index / (labels.length - 1)) * 100;
-              return (
-                <text 
-                  key={index}
-                  x={x} 
-                  y="100" 
-                  textAnchor="middle" 
-                  fontSize="3" 
-                  fill="hsl(0, 0%, 10%)"
-                  className="text-charcoal/70"
-                >
-                  {label}
-                </text>
-              );
-            })}
-          </svg>
-        </div>
-      </div>
-    );
-  };
+  const positions = ["-top-20 -left-16", "-top-12 -right-12", "bottom-12 -left-24", "-bottom-12 -right-20"];
+  const rotations = ["-5deg", "5deg", "-6deg", "6deg"];
+  const delays = ["0s", "0.5s", "1s", "1.5s"];
 
   return (
     <section className="py-12 px-4 relative overflow-hidden">
-      {/* Enhanced styles with animations */}
+      {/* Hand-drawn analytics styles with animations */}
       <style>{`
         .image-container {
           isolation: isolate;
@@ -529,92 +101,88 @@ const GrowthShowcase = () => {
           border: none !important;
           outline: none !important;
         }
-        @keyframes growUp {
-          from {
-            height: 0;
-            opacity: 0;
-          }
-          to {
-            height: var(--final-height);
-            opacity: 1;
-          }
-        }
-        @keyframes drawLine {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        @keyframes popIn {
-          0% {
-            transform: scale(0);
-            opacity: 0;
-          }
-          70% {
-            transform: scale(1.2);
-          }
-          100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
         @keyframes float {
-          0% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(1deg);
-          }
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
+          0%, 100% { transform: translateY(0px) rotate(-6deg); }
+          50% { transform: translateY(-20px) rotate(-6deg); }
         }
-        .float-animation {
-          animation: float 4s ease-in-out infinite;
+        @keyframes float-1 {
+          0%, 100% { transform: translateY(0px) rotate(3deg); }
+          50% { transform: translateY(-20px) rotate(3deg); }
         }
-        .float-delay-1 {
-          animation-delay: 0.5s;
+        @keyframes float-2 {
+          0%, 100% { transform: translateY(0px) rotate(6deg); }
+          50% { transform: translateY(-20px) rotate(6deg); }
         }
-        .float-delay-2 {
-          animation-delay: 1s;
+        @keyframes float-3 {
+          0%, 100% { transform: translateY(0px) rotate(-3deg); }
+          50% { transform: translateY(-20px) rotate(-3deg); }
         }
-        .float-delay-3 {
-          animation-delay: 1.5s;
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
+          50% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.6); }
         }
-        .hand-drawn-border {
-          position: relative;
-          background: transparent !important;
+        @keyframes draw-line {
+          from { stroke-dashoffset: 1000; }
+          to { stroke-dashoffset: 0; }
         }
-        .hand-drawn-border::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          border: 2px solid;
-          border-radius: 8px;
-          border-color: inherit;
-          transform: rotate(0.5deg);
-          pointer-events: none;
+        @keyframes count-up {
+          from { opacity: 0; transform: scale(0.5); }
+          to { opacity: 1; transform: scale(1); }
         }
-        .analytics-container {
-          position: absolute;
-          width: 16rem; /* w-64 = 16rem */
-          transform-origin: center;
-          background: transparent !important;
+        @keyframes wiggle {
+          0%, 100% { transform: rotate(-6deg); }
+          25% { transform: rotate(-4deg); }
+          75% { transform: rotate(-8deg); }
         }
-        .chart-container {
-          background: transparent !important;
+        @keyframes wiggle-1 {
+          0%, 100% { transform: rotate(3deg); }
+          25% { transform: rotate(5deg); }
+          75% { transform: rotate(1deg); }
+        }
+        @keyframes wiggle-2 {
+          0%, 100% { transform: rotate(6deg); }
+          25% { transform: rotate(8deg); }
+          75% { transform: rotate(4deg); }
+        }
+        @keyframes wiggle-3 {
+          0%, 100% { transform: rotate(-3deg); }
+          25% { transform: rotate(-1deg); }
+          75% { transform: rotate(-5deg); }
+        }
+        @keyframes slide-in-left {
+          from { transform: translateX(-20px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slide-in-right {
+          from { transform: translateX(20px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        .analytics-card {
+          animation: float 6s ease-in-out infinite;
+        }
+        .analytics-card:nth-child(2) {
+          animation: float-1 6s ease-in-out infinite;
+        }
+        .analytics-card:nth-child(3) {
+          animation: float-2 6s ease-in-out infinite;
+        }
+        .analytics-card:nth-child(4) {
+          animation: float-3 6s ease-in-out infinite;
+        }
+        .analytics-card:hover {
+          animation: float 6s ease-in-out infinite, wiggle 0.5s ease-in-out;
+        }
+        .analytics-card:nth-child(2):hover {
+          animation: float-1 6s ease-in-out infinite, wiggle-1 0.5s ease-in-out;
+        }
+        .analytics-card:nth-child(3):hover {
+          animation: float-2 6s ease-in-out infinite, wiggle-2 0.5s ease-in-out;
+        }
+        .analytics-card:nth-child(4):hover {
+          animation: float-3 6s ease-in-out infinite, wiggle-3 0.5s ease-in-out;
+        }
+        .sketch-border {
+          filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.15));
         }
       `}</style>
 
@@ -631,22 +199,19 @@ const GrowthShowcase = () => {
           </div>
         </div>
 
-        {/* Analytics showcase */}
+        {/* Scattered analytics showcase */}
         <div className="relative min-h-[600px] mb-12">
           <div 
             key={currentSet}
-            className="relative w-full h-full"
+            className="relative transition-all duration-500 ease-in-out transform"
           >
-            {/* Analytics visualizations - placed behind main image */}
-            
-
-            {/* Main central image - placed in front */}
+            {/* Main central image */}
             <div className="max-w-4xl mx-auto z-10 relative">
-              <div className="w-full h-full overflow-visible relative group bg-transparent image-container no-bg">
+              <div className="overflow-visible relative group bg-transparent image-container no-bg">
                 <img 
-                  src={analyticsSets[currentSet].main}
+                  src={analyticsData[currentSet].main}
                   alt="YouTube growth analytics dashboard"
-                  className="w-full h-full object-cover bg-transparent image-fix"
+                  className={`w-full h-full object-cover bg-transparent image-fix ${slideDirection === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'}`}
                   style={{
                     clipPath: `polygon(
                       2% 1%, 5% 0.5%, 8% 1.5%, 12% 0.8%, 15% 1.2%, 18% 0.5%, 22% 1%, 25% 0.3%, 
@@ -672,8 +237,111 @@ const GrowthShowcase = () => {
               </div>
             </div>
 
-            {/* Decorative elements */}
-           
+            {/* Animated Analytics Cards */}
+            {analyticsData[currentSet].metrics.map((analytic, index) => (
+              <div
+                key={index}
+                className={`w-72 absolute ${positions[index]} analytics-card sketch-border`}
+                style={{ 
+                  animationDelay: delays[index]
+                } as React.CSSProperties}
+              >
+                <div className={`${analytic.color} p-6 relative overflow-hidden`}
+                  style={{
+                    clipPath: `polygon(
+                      2% 1%, 8% 0.5%, 15% 1.2%, 22% 0.7%, 28% 1.5%, 35% 0.8%, 42% 1%, 48% 0.5%, 
+                      55% 1.2%, 62% 0.7%, 68% 1.5%, 75% 0.8%, 82% 1.2%, 88% 0.5%, 95% 1%, 98% 0.7%,
+                      99% 8%, 99.5% 15%, 98.8% 22%, 99.2% 28%, 98.7% 35%, 99.3% 42%, 98.8% 48%, 
+                      99.5% 55%, 98.7% 62%, 99.2% 68%, 98.8% 75%, 99.3% 82%, 98.7% 88%, 99% 95%,
+                      98% 99%, 92% 99.5%, 85% 98.8%, 78% 99.2%, 72% 98.7%, 65% 99.3%, 58% 98.8%, 
+                      52% 99.5%, 45% 98.7%, 38% 99.2%, 32% 98.8%, 25% 99.3%, 18% 98.7%, 12% 99%, 5% 98.5%,
+                      1% 92%, 0.5% 85%, 1.2% 78%, 0.8% 72%, 1.5% 65%, 0.7% 58%, 1.2% 52%, 
+                      0.5% 45%, 1.3% 38%, 0.8% 32%, 1% 25%, 0.7% 18%, 1.2% 12%, 0.8% 5%
+                    )`
+                  }}
+                >
+                  {/* Hand-drawn border effect */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ filter: 'blur(0.5px)' }}>
+                    <rect
+                      x="3"
+                      y="3"
+                      width="calc(100% - 6px)"
+                      height="calc(100% - 6px)"
+                      fill="none"
+                      stroke="#2C3E50"
+                      strokeWidth="2"
+                      strokeDasharray="5,3"
+                      strokeLinecap="round"
+                      style={{
+                        strokeDashoffset: 1000,
+                        animation: 'draw-line 2s ease-out forwards',
+                        animationDelay: delays[index]
+                      }}
+                    />
+                  </svg>
+
+                  <div className="relative z-10">
+                    <div className="text-sm font-bold text-charcoal/60 mb-2 uppercase tracking-wide">
+                      {analytic.title}
+                    </div>
+                    <div 
+                      className="text-4xl font-black text-charcoal mb-1"
+                      style={{
+                        animation: 'count-up 0.8s ease-out forwards',
+                        animationDelay: `calc(${delays[index]} + 0.3s)`
+                      }}
+                    >
+                      {analytic.value}
+                    </div>
+                    <div className="text-xs font-medium text-charcoal/50">
+                      {analytic.subtitle}
+                    </div>
+
+                    {/* Mini trend line */}
+                    <svg className="w-full h-12 mt-3" viewBox="0 0 100 30">
+                      <path
+                        d={`M 0,${25 - (index * 3)} Q 25,${20 - (index * 2)} 50,${15 - index} T 100,${10 - (index * 2)}`}
+                        fill="none"
+                        stroke="#FF6B6B"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeDasharray="200"
+                        style={{
+                          strokeDashoffset: 200,
+                          animation: 'draw-line 1.5s ease-out forwards',
+                          animationDelay: `calc(${delays[index]} + 0.5s)`,
+                          filter: 'drop-shadow(0 2px 4px rgba(255,107,107,0.3))'
+                        }}
+                      />
+                      {/* Dots on the line */}
+                      {[0, 33, 66, 100].map((x, i) => (
+                        <circle
+                          key={i}
+                          cx={x}
+                          cy={25 - (index * 3) - (i * 3)}
+                          r="2.5"
+                          fill="#FF6B6B"
+                          style={{
+                            animation: 'count-up 0.5s ease-out forwards',
+                            animationDelay: `calc(${delays[index]} + ${0.7 + i * 0.1}s)`,
+                            transformOrigin: `${x}px ${25 - (index * 3) - (i * 3)}px`
+                          }}
+                        />
+                      ))}
+                    </svg>
+                  </div>
+
+                  {/* Paper texture overlay */}
+                  <div className="absolute inset-0 opacity-10 pointer-events-none"
+                    style={{
+                      backgroundImage: `repeating-linear-gradient(
+                        0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+                      )`
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Navigation Arrows */}
@@ -692,7 +360,7 @@ const GrowthShowcase = () => {
 
           {/* Navigation Dots */}
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {analyticsSets.map((_, index) => (
+            {analyticsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSet(index)}
