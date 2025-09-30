@@ -642,7 +642,7 @@ const GrowthShowcase = () => {
 
             {/* Main central image - placed in front */}
             <div className="max-w-4xl mx-auto z-10 relative">
-              <div className="overflow-visible relative group bg-transparent image-container no-bg">
+              <div className="w-full h-full overflow-visible relative group bg-transparent image-container no-bg">
                 <img 
                   src={analyticsSets[currentSet].main}
                   alt="YouTube growth analytics dashboard"
