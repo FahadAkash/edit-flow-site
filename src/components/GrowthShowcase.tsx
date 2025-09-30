@@ -116,7 +116,7 @@ const GrowthShowcase = () => {
           >
             {/* Main central image */}
             <div className="max-w-4xl mx-auto z-10 relative">
-              <div className="aspect-video overflow-visible shadow-2xl relative group bg-transparent image-container no-bg">
+              <div className="  overflow-visible relative group bg-transparent image-container no-bg">
                 <img 
                   src={imageSets[currentSet].main}
                   alt="YouTube growth analytics dashboard"
@@ -189,7 +189,7 @@ const GrowthShowcase = () => {
             ))}
 
             {/* Decorative elements */}
-            <div className="absolute top-1/4 right-1/3 w-20 h-6 bg-tape-yellow/80 transform rotate-45 z-30"></div>
+           
           </div>
 
           {/* Navigation Arrows */}
