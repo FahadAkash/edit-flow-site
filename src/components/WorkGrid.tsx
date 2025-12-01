@@ -25,44 +25,138 @@ const WorkGrid = () => {
     youtube: [
       {
         id: 1,
-        title: "How to Build a SaaS in 2024",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-        category: "Tutorial",
-        duration: "12:45",
-        client: "TechCorp",
+        title: "Drake vs. Universal Music Group: The Legal Battle That Could Change the Music Industry",
+        thumbnail: "https://img.youtube.com/vi/eOt0VgC8tks/maxresdefault.jpg",
+        category: "Documentary",
+        duration: "10:00",
+        client: "Music Industry",
         type: "youtube",
-        clientMessage: "This video helped us increase our signups by 300%",
+        videoUrl: "https://www.youtube.com/watch?v=eOt0VgC8tks",
+        clientMessage: "An in-depth look at the legal battle.",
         clientLogo: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png",
         rating: 5
       },
       {
         id: 2,
-        title: "Complete React Course for Beginners",
-        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
-        category: "Education",
-        duration: "45:20",
-        client: "CodeAcademy",
+        title: "💰Is Sales the Perfect Career for YOU? Career Deep Dive",
+        thumbnail: "https://img.youtube.com/vi/2iQ6clokEPo/maxresdefault.jpg",
+        category: "Career",
+        duration: "15:30",
+        client: "Career Guide",
         type: "youtube",
-        clientMessage: "Our students love the clear explanations",
+        videoUrl: "https://www.youtube.com/watch?v=2iQ6clokEPo",
+        clientMessage: "Helping people decide on their career path.",
         clientLogo: "/brands/1667599512761.png",
-        rating: 4
+        rating: 5
       },
       {
         id: 3,
-        title: "AI Tools That Will Change Your Business",
-        thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
-        category: "Business",
-        duration: "8:30",
-        client: "AI Solutions",
+        title: "Trading Premium",
+        thumbnail: "https://img.youtube.com/vi/u_12sSli1Uk/maxresdefault.jpg",
+        category: "Finance",
+        duration: "8:45",
+        client: "Trading Pro",
         type: "youtube",
-        clientMessage: "Perfect for our target audience",
+        videoUrl: "https://www.youtube.com/watch?v=u_12sSli1Uk",
+        clientMessage: "Expert trading advice.",
         clientLogo: "/brands/acer-predator-logo-png_seeklogo-441422.png",
+        rating: 4
+      },
+      {
+        id: 4,
+        title: "Broke to $75,000 week Easy Blueprint",
+        thumbnail: "https://img.youtube.com/vi/sC8ydMWDSUM/maxresdefault.jpg",
+        category: "Business",
+        duration: "12:20",
+        client: "Entrepreneur",
+        type: "youtube",
+        videoUrl: "https://www.youtube.com/watch?v=sC8ydMWDSUM",
+        clientMessage: "A blueprint for success.",
+        clientLogo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png",
+        rating: 5
+      },
+      {
+        id: 5,
+        title: "Video 4",
+        thumbnail: "https://img.youtube.com/vi/uHJD-18kEXg/maxresdefault.jpg",
+        category: "Portfolio",
+        duration: "5:00",
+        client: "Client Work",
+        type: "youtube",
+        videoUrl: "https://www.youtube.com/watch?v=uHJD-18kEXg",
+        clientMessage: "Showcasing video editing skills.",
+        clientLogo: "/brands/Logo_Blackberry_Large_a979164e-916a-4c09-bbac-51df3d96f65a_1200x1200.png",
+        rating: 4
+      },
+      {
+        id: 6,
+        title: "AMG Recording CAM 5 06",
+        thumbnail: "https://img.youtube.com/vi/tCVEG4oXaUM/maxresdefault.jpg",
+        category: "Production",
+        duration: "3:15",
+        client: "AMG",
+        type: "youtube",
+        videoUrl: "https://www.youtube.com/watch?v=tCVEG4oXaUM",
+        clientMessage: "Behind the scenes footage.",
+        clientLogo: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png",
+        rating: 5
+      },
+      {
+        id: 7,
+        title: "Video 5",
+        thumbnail: "https://img.youtube.com/vi/jzrb54hJBBQ/maxresdefault.jpg",
+        category: "Portfolio",
+        duration: "4:30",
+        client: "Client Work",
+        type: "youtube",
+        videoUrl: "https://www.youtube.com/watch?v=jzrb54hJBBQ",
+        clientMessage: "Another example of great editing.",
+        clientLogo: "/brands/1667599512761.png",
+        rating: 5
+      },
+      {
+        id: 8,
+        title: "5 Boring Business",
+        thumbnail: "https://img.youtube.com/vi/iyCTu_EpD2E/maxresdefault.jpg",
+        category: "Business",
+        duration: "11:10",
+        client: "Biz Insider",
+        type: "youtube",
+        videoUrl: "https://www.youtube.com/watch?v=iyCTu_EpD2E",
+        clientMessage: "Uncovering profitable boring businesses.",
+        clientLogo: "/brands/acer-predator-logo-png_seeklogo-441422.png",
+        rating: 4
+      },
+      {
+        id: 9,
+        title: "What Is HEDIS",
+        thumbnail: "https://img.youtube.com/vi/BcuPrB26k5c/maxresdefault.jpg",
+        category: "Healthcare",
+        duration: "6:50",
+        client: "HealthOrg",
+        type: "youtube",
+        videoUrl: "https://www.youtube.com/watch?v=BcuPrB26k5c",
+        clientMessage: "Explaining complex healthcare topics.",
+        clientLogo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png",
+        rating: 5
+      },
+      {
+        id: 10,
+        title: "How TicketMaster and Live Nation’s Dominance Hurts Fans and Artists",
+        thumbnail: "https://img.youtube.com/vi/K7Wfih1vK00/maxresdefault.jpg",
+        category: "Documentary",
+        duration: "14:20",
+        client: "Music News",
+        type: "youtube",
+        videoUrl: "https://www.youtube.com/watch?v=K7Wfih1vK00",
+        clientMessage: "Investigative journalism piece.",
+        clientLogo: "/brands/Logo_Blackberry_Large_a979164e-916a-4c09-bbac-51df3d96f65a_1200x1200.png",
         rating: 5
       }
     ],
     shorts: [
       {
-        id: 4,
+        id: 11,
         title: "Quick CSS Tip",
         thumbnail: "https://img.youtube.com/vi/dRfEYs-SFPE/maxresdefault.jpg",
         category: "Tips",
@@ -75,7 +169,7 @@ const WorkGrid = () => {
         rating: 5
       },
       {
-        id: 5,
+        id: 12,
         title: "JavaScript Hack",
         thumbnail: "https://img.youtube.com/vi/CSw91MyV5Ig/maxresdefault.jpg",
         category: "Coding",
@@ -88,7 +182,7 @@ const WorkGrid = () => {
         rating: 4
       },
       {
-        id: 6,
+        id: 13,
         title: "Design in 60 Seconds",
         thumbnail: "https://img.youtube.com/vi/9EoL1YkEIG8/maxresdefault.jpg",
         category: "Design",
@@ -104,7 +198,7 @@ const WorkGrid = () => {
     ],
     saas: [
       {
-        id: 10,
+        id: 14,
         title: "SaaS Dashboard Demo",
         thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
         category: "Demo",
@@ -116,7 +210,7 @@ const WorkGrid = () => {
         rating: 5
       },
       {
-        id: 11,
+        id: 15,
         title: "Product Walkthrough",
         thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
         category: "Product",
@@ -130,7 +224,7 @@ const WorkGrid = () => {
     ],
     ads: [
       {
-        id: 12,
+        id: 16,
         title: "Facebook Ad Campaign",
         thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
         category: "Advertisement",
@@ -142,7 +236,7 @@ const WorkGrid = () => {
         rating: 5
       },
       {
-        id: 13,
+        id: 17,
         title: "VSL for E-commerce",
         thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
         category: "VSL",

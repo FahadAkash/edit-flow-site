@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const ReelsCarousel = () => {
   const [activeTab, setActiveTab] = useState("youtube");
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
 
   const tabs = [
     { id: "youtube", label: "Youtube Videos" },
@@ -16,27 +17,73 @@ const ReelsCarousel = () => {
     youtube: [
       {
         id: 1,
-        thumbnail: "https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?w=800&h=450&fit=crop",
-        title: "Real Estate Marketing",
-        duration: "05:21"
+        thumbnail: "https://img.youtube.com/vi/eOt0VgC8tks/maxresdefault.jpg",
+        title: "Drake vs. Universal Music Group: The Legal Battle That Could Change the Music Industry",
+        duration: "10:00",
+        videoUrl: "https://www.youtube.com/embed/eOt0VgC8tks"
       },
       {
         id: 2,
-        thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=450&fit=crop",
-        title: "Hidden Secrets Documentary",
-        duration: "10:18"
+        thumbnail: "https://img.youtube.com/vi/2iQ6clokEPo/maxresdefault.jpg",
+        title: "💰Is Sales the Perfect Career for YOU? Career Deep Dive",
+        duration: "15:30",
+        videoUrl: "https://www.youtube.com/embed/2iQ6clokEPo"
       },
       {
         id: 3,
-        thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=450&fit=crop",
-        title: "Business Presentation",
-        duration: "02:12"
+        thumbnail: "https://img.youtube.com/vi/u_12sSli1Uk/maxresdefault.jpg",
+        title: "Trading Premium",
+        duration: "08:45",
+        videoUrl: "https://www.youtube.com/embed/u_12sSli1Uk"
       },
       {
         id: 4,
-        thumbnail: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&h=450&fit=crop",
-        title: "Meme Coins Explained",
-        duration: "02:02"
+        thumbnail: "https://img.youtube.com/vi/sC8ydMWDSUM/maxresdefault.jpg",
+        title: "Broke to $75,000 week Easy Blueprint",
+        duration: "12:20",
+        videoUrl: "https://www.youtube.com/embed/sC8ydMWDSUM"
+      },
+      {
+        id: 5,
+        thumbnail: "https://img.youtube.com/vi/uHJD-18kEXg/maxresdefault.jpg",
+        title: "Video 4",
+        duration: "05:00",
+        videoUrl: "https://www.youtube.com/embed/uHJD-18kEXg"
+      },
+      {
+        id: 6,
+        thumbnail: "https://img.youtube.com/vi/tCVEG4oXaUM/maxresdefault.jpg",
+        title: "AMG Recording CAM 5 06",
+        duration: "03:15",
+        videoUrl: "https://www.youtube.com/embed/tCVEG4oXaUM"
+      },
+      {
+        id: 7,
+        thumbnail: "https://img.youtube.com/vi/jzrb54hJBBQ/maxresdefault.jpg",
+        title: "Video 5",
+        duration: "04:30",
+        videoUrl: "https://www.youtube.com/embed/jzrb54hJBBQ"
+      },
+      {
+        id: 8,
+        thumbnail: "https://img.youtube.com/vi/iyCTu_EpD2E/maxresdefault.jpg",
+        title: "5 Boring Business",
+        duration: "11:10",
+        videoUrl: "https://www.youtube.com/embed/iyCTu_EpD2E"
+      },
+      {
+        id: 9,
+        thumbnail: "https://img.youtube.com/vi/BcuPrB26k5c/maxresdefault.jpg",
+        title: "What Is HEDIS",
+        duration: "06:50",
+        videoUrl: "https://www.youtube.com/embed/BcuPrB26k5c"
+      },
+      {
+        id: 10,
+        thumbnail: "https://img.youtube.com/vi/K7Wfih1vK00/maxresdefault.jpg",
+        title: "How TicketMaster and Live Nation’s Dominance Hurts Fans and Artists",
+        duration: "14:20",
+        videoUrl: "https://www.youtube.com/embed/K7Wfih1vK00"
       }
     ],
     shorts: [
@@ -158,7 +205,10 @@ const ReelsCarousel = () => {
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  setPlayingVideo(null);
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
@@ -189,59 +239,74 @@ const ReelsCarousel = () => {
                 variants={itemVariants}
                 className="group relative aspect-video bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
               >
-                {/* Thumbnail */}
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-full object-cover"
-                />
+                {playingVideo === video.id && (video as any).videoUrl ? (
+                  <iframe
+                    src={`${(video as any).videoUrl}?autoplay=1`}
+                    title={video.title}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <>
+                    {/* Thumbnail */}
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                    />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                      <Play className="w-8 h-8 text-white ml-1" fill="white" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Duration Badge */}
-                <div className="absolute bottom-3 left-3 bg-black/80 text-white px-2 py-1 rounded text-sm font-medium">
-                  {video.duration}
-                </div>
-
-                {/* Video Controls Bar (like YouTube) */}
-                <div className="absolute bottom-0 left-0 right-0 bg-black/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex items-center gap-2">
-                    {/* Play button */}
-                    <button className="text-white hover:text-red-500 transition-colors">
-                      <Play className="w-5 h-5" fill="currentColor" />
-                    </button>
-
-                    {/* Progress bar */}
-                    <div className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-red-600"
-                        style={{ width: '0%' }}
-                      ></div>
+                    {/* Overlay */}
+                    <div 
+                      className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                      onClick={() => setPlayingVideo(video.id)}
+                    >
+                      {/* Play Button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                          <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Control icons */}
-                    <div className="flex items-center gap-1">
-                      <button className="text-white/70 hover:text-white p-1">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
-                        </svg>
-                      </button>
-                      <button className="text-white/70 hover:text-white p-1">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                        </svg>
-                      </button>
+                    {/* Duration Badge */}
+                    <div className="absolute bottom-3 left-3 bg-black/80 text-white px-2 py-1 rounded text-sm font-medium pointer-events-none">
+                      {video.duration}
                     </div>
-                  </div>
-                </div>
+
+                    {/* Video Controls Bar (like YouTube) */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="flex items-center gap-2">
+                        {/* Play button */}
+                        <button className="text-white hover:text-red-500 transition-colors">
+                          <Play className="w-5 h-5" fill="currentColor" />
+                        </button>
+
+                        {/* Progress bar */}
+                        <div className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-red-600"
+                            style={{ width: '0%' }}
+                          ></div>
+                        </div>
+
+                        {/* Control icons */}
+                        <div className="flex items-center gap-1">
+                          <button className="text-white/70 hover:text-white p-1">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                            </svg>
+                          </button>
+                          <button className="text-white/70 hover:text-white p-1">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </motion.div>
             ))}
           </motion.div>
