@@ -182,7 +182,7 @@ const AboutSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -201,7 +201,7 @@ const AboutSection = () => {
               500+ <span className="text-lg text-muted-foreground">Happy Clients</span>
             </div>
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
