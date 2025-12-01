@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 const SocialProof = () => {
   // Placeholder reviews - you can replace the images later
@@ -279,24 +280,67 @@ const SocialProof = () => {
     }
   };
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section className="py-16 px-4 bg-muted/30">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold text-charcoal mb-4">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-bold text-charcoal mb-4"
+          >
             Client <span className="text-coral-accent">Results</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+          >
             Real feedback from real clients across all platforms
-          </p>
+          </motion.p>
         </div>
 
         {/* Grid of Reviews with Random Sizes */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-auto gap-4" style={{ gridAutoFlow: 'dense' }}>
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-auto gap-4" 
+          style={{ gridAutoFlow: 'dense' }}
+        >
           {reviews.map((review) => (
-            <div
+            <motion.div
               key={review.id}
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className={`${review.color} p-4 rounded-lg shadow-md border-2 border-charcoal/10 hover:shadow-xl transition-shadow duration-300 ${getSizeClass(review.size)}`}
             >
               {/* Author Info */}
@@ -361,28 +405,52 @@ const SocialProof = () => {
                   </span>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Stats Footer */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center"
+          >
             <div className="text-4xl font-bold text-coral-accent mb-2">500+</div>
             <div className="text-sm text-muted-foreground">5-Star Reviews</div>
-          </div>
-          <div className="text-center">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center"
+          >
             <div className="text-4xl font-bold text-coral-accent mb-2">98%</div>
             <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-          </div>
-          <div className="text-center">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center"
+          >
             <div className="text-4xl font-bold text-coral-accent mb-2">1000+</div>
             <div className="text-sm text-muted-foreground">Projects Completed</div>
-          </div>
-          <div className="text-center">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-center"
+          >
             <div className="text-4xl font-bold text-coral-accent mb-2">24/7</div>
             <div className="text-sm text-muted-foreground">Support Available</div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

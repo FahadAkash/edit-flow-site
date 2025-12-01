@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 // Sketch-style 2D vector icons (hand-drawn look)
 const SketchLightbulb = (props: React.SVGProps<SVGSVGElement>) => (
@@ -44,10 +45,6 @@ const SketchSend = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const ProcessTimeline = () => {
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
-  const [activeStep, setActiveStep] = useState<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const processData = [
     {
       id: 1,
@@ -91,32 +88,8 @@ const ProcessTimeline = () => {
     }
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = parseInt(entry.target.getAttribute('data-id') || '0');
-            if (!visibleItems.includes(id)) {
-              setTimeout(() => {
-                setVisibleItems(prev => [...prev, id]);
-                setActiveStep(id);
-              }, (id - 1) * 200); // Stagger animation
-            }
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    const timelineItems = containerRef.current?.querySelectorAll('[data-id]');
-    timelineItems?.forEach(item => observer.observe(item));
-
-    return () => observer.disconnect();
-  }, [visibleItems]);
-
   return (
-    <section className="py-12 px-4 relative overflow-hidden" ref={containerRef}>
+    <section className="py-12 px-4 relative overflow-hidden">
       {/* Paper texture background */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -126,14 +99,32 @@ const ProcessTimeline = () => {
       />
       
       {/* Ink splatter decorations */}
-      <div className="absolute top-10 left-10 w-20 h-20 bg-gray-800 rounded-full opacity-5 blur-sm transform rotate-12"></div>
-      <div className="absolute top-40 right-20 w-16 h-16 bg-gray-700 rounded-full opacity-10 blur-md transform -rotate-45"></div>
-      <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-gray-600 rounded-full opacity-8 blur-lg"></div>
+      <motion.div 
+        animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-10 left-10 w-20 h-20 bg-gray-800 rounded-full opacity-5 blur-sm transform rotate-12"
+      />
+      <motion.div 
+        animate={{ rotate: [0, -10, 5, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-40 right-20 w-16 h-16 bg-gray-700 rounded-full opacity-10 blur-md transform -rotate-45"
+      />
+      <motion.div 
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-20 left-1/4 w-12 h-12 bg-gray-600 rounded-full opacity-8 blur-lg"
+      />
 
       <div className="max-w-5xl mx-auto relative">
         {/* Header */}
         <div className="text-center mb-12 relative">
-          <div className="relative inline-block">
+          <motion.div 
+            initial={{ opacity: 0, y: -20, rotate: -5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: -1 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 100 }}
+            className="relative inline-block"
+          >
             <div className="absolute -inset-4 bg-white/80 rounded-lg transform -rotate-1 shadow-lg border border-gray-200"></div>
             <div className="relative bg-white/90 p-8 rounded-lg border-2 border-gray-300 shadow-xl transform rotate-1 backdrop-blur-sm">
               <div className="absolute top-2 left-4 w-2 h-2 bg-red-400 rounded-full shadow-md"></div>
@@ -142,68 +133,80 @@ const ProcessTimeline = () => {
               <h2 className="text-5xl md:text-6xl font-bold mb-4 relative">
                 <span className="ink-text handwritten">Our</span>
                 <span className="ml-4 ink-text handwritten relative">Process
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-amber-200 rounded transform -skew-x-12 opacity-60"></div>
+                  <motion.div 
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="absolute -bottom-2 left-0 right-0 h-1 bg-amber-200 rounded transform -skew-x-12 opacity-60 origin-left"
+                  />
                 </span>
               </h2>
               <p className="text-xl max-w-2xl mx-auto leading-relaxed ink-muted handwritten">
                 Our strategy to get <span className="font-semibold ink-text">you leads</span> with content
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Central sketchy line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full">
-            <div className="w-full h-full bg-gradient-to-b from-gray-400 via-gray-500 to-gray-600 rounded-full relative">
+            <motion.div 
+              initial={{ height: "0%" }}
+              whileInView={{ height: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="w-full bg-gradient-to-b from-gray-400 via-gray-500 to-gray-600 rounded-full relative overflow-hidden"
+            >
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-300 to-transparent opacity-50 rounded-full transform rotate-1"></div>
-            </div>
+            </motion.div>
           </div>
 
           {processData.map((item, index) => {
             const Icon = item.icon;
-            const isVisible = visibleItems.includes(item.id);
-            const isActive = activeStep === item.id;
             const isLeft = index % 2 === 0;
 
             return (
               <div
                 key={item.id}
-                data-id={item.id}
                 className={`relative mb-12 ${isLeft ? 'pr-1/2' : 'pl-1/2 flex justify-end'}`}
               >
                 {/* Animated timeline dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
-                  <div className={`relative transition-all duration-1000 ${
-                    isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-                  }`}>
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ delay: index * 0.2, type: "spring", stiffness: 200 }}
+                    className="relative"
+                  >
                     {/* Outer ring with pulse effect */}
                     <div className={`absolute inset-0 w-16 h-16 rounded-full bg-gradient-to-r ${item.color} animate-pulse opacity-30`}></div>
                     
                     {/* Main dot */}
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${item.color} border-4 border-white shadow-xl flex items-center justify-center transform transition-transform duration-300 ${
-                      isActive ? 'scale-110' : 'scale-100'
-                    }`}>
+                    <motion.div 
+                      whileHover={{ scale: 1.1 }}
+                      className={`w-12 h-12 rounded-full bg-gradient-to-r ${item.color} border-4 border-white shadow-xl flex items-center justify-center`}
+                    >
                       <Icon className="w-6 h-6 text-white stroke-[1.6]" />
-                    </div>
+                    </motion.div>
                     
                     {/* Step number */}
                     <div className="absolute -top-2 -right-2 w-6 h-6 bg-gray-800 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
                       {item.step}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Content card */}
                 <div className={`w-full max-w-md ${isLeft ? 'pr-12' : 'pl-12'} relative`}>
-                  <div
-                    className={`transition-all duration-1000 ease-out ${
-                      isVisible
-                        ? 'opacity-100 translate-x-0 translate-y-0'
-                        : `opacity-0 ${isLeft ? '-translate-x-20' : 'translate-x-20'} translate-y-8`
-                    }`}
-                    style={{ transitionDelay: `${index * 200}ms` }}
+                  <motion.div
+                    initial={{ opacity: 0, x: isLeft ? -50 : 50, y: 20 }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: index * 0.2 + 0.1, duration: 0.6, type: "spring", stiffness: 100 }}
                   >
                     {/* Paper-style card with ink effects */}
                     <div className="relative group">
@@ -212,9 +215,7 @@ const ProcessTimeline = () => {
                       <div className="absolute -inset-2 bg-gray-100 rounded-lg transform -rotate-1 opacity-40"></div>
                       
                       {/* Main card */}
-                      <Card className={`relative bg-[rgb(255,253,247)] border-2 border-[rgba(44,24,16,0.08)] shadow-xl p-8 rounded-lg transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${
-                        isActive ? 'ring-4 ring-amber-200 ring-opacity-50' : ''
-                      }`}>
+                      <Card className="relative bg-[rgb(255,253,247)] border-2 border-[rgba(44,24,16,0.08)] shadow-xl p-8 rounded-lg transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:rotate-1">
                         {/* Ink stain decoration */}
                         <div className={`absolute top-4 ${isLeft ? 'right-4' : 'left-4'} w-8 h-8 bg-gradient-to-r ${item.color} rounded-full opacity-20 blur-sm`}></div>
                         
@@ -238,13 +239,18 @@ const ProcessTimeline = () => {
                         <div className="absolute top-0 right-0 w-4 h-4 bg-gray-100 transform rotate-45 translate-x-2 -translate-y-2 opacity-60"></div>
                       </Card>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Connection line to dot */}
-                <div className={`absolute top-6 ${isLeft ? 'right-6' : 'left-6'} w-6 h-0.5 bg-gray-300 transform transition-all duration-1000 ${
-                  isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-                }`} style={{ transformOrigin: isLeft ? 'right' : 'left', transitionDelay: `${index * 200 + 400}ms` }}></div>
+                <motion.div 
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileInView={{ scaleX: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
+                  style={{ transformOrigin: isLeft ? 'right' : 'left' }}
+                  className={`absolute top-6 ${isLeft ? 'right-6' : 'left-6'} w-6 h-0.5 bg-gray-300`}
+                />
               </div>
             );
           })}
@@ -252,12 +258,18 @@ const ProcessTimeline = () => {
 
         {/* Bottom decoration */}
         <div className="text-center mt-12">
-          <div className="relative inline-block">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, type: "spring" }}
+            className="relative inline-block"
+          >
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full blur-lg opacity-50"></div>
             <div className="relative bg-white border-2 border-gray-300 rounded-full px-8 py-4 shadow-lg">
               <p className="text-lg font-semibold text-gray-700">Ready to start your journey?</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

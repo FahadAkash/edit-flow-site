@@ -1,5 +1,6 @@
 import { Check, X } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const AboutSection = () => {
   const comparisons = [
@@ -45,24 +46,56 @@ const AboutSection = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 }
+  };
+
+  const itemVariantsRight = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <section className="py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <div className="sticky-peach push-pin rotate-random-3 p-8 max-w-2xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: -3 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="sticky-peach push-pin rotate-random-3 p-8 max-w-2xl mx-auto"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Why Choose <span className="text-tape-yellow">Us?</span>
             </h2>
             <p className="text-xl text-charcoal/70">
               We're not just another video editing service. Here's what makes us different.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Comparison Table */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Our Agency */}
-          <div className="sticky-mint paper-clip rotate-random-1 p-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="sticky-mint paper-clip rotate-random-1 p-8"
+          >
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-charcoal mb-2">
                 Our <span className="text-tape-yellow">Agency</span>
@@ -72,29 +105,43 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <div className="space-y-4">
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
               {comparisons.map((item, index) => (
-                <Card key={index} className="p-4 border-2 border-tape-yellow/30 bg-tape-yellow/5">
-                  <div className="flex items-start gap-3">
-                    <div className="p-1 bg-tape-yellow rounded-full mt-1">
-                      <Check className="w-3 h-3 text-charcoal" />
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="p-4 border-2 border-tape-yellow/30 bg-tape-yellow/5 hover:bg-tape-yellow/10 transition-colors">
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-tape-yellow rounded-full mt-1">
+                        <Check className="w-3 h-3 text-charcoal" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-charcoal text-sm mb-1">
+                          {item.feature}
+                        </h4>
+                        <p className="text-charcoal font-medium">
+                          {item.us}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-charcoal text-sm mb-1">
-                        {item.feature}
-                      </h4>
-                      <p className="text-charcoal font-medium">
-                        {item.us}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Other Agencies */}
-          <div className="sticky-lavender rotate-random-2 p-8 opacity-75">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="sticky-lavender rotate-random-2 p-8 opacity-75"
+          >
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-charcoal mb-2">
                 Other <span className="text-charcoal/60">Agencies</span>
@@ -104,31 +151,46 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <div className="space-y-4">
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
               {comparisons.map((item, index) => (
-                <Card key={index} className="p-4 border-2 border-muted bg-muted/30">
-                  <div className="flex items-start gap-3">
-                    <div className="p-1 bg-muted-foreground/20 rounded-full mt-1">
-                      <X className="w-3 h-3 text-muted-foreground" />
+                <motion.div key={index} variants={itemVariantsRight}>
+                  <Card className="p-4 border-2 border-muted bg-muted/30">
+                    <div className="flex items-start gap-3">
+                      <div className="p-1 bg-muted-foreground/20 rounded-full mt-1">
+                        <X className="w-3 h-3 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-muted-foreground text-sm mb-1">
+                          {item.feature}
+                        </h4>
+                        <p className="text-muted-foreground">
+                          {item.others}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-muted-foreground text-sm mb-1">
-                        {item.feature}
-                      </h4>
-                      <p className="text-muted-foreground">
-                        {item.others}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <div className="sticky-note p-6 max-w-lg mx-auto bg-coral-accent/10">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            whileHover={{ scale: 1.02 }}
+            className="sticky-note p-6 max-w-lg mx-auto bg-coral-accent/10 cursor-pointer"
+          >
             <h3 className="text-2xl font-bold text-charcoal mb-3">
               Ready to see the difference?
             </h3>
@@ -138,7 +200,7 @@ const AboutSection = () => {
             <div className="text-4xl font-bold text-coral-accent">
               500+ <span className="text-lg text-muted-foreground">Happy Clients</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

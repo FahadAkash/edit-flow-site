@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ReelsCarousel = () => {
   const [activeTab, setActiveTab] = useState("youtube");
@@ -120,21 +121,46 @@ const ReelsCarousel = () => {
 
   const currentVideos = videos[activeTab as keyof typeof videos];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    },
+    exit: { opacity: 0 }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 }
+  };
+
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold text-charcoal mb-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-bold text-charcoal mb-8"
+          >
             Featured Projects
-          </h2>
+          </motion.h2>
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {tabs.map((tab) => (
-              <button
+              <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   activeTab === tab.id
                     ? 'bg-blue-600 text-white shadow-lg'
@@ -142,74 +168,84 @@ const ReelsCarousel = () => {
                 }`}
               >
                 {tab.label}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {currentVideos.map((video) => (
-            <div
-              key={video.id}
-              className="group relative aspect-video bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
-            >
-              {/* Thumbnail */}
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="w-full h-full object-cover"
-              />
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={activeTab}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {currentVideos.map((video) => (
+              <motion.div
+                key={video.id}
+                variants={itemVariants}
+                className="group relative aspect-video bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+              >
+                {/* Thumbnail */}
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-full object-cover"
+                />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {/* Play Button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                    <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300">
+                      <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Duration Badge */}
-              <div className="absolute bottom-3 left-3 bg-black/80 text-white px-2 py-1 rounded text-sm font-medium">
-                {video.duration}
-              </div>
+                {/* Duration Badge */}
+                <div className="absolute bottom-3 left-3 bg-black/80 text-white px-2 py-1 rounded text-sm font-medium">
+                  {video.duration}
+                </div>
 
-              {/* Video Controls Bar (like YouTube) */}
-              <div className="absolute bottom-0 left-0 right-0 bg-black/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="flex items-center gap-2">
-                  {/* Play button */}
-                  <button className="text-white hover:text-red-500 transition-colors">
-                    <Play className="w-5 h-5" fill="currentColor" />
-                  </button>
-
-                  {/* Progress bar */}
-                  <div className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-red-600"
-                      style={{ width: '0%' }}
-                    ></div>
-                  </div>
-
-                  {/* Control icons */}
-                  <div className="flex items-center gap-1">
-                    <button className="text-white/70 hover:text-white p-1">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
-                      </svg>
+                {/* Video Controls Bar (like YouTube) */}
+                <div className="absolute bottom-0 left-0 right-0 bg-black/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex items-center gap-2">
+                    {/* Play button */}
+                    <button className="text-white hover:text-red-500 transition-colors">
+                      <Play className="w-5 h-5" fill="currentColor" />
                     </button>
-                    <button className="text-white/70 hover:text-white p-1">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                      </svg>
-                    </button>
+
+                    {/* Progress bar */}
+                    <div className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-red-600"
+                        style={{ width: '0%' }}
+                      ></div>
+                    </div>
+
+                    {/* Control icons */}
+                    <div className="flex items-center gap-1">
+                      <button className="text-white/70 hover:text-white p-1">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                        </svg>
+                      </button>
+                      <button className="text-white/70 hover:text-white p-1">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -1,13 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Youtube, Instagram, Twitter, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
-    <footer className="py-12 px-4 bg-charcoal text-white">
+    <footer className="py-12 px-4 bg-charcoal text-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Main CTA */}
         <div className="text-center mb-12">
-          <div className="sticky-note p-8 max-w-2xl mx-auto bg-paper-white">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            className="sticky-note p-8 max-w-2xl mx-auto bg-paper-white"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Ready to Go <span className="text-coral-accent">Viral?</span>
             </h2>
@@ -15,20 +38,30 @@ const Footer = () => {
               Let's create content that doesn't just get views - it drives real results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
-                Start Your Project
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
-                Book Free Consultation
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" className="text-lg px-8 w-full sm:w-auto">
+                  Start Your Project
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button variant="outline" size="lg" className="text-lg px-8 w-full sm:w-auto">
+                  Book Free Consultation
+                </Button>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8"
+        >
           {/* Company info */}
-          <div className="md:col-span-2">
+          <motion.div variants={itemVariants} className="md:col-span-2">
             <h3 className="text-2xl font-bold text-tape-yellow mb-4">
               VideoCreators Pro
             </h3>
@@ -38,56 +71,56 @@ const Footer = () => {
               we handle everything.
             </p>
             <div className="flex gap-4">
-              <Button variant="ghost" size="icon" className="text-white hover:text-tape-yellow hover:bg-white/10">
-                <Youtube className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:text-coral-accent hover:bg-white/10">
-                <Instagram className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:text-tape-yellow hover:bg-white/10">
-                <Twitter className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:text-coral-accent hover:bg-white/10">
-                <Linkedin className="w-5 h-5" />
-              </Button>
+              {[Youtube, Instagram, Twitter, Linkedin].map((Icon, i) => (
+                <motion.div key={i} whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                  <Button variant="ghost" size="icon" className="text-white hover:text-tape-yellow hover:bg-white/10">
+                    <Icon className="w-5 h-5" />
+                  </Button>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
             <ul className="space-y-2 text-white/70">
-              <li><a href="#" className="hover:text-tape-yellow transition-colors">Video Editing</a></li>
-              <li><a href="#" className="hover:text-tape-yellow transition-colors">Content Strategy</a></li>
-              <li><a href="#" className="hover:text-tape-yellow transition-colors">Social Media Videos</a></li>
-              <li><a href="#" className="hover:text-tape-yellow transition-colors">Brand Storytelling</a></li>
-              <li><a href="#" className="hover:text-tape-yellow transition-colors">Animation</a></li>
-              <li><a href="#" className="hover:text-tape-yellow transition-colors">Live Stream Setup</a></li>
+              {["Video Editing", "Content Strategy", "Social Media Videos", "Brand Storytelling", "Animation", "Live Stream Setup"].map((item, i) => (
+                <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <a href="#" className="hover:text-tape-yellow transition-colors block">{item}</a>
+                </motion.li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
             <div className="space-y-3 text-white/70">
-              <div className="flex items-center gap-3">
+              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-coral-accent" />
                 <span>hello@videocreators.pro</span>
-              </div>
-              <div className="flex items-center gap-3">
+              </motion.div>
+              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-coral-accent" />
                 <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-3">
+              </motion.div>
+              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-coral-accent" />
                 <span>Los Angeles, CA</span>
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/20 pt-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="border-t border-white/20 pt-4 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
           <div className="text-white/60 text-sm">
             © 2024 VideoCreators Pro. All rights reserved.
           </div>
@@ -96,7 +129,7 @@ const Footer = () => {
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
