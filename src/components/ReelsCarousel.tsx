@@ -88,51 +88,146 @@ const ReelsCarousel = () => {
     ],
     shorts: [
       {
-        id: 1,
-        thumbnail: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=400&h=700&fit=crop",
-        title: "Quick Tip #1",
-        duration: "00:45"
+        id: 11,
+        thumbnail: "https://img.youtube.com/vi/znnEzV2Qg3k/maxresdefault.jpg",
+        title: "Mastering Devin Style",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/znnEzV2Qg3k"
       },
       {
-        id: 2,
-        thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=700&fit=crop",
-        title: "Quick Tip #2",
-        duration: "00:30"
+        id: 12,
+        thumbnail: "https://img.youtube.com/vi/P607YNcJB_Y/maxresdefault.jpg",
+        title: "Finished Track Video",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/P607YNcJB_Y"
       },
       {
-        id: 3,
-        thumbnail: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=700&fit=crop",
-        title: "Quick Tip #3",
-        duration: "00:52"
+        id: 13,
+        thumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/maxresdefault.jpg",
+        title: "Proven System Finale",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU"
       },
       {
-        id: 4,
-        thumbnail: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=700&fit=crop",
-        title: "Quick Tip #4",
-        duration: "00:38"
+        id: 14,
+        thumbnail: "https://img.youtube.com/vi/E3GvLiB8jJc/maxresdefault.jpg",
+        title: "Real estate",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/E3GvLiB8jJc"
+      },
+      {
+        id: 15,
+        thumbnail: "https://img.youtube.com/vi/l2fqM7kAloU/maxresdefault.jpg",
+        title: "short 1",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/l2fqM7kAloU"
+      },
+      {
+        id: 16,
+        thumbnail: "https://img.youtube.com/vi/9laQbHLnczY/maxresdefault.jpg",
+        title: "Formula 1 Principle",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/9laQbHLnczY"
+      },
+      {
+        id: 17,
+        thumbnail: "https://img.youtube.com/vi/agsjS22hjlU/maxresdefault.jpg",
+        title: "Aliyah hook 5",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/agsjS22hjlU"
+      },
+      {
+        id: 18,
+        thumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/maxresdefault.jpg",
+        title: "Law firm owners 2",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk"
+      },
+      {
+        id: 19,
+        thumbnail: "https://img.youtube.com/vi/fVg5M5sCFws/maxresdefault.jpg",
+        title: "Getking ALV",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/fVg5M5sCFws"
+      },
+      {
+        id: 20,
+        thumbnail: "https://img.youtube.com/vi/T-opIb5aC7Q/maxresdefault.jpg",
+        title: "Dr Lockhart S 01",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/T-opIb5aC7Q"
+      },
+      {
+        id: 21,
+        thumbnail: "https://img.youtube.com/vi/n31V5HG5dgI/maxresdefault.jpg",
+        title: "Compton ALV1",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/n31V5HG5dgI"
+      },
+      {
+        id: 22,
+        thumbnail: "https://img.youtube.com/vi/MTqdQoZdNRo/maxresdefault.jpg",
+        title: "Thrive Revival Walmart",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/MTqdQoZdNRo"
+      },
+      {
+        id: 23,
+        thumbnail: "https://img.youtube.com/vi/4t0golxJb8A/maxresdefault.jpg",
+        title: "Life Style Vlog Style video",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/4t0golxJb8A"
+      },
+      {
+        id: 24,
+        thumbnail: "https://img.youtube.com/vi/705h0CtyRSc/maxresdefault.jpg",
+        title: "v4d testimonial dr webb",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/705h0CtyRSc"
+      },
+      {
+        id: 25,
+        thumbnail: "https://img.youtube.com/vi/91O4UvjuKr8/maxresdefault.jpg",
+        title: "testimonial lockhart",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/91O4UvjuKr8"
+      },
+      {
+        id: 26,
+        thumbnail: "https://img.youtube.com/vi/QoRRyLNo4-s/maxresdefault.jpg",
+        title: "Elijah Kanoho 9 16",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/QoRRyLNo4-s"
+      },
+      {
+        id: 27,
+        thumbnail: "https://img.youtube.com/vi/_PrR7VWPTas/maxresdefault.jpg",
+        title: "Nano Tech",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/_PrR7VWPTas"
       }
     ],
     saas: [
       {
-        id: 1,
+        id: 30,
         thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
         title: "SaaS Product Demo",
         duration: "03:45"
       },
       {
-        id: 2,
+        id: 31,
         thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
         title: "Analytics Dashboard",
         duration: "04:12"
       },
       {
-        id: 3,
+        id: 32,
         thumbnail: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=450&fit=crop",
         title: "Team Collaboration",
         duration: "02:55"
       },
       {
-        id: 4,
+        id: 33,
         thumbnail: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=450&fit=crop",
         title: "Project Management",
         duration: "03:30"
@@ -140,25 +235,25 @@ const ReelsCarousel = () => {
     ],
     ads: [
       {
-        id: 1,
+        id: 40,
         thumbnail: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&h=450&fit=crop",
         title: "Product Launch Ad",
         duration: "01:30"
       },
       {
-        id: 2,
+        id: 41,
         thumbnail: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&h=450&fit=crop",
         title: "Brand Story",
         duration: "02:00"
       },
       {
-        id: 3,
+        id: 42,
         thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=450&fit=crop",
         title: "Sales Funnel Video",
         duration: "03:15"
       },
       {
-        id: 4,
+        id: 43,
         thumbnail: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=450&fit=crop",
         title: "VSL Campaign",
         duration: "05:00"
@@ -231,13 +326,13 @@ const ReelsCarousel = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {currentVideos.map((video) => (
               <motion.div
                 key={video.id}
                 variants={itemVariants}
-                className="group relative aspect-video bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+                className={`group relative ${activeTab === 'shorts' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]`}
               >
                 {playingVideo === video.id && (video as any).videoUrl ? (
                   <iframe
