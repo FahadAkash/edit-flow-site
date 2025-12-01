@@ -3,7 +3,7 @@ import { Play } from "lucide-react";
 
 const AfterEffectsBackground = () => {
   return (
-    <div className="relative w-full h-screen bg-[#1e1e1e] overflow-hidden">
+    <div className="relative w-[95%] max-w-[1400px] mx-auto h-[85vh] my-12 bg-[#1e1e1e] overflow-hidden rounded-[40px] shadow-2xl border-[12px] border-[#111] transform hover:scale-[1.01] transition-transform duration-700">
       {/* Top Menu Bar */}
       <div className="h-10 bg-[#323232] border-b border-[#181818] flex items-center px-4 gap-4">
         <div className="flex gap-3 text-[11px] text-gray-400">
