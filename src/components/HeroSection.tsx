@@ -62,7 +62,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05, rotate: 5 }}
             >
               <img 
-                src="/public/logo/logo.png" 
+                src="/logo/logo.png" 
                 alt="Company Logo" 
                 className="h-16 md:h-20 w-auto object-contain"
               />
