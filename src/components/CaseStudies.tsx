@@ -1,192 +1,160 @@
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
-import { Card } from "@/components/ui/card";
-import { TrendingUp, Users, Eye, DollarSign } from "lucide-react";
+import { useState } from "react";
+import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 
 const CaseStudies = () => {
-  // Temporarily disabled — return null to hide the Success Stories section
-  return null;
-  const chartData1 = [
-    { month: 'Jan', before: 45, after: 120 },
-    { month: 'Feb', before: 52, after: 185 },
-    { month: 'Mar', before: 48, after: 240 },
-    { month: 'Apr', before: 61, after: 320 },
-    { month: 'May', before: 55, after: 450 },
-    { month: 'Jun', before: 67, after: 580 },
-  ];
-
-  const chartData2 = [
-    { month: 'Jan', views: 120000 },
-    { month: 'Feb', views: 280000 },
-    { month: 'Mar', views: 450000 },
-    { month: 'Apr', views: 680000 },
-    { month: 'May', views: 920000 },
-    { month: 'Jun', views: 1200000 },
-  ];
-
-  const pieData = [
-    { name: 'YouTube', value: 45, color: '#FFD700' },
-    { name: 'Instagram', value: 25, color: '#FF6B6B' },
-    { name: 'TikTok', value: 20, color: '#1A1A1A' },
-    { name: 'Other', value: 10, color: '#FAFAFA' },
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const caseStudies = [
     {
       id: 1,
       title: "E-commerce Brand Transformation",
-      client: "FashionForward",
-      challenge: "Low engagement rates and declining sales",
-      solution: "Complete video content strategy overhaul",
-      results: "300% increase in engagement, 250% boost in sales",
-      metrics: {
-        icon: TrendingUp,
-        value: "+300%",
-        label: "Engagement Growth"
-      },
-      chartComponent: (
-        <ResponsiveContainer width="100%" height={200}>
-          <BarChart data={chartData1}>
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Bar dataKey="before" fill="hsl(var(--muted))" />
-            <Bar dataKey="after" fill="hsl(var(--tape-yellow))" />
-          </BarChart>
-        </ResponsiveContainer>
-      )
+      client: "Sarah Mitchell",
+      clientRole: "CEO, FashionForward",
+      clientAvatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      comment: "Working with this team completely transformed our video content strategy. The editing quality and storytelling brought our products to life in ways we never imagined. Our engagement rates skyrocketed by 300% and sales increased by 250%. Every video they produce is a masterpiece that resonates with our audience.",
+      videoThumbnail: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&h=675&fit=crop",
+      result: "+300% Engagement Growth"
     },
     {
       id: 2,
-      title: "Tech Startup Video Series",
-      client: "InnovateTech",
-      challenge: "Complex product needed clear explanation",
-      solution: "Educational video series with animated graphics",
-      results: "1.2M views across platforms, 40% conversion rate",
-      metrics: {
-        icon: Eye,
-        value: "1.2M",
-        label: "Total Views"
-      },
-      chartComponent: (
-        <ResponsiveContainer width="100%" height={200}>
-          <LineChart data={chartData2}>
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Line type="monotone" dataKey="views" stroke="hsl(var(--coral-accent))" strokeWidth={3} />
-          </LineChart>
-        </ResponsiveContainer>
-      )
+      title: "Tech Startup Success Story",
+      client: "Michael Chen",
+      clientRole: "Founder, InnovateTech",
+      clientAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      comment: "They took our complex technical product and created educational videos that anyone could understand. The animated graphics and clear explanations helped us reach 1.2 million views across platforms with a 40% conversion rate. The ROI has been incredible and continues to grow.",
+      videoThumbnail: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1200&h=675&fit=crop",
+      result: "1.2M Total Views"
     },
     {
       id: 3,
       title: "Multi-Platform Campaign",
-      client: "GlobalBrand",
-      challenge: "Needed platform-specific content strategy",
-      solution: "Tailored content for each social platform",
-      results: "45% increase in brand awareness across all platforms",
-      metrics: {
-        icon: Users,
-        value: "+45%",
-        label: "Brand Awareness"
-      },
-      chartComponent: (
-        <ResponsiveContainer width="100%" height={200}>
-          <PieChart>
-            <Pie
-              data={pieData}
-              cx="50%"
-              cy="50%"
-              innerRadius={40}
-              outerRadius={80}
-              dataKey="value"
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.color} />
-              ))}
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
-      )
+      client: "Emma Rodriguez",
+      clientRole: "Marketing Director, GlobalBrand",
+      clientAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      comment: "The team's expertise in creating platform-specific content was game-changing for us. Each video was perfectly tailored for its platform while maintaining our brand identity. We saw a 45% increase in brand awareness across all channels and our social media presence has never been stronger.",
+      videoThumbnail: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=675&fit=crop",
+      result: "+45% Brand Awareness"
     }
   ];
 
+  const nextCase = () => {
+    setCurrentIndex((prev) => (prev + 1) % caseStudies.length);
+  };
+
+  const prevCase = () => {
+    setCurrentIndex((prev) => (prev - 1 + caseStudies.length) % caseStudies.length);
+  };
+
+  const currentCase = caseStudies[currentIndex];
+
   return (
-    <section className="py-8 px-4 bg-accent/20">
+    <section className="py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="sticky-note p-8 max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
-              <span className="text-coral-accent">Success</span> Stories
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Real challenges, creative solutions, measurable results
-            </p>
-          </div>
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-4xl md:text-6xl font-bold text-charcoal mb-3">
+            <span className="text-coral-accent">Success</span> Stories
+          </h2>
+          <p className="text-xl text-muted-foreground">
+            Real challenges, creative solutions, measurable results
+          </p>
         </div>
 
-        <div className="space-y-16">
-          {caseStudies.map((study, index) => (
-            <div
-              key={study.id}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}
-            >
-              {/* Content */}
-              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                <div className="sticky-note p-8">
-                  <div className="mb-6">
-                    <h3 className="text-3xl font-bold text-charcoal mb-2">
-                      {study.title}
-                    </h3>
-                    <p className="text-coral-accent font-semibold">
-                      Client: {study.client}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-charcoal mb-2">Challenge</h4>
-                      <p className="text-muted-foreground">{study.challenge}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-charcoal mb-2">Solution</h4>
-                      <p className="text-muted-foreground">{study.solution}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-charcoal mb-2">Results</h4>
-                      <p className="text-tape-yellow font-semibold">{study.results}</p>
-                    </div>
-                  </div>
-
-                  {/* Metric highlight */}
-                  <div className="mt-6 p-4 bg-accent rounded-lg">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-tape-yellow rounded-lg">
-                        <study.metrics.icon className="w-5 h-5 text-charcoal" />
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-charcoal">
-                          {study.metrics.value}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          {study.metrics.label}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+        {/* Video and Client Comments */}
+        <div className="max-w-5xl mx-auto">
+          {/* Video Player */}
+          <div className="mb-6">
+            <div className="relative aspect-video bg-charcoal/5 rounded-2xl overflow-hidden group border-4 border-charcoal/10 shadow-lg">
+              <img 
+                src={currentCase.videoThumbnail}
+                alt={currentCase.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-24 h-24 bg-tape-yellow rounded-full flex items-center justify-center shadow-2xl">
+                  <Play className="w-12 h-12 text-charcoal ml-2" />
+                </div>
+              </div>
+              
+              {/* Title overlay */}
+              <div className="absolute top-6 left-6">
+                <div className="bg-charcoal/80 text-white px-4 py-2 rounded-lg backdrop-blur-sm">
+                  <p className="text-lg font-bold">{currentCase.title}</p>
                 </div>
               </div>
 
-              {/* Chart */}
-              <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                <div className="sticky-note p-6">
-                  <Card className="border-none shadow-none bg-transparent p-4">
-                    {study.chartComponent}
-                  </Card>
+              {/* Result Badge */}
+              <div className="absolute bottom-6 right-6">
+                <div className="bg-coral-accent text-white px-4 py-2 rounded-lg">
+                  <p className="text-sm font-bold">{currentCase.result}</p>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Client Comment Card */}
+          <div className="sticky-note sticky-lavender p-8 max-w-3xl mx-auto">
+            <div className="flex flex-col items-center">
+              {/* Client Avatar */}
+              <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-charcoal/10 mb-4">
+                <img 
+                  src={currentCase.clientAvatar}
+                  alt={currentCase.client}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Client Name */}
+              <div className="text-center mb-4">
+                <h4 className="text-2xl font-bold text-charcoal mb-1">
+                  {currentCase.client}
+                </h4>
+                <p className="text-charcoal/60">
+                  {currentCase.clientRole}
+                </p>
+              </div>
+
+              {/* Comment Text */}
+              <p className="text-charcoal text-lg leading-relaxed text-center italic">
+                "{currentCase.comment}"
+              </p>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <button
+              onClick={prevCase}
+              className="rounded-full w-12 h-12 border-2 border-charcoal/30 bg-white hover:bg-tape-yellow hover:border-tape-yellow transition-all flex items-center justify-center cursor-pointer"
+              aria-label="Previous case study"
+            >
+              <ChevronLeft className="w-5 h-5 text-charcoal" strokeWidth={2} />
+            </button>
+            
+            {/* Dots Indicator */}
+            <div className="flex items-center gap-2">
+              {caseStudies.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`transition-all rounded-full ${
+                    currentIndex === index 
+                      ? 'w-8 h-3 bg-coral-accent' 
+                      : 'w-3 h-3 bg-charcoal/20 hover:bg-charcoal/40'
+                  }`}
+                  aria-label={`Go to case study ${index + 1}`}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={nextCase}
+              className="rounded-full w-12 h-12 border-2 border-charcoal/30 bg-white hover:bg-tape-yellow hover:border-tape-yellow transition-all flex items-center justify-center cursor-pointer"
+              aria-label="Next case study"
+            >
+              <ChevronRight className="w-5 h-5 text-charcoal" strokeWidth={2} />
+            </button>
+          </div>
         </div>
       </div>
     </section>

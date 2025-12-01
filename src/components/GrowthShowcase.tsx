@@ -188,7 +188,7 @@ const GrowthShowcase = () => {
 
       <div className="max-w-6xl mx-auto relative">
         <div className="text-center mb-12">
-          <div className="sticky-mint paper-clip rotate-random-1 p-8 max-w-2xl mx-auto">
+          <div className="sticky-mint  paper-clip rotate-random-1 p-8 max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Real Results for 
               <span className="text-coral-accent"> Real Clients</span>
@@ -200,7 +200,7 @@ const GrowthShowcase = () => {
         </div>
 
         {/* Scattered analytics showcase */}
-        <div className="relative min-h-[600px] mb-12">
+        <div className="relative min-h-[400px] mb-12">
           <div 
             key={currentSet}
             className="relative transition-all duration-500 ease-in-out transform"
@@ -213,31 +213,32 @@ const GrowthShowcase = () => {
                   alt="YouTube growth analytics dashboard"
                   className={`w-full h-full object-cover bg-transparent image-fix ${slideDirection === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'}`}
                   style={{
-                    clipPath: `polygon(
-                      2% 1%, 5% 0.5%, 8% 1.5%, 12% 0.8%, 15% 1.2%, 18% 0.5%, 22% 1%, 25% 0.3%, 
-                      28% 1.5%, 32% 0.7%, 35% 1%, 38% 0.5%, 42% 1.2%, 45% 0.8%, 48% 1%, 52% 0.5%, 
-                      55% 1.2%, 58% 0.7%, 62% 1%, 65% 0.5%, 68% 1.5%, 72% 0.8%, 75% 1%, 78% 0.5%, 
-                      82% 1.2%, 85% 0.7%, 88% 1%, 92% 0.5%, 95% 1.2%, 98% 0.7%,
-                      99% 5%, 99.5% 8%, 98.5% 12%, 99.2% 15%, 98.8% 18%, 99.5% 22%, 99% 25%, 
-                      99.7% 28%, 98.5% 32%, 99.3% 35%, 99% 38%, 99.5% 42%, 98.8% 45%, 99% 48%, 
-                      99.5% 52%, 98.8% 55%, 99.3% 58%, 99% 62%, 99.5% 65%, 98.5% 68%, 99.2% 72%, 
-                      99% 75%, 99.5% 78%, 98.8% 82%, 99.3% 85%, 99% 88%, 99.5% 92%, 98.7% 95%, 99% 98%,
-                      98% 99%, 95% 99.5%, 92% 98.5%, 88% 99.2%, 85% 98.8%, 82% 99.5%, 78% 99%, 
-                      75% 99.7%, 72% 98.5%, 68% 99.3%, 65% 99%, 62% 99.5%, 58% 98.8%, 55% 99%, 
-                      52% 99.5%, 48% 98.8%, 45% 99.3%, 42% 99%, 38% 99.5%, 35% 98.5%, 32% 99.2%, 
-                      28% 99%, 25% 99.5%, 22% 98.8%, 18% 99.3%, 15% 99%, 12% 99.5%, 8% 98.7%, 5% 99%, 2% 98.5%,
-                      1% 95%, 0.5% 92%, 1.5% 88%, 0.8% 85%, 1.2% 82%, 0.5% 78%, 1% 75%, 0.3% 72%, 
-                      1.5% 68%, 0.7% 65%, 1% 62%, 0.5% 58%, 1.2% 55%, 0.8% 52%, 1% 48%, 0.5% 45%, 
-                      1.2% 42%, 0.7% 38%, 1% 35%, 0.5% 32%, 1.5% 28%, 0.8% 25%, 1% 22%, 0.5% 18%, 
-                      1.2% 15%, 0.7% 12%, 1% 8%, 0.5% 5%, 1.2% 2%
-                    )`,
+                    // clipPath: `polygon(
+                    //   2% 1%, 5% 0.5%, 8% 1.5%, 12% 0.8%, 15% 1.2%, 18% 0.5%, 22% 1%, 25% 0.3%, 
+                    //   28% 1.5%, 32% 0.7%, 35% 1%, 38% 0.5%, 42% 1.2%, 45% 0.8%, 48% 1%, 52% 0.5%, 
+                    //   55% 1.2%, 58% 0.7%, 62% 1%, 65% 0.5%, 68% 1.5%, 72% 0.8%, 75% 1%, 78% 0.5%, 
+                    //   82% 1.2%, 85% 0.7%, 88% 1%, 92% 0.5%, 95% 1.2%, 98% 0.7%,
+                    //   99% 5%, 99.5% 8%, 98.5% 12%, 99.2% 15%, 98.8% 18%, 99.5% 22%, 99% 25%, 
+                    //   99.7% 28%, 98.5% 32%, 99.3% 35%, 99% 38%, 99.5% 42%, 98.8% 45%, 99% 48%, 
+                    //   99.5% 52%, 98.8% 55%, 99.3% 58%, 99% 62%, 99.5% 65%, 98.5% 68%, 99.2% 72%, 
+                    //   99% 75%, 99.5% 78%, 98.8% 82%, 99.3% 85%, 99% 88%, 99.5% 92%, 98.7% 95%, 99% 98%,
+                    //   98% 99%, 95% 99.5%, 92% 98.5%, 88% 99.2%, 85% 98.8%, 82% 99.5%, 78% 99%, 
+                    //   75% 99.7%, 72% 98.5%, 68% 99.3%, 65% 99%, 62% 99.5%, 58% 98.8%, 55% 99%, 
+                    //   52% 99.5%, 48% 98.8%, 45% 99.3%, 42% 99%, 38% 99.5%, 35% 98.5%, 32% 99.2%, 
+                    //   28% 99%, 25% 99.5%, 22% 98.8%, 18% 99.3%, 15% 99%, 12% 99.5%, 8% 98.7%, 5% 99%, 2% 98.5%,
+                    //   1% 95%, 0.5% 92%, 1.5% 88%, 0.8% 85%, 1.2% 82%, 0.5% 78%, 1% 75%, 0.3% 72%, 
+                    //   1.5% 68%, 0.7% 65%, 1% 62%, 0.5% 58%, 1.2% 55%, 0.8% 52%, 1% 48%, 0.5% 45%, 
+                    //   1.2% 42%, 0.7% 38%, 1% 35%, 0.5% 32%, 1.5% 28%, 0.8% 25%, 1% 22%, 0.5% 18%, 
+                    //   1.2% 15%, 0.7% 12%, 1% 8%, 0.5% 5%, 1.2% 2%
+                    // )`,
                     filter: 'contrast(1.05) brightness(0.98)',
                   }}
                 />
               </div>
             </div>
 
-            {/* Animated Analytics Cards */}
+            {/* Animated Analytics Cards - TURNED OFF AS REQUESTED */}
+            {/* 
             {analyticsData[currentSet].metrics.map((analytic, index) => (
               <div
                 key={index}
@@ -261,7 +262,7 @@ const GrowthShowcase = () => {
                   }}
                 >
                   {/* Hand-drawn border effect */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ filter: 'blur(0.5px)' }}>
+                  {/* <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ filter: 'blur(0.5px)' }}>
                     <rect
                       x="3"
                       y="3"
@@ -298,7 +299,7 @@ const GrowthShowcase = () => {
                     </div>
 
                     {/* Mini trend line */}
-                    <svg className="w-full h-12 mt-3" viewBox="0 0 100 30">
+                    {/* <svg className="w-full h-12 mt-3" viewBox="0 0 100 30">
                       <path
                         d={`M 0,${25 - (index * 3)} Q 25,${20 - (index * 2)} 50,${15 - index} T 100,${10 - (index * 2)}`}
                         fill="none"
@@ -314,7 +315,7 @@ const GrowthShowcase = () => {
                         }}
                       />
                       {/* Dots on the line */}
-                      {[0, 33, 66, 100].map((x, i) => (
+                      {/* {[0, 33, 66, 100].map((x, i) => (
                         <circle
                           key={i}
                           cx={x}
@@ -332,7 +333,7 @@ const GrowthShowcase = () => {
                   </div>
 
                   {/* Paper texture overlay */}
-                  <div className="absolute inset-0 opacity-10 pointer-events-none"
+                  {/* <div className="absolute inset-0 opacity-10 pointer-events-none"
                     style={{
                       backgroundImage: `repeating-linear-gradient(
                         0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
@@ -341,7 +342,7 @@ const GrowthShowcase = () => {
                   />
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
 
           {/* Navigation Arrows */}

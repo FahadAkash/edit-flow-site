@@ -1,13 +1,8 @@
-import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import WorkGrid from "./WorkGrid";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
 
 const TestimonialCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const testimonials = [
     {
@@ -16,9 +11,11 @@ const TestimonialCarousel = () => {
       role: "CEO",
       company: "TechReview Pro",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      content: "Our channel went from 50K to 2.5M subscribers in just 6 months. The editing quality and storytelling completely transformed our content strategy.",
+      content: "Our channel went from 50K to 2.5M subscribers in just 6 months. The editing quality and storytelling completely transformed our content strategy. The team doesn't just edit - they engineer viral content that resonates.",
       rating: 5,
-      result: "2.5M subscribers gained"
+      result: "2.5M subscribers gained",
+      clientVideo: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=600&fit=crop",
+      editedVideo: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=450&fit=crop"
     },
     {
       id: 2,
@@ -26,213 +23,215 @@ const TestimonialCarousel = () => {
       role: "Marketing Director",
       company: "FitLife Brand",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      content: "The team doesn't just edit videos - they engineer viral content. Our engagement rates increased by 400% after working with them.",
+      content: "The team doesn't just edit videos - they engineer viral content. Our engagement rates increased by 400% after working with them. Every video they produce hits the mark and drives real business results.",
       rating: 5,
-      result: "400% engagement increase"
+      result: "400% engagement increase",
+      clientVideo: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=600&fit=crop",
+      editedVideo: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=800&h=450&fit=crop"
     },
     {
       id: 3,
       name: "Lisa Rodriguez",
-      role: "Founder",
+name: "Founder",
       company: "CreativeCo Studio",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-      content: "Professional, creative, and results-driven. They turned our boring product demos into compelling stories that actually convert.",
+      content: "Professional, creative, and results-driven. They turned our boring product demos into compelling stories that actually convert. The ROI has been phenomenal and our brand has never looked better.",
       rating: 5,
-      result: "300% conversion rate boost"
-    },
-    {
-      id: 4,
-      name: "David Park",
-      role: "Content Manager",
-      company: "EduTech Solutions",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-      content: "Best investment we made for our content strategy. The videos they produce consistently hit 1M+ views and drive real business results.",
-      rating: 5,
-      result: "1M+ views per video"
-    },
-    {
-      id: 5,
-      name: "Emma Thompson",
-      role: "Brand Manager",
-      company: "Fashion Forward",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-      content: "They understand our brand voice perfectly and create content that resonates with our audience. ROI has been incredible.",
-      rating: 5,
-      result: "500% ROI improvement"
-    },
-    {
-      id: 6,
-      name: "Alex Kim",
-      role: "Startup Founder",
-      company: "InnovateLab",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      content: "From concept to final edit, they handle everything. The quality is consistently outstanding and delivery is always on time.",
-      rating: 5,
-      result: "Always on-time delivery"
+      result: "300% conversion rate boost",
+      clientVideo: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&h=600&fit=crop",
+      editedVideo: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=450&fit=crop"
     }
   ];
 
-  // Gentle auto-scroll effect
-  useEffect(() => {
-    if (isHovered) return;
-    const container = scrollRef.current;
-    if (!container) return;
-    let frame: number;
-    const scrollStep = 0.3; // px per frame, very gentle
-    function animate() {
-      if (!container) return;
-      container.scrollLeft += scrollStep;
-      // Loop scroll
-      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 1) {
-        container.scrollLeft = 0;
-      }
-      frame = requestAnimationFrame(animate);
-    }
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
-  }, [isHovered]);
-
-  const scroll = (direction: 'left' | 'right') => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const cardWidth = 400; // width + gap
-    const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-    
-    container.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth'
-    });
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
+
   return (
-    <section className="py-6 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-6">
-          <div className="p-4 max-w-2xl mx-auto">
-            <h2 className="text-5xl md:text-6xl font-bold text-charcoal mb-2">
-              What Clients <span className="text-tape-yellow">Say</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Don't just take our word for it - hear from the brands we've helped grow
-            </p>
-          </div>
+    <section className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-bold text-charcoal mb-4">
+            Before & <span className="text-coral-accent">After</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            See the transformation - raw footage to viral content
+          </p>
         </div>
 
-        {/* Work Grid System */}
-        <div className="mb-6 -mx-4">
-          <WorkGrid />
-        </div>
-
-        {/* Testimonial Carousel */}
-        <div className="relative mt-2">
-          {/* Fade gradients */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
-
-          <div 
-            ref={scrollRef}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="p-4 shrink-0 w-96 hover:scale-105 transition-transform duration-300"
-              >
-                <Card className="border-none shadow-none bg-transparent p-0 h-full">
-                  {/* Quote icon */}
-                  <div className="mb-3">
-                    <Quote className="w-6 h-6 text-coral-accent" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="mb-4">
-                    <p className="text-charcoal leading-relaxed italic text-sm">
-                      "{testimonial.content}"
-                    </p>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex items-center gap-1 mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-tape-yellow text-tape-yellow" />
-                    ))}
-                  </div>
-
-                  {/* Result highlight */}
-                  <div className="bg-accent p-2 rounded-lg mb-3">
-                    <p className="text-xs font-semibold text-coral-accent">
-                      Result: {testimonial.result}
-                    </p>
-                  </div>
-
-                  {/* Author */}
-                  <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full overflow-hidden bg-muted">
-                      <img 
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-charcoal text-sm">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-xs text-muted-foreground">
-                        {testimonial.role}, {testimonial.company}
-                      </p>
+        {/* Main Content - Video Comparison */}
+        <div className="relative">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            {/* Left Column - Client Review Video (Vertical) */}
+            <div className="lg:col-span-1">
+              <div className="sticky-note sticky-peach p-6 h-full">
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-charcoal mb-2">Client Review</h3>
+                  <div className="h-1 w-20 bg-charcoal/20 rounded"></div>
+                </div>
+                
+                {/* Vertical Video Player */}
+                <div className="relative aspect-[9/16] bg-charcoal/5 rounded-lg overflow-hidden group border-4 border-charcoal/10">
+                  <img 
+                    src={currentTestimonial.clientVideo}
+                    alt="Client's original video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center">
+                      <Play className="w-8 h-8 text-charcoal ml-1" />
                     </div>
                   </div>
-                </Card>
+                  {/* Label */}
+                  <div className="absolute top-4 left-4 bg-charcoal/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    Before
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Right Column - Our Edit + Review Text */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Top - Edited Video (Horizontal) */}
+              <div className="sticky-note sticky-sky p-6">
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-charcoal mb-2">Our Edit</h3>
+                  <div className="h-1 w-20 bg-charcoal/20 rounded"></div>
+                </div>
+                
+                {/* Horizontal Video Player */}
+                <div className="relative aspect-video bg-charcoal/5 rounded-lg overflow-hidden group border-4 border-charcoal/10">
+                  <img 
+                    src={currentTestimonial.editedVideo}
+                    alt="Our edited video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-20 h-20 bg-tape-yellow rounded-full flex items-center justify-center shadow-lg">
+                      <Play className="w-10 h-10 text-charcoal ml-1" />
+                    </div>
+                  </div>
+                  {/* Label */}
+                  <div className="absolute top-4 left-4 bg-coral-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    After
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom - Review Text */}
+              <div className="sticky-note sticky-lemon p-6">
+                <div className="flex items-start gap-4">
+                  {/* Avatar */}
+                  <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-charcoal/10 flex-shrink-0">
+                    <img 
+                      src={currentTestimonial.avatar}
+                      alt={currentTestimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  {/* Text Content */}
+                  <div className="flex-1">
+                    {/* Rating */}
+                    <div className="flex items-center gap-1 mb-3">
+                      {[...Array(currentTestimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-tape-yellow text-tape-yellow" />
+                      ))}
+                    </div>
+                    
+                    {/* Review Text */}
+                    <p className="text-charcoal text-lg leading-relaxed mb-4 italic">
+                      "{currentTestimonial.content}"
+                    </p>
+                    
+                    {/* Author Info */}
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="font-bold text-charcoal text-lg">
+                          {currentTestimonial.name}
+                        </h4>
+                        <p className="text-charcoal/60 text-sm">
+                          {currentTestimonial.role}, {currentTestimonial.company}
+                        </p>
+                      </div>
+                      
+                      {/* Result Badge */}
+                      <div className="bg-coral-accent text-white px-4 py-2 rounded-lg">
+                        <p className="text-sm font-bold">
+                          {currentTestimonial.result}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex justify-center gap-3 mt-4">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => scroll('left')}
-              className="rounded-full w-8 h-8"
+          {/* Navigation Buttons */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <button
+              onClick={prevTestimonial}
+              className="rounded-full w-14 h-14 border-2 border-charcoal/30 bg-white hover:bg-tape-yellow hover:border-tape-yellow transition-all flex items-center justify-center cursor-pointer"
+              aria-label="Previous testimonial"
             >
-              <ChevronLeft className="w-3 h-3" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => scroll('right')}
-              className="rounded-full w-8 h-8"
+              <ChevronLeft className="w-6 h-6 text-charcoal" strokeWidth={2} />
+            </button>
+            
+            {/* Dots Indicator */}
+            <div className="flex items-center gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`transition-all rounded-full ${
+                    currentIndex === index 
+                      ? 'w-8 h-3 bg-coral-accent' 
+                      : 'w-3 h-3 bg-charcoal/20 hover:bg-charcoal/40'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={nextTestimonial}
+              className="rounded-full w-14 h-14 border-2 border-charcoal/30 bg-white hover:bg-tape-yellow hover:border-tape-yellow transition-all flex items-center justify-center cursor-pointer"
+              aria-label="Next testimonial"
             >
-              <ChevronRight className="w-3 h-3" />
-            </Button>
+              <ChevronRight className="w-6 h-6 text-charcoal" strokeWidth={2} />
+            </button>
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+        {/* Stats - Optional */}
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
           {[
             { value: "500+", label: "Happy Clients" },
             { value: "2000+", label: "Videos Created" },
             { value: "100M+", label: "Total Views" },
             { value: "98%", label: "Client Retention" }
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="p-3">
-                <div className="text-2xl font-bold text-coral-accent mb-1">
+          ].map((stat, index) => {
+            const colors = ['sticky-peach', 'sticky-sky', 'sticky-lavender', 'sticky-lemon'];
+            return (
+              <div key={index} className={`${colors[index]} p-6 text-center rotate-random-${index + 1}`}>
+                <div className="text-4xl font-bold text-charcoal mb-2">
                   {stat.value}
                 </div>
-                <div className="text-xs text-muted-foreground">
+                <div className="text-sm text-charcoal/70 font-medium">
                   {stat.label}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            );
+          })}
+        </div> */}
       </div>
     </section>
   );
