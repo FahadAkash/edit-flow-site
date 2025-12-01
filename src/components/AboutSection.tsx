@@ -71,11 +71,11 @@ const AboutSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: -3 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="sticky-peach push-pin rotate-random-3 p-8 max-w-2xl mx-auto"
+            className="sticky-peach push-pin p-8 max-w-2xl mx-auto"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Why Choose <span className="text-tape-yellow">Us?</span>

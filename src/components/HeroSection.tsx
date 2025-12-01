@@ -21,20 +21,6 @@ const HeroSection = () => {
     ease: "easeInOut"
   };
 
-  const pulseGlow = {
-    boxShadow: [
-      "0 0 20px rgba(255, 179, 0, 0.3)",
-      "0 0 30px rgba(255, 179, 0, 0.6), 0 0 50px rgba(255, 179, 0, 0.2)",
-      "0 0 20px rgba(255, 179, 0, 0.3)"
-    ]
-  };
-
-  const pulseTransition = {
-    duration: 2,
-    repeat: Infinity,
-    ease: "easeInOut"
-  };
-
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-8 relative overflow-hidden">
       {/* Floating background elements */}
@@ -205,9 +191,9 @@ const HeroSection = () => {
                   <motion.div 
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-charcoal text-white text-xs font-bold flex items-center justify-center ring-2 ring-white shadow"
+                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-charcoal text-white text-xs font-bold flex items-center justify-center ring-2 ring-white shadow z-20"
                   >
-                    9+
+                    465+
                   </motion.div>
                 </div>
               </div>
@@ -215,68 +201,60 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Video Player */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="relative mt-4 mb-4 group flex-shrink-0"
+        {/* Video Player - Commented out for later use */}
+        {/* <motion.div ... video player code ... </motion.div> */}
+
+        {/* Value Proposition Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-8 mb-6"
         >
-          <div className="sticky-note p-4 max-w-3xl mx-auto relative">
-            {/* Sticky note hover effect */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-tape-yellow/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg" />
-            
-            <motion.div 
-              className="relative aspect-video bg-muted rounded-lg overflow-hidden shadow-md"
-              whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)" }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src={heroVideoPoster}
-                alt="Video editing workspace showcase"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-charcoal/20 flex items-center justify-center transition-all duration-300">
-                <motion.button
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  className="w-20 h-20 bg-tape-yellow/90 rounded-full flex items-center justify-center shadow-lg relative z-10"
-                  animate={pulseGlow}
-                  transition={pulseTransition}
-                  whileHover={{ scale: 1.1, backgroundColor: "#FFB300" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {isPlaying ? (
-                    <Pause className="w-8 h-8 text-charcoal" />
-                  ) : (
-                    <Play className="w-8 h-8 text-charcoal ml-1" />
-                  )}
-                </motion.button>
-              </div>
-              
-              {/* Animated arrow */}
-              <svg className="absolute left-4 bottom-4 w-32 h-16 pointer-events-none" viewBox="0 0 128 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <motion.path 
-                  d="M4 28 Q 32 4 64 24 Q 96 44 124 8" 
-                  stroke="#FF6F61" 
-                  strokeWidth="4" 
-                  strokeLinecap="round" 
-                  fill="none" 
-                  className="drop-shadow-sm"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
-                />
-                <motion.circle 
-                  cx="124" cy="8" r="4" 
-                  fill="#FFB300" 
-                  className="drop-shadow-sm"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.3, delay: 2.5 }}
-                />
-              </svg>
-            </motion.div>
+          {/* Benefit Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+            {[
+              { icon: "🎬", title: "10+ Videos/Month", desc: "Consistent content flow" },
+              { icon: "✨", title: "Done-For-You", desc: "We handle everything" },
+              { icon: "📈", title: "Proven Results", desc: "500+ successful videos" }
+            ].map((benefit, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 + (i * 0.1) }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="sticky-note p-6 text-center group cursor-pointer"
+              >
+                <div className="text-4xl mb-3">{benefit.icon}</div>
+                <h3 className="text-xl font-bold text-charcoal mb-2 group-hover:text-coral-accent transition-colors">
+                  {benefit.title}
+                </h3>
+                <p className="text-charcoal/70 text-sm">
+                  {benefit.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
+
+          {/* Primary CTA */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="text-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 179, 0, 0.3)" }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-tape-yellow hover:bg-tape-yellow/90 text-charcoal font-bold text-lg px-12 py-4 rounded-full shadow-lg transition-all duration-300"
+            >
+              Start Your Project Today
+            </motion.button>
+            <p className="text-charcoal/60 text-sm mt-4">
+              No credit card required • Free consultation
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Brand logos */}

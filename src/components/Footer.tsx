@@ -24,13 +24,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto">
         {/* Main CTA */}
         <div className="text-center mb-12">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="sticky-note p-8 max-w-2xl mx-auto bg-paper-white"
-          >
+          <div className="sticky-note p-8 max-w-2xl mx-auto bg-paper-white">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Ready to Go <span className="text-coral-accent">Viral?</span>
             </h2>
@@ -49,7 +43,7 @@ const Footer = () => {
                 </Button>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Footer content */}
