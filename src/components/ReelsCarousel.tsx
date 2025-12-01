@@ -121,11 +121,11 @@ const ReelsCarousel = () => {
   const currentVideos = videos[activeTab as keyof typeof videos];
 
   return (
-    <section className="py-16 px-4 bg-charcoal">
+    <section className="py-16 px-4 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold text-charcoal mb-8">
             Featured Projects
           </h2>
 
@@ -138,7 +138,7 @@ const ReelsCarousel = () => {
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   activeTab === tab.id
                     ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-charcoal/50 text-white/70 hover:bg-charcoal/70 border border-white/20'
+                    : 'bg-white text-charcoal hover:bg-muted border-2 border-charcoal/20'
                 }`}
               >
                 {tab.label}

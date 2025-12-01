@@ -6,6 +6,7 @@ import CaseStudies from "@/components/CaseStudies";
 import AboutSection from "@/components/AboutSection";
 import TimelineSection from "@/components/TimelineSection";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import SocialProof from "@/components/SocialProof";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <TestimonialCarousel />
       <CaseStudies />
       <ReelsCarousel />
+      <SocialProof />
       
       <AboutSection />
       <TimelineSection />
