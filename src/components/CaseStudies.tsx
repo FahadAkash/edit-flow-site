@@ -119,35 +119,14 @@ const CaseStudies = () => {
     },
     {
       id: 10,
-      title: "E-commerce Brand Transformation",
-      client: "Sarah Mitchell",
-      clientRole: "CEO, FashionForward",
-      clientAvatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      comment: "Working with this team completely transformed our video content strategy. The editing quality and storytelling brought our products to life in ways we never imagined. Our engagement rates skyrocketed by 300% and sales increased by 250%. Every video they produce is a masterpiece that resonates with our audience.",
-      videoThumbnail: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&h=675&fit=crop",
-      result: "+300% Engagement Growth",
-      videoFormat: "long" as VideoFormat
-    },
-    {
-      id: 11,
-      title: "Tech Startup Success Story",
-      client: "Michael Chen",
-      clientRole: "Founder, InnovateTech",
-      clientAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      comment: "They took our complex technical product and created educational videos that anyone could understand. The animated graphics and clear explanations helped us reach 1.2 million views across platforms with a 40% conversion rate. The ROI has been incredible and continues to grow.",
-      videoThumbnail: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1200&h=675&fit=crop",
-      result: "1.2M Total Views",
-      videoFormat: "long" as VideoFormat
-    },
-    {
-      id: 12,
-      title: "Multi-Platform Campaign",
-      client: "Emma Rodriguez",
-      clientRole: "Marketing Director, GlobalBrand",
-      clientAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-      comment: "The team's expertise in creating platform-specific content was game-changing for us. Each video was perfectly tailored for its platform while maintaining our brand identity. We saw a 45% increase in brand awareness across all channels and our social media presence has never been stronger.",
-      videoThumbnail: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=675&fit=crop",
-      result: "+45% Brand Awareness",
+      title: "AI Alfie Success Story",
+      client: "AI Alfie",
+      clientRole: "AI & Tech Content Creator",
+      clientAvatar: "/ai_alfie.jpg",
+      comment: "Phenomenal work! The editing team perfectly understood my vision for AI content. They created stunning visuals that explain complex topics in an engaging way. My subscribers love the new production quality!",
+      videoUrl: "https://www.youtube.com/embed/hLJTcVHW8_I",
+      videoThumbnail: "https://img.youtube.com/vi/hLJTcVHW8_I/maxresdefault.jpg",
+      result: "AI Content Star",
       videoFormat: "long" as VideoFormat
     }
   ];
