@@ -35,6 +35,90 @@ const CaseStudies = () => {
     },
     {
       id: 3,
+      title: "Bryan Guerra Success Story",
+      client: "Bryan Guerra",
+      clientRole: "YouTube Entrepreneur",
+      clientAvatar: "/bryan_guerra.jpg",
+      comment: "Incredible video editing that took my YouTube channel to the next level! The attention to detail and professional quality helped me grow my audience significantly. Highly recommend their services!",
+      videoUrl: "https://www.youtube.com/embed/cyabAl8I0bA",
+      videoThumbnail: "https://img.youtube.com/vi/cyabAl8I0bA/maxresdefault.jpg",
+      result: "Channel Growth",
+      videoFormat: "long" as VideoFormat
+    },
+    {
+      id: 4,
+      title: "Culture Code Music Success Story",
+      client: "culturecodemusic",
+      clientRole: "Music Producer & Artist",
+      clientAvatar: "/culturecodemusic.jpg",
+      comment: "The video production quality exceeded all my expectations! They perfectly captured the essence of my music and created visuals that resonate with my audience. My music videos have never looked better!",
+      videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU",
+      videoThumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/maxresdefault.jpg",
+      result: "Viral Music Video",
+      videoFormat: "long" as VideoFormat
+    },
+    {
+      id: 5,
+      title: "Culture Code Music - Second Video",
+      client: "culturecodemusic",
+      clientRole: "Music Producer & Artist",
+      clientAvatar: "/culturecodemusic2.jpg",
+      comment: "Another amazing collaboration! The creativity and professionalism never disappoints. Each project brings something fresh and exciting. Can't wait to work on more videos together!",
+      videoUrl: "https://www.youtube.com/embed/4t0golxJb8A",
+      videoThumbnail: "https://img.youtube.com/vi/4t0golxJb8A/maxresdefault.jpg",
+      result: "Hit Track Visual",
+      videoFormat: "long" as VideoFormat
+    },
+    {
+      id: 6,
+      title: "Culture Code Music - Short Clip",
+      client: "culturecodemusic",
+      clientRole: "Music Producer & Artist",
+      clientAvatar: "/culturecodemusic3.jpg",
+      comment: "Perfect for social media! They know exactly how to create engaging short-form content that captures attention instantly. My reels and shorts are getting way more views now!",
+      videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU",
+      videoThumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/maxresdefault.jpg",
+      result: "Viral Short",
+      videoFormat: "short" as VideoFormat
+    },
+    {
+      id: 7,
+      title: "Culture Code Music - Shorts Special",
+      client: "culturecodemusic",
+      clientRole: "Music Producer & Artist",
+      clientAvatar: "/culturecodemusic4.jpg",
+      comment: "The short-form content they create is absolutely fire! Every clip is perfectly optimized for maximum engagement. My YouTube Shorts are blowing up thanks to their editing magic!",
+      videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk",
+      videoThumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/maxresdefault.jpg",
+      result: "Shorts Viral",
+      videoFormat: "short" as VideoFormat
+    },
+    {
+      id: 8,
+      title: "Hellcat Priime Success Story",
+      client: "hellcatpriime",
+      clientRole: "Gaming Content Creator",
+      clientAvatar: "/hellcatpriime.jpg",
+      comment: "These guys are absolute legends! They transformed my gaming content into cinematic masterpieces. The editing style is exactly what I was looking for - dynamic, engaging, and professional!",
+      videoUrl: "https://www.youtube.com/embed/YUDeFFUHglc",
+      videoThumbnail: "https://img.youtube.com/vi/YUDeFFUHglc/maxresdefault.jpg",
+      result: "Gaming Legend",
+      videoFormat: "long" as VideoFormat
+    },
+    {
+      id: 9,
+      title: "Hellcat Priime - Short Content",
+      client: "hellcatpriime",
+      clientRole: "Gaming Content Creator",
+      clientAvatar: "/culturecodemusic4.jpg",
+      comment: "Short-form gaming content done right! They capture the most epic moments and turn them into viral clips. My TikTok and YouTube Shorts are crushing it!",
+      videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk",
+      videoThumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/maxresdefault.jpg",
+      result: "Gaming Clips",
+      videoFormat: "short" as VideoFormat
+    },
+    {
+      id: 10,
       title: "E-commerce Brand Transformation",
       client: "Sarah Mitchell",
       clientRole: "CEO, FashionForward",
@@ -45,7 +129,7 @@ const CaseStudies = () => {
       videoFormat: "long" as VideoFormat
     },
     {
-      id: 4,
+      id: 11,
       title: "Tech Startup Success Story",
       client: "Michael Chen",
       clientRole: "Founder, InnovateTech",
@@ -56,7 +140,7 @@ const CaseStudies = () => {
       videoFormat: "long" as VideoFormat
     },
     {
-      id: 5,
+      id: 12,
       title: "Multi-Platform Campaign",
       client: "Emma Rodriguez",
       clientRole: "Marketing Director, GlobalBrand",
