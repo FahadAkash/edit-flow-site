@@ -351,9 +351,27 @@ const SocialProof = () => {
                 key={review.id}
                 variants={itemVariants}
                 initial="hidden"
-                animate="visible"
+                animate={{
+                  opacity: 1,
+                  y: [0, -6, 0, -3, 0],
+                  rotate: [0, 0.5, 0, -0.5, 0]
+                }}
+                transition={{
+                  y: {
+                    duration: 4 + (review.id % 3),
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: (review.id % 5) * 0.5
+                  },
+                  rotate: {
+                    duration: 5 + (review.id % 4),
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: (review.id % 4) * 0.3
+                  }
+                }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
                 className={`${review.color} p-4 rounded-lg shadow-md border-2 border-charcoal/10 hover:shadow-xl transition-shadow duration-300 ${getSizeClass(review.size)}`}
               >
                 {/* Author Info */}
