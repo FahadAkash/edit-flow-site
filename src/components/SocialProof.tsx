@@ -17,174 +17,34 @@ const SocialProof = () => {
   const getScreenshot = (id: number) => screenshots[(id - 1) % screenshots.length];
   
   const reviews = [
-    {
-      id: 1,
-      type: "facebook",
-      color: "bg-blue-50",
-      size: "normal"
-    },
-    {
-      id: 2,
-      type: "youtube",
-      color: "bg-white",
-      size: "compact"
-    },
-    {
-      id: 3,
-      type: "facebook",
-      color: "bg-blue-50",
-      size: "tall"
-    },
-    {
-      id: 4,
-      type: "google",
-      color: "bg-white",
-      size: "wide"
-    },
-    {
-      id: 5,
-      type: "facebook",
-      color: "bg-yellow-50",
-      size: "compact"
-    },
-    {
-      id: 6,
-      type: "discord",
-      color: "bg-green-50",
-      size: "normal"
-    },
-    {
-      id: 7,
-      type: "facebook",
-      color: "bg-blue-50",
-      size: "compact"
-    },
-    {
-      id: 8,
-      type: "email",
-      color: "bg-purple-50",
-      size: "tall"
-    },
-    {
-      id: 9,
-      type: "youtube",
-      color: "bg-white",
-      size: "normal"
-    },
-    {
-      id: 10,
-      type: "facebook",
-      color: "bg-yellow-50",
-      size: "wide"
-    },
-    {
-      id: 11,
-      type: "facebook",
-      color: "bg-green-50",
-      size: "tall"
-    },
-    {
-      id: 12,
-      type: "facebook",
-      color: "bg-blue-50",
-      size: "normal"
-    },
-    {
-      id: 13,
-      type: "linkedin",
-      color: "bg-blue-50",
-      size: "wide"
-    },
-    {
-      id: 14,
-      type: "twitter",
-      color: "bg-white",
-      size: "compact"
-    },
-    {
-      id: 15,
-      type: "facebook",
-      color: "bg-yellow-50",
-      size: "normal"
-    },
-    {
-      id: 16,
-      type: "instagram",
-      color: "bg-purple-50",
-      size: "tall"
-    },
-    {
-      id: 17,
-      type: "google",
-      color: "bg-white",
-      size: "compact"
-    },
-    {
-      id: 18,
-      type: "discord",
-      color: "bg-green-50",
-      size: "normal"
-    },
-    {
-      id: 19,
-      type: "facebook",
-      color: "bg-blue-50",
-      size: "wide"
-    },
-    {
-      id: 20,
-      type: "youtube",
-      color: "bg-white",
-      size: "tall"
-    },
-    {
-      id: 21,
-      type: "email",
-      color: "bg-yellow-50",
-      size: "normal"
-    },
-    {
-      id: 22,
-      type: "linkedin",
-      color: "bg-purple-50",
-      size: "compact"
-    },
-    {
-      id: 23,
-      type: "twitter",
-      color: "bg-green-50",
-      size: "wide"
-    },
-    {
-      id: 24,
-      type: "facebook",
-      color: "bg-blue-50",
-      size: "tall"
-    },
-    {
-      id: 25,
-      type: "instagram",
-      color: "bg-white",
-      size: "compact"
-    },
-    {
-      id: 26,
-      type: "google",
-      color: "bg-yellow-50",
-      size: "normal"
-    },
-    {
-      id: 27,
-      type: "discord",
-      color: "bg-purple-50",
-      size: "wide"
-    },
-    {
-      id: 28,
-      type: "facebook",
-      color: "bg-green-50",
-      size: "tall"
-    }
+    { id: 1, type: "facebook", color: "bg-blue-50", size: "normal" },
+    { id: 2, type: "youtube", color: "bg-white", size: "compact" },
+    { id: 3, type: "facebook", color: "bg-blue-50", size: "tall" },
+    { id: 4, type: "google", color: "bg-white", size: "wide" },
+    { id: 5, type: "facebook", color: "bg-yellow-50", size: "compact" },
+    { id: 6, type: "discord", color: "bg-green-50", size: "normal" },
+    { id: 7, type: "facebook", color: "bg-blue-50", size: "compact" },
+    { id: 8, type: "email", color: "bg-purple-50", size: "tall" },
+    { id: 9, type: "youtube", color: "bg-white", size: "normal" },
+    { id: 10, type: "facebook", color: "bg-yellow-50", size: "wide" },
+    { id: 11, type: "facebook", color: "bg-green-50", size: "tall" },
+    { id: 12, type: "facebook", color: "bg-blue-50", size: "normal" },
+    { id: 13, type: "linkedin", color: "bg-blue-50", size: "wide" },
+    { id: 14, type: "twitter", color: "bg-white", size: "compact" },
+    { id: 15, type: "facebook", color: "bg-yellow-50", size: "normal" },
+    { id: 16, type: "instagram", color: "bg-purple-50", size: "tall" },
+    { id: 17, type: "google", color: "bg-white", size: "compact" },
+    { id: 18, type: "discord", color: "bg-green-50", size: "normal" },
+    { id: 19, type: "facebook", color: "bg-blue-50", size: "wide" },
+    { id: 20, type: "youtube", color: "bg-white", size: "tall" },
+    { id: 21, type: "email", color: "bg-yellow-50", size: "normal" },
+    { id: 22, type: "linkedin", color: "bg-purple-50", size: "compact" },
+    { id: 23, type: "twitter", color: "bg-green-50", size: "wide" },
+    { id: 24, type: "facebook", color: "bg-blue-50", size: "tall" },
+    { id: 25, type: "instagram", color: "bg-white", size: "compact" },
+    { id: 26, type: "google", color: "bg-yellow-50", size: "normal" },
+    { id: 27, type: "discord", color: "bg-purple-50", size: "wide" },
+    { id: 28, type: "facebook", color: "bg-green-50", size: "tall" }
   ];
 
   const visibleReviews = reviews.slice(0, visibleCount);
@@ -292,11 +152,11 @@ const SocialProof = () => {
                 whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
                 className={`${review.color} p-2 rounded-lg shadow-md border-2 border-charcoal/10 hover:shadow-xl transition-shadow duration-300 overflow-hidden ${getSizeClass(review.size)}`}
               >
-                {/* Screenshot Image */}
+                {/* Screenshot Image - object-contain to show full screenshot */}
                 <img
                   src={getScreenshot(review.id)}
                   alt="Client review"
-                  className="w-full h-full object-cover rounded-md"
+                  className="w-full h-full rounded-md object-contain"
                 />
                 
                 {/* Platform Badge */}
