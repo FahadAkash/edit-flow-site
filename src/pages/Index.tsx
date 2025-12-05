@@ -8,6 +8,7 @@ import AfterEffectsBackground from "@/components/AfterEffectsBackground";
 import TimelineSection from "@/components/TimelineSection";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SocialProof from "@/components/SocialProof";
+import MeetTheFounder from "@/components/MeetTheFounder";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
       <CaseStudies />
       <ReelsCarousel />
       <SocialProof />
+      <MeetTheFounder />
       
       <AboutSection />
       

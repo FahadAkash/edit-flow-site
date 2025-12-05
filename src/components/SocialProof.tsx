@@ -1,8 +1,10 @@
-import { Star } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { useState } from "react";
+import { Star, ChevronDown } from "lucide-react";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 
 const SocialProof = () => {
-  // Placeholder reviews - you can replace the images later
+  const [visibleCount, setVisibleCount] = useState(8);
+  
   const reviews = [
     {
       id: 1,
@@ -267,6 +269,13 @@ const SocialProof = () => {
     }
   ];
 
+  const visibleReviews = reviews.slice(0, visibleCount);
+  const hasMore = visibleCount < reviews.length;
+
+  const loadMore = () => {
+    setVisibleCount(prev => Math.min(prev + 8, reviews.length));
+  };
+
   const getSizeClass = (size: string) => {
     switch(size) {
       case "tall":
@@ -336,78 +345,111 @@ const SocialProof = () => {
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-auto gap-4" 
           style={{ gridAutoFlow: 'dense' }}
         >
-          {reviews.map((review) => (
-            <motion.div
-              key={review.id}
-              variants={itemVariants}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className={`${review.color} p-4 rounded-lg shadow-md border-2 border-charcoal/10 hover:shadow-xl transition-shadow duration-300 ${getSizeClass(review.size)}`}
-            >
-              {/* Author Info */}
-              <div className="flex items-center gap-3 mb-3">
-                {review.avatar && (
-                  <div className="w-10 h-10 rounded-full overflow-hidden bg-charcoal/10 flex-shrink-0">
-                    <img
-                      src={review.avatar}
-                      alt={review.author}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h4 className="font-bold text-charcoal text-sm truncate">
-                      {review.author}
-                    </h4>
-                    {review.verified && (
-                      <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+          <AnimatePresence>
+            {visibleReviews.map((review) => (
+              <motion.div
+                key={review.id}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className={`${review.color} p-4 rounded-lg shadow-md border-2 border-charcoal/10 hover:shadow-xl transition-shadow duration-300 ${getSizeClass(review.size)}`}
+              >
+                {/* Author Info */}
+                <div className="flex items-center gap-3 mb-3">
+                  {review.avatar && (
+                    <div className="w-10 h-10 rounded-full overflow-hidden bg-charcoal/10 flex-shrink-0">
+                      <img
+                        src={review.avatar}
+                        alt={review.author}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-bold text-charcoal text-sm truncate">
+                        {review.author}
+                      </h4>
+                      {review.verified && (
+                        <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      )}
+                    </div>
+                    {review.role && (
+                      <p className="text-xs text-charcoal/60 truncate">{review.role}</p>
                     )}
                   </div>
-                  {review.role && (
-                    <p className="text-xs text-charcoal/60 truncate">{review.role}</p>
-                  )}
                 </div>
-              </div>
 
-              {/* Rating */}
-              {review.rating && (
-                <div className="flex items-center gap-1 mb-2">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-              )}
-
-              {/* Content */}
-              <p className="text-charcoal text-sm leading-relaxed mb-3">
-                {review.content}
-              </p>
-
-              {/* Footer */}
-              <div className="flex items-center justify-between text-xs text-charcoal/50">
-                {review.likes && (
-                  <div className="flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" />
-                    </svg>
-                    <span>{review.likes}</span>
+                {/* Rating */}
+                {review.rating && (
+                  <div className="flex items-center gap-1 mb-2">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                      />
+                    ))}
                   </div>
                 )}
-                {review.date && <span>{review.date}</span>}
-                {review.type && (
-                  <span className="text-xs font-medium capitalize bg-charcoal/10 px-2 py-1 rounded">
-                    {review.type}
-                  </span>
-                )}
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Content */}
+                <p className="text-charcoal text-sm leading-relaxed mb-3">
+                  {review.content}
+                </p>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between text-xs text-charcoal/50">
+                  {review.likes && (
+                    <div className="flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" />
+                      </svg>
+                      <span>{review.likes}</span>
+                    </div>
+                  )}
+                  {review.date && <span>{review.date}</span>}
+                  {review.type && (
+                    <span className="text-xs font-medium capitalize bg-charcoal/10 px-2 py-1 rounded">
+                      {review.type}
+                    </span>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
+
+        {/* See More Button */}
+        {hasMore && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex justify-center mt-10"
+          >
+            <motion.button
+              onClick={loadMore}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 bg-coral-accent text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all cursor-pointer"
+            >
+              See More Reviews
+              <ChevronDown className="w-5 h-5 animate-bounce" />
+            </motion.button>
+          </motion.div>
+        )}
+
+        {/* Showing count */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mt-4 text-muted-foreground"
+        >
+          Showing {visibleCount} of 500+ reviews
+        </motion.p>
 
         {/* Stats Footer */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
