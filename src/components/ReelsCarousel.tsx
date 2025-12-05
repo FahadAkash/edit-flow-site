@@ -9,7 +9,7 @@ const ReelsCarousel = () => {
   const tabs = [
     { id: "youtube", label: "Youtube Videos" },
     { id: "shorts", label: "Shorts" },
-    { id: "saas", label: "SAAS Videos" },
+    { id: "saas", label: "ADS/UGC" },
     { id: "ads", label: "Ad Creatives & VSL" }
   ];
 
@@ -81,7 +81,7 @@ const ReelsCarousel = () => {
       {
         id: 10,
         thumbnail: "https://img.youtube.com/vi/K7Wfih1vK00/maxresdefault.jpg",
-        title: "How TicketMaster and Live Nation’s Dominance Hurts Fans and Artists",
+        title: "How TicketMaster and Live Nation's Dominance Hurts Fans and Artists",
         duration: "14:20",
         videoUrl: "https://www.youtube.com/embed/K7Wfih1vK00"
       }
@@ -210,53 +210,75 @@ const ReelsCarousel = () => {
     saas: [
       {
         id: 30,
-        thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
-        title: "SaaS Product Demo",
-        duration: "03:45"
+        thumbnail: "https://img.youtube.com/vi/EsQnJ82HPSQ/maxresdefault.jpg",
+        title: "UGC Ad Creative 1",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/EsQnJ82HPSQ"
       },
       {
         id: 31,
-        thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
-        title: "Analytics Dashboard",
-        duration: "04:12"
+        thumbnail: "https://img.youtube.com/vi/TuBv-hf3H5k/maxresdefault.jpg",
+        title: "UGC Ad Creative 2",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/TuBv-hf3H5k"
       },
       {
         id: 32,
-        thumbnail: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=450&fit=crop",
-        title: "Team Collaboration",
-        duration: "02:55"
+        thumbnail: "https://img.youtube.com/vi/xbFtm0FefUM/maxresdefault.jpg",
+        title: "UGC Ad Creative 3",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/xbFtm0FefUM"
       },
       {
         id: 33,
-        thumbnail: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=450&fit=crop",
-        title: "Project Management",
-        duration: "03:30"
+        thumbnail: "https://img.youtube.com/vi/m8PdJJ-cChQ/maxresdefault.jpg",
+        title: "UGC Ad Creative 4",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/m8PdJJ-cChQ"
+      },
+      {
+        id: 34,
+        thumbnail: "https://img.youtube.com/vi/O6dDnh_49no/maxresdefault.jpg",
+        title: "UGC Ad Creative 5",
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/O6dDnh_49no"
+      },
+      {
+        id: 35,
+        thumbnail: "https://img.youtube.com/vi/2fv_OYUng7I/maxresdefault.jpg",
+        title: "UGC Product Video",
+        duration: "02:00",
+        videoUrl: "https://www.youtube.com/embed/2fv_OYUng7I"
       }
     ],
     ads: [
       {
         id: 40,
-        thumbnail: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&h=450&fit=crop",
+        thumbnail: "https://img.youtube.com/vi/EsQnJ82HPSQ/maxresdefault.jpg",
         title: "Product Launch Ad",
-        duration: "01:30"
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/EsQnJ82HPSQ"
       },
       {
         id: 41,
-        thumbnail: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800&h=450&fit=crop",
+        thumbnail: "https://img.youtube.com/vi/TuBv-hf3H5k/maxresdefault.jpg",
         title: "Brand Story",
-        duration: "02:00"
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/TuBv-hf3H5k"
       },
       {
         id: 42,
-        thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=450&fit=crop",
+        thumbnail: "https://img.youtube.com/vi/xbFtm0FefUM/maxresdefault.jpg",
         title: "Sales Funnel Video",
-        duration: "03:15"
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/xbFtm0FefUM"
       },
       {
         id: 43,
-        thumbnail: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=450&fit=crop",
+        thumbnail: "https://img.youtube.com/vi/m8PdJJ-cChQ/maxresdefault.jpg",
         title: "VSL Campaign",
-        duration: "05:00"
+        duration: "00:30",
+        videoUrl: "https://www.youtube.com/embed/m8PdJJ-cChQ"
       }
     ]
   };
@@ -332,11 +354,11 @@ const ReelsCarousel = () => {
               <motion.div
                 key={video.id}
                 variants={itemVariants}
-                className={`group relative ${activeTab === 'shorts' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]`}
+                className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]`}
               >
-                {playingVideo === video.id && (video as any).videoUrl ? (
+                {playingVideo === video.id && video.videoUrl ? (
                   <iframe
-                    src={`${(video as any).videoUrl}?autoplay=1`}
+                    src={`${video.videoUrl}?autoplay=1`}
                     title={video.title}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
