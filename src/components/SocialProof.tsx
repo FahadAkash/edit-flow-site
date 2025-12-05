@@ -152,12 +152,43 @@ const SocialProof = () => {
                 whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
                 className={`${review.color} p-2 rounded-lg shadow-md border-2 border-charcoal/10 hover:shadow-xl transition-shadow duration-300 overflow-hidden ${getSizeClass(review.size)}`}
               >
-                {/* Screenshot Image - object-contain to show full screenshot */}
-                <img
-                  src={getScreenshot(review.id)}
-                  alt="Client review"
-                  className="w-full h-full rounded-md object-contain"
-                />
+                {/* Screenshots - multiple for larger cards, object-contain to show full comments */}
+                {review.size === "tall" ? (
+                  // Tall cards: 2 screenshots stacked vertically
+                  <div className="flex flex-col gap-1 h-full">
+                    <img
+                      src={getScreenshot(review.id)}
+                      alt="Client review"
+                      className="w-full flex-1 rounded-md object-contain object-top"
+                    />
+                    <img
+                      src={getScreenshot(review.id + 1)}
+                      alt="Client review"
+                      className="w-full flex-1 rounded-md object-contain object-top"
+                    />
+                  </div>
+                ) : review.size === "wide" ? (
+                  // Wide cards: 2 screenshots side by side
+                  <div className="flex gap-1 h-full">
+                    <img
+                      src={getScreenshot(review.id)}
+                      alt="Client review"
+                      className="flex-1 h-full rounded-md object-contain"
+                    />
+                    <img
+                      src={getScreenshot(review.id + 1)}
+                      alt="Client review"
+                      className="flex-1 h-full rounded-md object-contain"
+                    />
+                  </div>
+                ) : (
+                  // Normal/compact: single screenshot - full view
+                  <img
+                    src={getScreenshot(review.id)}
+                    alt="Client review"
+                    className="w-full h-full rounded-md object-contain"
+                  />
+                )}
                 
                 {/* Platform Badge */}
                 <div className="absolute bottom-2 right-2">
