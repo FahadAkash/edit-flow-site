@@ -68,6 +68,61 @@ const HeroSection = () => {
               Currently working with personal brands, funded startups, Crypto/trading ventures and much more.
             </motion.p>
 
+            {/* Overlapping Entrepreneur Profiles - Social Proof */}
+            <div className="mb-6 flex items-center gap-3">
+              {/* Overlapping Profile Circles with Individual Animations */}
+              <div className="flex items-center -space-x-4">
+                <motion.img 
+                  src="/entrepreneurs/1644180906552.png" 
+                  alt="Entrepreneur" 
+                  className="w-14 h-14 rounded-full border-2 border-charcoal object-cover"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.img 
+                  src="/entrepreneurs/7HdwNsOD_400x400.png" 
+                  alt="Entrepreneur" 
+                  className="w-14 h-14 rounded-full border-2 border-charcoal object-cover"
+                  animate={{ y: [0, -12, 0] }}
+                  transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                />
+                <motion.div 
+                  className="w-14 h-14 rounded-full border-2 border-charcoal bg-blue-600 flex items-center justify-center text-white font-bold text-xs"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                >
+                  COURSE
+                </motion.div>
+                <motion.img 
+                  src="/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" 
+                  alt="Entrepreneur" 
+                  className="w-14 h-14 rounded-full border-2 border-charcoal object-cover"
+                  animate={{ y: [0, -11, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                />
+                <motion.img 
+                  src="/entrepreneurs/VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png" 
+                  alt="Entrepreneur" 
+                  className="w-14 h-14 rounded-full border-2 border-charcoal object-cover"
+                  animate={{ y: [0, -9, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+                <motion.div 
+                  className="w-14 h-14 rounded-full border-2 border-charcoal bg-yellow-500 flex items-center justify-center"
+                  animate={{ y: [0, -13, 0] }}
+                  transition={{ duration: 2.7, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                >
+                  <svg className="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 11.75A2.25 2.25 0 1 1 11.25 14 2.25 2.25 0 0 1 9 11.75zM12.75 9A2.25 2.25 0 1 0 15 11.25 2.25 2.25 0 0 0 12.75 9zM8.25 9A2.25 2.25 0 1 0 6 11.25 2.25 2.25 0 0 0 8.25 9z"/>
+                  </svg>
+                </motion.div>
+              </div>
+              
+              <p className="text-white/80 text-sm ml-2">
+                <span className="font-semibold text-white">Trusted by 500+</span> entrepreneurs
+              </p>
+            </div>
+
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -103,6 +158,8 @@ const HeroSection = () => {
                 <span className="relative z-10 italic">It's Free</span>
               </motion.div>
             </motion.div>
+
+
           </div>
 
           {/* Right - Scrolling Client Images - Takes 7 columns */}
