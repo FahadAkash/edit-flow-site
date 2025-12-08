@@ -19,19 +19,15 @@ const Index = () => {
       <HeroSection />
       <BrandLogos />
       {/* <GrowthShowcase /> */}
-      
-      <TestimonialCarousel />
+      {/* <TestimonialCarousel /> */}
+       <VideoPortfolio />
       <CaseStudies />
-      <VideoPortfolio />
       <ReelsCarousel />
       <SocialProof />
       <MeetTheFounder />
-      
       <AboutSection />
-      
       {/* After Effects Style Visual Break */}
       <AfterEffectsBackground />
-      
       <TimelineSection />
       <Footer />
     </div>

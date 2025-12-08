@@ -62,30 +62,65 @@ const VideoPortfolio = () => {
     <section className="relative py-20 bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* 3D Cards Container */}
-        <div className="relative h-[650px] flex items-center justify-center" style={{ perspective: "1200px" }}>
-          <div className="relative flex items-center justify-center gap-6">
+        {/* Circular Arc Cards Container */}
+        <div className="relative w-full h-[700px] flex items-center justify-center">
+
+          {/* Cards positioned along arc */}
+          <div className="relative w-full max-w-5xl h-full">
             {getVisibleCards().map((item) => {
               const isCenter = item.position === 0;
               const isLeft = item.position === -1;
-              const isRight = item.position === 1;
+              
+              // Get arc position styles
+              const getArcPosition = () => {
+                if (isLeft) {
+                  return { left: '70px', top: '120px', rotate: -15 };
+                } else if (isCenter) {
+                  return { left: '50%', top: '30px', translateX: '-50%', rotate: 0 };
+                } else {
+                  return { right: '70px', top: '120px', rotate: 15 };
+                }
+              };
+
+              const position = getArcPosition();
+
+              // Individual floating animation delays
+              const floatingDelay = isLeft ? 0 : isCenter ? 0.3 : 0.6;
 
               return (
                 <motion.div
                   key={`${item.id}-${item.position}`}
-                  initial={false}
+                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
                   animate={{
-                    rotateY: isCenter ? 0 : isLeft ? 35 : -35,
-                    scale: isCenter ? 1 : 0.85,
-                    x: isCenter ? 0 : isLeft ? -100 : 100,
-                    opacity: isCenter ? 1 : 0.7
+                    ...position,
+                    scale: 1,
+                    opacity: 1,
+                    y: [0, -15, 0]
                   }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  whileHover={{
+                    y: -25,
+                    scale: 1.08,
+                    rotateY: 5,
+                    boxShadow: "0 30px 80px rgba(255, 179, 0, 0.3)"
+                  }}
+                  transition={{ 
+                    duration: 0.5, 
+                    ease: [0.175, 0.885, 0.32, 1.275],
+                    y: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: floatingDelay
+                    },
+                    opacity: { duration: 0.6 },
+                    scale: { duration: 0.6 }
+                  }}
                   style={{
-                    transformStyle: "preserve-3d",
-                    zIndex: isCenter ? 20 : 10
+                    position: 'absolute',
+                    zIndex: isCenter ? 20 : 10,
+                    transformStyle: 'preserve-3d'
                   }}
-                  className={`w-[300px] h-[480px] rounded-3xl shadow-2xl overflow-hidden ${item.bgColor} flex-shrink-0`}
+                  className={`w-[380px] h-[540px] rounded-3xl shadow-2xl overflow-hidden ${item.bgColor} cursor-pointer transition-shadow duration-300`}
                 >
                   {/* Card Content */}
                   <div className="relative w-full h-full p-6 flex flex-col">
@@ -93,7 +128,7 @@ const VideoPortfolio = () => {
                     {/* Header with Logo/Company */}
                     {item.logo && (
                       <div className="flex items-center gap-3 mb-4">
-                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.logo.color} flex items-center justify-center text-white font-bold text-xl`}>
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.logo.color} flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
                           {item.logo.text}
                         </div>
                         <div>
@@ -116,7 +151,7 @@ const VideoPortfolio = () => {
                           
                           {/* Play Button Overlay */}
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-16 h-16 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg cursor-pointer hover:bg-yellow-400 transition-colors">
+                            <div className="w-16 h-16 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg hover:bg-yellow-400 transition-colors">
                               <Play className="w-8 h-8 text-black ml-1" fill="black" />
                             </div>
                           </div>
@@ -126,7 +161,7 @@ const VideoPortfolio = () => {
                       {/* Title Overlay */}
                       {item.title && !item.centered && (
                         <div className="absolute bottom-4 left-4 right-4">
-                          <div className="bg-yellow-500 text-black font-bold text-base px-3 py-2 rounded-lg leading-tight">
+                          <div className="bg-gradient-to-r from-yellow-400 to-green-500 text-black font-bold text-sm px-3 py-2 rounded-lg leading-tight">
                             {item.title.split('\n').map((line, idx) => (
                               <div key={idx}>{line}</div>
                             ))}
@@ -136,7 +171,7 @@ const VideoPortfolio = () => {
 
                       {item.speaker && (
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-green-500 to-transparent py-2 px-4">
-                          <div className="text-black font-bold text-center text-sm">{item.speaker}</div>
+                          <div className="text-black font-bold text-center text-xs">{item.speaker}</div>
                         </div>
                       )}
                     </div>
