@@ -24,12 +24,12 @@ const HeroSection = () => {
   const infiniteColumn3 = [...column3, ...column3, ...column3];
 
   return (
-    <section className="min-h-screen bg-charcoal text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="min-h-screen bg-charcoal text-white relative overflow-hidden pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 items-start lg:items-center">
           
-          {/* Left Content */}
-          <div className="relative z-10">
+          {/* Left Content - Takes 5 columns */}
+          <div className="lg:col-span-5 relative z-10 py-8">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -105,8 +105,8 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right - Scrolling Client Images */}
-          <div className="relative h-[700px] lg:h-[800px] overflow-hidden">
+          {/* Right - Scrolling Client Images - Takes 7 columns */}
+          <div className="lg:col-span-7 relative h-[650px] lg:h-[750px] overflow-hidden">
             <div className="flex gap-6 h-full">
               
               {/* Column 1 - Scroll Down */}
