@@ -25,11 +25,11 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen bg-charcoal text-white relative overflow-hidden pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 items-start lg:items-center">
+      <div className="w-full px-4 lg:px-6">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Content - Takes 5 columns */}
-          <div className="lg:col-span-5 relative z-10 py-8">
+          <div className="lg:col-span-5 relative z-10">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-10"
               style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
               Helping Entrepreneurs build organic brands as{" "}
@@ -107,7 +107,7 @@ const HeroSection = () => {
 
           {/* Right - Scrolling Client Images - Takes 7 columns */}
           <div className="lg:col-span-7 relative h-[650px] lg:h-[750px] overflow-hidden">
-            <div className="flex gap-6 h-full">
+            <div className="flex gap-8 h-full">
               
               {/* Column 1 - Scroll Down */}
               <motion.div
@@ -119,7 +119,7 @@ const HeroSection = () => {
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="flex flex-col gap-6 w-1/3"
+                className="flex flex-col gap-6 w-1/2"
               >
                 {infiniteColumn1.map((client, idx) => (
                   <div
@@ -161,7 +161,7 @@ const HeroSection = () => {
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="flex flex-col gap-6 w-1/3"
+                className="flex flex-col gap-6 w-1/2"
               >
                 {infiniteColumn2.map((client, idx) => (
                   <div
