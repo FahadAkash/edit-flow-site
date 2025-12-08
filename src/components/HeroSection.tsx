@@ -1,294 +1,246 @@
-import { Play, Pause } from "lucide-react";
-import { useState, useEffect } from "react";
-import heroVideoPoster from "@/assets/hero-video-poster.jpg";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  // Client images data with Instagram handles and followers
+  const clientImages = [
+    { img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop", handle: "Daniel Del Carmen", followers: "25k+" },
+    { img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop", handle: "Shalen", followers: "10k+" },
+    { img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=800&fit=crop", handle: "Andrew Ross Sorkin", followers: "66.5k+" },
+    { img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&h=800&fit=crop", handle: "Sarah Chen", followers: "45k+" },
+    { img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop", handle: "Mike Johnson", followers: "32k+" },
+    { img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=800&fit=crop", handle: "Emma Wilson", followers: "58k+" },
+    { img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop", handle: "Alex Martinez", followers: "21k+" },
+    { img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop", handle: "Lisa Anderson", followers: "39k+" },
+  ];
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Split images into 3 columns
+  const column1 = clientImages.slice(0, 3);
+  const column2 = clientImages.slice(3, 6);
+  const column3 = clientImages.slice(6, 8);
 
-  const floatAnimation = {
-    y: [0, -10, 0]
-  };
-
-  const floatTransition = {
-    duration: 6,
-    repeat: Infinity,
-    ease: "easeInOut" as const
-  };
+  // Duplicate for infinite scroll effect
+  const infiniteColumn1 = [...column1, ...column1, ...column1];
+  const infiniteColumn2 = [...column2, ...column2, ...column2];
+  const infiniteColumn3 = [...column3, ...column3, ...column3];
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-8 relative overflow-hidden">
-      {/* Floating background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
-          animate={floatAnimation}
-          transition={floatTransition}
-          className="absolute top-20 left-10 w-2 h-2 bg-tape-yellow/20 rounded-full"
-        />
-        <motion.div 
-          animate={floatAnimation}
-          transition={{ ...floatTransition, delay: 1, duration: 7 }}
-          className="absolute top-40 right-20 w-3 h-3 bg-coral-accent/20 rounded-full"
-        />
-        <motion.div 
-          animate={floatAnimation}
-          transition={{ ...floatTransition, delay: 2, duration: 5 }}
-          className="absolute bottom-32 left-20 w-2 h-2 bg-tape-yellow/20 rounded-full"
-        />
-        <motion.div 
-          animate={floatAnimation}
-          transition={{ ...floatTransition, delay: 0.5, duration: 8 }}
-          className="absolute bottom-20 right-10 w-3 h-3 bg-coral-accent/20 rounded-full"
-        />
-      </div>
-
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div>
-          {/* Logo with entrance animation */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mb-6 flex justify-center"
-          >
-            <motion.div 
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              whileHover={{ scale: 1.05, rotate: 5 }}
+    <section className="min-h-screen bg-charcoal text-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 py-16 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Content */}
+          <div className="relative z-10">
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-8"
             >
               <img 
                 src="/logo/logo.png" 
-                alt="Company Logo" 
-                className="h-16 md:h-20 w-auto object-contain"
+                alt="Metro Media House" 
+                className="h-12 md:h-16 w-auto object-contain"
               />
             </motion.div>
-          </motion.div>
-          
-          {/* Animated editing overlays */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="editing-overlay-left pointer-events-none absolute left-0 top-1/4 hidden lg:block"
-            whileHover={{ scale: 1.1 }}
-          >
-            <svg viewBox="0 0 120 64" width="120" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="8" width="36" height="24" rx="4" fill="#fff" opacity="0.95" />
-              <rect x="44" y="8" width="36" height="24" rx="4" fill="#fff" opacity="0.9" />
-              <rect x="84" y="8" width="36" height="24" rx="4" fill="#fff" opacity="0.85" />
-              <rect x="6" y="36" width="100" height="8" rx="3" fill="#FFB300">
-                <animate attributeName="width" values="6;100;6" dur="3s" repeatCount="indefinite" />
-              </rect>
-              <circle cx="6" cy="40" r="3" fill="#FF6F61">
-                <animate attributeName="cx" from="6" to="100" dur="3s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-          </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="editing-overlay-right pointer-events-none absolute right-0 top-1/4 hidden lg:block"
-            whileHover={{ scale: 1.1 }}
-          >
-            <svg viewBox="0 0 120 64" width="120" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="-12" y="8" width="36" height="24" rx="4" fill="#fff" opacity="0.95" />
-              <rect x="28" y="8" width="36" height="24" rx="4" fill="#fff" opacity="0.9" />
-              <rect x="68" y="8" width="36" height="24" rx="4" fill="#fff" opacity="0.85" />
-              <rect x="6" y="36" width="100" height="8" rx="3" fill="#FFB300">
-                <animate attributeName="width" values="100;6;100" dur="3.2s" repeatCount="indefinite" />
-              </rect>
-              <circle cx="100" cy="40" r="3" fill="#FFB300">
-                <animate attributeName="cx" from="100" to="6" dur="3.2s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-          </motion.div>
-
-          {/* Headline with staggered reveal */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-charcoal mb-1 leading-tight relative -mt-6">
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="block hover:text-tape-yellow transition-colors duration-300"
-            >
-               Launch a done-for-you
-            </motion.span>
-            <motion.span 
+            {/* Heading */}
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-coral-accent block origin-center"
-              whileHover={{ scale: 1.05 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
-              Video Sales engine
-            </motion.span>
-            <motion.span 
+              Helping Entrepreneurs build organic brands as{" "}
+              <span className="text-[#FFB300]">niche authorities</span>
+            </motion.h1>
+
+            {/* Subtext */}
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-tape-yellow block"
-              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed"
+              style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
-              this month.
-            </motion.span>
-            
-            {/* Animated underline */}
-            <svg className="absolute left-0 -bottom-2 w-full h-6 pointer-events-none" viewBox="0 0 400 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <motion.path 
-                d="M10 20 Q 200 2 390 20" 
-                stroke="#FFB300" 
-                strokeWidth="4" 
-                strokeLinecap="round" 
-                className="drop-shadow-sm"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
-              />
-            </svg>
-          </h1>
+              Scaling brands for niche authorities with world class organic content. 
+              Currently working with personal brands, funded startups, Crypto/trading ventures and much more.
+            </motion.p>
 
-          {/* Entrepreneur avatars */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-4 flex justify-center"
-          >
-            <motion.div 
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="relative inline-block"
             >
-              <div className="flex items-center -space-x-3">
-                {[
-                  "/entrepreneurs/7HdwNsOD_400x400.png",
-                  "/entrepreneurs/1644180906552.png",
-                  "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png",
-                  "/entrepreneurs/VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png"
-                ].map((src, i) => (
-                  <motion.img 
-                    key={i}
-                    src={src} 
-                    alt="brand" 
-                    className="w-12 h-12 rounded-full object-cover ring-2 ring-white shadow-sm relative z-10"
-                    whileHover={{ scale: 1.15, zIndex: 20, boxShadow: "0 8px 25px rgba(0, 0, 0, 0.2)" }}
-                  />
-                ))}
-                <div className="relative">
-                  <motion.img 
-                    src="/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" 
-                    alt="brand" 
-                    className="w-12 h-12 rounded-full object-cover ring-2 ring-white shadow-sm relative z-10"
-                    whileHover={{ scale: 1.15, zIndex: 20, boxShadow: "0 8px 25px rgba(0, 0, 0, 0.2)" }}
-                  />
-                  <motion.div 
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-charcoal text-white text-xs font-bold flex items-center justify-center ring-2 ring-white shadow z-20"
-                  >
-                    465+
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Video Player - Commented out for later use */}
-        {/* <motion.div ... video player code ... </motion.div> */}
-
-        {/* Value Proposition Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-8 mb-6"
-        >
-          {/* Benefit Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-            {[
-              { icon: "🎬", title: "10+ Videos/Month", desc: "Consistent content flow" },
-              { icon: "✨", title: "Done-For-You", desc: "We handle everything" },
-              { icon: "📈", title: "Proven Results", desc: "500+ successful videos" }
-            ].map((benefit, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 + (i * 0.1) }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="sticky-note p-6 text-center group cursor-pointer"
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#FFB300] text-charcoal px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-shadow relative z-10"
               >
-                <div className="text-4xl mb-3">{benefit.icon}</div>
-                <h3 className="text-xl font-bold text-charcoal mb-2 group-hover:text-coral-accent transition-colors">
-                  {benefit.title}
-                </h3>
-                <p className="text-charcoal/70 text-sm">
-                  {benefit.desc}
-                </p>
+                Book a Discovery Call
+              </motion.button>
+              
+              {/* Hand-drawn arrow "It's Free" */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
+                className="absolute -bottom-12 -right-8 text-white/80 text-sm font-handwriting"
+              >
+                <svg width="80" height="60" viewBox="0 0 80 60" className="absolute -top-4 -left-12">
+                  <path
+                    d="M 10 10 Q 25 5, 40 15 T 70 20"
+                    stroke="white"
+                    strokeWidth="2"
+                    fill="none"
+                    opacity="0.6"
+                  />
+                  <polygon points="68,16 75,20 68,24" fill="white" opacity="0.6" />
+                </svg>
+                <span className="relative z-10 italic">It's Free</span>
               </motion.div>
-            ))}
+            </motion.div>
           </div>
 
-          {/* Primary CTA */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="text-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 179, 0, 0.3)" }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-tape-yellow hover:bg-tape-yellow/90 text-charcoal font-bold text-lg px-12 py-4 rounded-full shadow-lg transition-all duration-300"
-            >
-              Start Your Project Today
-            </motion.button>
-            <p className="text-charcoal/60 text-sm mt-4">
-              No credit card required • Free consultation
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* Brand logos */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16"
-        >
-          <div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2">
-            <div className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 border-t-2 border-b-2 border-red-600 py-4 shadow-lg">
-              <div className="max-w-6xl mx-auto px-4">
-                <div className="flex items-center justify-center gap-10 flex-wrap">
-                  {[
-                    "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png",
-                    "/brands/1667599512761.png",
-                    "/brands/acer-predator-logo-png_seeklogo-441422.png",
-                    "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png",
-                    "/brands/Logo_Blackberry_Large_a979164e-916a-4c09-bbac-51df3d96f65a_1200x1200.png"
-                  ].map((src, i) => (
-                    <motion.img 
-                      key={i}
-                      src={src} 
-                      alt="brand" 
-                      className="max-h-12 object-contain filter brightness-0 invert"
-                      whileHover={{ scale: 1.1, rotate: 5, filter: "brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.5))" }}
-                      transition={{ type: "spring", stiffness: 300 }}
+          {/* Right - Scrolling Client Images */}
+          <div className="relative h-[700px] lg:h-[800px] overflow-hidden">
+            <div className="flex gap-6 h-full">
+              
+              {/* Column 1 - Scroll Down */}
+              <motion.div
+                animate={{
+                  y: [0, -1400]
+                }}
+                transition={{
+                  duration: 22,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="flex flex-col gap-6 w-1/3"
+              >
+                {infiniteColumn1.map((client, idx) => (
+                  <div
+                    key={`col1-${idx}`}
+                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[600px] shadow-2xl"
+                  >
+                    <img
+                      src={client.img}
+                      alt={client.handle}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=400&h=500&fit=crop`;
+                      }}
                     />
-                  ))}
-                </div>
-              </div>
+                    
+                    {/* Instagram Badge */}
+                    <div className="absolute top-6 left-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full p-3 shadow-lg">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                      </svg>
+                    </div>
+
+                    {/* Name & Followers Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
+                      <p className="text-white font-bold text-base mb-1">{client.handle}</p>
+                      <p className="text-white/90 text-sm">{client.followers} Followers</p>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Column 2 - Scroll Up */}
+              <motion.div
+                animate={{
+                  y: [-1500, 0]
+                }}
+                transition={{
+                  duration: 26,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="flex flex-col gap-6 w-1/3"
+              >
+                {infiniteColumn2.map((client, idx) => (
+                  <div
+                    key={`col2-${idx}`}
+                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[650px] shadow-2xl"
+                  >
+                    <img
+                      src={client.img}
+                      alt={client.handle}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = `https://images.unsplash.com/photo-${1600000000000 + idx}?w=400&h=550&fit=crop`;
+                      }}
+                    />
+                    
+                    {/* Instagram Badge */}
+                    <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full p-2">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                      </svg>
+                    </div>
+
+                    {/* Name & Followers Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <p className="text-white font-bold text-sm">{client.handle}</p>
+                      <p className="text-white/80 text-xs">{client.followers} Followers</p>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Column 3 - Scroll Down (Different Speed) */}
+              <motion.div
+                animate={{
+                  y: [0, -1300]
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="flex flex-col gap-6 w-1/3"
+              >
+                {infiniteColumn3.map((client, idx) => (
+                  <div
+                    key={`col3-${idx}`}
+                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[620px] shadow-2xl"
+                  >
+                    <img
+                      src={client.img}
+                      alt={client.handle}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = `https://images.unsplash.com/photo-${1700000000000 + idx}?w=400&h=520&fit=crop`;
+                      }}
+                    />
+                    
+                    {/* Instagram Badge */}
+                    <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full p-2">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                      </svg>
+                    </div>
+
+                    {/* Name & Followers Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <p className="text-white font-bold text-sm">{client.handle}</p>
+                      <p className="text-white/80 text-xs">{client.followers} Followers</p>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
             </div>
+
+            {/* Gradient Overlays for Smooth Fade */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-charcoal to-transparent pointer-events-none z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-charcoal to-transparent pointer-events-none z-10" />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
