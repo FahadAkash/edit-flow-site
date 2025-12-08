@@ -9,16 +9,20 @@ import TimelineSection from "@/components/TimelineSection";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SocialProof from "@/components/SocialProof";
 import MeetTheFounder from "@/components/MeetTheFounder";
+import VideoPortfolio from "@/components/VideoPortfolio";
+import BrandLogos from "@/components/BrandLogos";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <BrandLogos />
       {/* <GrowthShowcase /> */}
       
       <TestimonialCarousel />
       <CaseStudies />
+      <VideoPortfolio />
       <ReelsCarousel />
       <SocialProof />
       <MeetTheFounder />
