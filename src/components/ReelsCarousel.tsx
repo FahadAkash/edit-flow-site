@@ -298,7 +298,15 @@ const ReelsCarousel = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 20
+      }
+    },
     exit: { opacity: 0, y: -20 }
   };
 
@@ -354,7 +362,12 @@ const ReelsCarousel = () => {
               <motion.div
                 key={video.id}
                 variants={itemVariants}
-                className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]`}
+                whileHover={{ 
+                  scale: 1.03,
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 25 }
+                }}
+                className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl transition-all duration-300`}
               >
                 {playingVideo === video.id && video.videoUrl ? (
                   <iframe

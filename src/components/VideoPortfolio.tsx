@@ -32,6 +32,24 @@ const VideoPortfolio = () => {
       company: "Daily Brief",
       video: "/video/videoplayback_2.mp4",
       bgColor: "bg-slate-900"
+    },
+    {
+      id: 4,
+      name: "Alex Morgan",
+      flowers: "1.2M",
+      logo: { text: "A", color: "from-red-500 to-pink-500" },
+      company: "Future Scale",
+      video: "/video/videoplayback_2.mp4",
+      bgColor: "bg-neutral-900"
+    },
+    {
+      id: 5,
+      name: "David Kim",
+      flowers: "900K",
+      logo: { text: "K", color: "from-blue-400 to-cyan-500" },
+      company: "Next Gen",
+      video: "/video/videoplayback_2.mp4",
+      bgColor: "bg-stone-900"
     }
   ];
 
@@ -45,7 +63,7 @@ const VideoPortfolio = () => {
 
   const getVisibleCards = () => {
     const cards = [];
-    for (let i = -1; i <= 1; i++) {
+    for (let i = -2; i <= 2; i++) {
       const index = (currentIndex + i + portfolioItems.length) % portfolioItems.length;
       cards.push({ 
         ...portfolioItems[index], 
@@ -56,8 +74,13 @@ const VideoPortfolio = () => {
   };
 
   return (
-    <section className="relative py-20 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="relative py-20 bg-[#161e22] overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="max-w-[1400px] mx-auto px-4"
+      >
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
           Featured <span className="text-primary">Work</span>
         </h2>
@@ -66,18 +89,25 @@ const VideoPortfolio = () => {
         <div className="relative w-full h-[600px] flex items-center justify-center">
 
           {/* Cards positioned along arc */}
-          <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
+          <div className="relative w-full h-full flex items-center justify-center perspective-[1000px]">
             {getVisibleCards().map((item) => {
               const isCenter = item.position === 0;
               const isLeft = item.position === -1;
+              const isFarLeft = item.position === -2;
+              const isRight = item.position === 1;
+              const isFarRight = item.position === 2;
               
               const getArcPosition = () => {
-                if (isLeft) {
-                  return { x: -350, z: -100, rotate: -15, scale: 0.85, opacity: 0.6 };
-                } else if (isCenter) {
+                if (isCenter) {
                   return { x: 0, z: 0, rotate: 0, scale: 1, opacity: 1 };
+                } else if (isLeft) {
+                  return { x: -380, z: -100, rotate: -15, scale: 0.85, opacity: 0.8 };
+                } else if (isRight) {
+                  return { x: 380, z: -100, rotate: 15, scale: 0.85, opacity: 0.8 };
+                } else if (isFarLeft) {
+                  return { x: -700, z: -250, rotate: -25, scale: 0.7, opacity: 0.5 };
                 } else {
-                  return { x: 350, z: -100, rotate: 15, scale: 0.85, opacity: 0.6 };
+                  return { x: 700, z: -250, rotate: 25, scale: 0.7, opacity: 0.5 };
                 }
               };
 
@@ -89,9 +119,15 @@ const VideoPortfolio = () => {
                   initial={position}
                   animate={position}
                   transition={{ 
-                    duration: 0.5, 
-                    ease: "easeInOut"
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20
                   }}
+                  whileHover={isCenter ? { 
+                    scale: 1.05,
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+                    zIndex: 30
+                  } : {}}
                   className={`absolute w-[320px] h-[560px] rounded-3xl overflow-hidden shadow-2xl ${item.bgColor} border border-white/10`}
                 >
                   <div className="relative w-full h-full">
@@ -164,7 +200,7 @@ const VideoPortfolio = () => {
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

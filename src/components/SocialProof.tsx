@@ -90,7 +90,7 @@ const SocialProof = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-muted/30">
+    <section className="py-16 px-4 bg-paper-noise">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -99,7 +99,7 @@ const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold text-charcoal mb-4"
+            className="text-4xl md:text-6xl font-bold text-black mb-4"
           >
             Client <span className="text-coral-accent">Results</span>
           </motion.h2>
@@ -108,7 +108,7 @@ const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
           >
             Real feedback from real clients across all platforms
           </motion.p>
@@ -239,7 +239,7 @@ const SocialProof = () => {
             className="text-center"
           >
             <div className="text-4xl font-bold text-coral-accent mb-2">500+</div>
-            <div className="text-sm text-muted-foreground">5-Star Reviews</div>
+            <div className="text-sm text-gray-600">5-Star Reviews</div>
           </motion.div>
           <motion.div 
             initial={{ opacity: 0, scale: 0.5 }}
@@ -249,7 +249,7 @@ const SocialProof = () => {
             className="text-center"
           >
             <div className="text-4xl font-bold text-coral-accent mb-2">98%</div>
-            <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+            <div className="text-sm text-gray-600">Client Satisfaction</div>
           </motion.div>
           <motion.div 
             initial={{ opacity: 0, scale: 0.5 }}
@@ -259,7 +259,7 @@ const SocialProof = () => {
             className="text-center"
           >
             <div className="text-4xl font-bold text-coral-accent mb-2">1000+</div>
-            <div className="text-sm text-muted-foreground">Projects Completed</div>
+            <div className="text-sm text-gray-600">Projects Completed</div>
           </motion.div>
           <motion.div 
             initial={{ opacity: 0, scale: 0.5 }}
@@ -269,7 +269,7 @@ const SocialProof = () => {
             className="text-center"
           >
             <div className="text-4xl font-bold text-coral-accent mb-2">24/7</div>
-            <div className="text-sm text-muted-foreground">Support Available</div>
+            <div className="text-sm text-gray-600">Support Available</div>
           </motion.div>
         </div>
       </div>
