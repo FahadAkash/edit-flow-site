@@ -52,7 +52,7 @@ const ProcessTimeline = () => {
       title: "Idea Analysis",
       description: "We take your ideas and analyze them thoroughly based on our experience and existing market standards.",
       icon: SketchLightbulb,
-      color: "from-amber-400 to-orange-500"
+      color: "from-[#d72638] to-[#a31621]"
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ const ProcessTimeline = () => {
       title: "Writing Content",
       description: "We will give you proven script frameworks that the biggest creators and companies use.",
       icon: SketchPen,
-      color: "from-blue-400 to-indigo-500"
+      color: "from-[#0a0908] to-[#1a1918]"
     },
     {
       id: 3,
@@ -68,7 +68,7 @@ const ProcessTimeline = () => {
       title: "Editing the Video", 
       description: "We make the best quality videos using advanced motion graphics that bring your message to life.",
       icon: SketchVideo,
-      color: "from-purple-400 to-pink-500"
+      color: "from-[#d72638] to-[#a31621]"
     },
     {
       id: 4,
@@ -76,7 +76,7 @@ const ProcessTimeline = () => {
       title: "Creating Thumbnail",
       description: "We analyze other thumbnails in your niche and are able to replicate best performing results.",
       icon: SketchImage,
-      color: "from-green-400 to-emerald-500"
+      color: "from-[#0a0908] to-[#1a1918]"
     },
     {
       id: 5,
@@ -84,17 +84,17 @@ const ProcessTimeline = () => {
       title: "Post the Video",
       description: "All that's left now is to post the video and start counting the leads that come in.",
       icon: SketchSend,
-      color: "from-red-400 to-rose-500"
+      color: "from-[#d72638] to-[#a31621]"
     }
   ];
 
   return (
-    <section className="py-20 px-4 relative overflow-hidden bg-transparent">
+    <section className="py-20 px-4 relative overflow-hidden bg-[#f6f7eb]">
       {/* Paper texture background - reduced opacity for dark mode */}
       <div 
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' patternUnits='userSpaceOnUse' width='100' height='100'%3E%3Crect fill='%23ffffff' width='100' height='100'/%3E%3Cpath d='M0 0L50 50L100 0' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M0 100L50 50L100 100' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23paper)'/%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' patternUnits='userSpaceOnUse' width='100' height='100'%3E%3Crect fill='%23ffffff' width='100' height='100'/%3E%3Cpath d='M0 0L50 50L100 0' stroke='%230a0908' stroke-width='0.5' fill='none'/%3E%3Cpath d='M0 100L50 50L100 100' stroke='%230a0908' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23paper)'/%3E%3C/svg%3E")`
         }}
       />
       
@@ -103,17 +103,17 @@ const ProcessTimeline = () => {
         <motion.div 
           animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 left-10 w-32 h-32 bg-amber-100/50 rounded-full blur-3xl"
+          className="absolute top-10 left-10 w-32 h-32 bg-[#d72638]/5 rounded-full blur-3xl"
         />
         <motion.div 
           animate={{ rotate: [0, -10, 5, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/3 right-0 w-40 h-40 bg-blue-100/50 rounded-full blur-3xl"
+          className="absolute top-1/3 right-0 w-40 h-40 bg-black/5 rounded-full blur-3xl"
         />
         <motion.div 
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-100/50 rounded-full blur-3xl"
+          className="absolute bottom-20 left-1/4 w-24 h-24 bg-[#d72638]/5 rounded-full blur-3xl"
         />
       </div>
 
@@ -126,12 +126,12 @@ const ProcessTimeline = () => {
             viewport={{ once: true }}
             className="inline-block relative"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-200 to-orange-200 rounded-lg blur opacity-30"></div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 relative ink-text">
-              Our <span className="text-coral-accent relative inline-block">
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-200 to-gray-200 rounded-lg blur opacity-30"></div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 relative ink-text text-[#0a0908]">
+              Our <span className="text-[#d72638] relative inline-block">
                 Process
-                <svg className="absolute w-full h-3 -bottom-1 left-0 text-amber-300 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.5" />
+                <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#d72638] -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.3" />
                 </svg>
               </span>
             </h2>
@@ -141,7 +141,7 @@ const ProcessTimeline = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-white/70 max-w-2xl mx-auto font-medium"
+            className="text-xl text-[#0a0908]/80 max-w-2xl mx-auto font-medium"
           >
             From concept to viral sensation in 5 simple steps
           </motion.p>
@@ -150,24 +150,24 @@ const ProcessTimeline = () => {
         {/* Timeline Container */}
         <div className="relative">
           {/* Central Line (Desktop) - Hidden on Mobile */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gray-200 rounded-full overflow-hidden">
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-[#0a0908]/10 rounded-full overflow-hidden">
             <motion.div 
               initial={{ height: "0%" }}
               whileInView={{ height: "100%" }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="w-full h-full bg-gradient-to-b from-amber-400 via-coral-accent to-purple-500"
+              className="w-full h-full bg-gradient-to-b from-[#d72638] via-black to-[#d72638]"
             />
           </div>
 
           {/* Mobile Line */}
-          <div className="md:hidden absolute left-8 top-0 bottom-0 w-1 bg-gray-200 rounded-full overflow-hidden">
+          <div className="md:hidden absolute left-8 top-0 bottom-0 w-1 bg-[#0a0908]/10 rounded-full overflow-hidden">
             <motion.div 
               initial={{ height: "0%" }}
               whileInView={{ height: "100%" }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="w-full h-full bg-gradient-to-b from-amber-400 via-coral-accent to-purple-500"
+              className="w-full h-full bg-gradient-to-b from-[#d72638] via-black to-[#d72638]"
             />
           </div>
 
@@ -190,11 +190,11 @@ const ProcessTimeline = () => {
                       className="relative"
                     >
                       <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} p-1 shadow-lg shadow-black/5`}>
-                        <div className="w-full h-full bg-black rounded-full flex items-center justify-center border-4 border-transparent">
-                          <Icon className="w-6 h-6 text-white" />
+                        <div className="w-full h-full bg-white rounded-full flex items-center justify-center border-4 border-transparent">
+                          <Icon className="w-6 h-6 text-[#d72638]" />
                         </div>
                       </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center font-bold text-sm shadow-md border-2 border-black">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#d72638] text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md border-2 border-white">
                         {item.step}
                       </div>
                     </motion.div>
@@ -208,13 +208,13 @@ const ProcessTimeline = () => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.5 }}
                     >
-                      <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300 border-none shadow-md bg-white/5 backdrop-blur-sm">
+                      <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300 border border-[#d72638]/20 shadow-sm bg-white hover:bg-gray-50">
                         <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${item.color}`} />
                         <div className="p-8">
-                          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-coral-accent transition-colors">
+                          <h3 className="text-2xl font-bold text-[#0a0908] mb-3 group-hover:text-[#d72638] transition-colors">
                             {item.title}
                           </h3>
-                          <p className="text-white/70 leading-relaxed text-lg">
+                          <p className="text-[#0a0908]/70 leading-relaxed text-lg">
                             {item.description}
                           </p>
                         </div>
@@ -240,9 +240,9 @@ const ProcessTimeline = () => {
             viewport={{ once: true }}
             className="inline-block"
           >
-            <div className="bg-white text-charcoal px-8 py-4 rounded-full shadow-xl hover:scale-105 transition-transform cursor-pointer flex items-center gap-3">
+            <div className="bg-[#0a0908] text-white px-8 py-4 rounded-full shadow-xl hover:bg-[#d72638] transition-colors cursor-pointer flex items-center gap-3 group">
               <span className="font-bold text-lg">Start Your Project</span>
-              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

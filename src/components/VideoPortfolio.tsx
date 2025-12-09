@@ -74,7 +74,7 @@ const VideoPortfolio = () => {
   };
 
   return (
-    <section className="relative py-20 bg-[#161e22] overflow-hidden">
+    <section className="relative py-20 bg-[0a0908] overflow-hidden">
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

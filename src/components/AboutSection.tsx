@@ -67,7 +67,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="py-12 px-4">
+    <section className="py-12 px-4 bg-[#f6f7eb]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <motion.div 
@@ -77,10 +77,10 @@ const AboutSection = () => {
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="sticky-peach push-pin p-8 max-w-2xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
-              Why Choose <span className="text-tape-yellow">Us?</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+              Why Choose <span className="text-[#d72638]">Us?</span>
             </h2>
-            <p className="text-xl text-charcoal/70">
+            <p className="text-xl text-gray-700">
               We're not just another video editing service. Here's what makes us different.
             </p>
           </motion.div>
@@ -97,10 +97,10 @@ const AboutSection = () => {
             className="sticky-mint paper-clip rotate-random-1 p-8"
           >
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-charcoal mb-2">
-                Our <span className="text-tape-yellow">Agency</span>
+              <h3 className="text-3xl font-bold text-black mb-2">
+                Our <span className="text-[#d72638]">Agency</span>
               </h3>
-              <p className="text-charcoal/70">
+              <p className="text-gray-700">
                 Specialized video editing that drives results
               </p>
             </div>
@@ -114,16 +114,16 @@ const AboutSection = () => {
             >
               {comparisons.map((item, index) => (
                 <motion.div key={index} variants={itemVariants}>
-                  <Card className="p-4 border-2 border-tape-yellow/30 bg-tape-yellow/5 hover:bg-tape-yellow/10 transition-colors">
+                  <Card className="p-4 border-4 border-[#d72638]/20 bg-white hover:bg-[#d72638]/5 transition-colors shadow-sm">
                     <div className="flex items-start gap-3">
-                      <div className="p-1 bg-tape-yellow rounded-full mt-1">
-                        <Check className="w-3 h-3 text-charcoal" />
+                      <div className="p-1 bg-[#d72638] rounded-full mt-1">
+                        <Check className="w-3 h-3 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-charcoal text-sm mb-1">
+                        <h4 className="font-semibold text-black text-sm mb-1">
                           {item.feature}
                         </h4>
-                        <p className="text-charcoal font-medium">
+                        <p className="text-gray-800 font-medium">
                           {item.us}
                         </p>
                       </div>
@@ -140,13 +140,13 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="sticky-lavender rotate-random-2 p-8 opacity-75"
+            className="sticky-lavender rotate-random-2 p-8 opacity-90"
           >
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-charcoal mb-2">
-                Other <span className="text-charcoal/60">Agencies</span>
+              <h3 className="text-3xl font-bold text-black mb-2">
+                Other <span className="text-gray-500">Agencies</span>
               </h3>
-              <p className="text-charcoal/60">
+              <p className="text-gray-600">
                 Standard editing services with limited scope
               </p>
             </div>
@@ -160,16 +160,16 @@ const AboutSection = () => {
             >
               {comparisons.map((item, index) => (
                 <motion.div key={index} variants={itemVariantsRight}>
-                  <Card className="p-4 border-2 border-muted bg-muted/30">
+                  <Card className="p-4 border-4 border-gray-200 bg-gray-50/50">
                     <div className="flex items-start gap-3">
-                      <div className="p-1 bg-muted-foreground/20 rounded-full mt-1">
-                        <X className="w-3 h-3 text-muted-foreground" />
+                      <div className="p-1 bg-gray-200 rounded-full mt-1">
+                        <X className="w-3 h-3 text-gray-500" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-muted-foreground text-sm mb-1">
+                        <h4 className="font-semibold text-gray-500 text-sm mb-1">
                           {item.feature}
                         </h4>
-                        <p className="text-muted-foreground">
+                        <p className="text-gray-500">
                           {item.others}
                         </p>
                       </div>

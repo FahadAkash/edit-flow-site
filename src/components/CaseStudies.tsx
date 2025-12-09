@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 type VideoFormat = "short" | "long";
 
 const CaseStudies = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2);
   const [direction, setDirection] = useState(0);
 
   const caseStudies = [
