@@ -290,21 +290,22 @@ const ReelsCarousel = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.2
       }
     },
     exit: { opacity: 0 }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 260,
-        damping: 20
+        stiffness: 100,
+        damping: 12
       }
     },
     exit: { opacity: 0, y: -20 }
@@ -363,9 +364,9 @@ const ReelsCarousel = () => {
                 key={video.id}
                 variants={itemVariants}
                 whileHover={{ 
-                  scale: 1.03,
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 25 }
+                  scale: 1.05,
+                  y: -10,
+                  transition: { type: "spring" as const, stiffness: 300, damping: 20 }
                 }}
                 className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl transition-all duration-300`}
               >

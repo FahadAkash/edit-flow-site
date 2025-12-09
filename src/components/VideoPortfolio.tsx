@@ -134,7 +134,18 @@ const VideoPortfolio = () => {
                   }}
                   className={`absolute w-[320px] h-[560px] rounded-3xl overflow-hidden shadow-2xl ${item.bgColor} border border-white/10`}
                 >
-                  <div className="relative w-full h-full">
+                  <motion.div 
+                    className="relative w-full h-full"
+                    animate={{ 
+                      y: [0, -8, 0],
+                    }}
+                    transition={{
+                      duration: 3 + (item.id % 3), // Random duration based on ID
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: item.id % 2 // Random delay start
+                    }}
+                  >
                     
                     {/* Video Header / Company */}
                     <div className="absolute top-4 left-4 right-4 z-20 flex items-center gap-3">
@@ -182,7 +193,7 @@ const VideoPortfolio = () => {
                     {/* Menu Gradient Top */}
                     <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none" />
 
-                  </div>
+                  </motion.div>
                 </motion.div>
               );
             })}
