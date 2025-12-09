@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  // Client images data for Column 1
+  // Client images data for Column 1 (Brands)
   const clientImages = [
-    { img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop", handle: "Daniel Del Carmen", followers: "25k+" },
-    { img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop", handle: "Shalen", followers: "10k+" },
-    { img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=800&fit=crop", handle: "Andrew Ross Sorkin", followers: "66.5k+" },
+    { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education" },
+    { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand" },
+    { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality" },
   ];
 
   // Video data for columns 2 and 3
   const videoData = [
-    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k" },
-    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k" },
-    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k" },
-    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k" },
-    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k" }
+    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers" },
+    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers" },
+    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers" },
+    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers" },
+    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers" }
   ];
 
   // Helper to extract YouTube ID
@@ -207,17 +207,12 @@ const HeroSection = () => {
                       }}
                     />
                     
-                    {/* Instagram Badge */}
-                    <div className="absolute top-6 left-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full p-3 shadow-lg">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                      </svg>
-                    </div>
+
 
                     {/* Name & Followers Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
                       <p className="text-white font-bold text-base mb-1">{client.handle}</p>
-                      <p className="text-white/90 text-sm">{client.followers} Followers</p>
+                      <p className="text-white/80 text-sm">{client.followers}</p>
                     </div>
                   </div>
                 ))}
