@@ -59,9 +59,9 @@ const CaseStudies = () => {
     },
     {
       id: 5,
-      title: "Culture Code Music - Second Video",
-      client: "culturecodemusic",
-      clientRole: "Music Producer & Artist",
+      title: "build.withcrystal Success Story",
+      client: "build.withcrystal",
+      clientRole: "YouTube Entrepreneur",
       clientAvatar: "/culturecodemusic2.jpg",
       comment: "Another amazing collaboration! The creativity and professionalism never disappoints. Each project brings something fresh and exciting. Can't wait to work on more videos together!",
       videoUrl: "https://www.youtube.com/embed/4t0golxJb8A",
@@ -71,9 +71,9 @@ const CaseStudies = () => {
     },
     {
       id: 6,
-      title: "Culture Code Music - Short Clip",
-      client: "culturecodemusic",
-      clientRole: "Music Producer & Artist",
+      title: "James Mullinger Success Story",
+      client: "jamesmullinger",
+      clientRole: "YouTube Entrepreneur",
       clientAvatar: "/culturecodemusic3.jpg",
       comment: "Perfect for social media! They know exactly how to create engaging short-form content that captures attention instantly. My reels and shorts are getting way more views now!",
       videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU",
@@ -83,9 +83,9 @@ const CaseStudies = () => {
     },
     {
       id: 7,
-      title: "Culture Code Music - Shorts Special",
-      client: "culturecodemusic",
-      clientRole: "Music Producer & Artist",
+      title: "Rudiahi Success Story",
+      client: "Rudiahi",
+      clientRole: "YouTube Entrepreneur",
       clientAvatar: "/culturecodemusic4.jpg",
       comment: "The short-form content they create is absolutely fire! Every clip is perfectly optimized for maximum engagement. My YouTube Shorts are blowing up thanks to their editing magic!",
       videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk",
@@ -97,24 +97,24 @@ const CaseStudies = () => {
       id: 8,
       title: "Hellcat Priime Success Story",
       client: "hellcatpriime",
-      clientRole: "Gaming Content Creator",
+      clientRole: "Digital Content Creator",
       clientAvatar: "/hellcatpriime.jpg",
       comment: "These guys are absolute legends! They transformed my gaming content into cinematic masterpieces. The editing style is exactly what I was looking for - dynamic, engaging, and professional!",
       videoUrl: "https://www.youtube.com/embed/YUDeFFUHglc",
       videoThumbnail: "https://img.youtube.com/vi/YUDeFFUHglc/maxresdefault.jpg",
-      result: "Gaming Legend",
+      result: "",
       videoFormat: "long" as VideoFormat
     },
     {
       id: 9,
-      title: "Hellcat Priime - Short Content",
-      client: "hellcatpriime",
-      clientRole: "Gaming Content Creator",
-      clientAvatar: "/culturecodemusic4.jpg",
+      title: "Law firm owners Success Story",
+      client: "lawfirmowners",
+      clientRole: "YouTube Entrepreneur",
+      clientAvatar: "/lawfirmowners.jpg",
       comment: "Short-form gaming content done right! They capture the most epic moments and turn them into viral clips. My TikTok and YouTube Shorts are crushing it!",
       videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk",
       videoThumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/maxresdefault.jpg",
-      result: "Gaming Clips",
+      result: "Law Firm Growth",
       videoFormat: "short" as VideoFormat
     },
     {
@@ -128,7 +128,19 @@ const CaseStudies = () => {
       videoThumbnail: "https://img.youtube.com/vi/hLJTcVHW8_I/maxresdefault.jpg",
       result: "AI Content Star",
       videoFormat: "long" as VideoFormat
-    }
+    } ,
+    {
+      id: 11,
+      title: "Vicky Zhao [BEEAMP]",
+      client: "Vicky Zhao [BEEAMP]",
+      clientRole: "YouTube Entrepreneur",
+      clientAvatar: "https://yt3.googleusercontent.com/RuKLd6cnYJkL1eaulyyUh1mhObI6oJ7oy-Wth3DW0PZwb2zCxFriEDcgkZXkMIPp6ulMzLuW=s900-c-k-c0x00ffffff-no-rj",
+      comment: "Phenomenal work! The editing team perfectly understood my vision for AI content. They created stunning visuals that explain complex topics in an engaging way. My subscribers love the new production quality!",
+      videoUrl: "https://www.youtube.com/embed/2tw4ZQKK1Z0?si=SFby8G9TT7Q7uDP2",
+      videoThumbnail: "https://yt3.googleusercontent.com/RuKLd6cnYJkL1eaulyyUh1mhObI6oJ7oy-Wth3DW0PZwb2zCxFriEDcgkZXkMIPp6ulMzLuW=s900-c-k-c0x00ffffff-no-rj",
+      result: "",
+      videoFormat: "long" as VideoFormat
+    } 
   ];
 
   const nextCase = () => {

@@ -82,8 +82,8 @@ const VideoPortfolio = () => {
         viewport={{ once: true }}
         className="max-w-[1400px] mx-auto px-4"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
-          Featured <span className="text-primary">Work</span>
+        <h2 className="text-4xl md:text-5xl  text-center mb-16 text-foreground">
+          What Our <span className="text-primary">Client Says</span>
         </h2>
         
         {/* Circular Arc Cards Container */}

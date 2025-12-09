@@ -10,7 +10,7 @@ const ReelsCarousel = () => {
     { id: "youtube", label: "Youtube Videos" },
     { id: "shorts", label: "Shorts" },
     { id: "saas", label: "ADS/UGC" },
-    { id: "ads", label: "Ad Creatives & VSL" }
+    { id: "ads", label: "Thumbnails" }
   ];
 
   const videos = {
@@ -149,34 +149,16 @@ const ReelsCarousel = () => {
       }
     ],
     ads: [
-      {
-        id: 40,
-        thumbnail: "https://img.youtube.com/vi/EsQnJ82HPSQ/maxresdefault.jpg",
-        title: "Product Launch Ad",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/EsQnJ82HPSQ"
-      },
-      {
-        id: 41,
-        thumbnail: "https://img.youtube.com/vi/TuBv-hf3H5k/maxresdefault.jpg",
-        title: "Brand Story",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/TuBv-hf3H5k"
-      },
-      {
-        id: 42,
-        thumbnail: "https://img.youtube.com/vi/xbFtm0FefUM/maxresdefault.jpg",
-        title: "Sales Funnel Video",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/xbFtm0FefUM"
-      },
-      {
-        id: 43,
-        thumbnail: "https://img.youtube.com/vi/m8PdJJ-cChQ/maxresdefault.jpg",
-        title: "VSL Campaign",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/m8PdJJ-cChQ"
-      }
+      { id: 40, thumbnail: "/Thubnails/AI-GOLDRUSH-thumbnail-deisgn.png", title: "AI Goldrush", videoUrl: "", duration: "" },
+      { id: 41, thumbnail: "/Thubnails/DIET-loagn-thumbnail-deisgn.jpg", title: "Diet Logan", videoUrl: "", duration: "" },
+      { id: 42, thumbnail: "/Thubnails/I--SCAMMED--MICROSOFT-thumbnail-design.png", title: "I Scammed Microsoft", videoUrl: "", duration: "" },
+      { id: 43, thumbnail: "/Thubnails/ITS-worth-it-thumbnail-deisgn.jpg", title: "It's Worth It", videoUrl: "", duration: "" },
+      { id: 44, thumbnail: "/Thubnails/Is-Marketing-Really-Worth-It.jpg", title: "Is Marketing Worth It", videoUrl: "", duration: "" },
+      { id: 45, thumbnail: "/Thubnails/Live-Here-In-thumbnail-design.jpg", title: "Live Here In", videoUrl: "", duration: "" },
+      { id: 46, thumbnail: "/Thubnails/Logan-breakfast-thumbnail-deisgn.jpg", title: "Logan Breakfast", videoUrl: "", duration: "" },
+      { id: 47, thumbnail: "/Thubnails/Multi-Agent-Explained--thumbnail-deisgn.jpg", title: "Multi Agent Explained", videoUrl: "", duration: "" },
+      { id: 48, thumbnail: "/Thubnails/OWN-PAYMENT-ASSISTANCE-PROGRAM-thumbnail-deisgn-.jpg", title: "Payment Assistance", videoUrl: "", duration: "" },
+      { id: 49, thumbnail: "/Thubnails/logan-face-with-chatgpt-03.jpg", title: "Logan with ChatGPT", videoUrl: "", duration: "" }
     ]
   };
 
@@ -267,7 +249,19 @@ const ReelsCarousel = () => {
                 }}
                 className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/10`}
               >
-                {video.videoUrl.startsWith('/') ? (
+                {activeTab === 'ads' ? (
+                   // Thumbnails Rendering (Static)
+                   <div className="w-full h-full relative cursor-pointer group">
+                      <img 
+                        src={video.thumbnail} 
+                        alt={video.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                         <p className="text-white font-semibold text-lg">{video.title}</p>
+                      </div>
+                   </div>
+                ) : video.videoUrl.startsWith('/') ? (
                   // Local Video Rendering
                   <div 
                     className="w-full h-full cursor-pointer relative"
