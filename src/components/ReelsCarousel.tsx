@@ -87,125 +87,22 @@ const ReelsCarousel = () => {
       }
     ],
     shorts: [
-      {
-        id: 11,
-        thumbnail: "https://img.youtube.com/vi/znnEzV2Qg3k/maxresdefault.jpg",
-        title: "Mastering Devin Style",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/znnEzV2Qg3k"
-      },
-      {
-        id: 12,
-        thumbnail: "https://img.youtube.com/vi/P607YNcJB_Y/maxresdefault.jpg",
-        title: "Finished Track Video",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/P607YNcJB_Y"
-      },
-      {
-        id: 13,
-        thumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/maxresdefault.jpg",
-        title: "Proven System Finale",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU"
-      },
-      {
-        id: 14,
-        thumbnail: "https://img.youtube.com/vi/E3GvLiB8jJc/maxresdefault.jpg",
-        title: "Real estate",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/E3GvLiB8jJc"
-      },
-      {
-        id: 15,
-        thumbnail: "https://img.youtube.com/vi/l2fqM7kAloU/maxresdefault.jpg",
-        title: "short 1",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/l2fqM7kAloU"
-      },
-      {
-        id: 16,
-        thumbnail: "https://img.youtube.com/vi/9laQbHLnczY/maxresdefault.jpg",
-        title: "Formula 1 Principle",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/9laQbHLnczY"
-      },
-      {
-        id: 17,
-        thumbnail: "https://img.youtube.com/vi/agsjS22hjlU/maxresdefault.jpg",
-        title: "Aliyah hook 5",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/agsjS22hjlU"
-      },
-      {
-        id: 18,
-        thumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/maxresdefault.jpg",
-        title: "Law firm owners 2",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk"
-      },
-      {
-        id: 19,
-        thumbnail: "https://img.youtube.com/vi/fVg5M5sCFws/maxresdefault.jpg",
-        title: "Getking ALV",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/fVg5M5sCFws"
-      },
-      {
-        id: 20,
-        thumbnail: "https://img.youtube.com/vi/T-opIb5aC7Q/maxresdefault.jpg",
-        title: "Dr Lockhart S 01",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/T-opIb5aC7Q"
-      },
-      {
-        id: 21,
-        thumbnail: "https://img.youtube.com/vi/n31V5HG5dgI/maxresdefault.jpg",
-        title: "Compton ALV1",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/n31V5HG5dgI"
-      },
-      {
-        id: 22,
-        thumbnail: "https://img.youtube.com/vi/MTqdQoZdNRo/maxresdefault.jpg",
-        title: "Thrive Revival Walmart",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/MTqdQoZdNRo"
-      },
-      {
-        id: 23,
-        thumbnail: "https://img.youtube.com/vi/4t0golxJb8A/maxresdefault.jpg",
-        title: "Life Style Vlog Style video",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/4t0golxJb8A"
-      },
-      {
-        id: 24,
-        thumbnail: "https://img.youtube.com/vi/705h0CtyRSc/maxresdefault.jpg",
-        title: "v4d testimonial dr webb",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/705h0CtyRSc"
-      },
-      {
-        id: 25,
-        thumbnail: "https://img.youtube.com/vi/91O4UvjuKr8/maxresdefault.jpg",
-        title: "testimonial lockhart",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/91O4UvjuKr8"
-      },
-      {
-        id: 26,
-        thumbnail: "https://img.youtube.com/vi/QoRRyLNo4-s/maxresdefault.jpg",
-        title: "Elijah Kanoho 9 16",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/QoRRyLNo4-s"
-      },
-      {
-        id: 27,
-        thumbnail: "https://img.youtube.com/vi/_PrR7VWPTas/maxresdefault.jpg",
-        title: "Nano Tech",
-        duration: "00:30",
-        videoUrl: "https://www.youtube.com/embed/_PrR7VWPTas"
-      }
+      { id: 11, title: "Aliyah Hook", duration: "00:30", videoUrl: "/video/Aliyah hook 5.mp4", thumbnail: "" },
+      { id: 12, title: "Compton ALV", duration: "00:30", videoUrl: "/video/Compton ALV1.mp4", thumbnail: "" },
+      { id: 13, title: "Dr. Lockhart", duration: "00:30", videoUrl: "/video/Dr Lockhart S 01.mp4", thumbnail: "" },
+      { id: 14, title: "Elijah Kanoho", duration: "00:30", videoUrl: "/video/Elijah Kanoho 9 16.mp4", thumbnail: "" },
+      { id: 15, title: "Finished Track", duration: "00:30", videoUrl: "/video/Finished Track Video.mp4", thumbnail: "" },
+      { id: 16, title: "Formula 1", duration: "00:30", videoUrl: "/video/Formula 1 Principle.mp4", thumbnail: "" },
+      { id: 17, title: "GetKing", duration: "00:30", videoUrl: "/video/Getking ALV.mp4", thumbnail: "" },
+      { id: 18, title: "Law Firm Owners", duration: "00:30", videoUrl: "/video/Law firm owners 2.mp4", thumbnail: "" },
+      { id: 19, title: "Lifestyle Vlog", duration: "00:30", videoUrl: "/video/Life Style Vlog Style video.mp4", thumbnail: "" },
+      { id: 20, title: "Devin Style", duration: "00:30", videoUrl: "/video/Mastering Devin Style.mp4", thumbnail: "" },
+      { id: 21, title: "Nano Tech", duration: "00:30", videoUrl: "/video/Nano Tech.mp4", thumbnail: "" },
+      { id: 22, title: "Proven System", duration: "00:30", videoUrl: "/video/Proven System Finale.mp4", thumbnail: "" },
+      { id: 23, title: "Real Estate", duration: "00:30", videoUrl: "/video/Real estate.mp4", thumbnail: "" },
+      { id: 24, title: "Thrive Revival", duration: "00:30", videoUrl: "/video/Thrive Revival Walmart.mp4", thumbnail: "" },
+      { id: 25, title: "Testimonial", duration: "00:30", videoUrl: "/video/testimonial lockhart.mp4", thumbnail: "" },
+      { id: 26, title: "Playback Demo", duration: "00:30", videoUrl: "/video/videoplayback_2.mp4", thumbnail: "" }
     ],
     saas: [
       {
@@ -368,9 +265,39 @@ const ReelsCarousel = () => {
                   y: -10,
                   transition: { type: "spring" as const, stiffness: 300, damping: 20 }
                 }}
-                className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl transition-all duration-300`}
+                className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/10`}
               >
-                {playingVideo === video.id && video.videoUrl ? (
+                {video.videoUrl.startsWith('/') ? (
+                  // Local Video Rendering
+                  <div 
+                    className="w-full h-full cursor-pointer relative"
+                    onClick={() => setPlayingVideo(playingVideo === video.id ? null : video.id)}
+                  >
+                    <video
+                      src={video.videoUrl}
+                      className="w-full h-full object-cover"
+                      autoPlay={true}
+                      muted={playingVideo !== video.id}
+                      loop
+                      playsInline
+                      controls={playingVideo === video.id}
+                    />
+                    {playingVideo !== video.id && (
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                           {/* Sound icon or Play icon to indicate click to unmute/control */}
+                           <Play className="w-6 h-6 text-white fill-white" />
+                        </div>
+                      </div>
+                    )}
+                    {/* Title Overlay for Local Video */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-100 transition-opacity pointer-events-none">
+                      <p className="text-white text-sm font-medium truncate">{video.title}</p>
+                    </div>
+                  </div>
+                ) : (
+                  // YouTube Embed Rendering
+                  playingVideo === video.id ? (
                   <iframe
                     src={`${video.videoUrl}?autoplay=1`}
                     title={video.title}
@@ -421,23 +348,13 @@ const ReelsCarousel = () => {
                           ></div>
                         </div>
 
-                        {/* Control icons */}
                         <div className="flex items-center gap-1">
-                          <button className="text-white/70 hover:text-white p-1">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
-                            </svg>
-                          </button>
-                          <button className="text-white/70 hover:text-white p-1">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                            </svg>
-                          </button>
+                             <div className="w-4 h-4 bg-white/50 rounded-full"></div>
                         </div>
                       </div>
                     </div>
                   </>
-                )}
+                ))}
               </motion.div>
             ))}
           </motion.div>

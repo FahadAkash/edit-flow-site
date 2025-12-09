@@ -7,45 +7,35 @@ const SocialProof = () => {
 
   // Screenshot images to cycle through
   const screenshots = [
-    "/reviews/Screenshot 2025-12-04 214247.png",
-    "/reviews/Screenshot 2025-12-04 214315.png",
-    "/reviews/Screenshot 2025-12-04 214339.png",
-    "/reviews/Screenshot 2025-12-04 214404.png"
+    "/reviews/Screenshot 2025-12-04 214247.png", "/reviews/Screenshot 2025-12-04 214315.png", "/reviews/Screenshot 2025-12-04 214339.png", "/reviews/Screenshot 2025-12-04 214404.png",
+    "/reviews/Screenshot 2025-12-08 140042.png", "/reviews/Screenshot 2025-12-08 140127.png", "/reviews/Screenshot 2025-12-08 140230.png", "/reviews/Screenshot 2025-12-08 140254.png",
+    "/reviews/Screenshot 2025-12-08 140314.png", "/reviews/Screenshot 2025-12-08 140509.png", "/reviews/Screenshot 2025-12-08 140625.png", "/reviews/Screenshot 2025-12-08 140702.png",
+    "/reviews/Screenshot 2025-12-08 140718.png", "/reviews/Screenshot 2025-12-08 140738.png", "/reviews/Screenshot 2025-12-08 140756.png", "/reviews/Screenshot 2025-12-08 140837.png",
+    "/reviews/Screenshot 2025-12-08 140900.png", "/reviews/Screenshot 2025-12-08 140926.png", "/reviews/Screenshot 2025-12-08 141233.png", "/reviews/Screenshot 2025-12-08 141308.png",
+    "/reviews/Screenshot 2025-12-08 141408.png", "/reviews/Screenshot 2025-12-08 141510.png", "/reviews/Screenshot 2025-12-08 141702.png", "/reviews/Screenshot 2025-12-08 141849.png",
+    "/reviews/Screenshot 2025-12-08 142006.png", "/reviews/Screenshot 2025-12-08 150338.png", "/reviews/Screenshot 2025-12-08 150408.png", "/reviews/Screenshot 2025-12-08 150508.png",
+    "/reviews/Screenshot 2025-12-08 150532.png", "/reviews/Screenshot 2025-12-08 150611.png", "/reviews/Screenshot 2025-12-08 150633.png", "/reviews/Screenshot 2025-12-08 150859.png",
+    "/reviews/Screenshot 2025-12-08 150928.png", "/reviews/Screenshot 2025-12-08 150950.png", "/reviews/Screenshot 2025-12-08 151009.png", "/reviews/Screenshot 2025-12-08 151054.png",
+    "/reviews/Screenshot 2025-12-08 151115.png", "/reviews/Screenshot 2025-12-08 151139.png", "/reviews/Screenshot 2025-12-08 151200.png", "/reviews/Screenshot 2025-12-08 151259.png",
+    "/reviews/Screenshot 2025-12-08 151321.png", "/reviews/Screenshot 2025-12-08 151340.png", "/reviews/Screenshot 2025-12-08 151402.png", "/reviews/Screenshot 2025-12-08 151432.png",
+    "/reviews/Screenshot 2025-12-08 151508.png", "/reviews/Screenshot 2025-12-08 151530.png", "/reviews/Screenshot 2025-12-08 151555.png", "/reviews/Screenshot 2025-12-08 151659.png",
+    "/reviews/Screenshot 2025-12-08 151714.png", "/reviews/Screenshot 2025-12-08 151826.png", "/reviews/Screenshot 2025-12-08 151849.png", "/reviews/Screenshot 2025-12-08 151914.png",
+    "/reviews/Screenshot 2025-12-08 151935.png", "/reviews/Screenshot 2025-12-08 151956.png", "/reviews/Screenshot 2025-12-08 152018.png", "/reviews/Screenshot 2025-12-08 152047.png",
+    "/reviews/Screenshot 2025-12-08 152106.png", "/reviews/Screenshot 2025-12-08 152227.png", "/reviews/Screenshot 2025-12-08 152253.png", "/reviews/Screenshot 2025-12-08 152314.png",
+    "/reviews/Screenshot 2025-12-08 152330.png", "/reviews/Screenshot 2025-12-08 152358.png", "/reviews/Screenshot 2025-12-08 152700.png", "/reviews/Screenshot 2025-12-08 152730.png",
+    "/reviews/Screenshot 2025-12-08 152751.png", "/reviews/Screenshot 2025-12-08 152809.png", "/reviews/Screenshot 2025-12-08 152843.png", "/reviews/Screenshot 2025-12-08 153242.png",
+    "/reviews/Screenshot 2025-12-08 153302.png", "/reviews/Screenshot 2025-12-08 153337.png", "/reviews/Screenshot 2025-12-08 153404.png"
   ];
 
   // Get screenshot for a review based on its ID (cycles through available screenshots)
   const getScreenshot = (id: number) => screenshots[(id - 1) % screenshots.length];
   
-  const reviews = [
-    { id: 1, type: "facebook", size: "normal" },
-    { id: 2, type: "youtube", size: "compact" },
-    { id: 3, type: "facebook", size: "tall" },
-    { id: 4, type: "google", size: "wide" },
-    { id: 5, type: "facebook", size: "compact" },
-    { id: 6, type: "discord", size: "normal" },
-    { id: 7, type: "facebook", size: "compact" },
-    { id: 8, type: "email", size: "tall" },
-    { id: 9, type: "youtube", size: "normal" },
-    { id: 10, type: "facebook", size: "wide" },
-    { id: 11, type: "facebook", size: "tall" },
-    { id: 12, type: "facebook", size: "normal" },
-    { id: 13, type: "linkedin", size: "wide" },
-    { id: 14, type: "twitter", size: "compact" },
-    { id: 15, type: "facebook", size: "normal" },
-    { id: 16, type: "instagram", size: "tall" },
-    { id: 17, type: "google", size: "compact" },
-    { id: 18, type: "discord", size: "normal" },
-    { id: 19, type: "facebook", size: "wide" },
-    { id: 20, type: "youtube", size: "tall" },
-    { id: 21, type: "email", size: "normal" },
-    { id: 22, type: "linkedin", size: "compact" },
-    { id: 23, type: "twitter", size: "wide" },
-    { id: 24, type: "facebook", size: "tall" },
-    { id: 25, type: "instagram", size: "compact" },
-    { id: 26, type: "google", size: "normal" },
-    { id: 27, type: "discord", size: "wide" },
-    { id: 28, type: "facebook", size: "tall" }
-  ];
+  // Dynamically generate reviews to match the number of screenshots
+  const reviews = Array.from({ length: screenshots.length }, (_, i) => ({
+    id: i + 1,
+    type: ["facebook", "youtube", "google", "discord", "email", "linkedin", "twitter", "instagram"][i % 8],
+    size: ["normal", "compact", "tall", "wide", "normal", "compact"][i % 6]
+  }));
 
   const visibleReviews = reviews.slice(0, visibleCount);
   const hasMore = visibleCount < reviews.length;
