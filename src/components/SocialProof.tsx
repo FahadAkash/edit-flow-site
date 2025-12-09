@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { Star, ChevronDown } from "lucide-react";
+import { useState, useMemo } from "react";
+import { ChevronDown } from "lucide-react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 
 const SocialProof = () => {
   const [visibleCount, setVisibleCount] = useState(20);
 
-  // Screenshot images to cycle through
-  const screenshots = [
+  // All available screenshots
+  const allScreenshots = [
     "/reviews/Screenshot 2025-12-04 214247.png", "/reviews/Screenshot 2025-12-04 214315.png", "/reviews/Screenshot 2025-12-04 214339.png", "/reviews/Screenshot 2025-12-04 214404.png",
     "/reviews/Screenshot 2025-12-08 140042.png", "/reviews/Screenshot 2025-12-08 140127.png", "/reviews/Screenshot 2025-12-08 140230.png", "/reviews/Screenshot 2025-12-08 140254.png",
     "/reviews/Screenshot 2025-12-08 140314.png", "/reviews/Screenshot 2025-12-08 140509.png", "/reviews/Screenshot 2025-12-08 140625.png", "/reviews/Screenshot 2025-12-08 140702.png",
@@ -27,15 +27,33 @@ const SocialProof = () => {
     "/reviews/Screenshot 2025-12-08 153302.png", "/reviews/Screenshot 2025-12-08 153337.png", "/reviews/Screenshot 2025-12-08 153404.png"
   ];
 
-  // Get screenshot for a review based on its ID (cycles through available screenshots)
-  const getScreenshot = (id: number) => screenshots[(id - 1) % screenshots.length];
-  
-  // Dynamically generate reviews to match the number of screenshots
-  const reviews = Array.from({ length: screenshots.length }, (_, i) => ({
-    id: i + 1,
-    type: ["facebook", "youtube", "google", "discord", "email", "linkedin", "twitter", "instagram"][i % 8],
-    size: ["normal", "compact", "tall", "wide", "normal", "compact"][i % 6]
-  }));
+  // Process screenshots into review cards (ensuring unique usage)
+  const reviews = useMemo(() => {
+    const cards = [];
+    let i = 0;
+    let cardId = 1;
+
+    // Pattern for sizes to keep grid interesting: normal, wide, tall, big
+    // Mix of 1x1, 2x1, 1x2, 2x2
+    const sizePattern = ["normal", "wide", "tall", "normal", "big", "wide", "normal", "tall", "wide", "normal", "normal", "wide"];
+
+    while (i < allScreenshots.length) {
+      const sizeIndex = (cardId - 1) % sizePattern.length;
+      let size = sizePattern[sizeIndex];
+
+      // Assign single image to card
+      cards.push({
+        id: cardId,
+        type: ["facebook", "youtube", "google", "discord", "email", "linkedin", "twitter", "instagram"][cardId % 8],
+        size: size,
+        image: allScreenshots[i]
+      });
+      
+      i++;
+      cardId++;
+    }
+    return cards;
+  }, []);
 
   const visibleReviews = reviews.slice(0, visibleCount);
   const hasMore = visibleCount < reviews.length;
@@ -50,8 +68,8 @@ const SocialProof = () => {
         return "row-span-2";
       case "wide":
         return "col-span-2";
-      case "compact":
-        return "";
+      case "big":
+        return "col-span-2 row-span-2";
       default:
         return "";
     }
@@ -142,43 +160,12 @@ const SocialProof = () => {
                 whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.2 } }}
                 className={`bg-white p-2 rounded-lg shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300 overflow-hidden ${getSizeClass(review.size)}`}
               >
-                {/* Screenshots - multiple for larger cards, object-contain to show full comments */}
-                {review.size === "tall" ? (
-                  // Tall cards: 2 screenshots stacked vertically
-                  <div className="flex flex-col gap-1 h-full">
-                    <img
-                      src={getScreenshot(review.id)}
-                      alt="Client review"
-                      className="w-full flex-1 rounded-md object-contain object-top"
-                    />
-                    <img
-                      src={getScreenshot(review.id + 1)}
-                      alt="Client review"
-                      className="w-full flex-1 rounded-md object-contain object-top"
-                    />
-                  </div>
-                ) : review.size === "wide" ? (
-                  // Wide cards: 2 screenshots side by side
-                  <div className="flex gap-1 h-full">
-                    <img
-                      src={getScreenshot(review.id)}
-                      alt="Client review"
-                      className="flex-1 h-full rounded-md object-contain"
-                    />
-                    <img
-                      src={getScreenshot(review.id + 1)}
-                      alt="Client review"
-                      className="flex-1 h-full rounded-md object-contain"
-                    />
-                  </div>
-                ) : (
-                  // Normal/compact: single screenshot - full view
-                  <img
-                    src={getScreenshot(review.id)}
-                    alt="Client review"
-                    className="w-full h-full rounded-md object-contain"
-                  />
-                )}
+                {/* Image Rendering */}
+                <img
+                  src={review.image}
+                  alt="Client review"
+                  className="w-full h-full rounded-md object-contain"
+                />
                 
                 {/* Platform Badge */}
                 <div className="absolute bottom-2 right-2">
@@ -216,52 +203,14 @@ const SocialProof = () => {
           animate={{ opacity: 1 }}
           className="text-center mt-4 text-muted-foreground"
         >
-          Showing {visibleCount} of 500+ reviews
+          Showing {visibleReviews.length > allScreenshots.length ? allScreenshots.length : visibleCount <= allScreenshots.length ? visibleCount : allScreenshots.length} of {allScreenshots.length} reviews
         </motion.p>
 
-        {/* Stats Footer */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-coral-accent mb-2">500+</div>
-            <div className="text-sm text-gray-600">5-Star Reviews</div>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-coral-accent mb-2">98%</div>
-            <div className="text-sm text-gray-600">Client Satisfaction</div>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-coral-accent mb-2">1000+</div>
-            <div className="text-sm text-gray-600">Projects Completed</div>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center"
-          >
-            <div className="text-4xl font-bold text-coral-accent mb-2">24/7</div>
-            <div className="text-sm text-gray-600">Support Available</div>
-          </motion.div>
+        {/* Stats Footer - Simplified */}
+        <div className="mt-16 text-center">
+             <p className="text-gray-500 text-sm">Join hundreds of satisfied creators</p>
         </div>
+
       </div>
     </section>
   );
