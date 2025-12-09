@@ -112,22 +112,26 @@ const VideoPortfolio = () => {
               };
 
               const position = getArcPosition();
+              const delay = Math.abs(item.position) * 0.1; // Stagger effect
 
               return (
                 <motion.div
                   key={`${item.id}-${item.position}`}
-                  initial={position}
-                  animate={position}
+                  initial={{ x: 0, z: -200, rotate: 0, scale: 0.5, opacity: 0 }}
+                  whileInView={position}
+                  viewport={{ once: true, margin: "-100px" }}
                   transition={{ 
                     type: "spring",
-                    stiffness: 260,
-                    damping: 20
+                    stiffness: 200,
+                    damping: 24,
+                    delay: delay
                   }}
-                  whileHover={isCenter ? { 
-                    scale: 1.05,
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
-                    zIndex: 30
-                  } : {}}
+                  whileHover={{ 
+                    scale: isCenter ? 1.05 : 0.9,
+                    zIndex: isCenter ? 30 : 20,
+                    filter: "brightness(1.1)",
+                    transition: { duration: 0.2 }
+                  }}
                   className={`absolute w-[320px] h-[560px] rounded-3xl overflow-hidden shadow-2xl ${item.bgColor} border border-white/10`}
                 >
                   <div className="relative w-full h-full">
