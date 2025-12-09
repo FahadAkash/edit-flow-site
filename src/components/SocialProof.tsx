@@ -107,7 +107,7 @@ const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold text-black mb-4"
+            className="text-4xl md:text-6xl font-normal text-black mb-4"
           >
             Client <span className="text-coral-accent">Results</span>
           </motion.h2>
@@ -189,7 +189,7 @@ const SocialProof = () => {
               onClick={loadMore}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 bg-coral-accent text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all cursor-pointer"
+              className="flex items-center gap-2 bg-coral-accent text-white px-8 py-4 rounded-full font-normal text-lg shadow-lg hover:shadow-xl transition-all cursor-pointer"
             >
               See More Reviews
               <ChevronDown className="w-5 h-5 animate-bounce" />

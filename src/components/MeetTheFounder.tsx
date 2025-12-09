@@ -50,7 +50,7 @@ const MeetTheFounder = () => {
             </div>
 
             {/* Bio Paragraphs */}
-            <div className="space-y-4 text-charcoal/90 leading-relaxed font-light">
+            <div className="space-y-4 text-charcoal/90 leading-relaxed font-normal">
               <p>
                 Parvir is the founder of EditFlow, a premier video editing agency that has helped 
                 <span className="text-white"> hundreds of content creators</span> transform 

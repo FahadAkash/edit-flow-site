@@ -145,10 +145,10 @@ const VideoPortfolio = () => {
                     
                     {/* Video Header / Company */}
                     <div className="absolute top-4 left-4 right-4 z-20 flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${item.logo.color} flex items-center justify-center text-white font-bold shadow-lg text-xs`}>
+                      <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${item.logo.color} flex items-center justify-center text-white font-normal shadow-lg text-xs`}>
                         {item.logo.text}
                       </div>
-                      <div className="text-white text-xs font-medium drop-shadow-md bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">
+                      <div className="text-white text-xs font-normal drop-shadow-md bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">
                         {item.company}
                       </div>
                     </div>
@@ -208,15 +208,15 @@ const VideoPortfolio = () => {
                             </div>
                         </div>
                         <div className="absolute -bottom-2 -right-2 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5 shadow-lg">
-                            <span className="text-secondary font-bold text-sm">{portfolioItems[currentIndex].flowers}</span>
+                            <span className="text-secondary font-normal text-sm">{portfolioItems[currentIndex].flowers}</span>
                         </div>
                     </div>
 
                     {/* Content */}
                     <div className="flex-1 space-y-4">
                         <div className="space-y-1">
-                            <h3 className="text-2xl font-bold text-white">{portfolioItems[currentIndex].name}</h3>
-                            <p className="text-primary font-medium">{portfolioItems[currentIndex].company}</p>
+                            <h3 className="text-2xl font-normal text-white">{portfolioItems[currentIndex].name}</h3>
+                            <p className="text-primary font-normal">{portfolioItems[currentIndex].company}</p>
                         </div>
                         
                         <div className="relative">

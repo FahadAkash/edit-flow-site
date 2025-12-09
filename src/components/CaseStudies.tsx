@@ -187,7 +187,7 @@ const CaseStudies = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-3"
+            className="text-4xl md:text-6xl font-normal text-foregorund"
           >
             <span className="text-white">Success</span> Stories
           </motion.h2>

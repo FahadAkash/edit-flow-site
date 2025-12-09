@@ -6,6 +6,7 @@ const HeroSection = () => {
     { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education" },
     { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand" },
     { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality" },
+    { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "" },
   ];
 
   // Video data for columns 2 and 3
@@ -134,7 +135,7 @@ const HeroSection = () => {
               </div>
               
               <p className="text-white/80 text-sm ml-2">
-                <span className="font-semibold text-white">Trusted by 500+</span> entrepreneurs
+                <span className="font-normal text-white">Trusted by 500+</span> entrepreneurs
               </p>
             </div>
 

@@ -200,7 +200,7 @@ const ReelsCarousel = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold text-charcoal mb-8"
+            className="text-4xl md:text-6xl font-normal text-charcoal mb-8"
           >
             Featured Projects
           </motion.h2>
@@ -216,7 +216,7 @@ const ReelsCarousel = () => {
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                className={`px-6 py-3 rounded-lg font-normal transition-all ${
                   activeTab === tab.id
                     ? 'bg-blue-600 text-white shadow-lg'
                     : 'bg-transparent text-charcoal hover:bg-muted border-2 border-charcoal/20'
