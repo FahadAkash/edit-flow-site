@@ -8,8 +8,8 @@ const HeroSection = () => {
     { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality" },
     { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "" },
     { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "" },
-  { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "" },
-  { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "" },
+    { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "" },
+    { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "" },
   ];
 
   // Video data for columns 2 and 3
@@ -184,13 +184,13 @@ const HeroSection = () => {
           <div className="lg:col-span-7 relative h-[650px] lg:h-[750px] overflow-hidden">
             <div className="flex gap-8 h-full">
               
-              {/* Column 1 - Scroll Down */}
+              {/* Column 1 - Scroll Up (Faster 10s) */}
               <motion.div
                 animate={{
-                  y: ["-50%", "0%"]
+                  y: ["0%", "-50%"]
                 }}
                 transition={{
-                  duration: 40,
+                  duration: 10,
                   repeat: Infinity,
                   ease: "linear"
                 }}
@@ -219,13 +219,13 @@ const HeroSection = () => {
                 ))}
               </motion.div>
 
-              {/* Column 2 - Scroll Up (Videos) */}
+              {/* Column 2 - Scroll Down (Faster 12s) */}
               <motion.div
                 animate={{
-                  y: ["0%", "-50%"]
+                  y: ["-50%", "0%"]
                 }}
                 transition={{
-                  duration: 45,
+                  duration: 12,
                   repeat: Infinity,
                   ease: "linear"
                 }}
@@ -267,13 +267,13 @@ const HeroSection = () => {
                 })}
               </motion.div>
 
-              {/* Column 3 - Scroll Down (Videos) */}
+              {/* Column 3 - Scroll Up (Faster 11s) */}
               <motion.div
                 animate={{
-                  y: ["-50%", "0%"]
+                  y: ["0%", "-50%"]
                 }}
                 transition={{
-                  duration: 38,
+                  duration: 11,
                   repeat: Infinity,
                   ease: "linear"
                 }}

@@ -1,23 +1,29 @@
+
 const BrandLogos = () => {
   const brands = [
-    { name: "neutonic", logo: "neutonic" },
-    { name: "Campfire Circle", logo: "🏕️" },
-    { name: "NV", logo: "NV" },
-    { name: "DANGER COFFEE", logo: "⚠️ DANGER\nCOFFEE" },
-    { name: "organifi", logo: "organifi" },
+    { name: "Microsoft Team", logo: "/profile_brands/5th.png" },
+    { name: "Coursera", logo: "/profile_brands/first.jpg" },
+    { name: "Organifi", logo: "/profile_brands/eight.jpg" },
+    { name: "KOH", logo: "/profile_brands/sec.jpg" },
+    { name: "Mara Labs", logo: "/profile_brands/seven.jpg" },
+    { name: "*create", logo: "/profile_brands/sixth.jpg" },
+    { name: "Manna", logo: "/profile_brands/thirds.jpg" },
   ];
 
   return (
-    <section className="w-full bg-[#E63946] py-4">
+    <section className="w-full bg-[#E63946] py-12">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-around gap-8">
+        <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24">
           {brands.map((brand, idx) => (
             <div
               key={idx}
-              className="flex items-center justify-center text-white font-bold text-xl md:text-2xl whitespace-pre-line text-center"
-              style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
+              className="flex items-center justify-center group"
             >
-              {brand.logo}
+              <img 
+                src={brand.logo} 
+                alt={brand.name}
+                className="w-20 h-20 rounded-full object-cover border-[3px] border-white shadow-xl grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110 group-hover:rotate-3"
+              />
             </div>
           ))}
         </div>
