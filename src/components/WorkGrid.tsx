@@ -301,19 +301,15 @@ const WorkGrid = () => {
     <>
       <style>{`
         .paper-texture {
-          background-color: #f7f6f4;
-          background-image: 
-            radial-gradient(circle at 25px 25px, rgba(139, 69, 19, 0.1) 2%, transparent 2%),
-            radial-gradient(circle at 75px 75px, rgba(139, 69, 19, 0.08) 1%, transparent 1%),
-            radial-gradient(circle at 100px 50px, rgba(160, 82, 45, 0.06) 1%, transparent 1%);
-          background-size: 100px 100px, 150px 150px, 80px 80px;
+          background-color: transparent;
+          background-image: none;
         }
         
         .sketchy-border {
-          border: 2px solid #2c1810;
+          border: 2px solid #5d4037;
           border-radius: 8px;
           position: relative;
-          filter: drop-shadow(2px 3px 4px rgba(44, 24, 16, 0.3));
+          filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.5));
         }
         
         .sketchy-border::before {
@@ -329,10 +325,10 @@ const WorkGrid = () => {
         }
         
         .ink-text {
-          color: #2c1810;
+          color: #f2f4f3;
           font-family: 'Courier New', monospace;
           font-weight: 600;
-          text-shadow: 1px 1px 0px rgba(44, 24, 16, 0.1);
+          text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
         }
         
         .handwritten {
@@ -341,7 +337,7 @@ const WorkGrid = () => {
         }
         
         .sketch-tab {
-          background: #f9f8f6;
+          background: #333333;
           border: 2px solid #5d4037;
           border-radius: 12px;
           position: relative;
@@ -355,20 +351,20 @@ const WorkGrid = () => {
         }
         
         .sketch-tab.active {
-          background: #e8f4fd;
-          border-color: #1976d2;
+          background: #1a1a1a;
+          border-color: #92140c;
           transform: rotate(-0.3deg);
-          box-shadow: 2px 3px 6px rgba(25, 118, 210, 0.3);
+          box-shadow: 2px 3px 6px rgba(146, 20, 12, 0.3);
         }
         
         .paper-card {
-          background: #fefefe;
+          background: #1a1a1a;
           border: 2px solid #4a4a4a;
           border-radius: 6px;
           position: relative;
           transform: rotate(0deg);
           transition: all 0.3s ease;
-          box-shadow: 3px 4px 6px rgba(74, 74, 74, 0.2);
+          box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.5);
         }
         
         .paper-card:hover {
@@ -387,9 +383,9 @@ const WorkGrid = () => {
         }
         
         .duration-badge {
-          background: rgba(44, 24, 16, 0.9);
+          background: rgba(0, 0, 0, 0.9);
           color: #f7f6f4;
-          border: 1px solid #2c1810;
+          border: 1px solid #333;
           font-family: 'Courier New', monospace;
           font-size: 11px;
           transform: rotate(1deg);
@@ -544,7 +540,7 @@ const WorkGrid = () => {
                     }`}>
                       {item.title}
                     </h3>
-                    <p className={`text-gray-600 ${isShorts ? "text-xs" : "text-sm"}`} style={{ fontFamily: 'Europa Grotesk SH, -apple-system, BlinkMacSystemFont, sans-serif' }}>
+                    <p className={`text-gray-300 ${isShorts ? "text-xs" : "text-sm"}`} style={{ fontFamily: 'Europa Grotesk SH, -apple-system, BlinkMacSystemFont, sans-serif' }}>
                       ~ {item.client} ~
                     </p>
                     
@@ -570,7 +566,7 @@ const WorkGrid = () => {
                         
                         {/* Client Message and Rating */}
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs text-gray-600 italic line-clamp-2" style={{ fontFamily: 'Europa Grotesk SH, -apple-system, BlinkMacSystemFont, sans-serif' }}>{item.clientMessage}</p>
+                          <p className="text-xs text-gray-300 italic line-clamp-2" style={{ fontFamily: 'Europa Grotesk SH, -apple-system, BlinkMacSystemFont, sans-serif' }}>{item.clientMessage}</p>
                           {item.rating && (
                             <div className="mt-1">
                               <StarRating rating={item.rating} />
@@ -605,7 +601,7 @@ const WorkGrid = () => {
           {selectedVideo && (
             <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
               <div className="relative max-w-4xl w-full">
-                <div className="sketchy-border bg-white p-4 sm:p-6 shadow-2xl">
+                <div className="sketchy-border bg-card p-4 sm:p-6 shadow-2xl">
                   <div className="aspect-video bg-gray-100 overflow-hidden mb-4 relative border-2 border-gray-300 rounded">
                     {selected?.videoUrl ? (
                       <iframe

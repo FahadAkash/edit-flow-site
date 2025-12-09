@@ -8,32 +8,30 @@ const VideoPortfolio = () => {
   const portfolioItems = [
     {
       id: 1,
-      type: "dark",
+      name: "Pete Soderling",
+      flowers: "2.4M",
       logo: { text: "D", color: "from-purple-500 to-blue-500" },
       company: "Data Council",
-      date: '"10 years ago"',
-      title: "THE WORLD'S 1ST\nDATA ENGINEERING\nCONFERENCE",
-      speaker: "PETE SODERLING",
-      thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=600&fit=crop",
-      bgColor: "bg-slate-900"
+      video: "/video/videoplayback_2.mp4",
+      bgColor: "bg-black"
     },
     {
       id: 2,
-      type: "grayscale",
-      logo: { text: "didn't", color: "from-yellow-500 to-orange-500" },
-      company: "Client Portfolio",
-      thumbnail: "https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=600&fit=crop",
-      bgColor: "bg-gray-300",
-      centered: true
+      name: "Sarah Chen",
+      flowers: "1.8M",
+      logo: { text: "S", color: "from-yellow-500 to-orange-500" },
+      company: "Tech Trends",
+      video: "/video/videoplayback_2.mp4",
+      bgColor: "bg-zinc-900"
     },
     {
       id: 3,
-      type: "light",
-      company: "Market Analysis",
-      title: "Market Cap\nto GDP ratio",
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=600&fit=crop",
-      bgColor: "bg-stone-200",
-      hasMenu: true
+      name: "Market Watch",
+      flowers: "500K",
+      logo: { text: "M", color: "from-green-500 to-emerald-700" },
+      company: "Daily Brief",
+      video: "/video/videoplayback_2.mp4",
+      bgColor: "bg-slate-900"
     }
   ];
 
@@ -45,7 +43,6 @@ const VideoPortfolio = () => {
     setCurrentIndex((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length);
   };
 
-  // Get 3 visible cards
   const getVisibleCards = () => {
     const cards = [];
     for (let i = -1; i <= 1; i++) {
@@ -59,143 +56,92 @@ const VideoPortfolio = () => {
   };
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
+    <section className="relative py-20 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
+          Featured <span className="text-primary">Work</span>
+        </h2>
         
         {/* Circular Arc Cards Container */}
-        <div className="relative w-full h-[700px] flex items-center justify-center">
+        <div className="relative w-full h-[600px] flex items-center justify-center">
 
           {/* Cards positioned along arc */}
-          <div className="relative w-full max-w-5xl h-full">
+          <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
             {getVisibleCards().map((item) => {
               const isCenter = item.position === 0;
               const isLeft = item.position === -1;
               
-              // Get arc position styles
               const getArcPosition = () => {
                 if (isLeft) {
-                  return { left: '70px', top: '120px', rotate: -15 };
+                  return { x: -350, z: -100, rotate: -15, scale: 0.85, opacity: 0.6 };
                 } else if (isCenter) {
-                  return { left: '50%', top: '30px', translateX: '-50%', rotate: 0 };
+                  return { x: 0, z: 0, rotate: 0, scale: 1, opacity: 1 };
                 } else {
-                  return { right: '70px', top: '120px', rotate: 15 };
+                  return { x: 350, z: -100, rotate: 15, scale: 0.85, opacity: 0.6 };
                 }
               };
 
               const position = getArcPosition();
 
-              // Individual floating animation delays
-              const floatingDelay = isLeft ? 0 : isCenter ? 0.3 : 0.6;
-
               return (
                 <motion.div
                   key={`${item.id}-${item.position}`}
-                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                  animate={{
-                    ...position,
-                    scale: 1,
-                    opacity: 1,
-                    y: [0, -15, 0]
-                  }}
-                  whileHover={{
-                    y: -25,
-                    scale: 1.08,
-                    rotateY: 5,
-                    boxShadow: "0 30px 80px rgba(255, 179, 0, 0.3)"
-                  }}
+                  initial={position}
+                  animate={position}
                   transition={{ 
                     duration: 0.5, 
-                    ease: [0.175, 0.885, 0.32, 1.275],
-                    y: {
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: floatingDelay
-                    },
-                    opacity: { duration: 0.6 },
-                    scale: { duration: 0.6 }
+                    ease: "easeInOut"
                   }}
-                  style={{
-                    position: 'absolute',
-                    zIndex: isCenter ? 20 : 10,
-                    transformStyle: 'preserve-3d'
-                  }}
-                  className={`w-[380px] h-[540px] rounded-3xl shadow-2xl overflow-hidden ${item.bgColor} cursor-pointer transition-shadow duration-300`}
+                  className={`absolute w-[320px] h-[560px] rounded-3xl overflow-hidden shadow-2xl ${item.bgColor} border border-white/10`}
                 >
-                  {/* Card Content */}
-                  <div className="relative w-full h-full p-6 flex flex-col">
+                  <div className="relative w-full h-full">
                     
-                    {/* Header with Logo/Company */}
-                    {item.logo && (
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.logo.color} flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
-                          {item.logo.text}
+                    {/* Video Header / Company */}
+                    <div className="absolute top-4 left-4 right-4 z-20 flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.logo.color} flex items-center justify-center text-white font-bold shadow-lg`}>
+                        {item.logo.text}
+                      </div>
+                      <div className="text-white text-sm font-medium drop-shadow-md">
+                        {item.company}
+                      </div>
+                    </div>
+
+                    {/* Video Player */}
+                    <div className="absolute inset-0 bg-black">
+                      <video
+                        src={item.video}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover opacity-80"
+                      />
+                    </div>
+
+                    {/* Stats Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-20">
+                      <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-gray-300 text-sm">Flowers Total:</span>
+                          <span className="text-secondary font-bold text-lg">{item.flowers}</span>
                         </div>
-                        <div>
-                          <div className="text-white font-semibold">{item.company}</div>
-                          {item.date && <div className="text-gray-400 text-sm italic">{item.date}</div>}
+                        <div className="flex items-center gap-2">
+                          <span className="text-gray-300 text-sm">Name:</span>
+                          <span className="text-white font-bold text-lg">{item.name}</span>
                         </div>
                       </div>
-                    )}
-
-                    {/* Main Content Area */}
-                    <div className="flex-1 flex items-center justify-center relative">
                       
-                      {item.thumbnail && (
-                        <div className="relative w-full">
-                          <img 
-                            src={item.thumbnail} 
-                            alt={item.title || item.company}
-                            className="w-full h-56 object-cover rounded-xl"
-                          />
-                          
-                          {/* Play Button Overlay */}
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-16 h-16 bg-yellow-500 rounded-xl flex items-center justify-center shadow-lg hover:bg-yellow-400 transition-colors">
-                              <Play className="w-8 h-8 text-black ml-1" fill="black" />
-                            </div>
-                          </div>
+                      {/* Play Button Overlay (Decorative) */}
+                       {isCenter && (
+                        <div className="absolute top-[-200%] left-1/2 -translate-x-1/2 w-16 h-16 bg-primary/90 rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm">
+                          <Play className="w-8 h-8 text-white ml-1 fill-white" />
                         </div>
-                      )}
-
-                      {/* Title Overlay */}
-                      {item.title && !item.centered && (
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <div className="bg-gradient-to-r from-yellow-400 to-green-500 text-black font-bold text-sm px-3 py-2 rounded-lg leading-tight">
-                            {item.title.split('\n').map((line, idx) => (
-                              <div key={idx}>{line}</div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {item.speaker && (
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-green-500 to-transparent py-2 px-4">
-                          <div className="text-black font-bold text-center text-xs">{item.speaker}</div>
-                        </div>
-                      )}
+                       )}
                     </div>
 
-                    {/* Footer with widia logo */}
-                    <div className="flex justify-between items-center mt-4">
-                      <div className="text-gray-600 text-xs flex items-center gap-1">
-                        <div className="w-4 h-4 bg-gray-400 rounded"></div>
-                        <span>↗</span>
-                      </div>
-                      <div className="flex items-center gap-1 text-yellow-600 font-semibold">
-                        <span className="text-lg">≡</span>
-                        <span>widia</span>
-                      </div>
-                    </div>
+                    {/* Menu Gradient Top */}
+                    <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/60 to-transparent z-10 pointer-events-none" />
 
-                    {/* Menu Dots (for light card) */}
-                    {item.hasMenu && (
-                      <div className="absolute top-6 right-6">
-                        <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                          <div className="w-1 h-1 bg-white rounded-full"></div>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               );
@@ -207,29 +153,16 @@ const VideoPortfolio = () => {
         <div className="flex justify-center gap-4 mt-8">
           <button
             onClick={prevSlide}
-            className="w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center transition-colors"
+            className="w-12 h-12 bg-card hover:bg-card/80 border border-border rounded-full flex items-center justify-center transition-colors text-foreground"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center transition-colors"
+            className="w-12 h-12 bg-card hover:bg-card/80 border border-border rounded-full flex items-center justify-center transition-colors text-foreground"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-6 h-6" />
           </button>
-        </div>
-
-        {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-6">
-          {portfolioItems.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                idx === currentIndex ? "bg-white w-8" : "bg-gray-600"
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>

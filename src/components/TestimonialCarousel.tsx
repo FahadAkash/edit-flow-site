@@ -147,7 +147,7 @@ const TestimonialCarousel = () => {
                       </div>
                     </div>
                     {/* Label */}
-                    <div className="absolute top-4 left-4 bg-charcoal/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
                       Before
                     </div>
                   </div>
@@ -239,7 +239,7 @@ const TestimonialCarousel = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={prevTestimonial}
-              className="rounded-full w-14 h-14 border-2 border-charcoal/30 bg-white hover:bg-tape-yellow hover:border-tape-yellow transition-colors flex items-center justify-center cursor-pointer shadow-sm"
+              className="rounded-full w-14 h-14 border-2 border-charcoal/30 bg-black hover:bg-tape-yellow hover:border-tape-yellow transition-colors flex items-center justify-center cursor-pointer shadow-sm"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6 text-charcoal" strokeWidth={2} />
@@ -268,7 +268,7 @@ const TestimonialCarousel = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextTestimonial}
-              className="rounded-full w-14 h-14 border-2 border-charcoal/30 bg-white hover:bg-tape-yellow hover:border-tape-yellow transition-colors flex items-center justify-center cursor-pointer shadow-sm"
+              className="rounded-full w-14 h-14 border-2 border-charcoal/30 bg-black hover:bg-tape-yellow hover:border-tape-yellow transition-colors flex items-center justify-center cursor-pointer shadow-sm"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6 text-charcoal" strokeWidth={2} />

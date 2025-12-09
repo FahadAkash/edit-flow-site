@@ -320,7 +320,7 @@ const CaseStudies = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextCase}
-              className="rounded-full w-12 h-12 border-2 border-charcoal/30 bg-white hover:bg-tape-yellow hover:border-tape-yellow transition-all flex items-center justify-center cursor-pointer"
+              className="rounded-full w-12 h-12 border-2 border-charcoal/30 bg-black hover:bg-tape-yellow hover:border-tape-yellow transition-all flex items-center justify-center cursor-pointer"
               aria-label="Next case study"
             >
               <ChevronRight className="w-5 h-5 text-charcoal" strokeWidth={2} />

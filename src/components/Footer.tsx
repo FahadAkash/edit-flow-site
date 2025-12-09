@@ -20,11 +20,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-12 px-4 bg-charcoal text-white overflow-hidden">
+    <footer className="py-12 px-4 bg-background text-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Main CTA */}
         <div className="text-center mb-12">
-          <div className="sticky-note p-8 max-w-2xl mx-auto bg-paper-white">
+          <div className="sticky-note p-8 max-w-2xl mx-auto bg-card">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
               Ready to Go <span className="text-coral-accent">Viral?</span>
             </h2>

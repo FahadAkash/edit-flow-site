@@ -192,7 +192,7 @@ const SocialProof = () => {
                 
                 {/* Platform Badge */}
                 <div className="absolute bottom-2 right-2">
-                  <span className="text-xs font-medium capitalize bg-charcoal/80 text-white px-2 py-1 rounded">
+                  <span className="text-xs font-medium capitalize bg-black/80 text-white px-2 py-1 rounded">
                     {review.type}
                   </span>
                 </div>

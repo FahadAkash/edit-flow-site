@@ -73,12 +73,7 @@ const TestimonialsSection = () => {
       transition={{ duration: 0.8 }}
       className="py-24 relative" 
       style={{
-        background: 'linear-gradient(to bottom, #f8f6f0, #f5f2e8)',
-        backgroundImage: `
-          radial-gradient(circle at 20% 50%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(101, 67, 33, 0.02) 0%, transparent 50%),
-          radial-gradient(circle at 40% 80%, rgba(160, 82, 45, 0.02) 0%, transparent 50%)
-        `
+        background: 'transparent',
       }}
     >
       {/* Paper texture overlay */}
@@ -139,14 +134,14 @@ const TestimonialsSection = () => {
               className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border-2 border-amber-200 shadow-lg"
               style={{
                 boxShadow: '4px 4px 0px rgba(139, 69, 19, 0.2)',
-                background: 'linear-gradient(135deg, #ffffff 0%, #fefbf3 100%)'
+                background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0908 100%)'
               }}
             >
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-sm font-medium text-amber-700 mb-2 tracking-wider"
+                className="text-sm font-medium text-amber-500 mb-2 tracking-wider"
               >
                 CLIENT EXPERIENCES
               </motion.div>
@@ -154,7 +149,7 @@ const TestimonialsSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
+                className="text-4xl md:text-5xl font-bold text-white mb-4"
               >
                 What our <span className="text-orange-500 relative">
                   <motion.span
@@ -250,7 +245,7 @@ const TestimonialsSection = () => {
                   >
                     <motion.div 
                       whileHover={{ scale: 1.05 }}
-                      className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-medium"
+                      className="flex items-center gap-2 bg-white/10 text-white px-4 py-2 rounded-full text-sm font-medium"
                     >
                       <motion.div 
                         animate={{ scale: [1, 1.2, 1] }}
@@ -306,7 +301,7 @@ const TestimonialsSection = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: index * 0.1 + 0.7 }}
-                        className="text-xl md:text-2xl font-medium text-gray-800 leading-relaxed"
+                        className="text-xl md:text-2xl font-medium text-white leading-relaxed"
                       >
                         "{testimonial.quote}"
                       </motion.p>
@@ -319,9 +314,9 @@ const TestimonialsSection = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 + 0.9 }}
                       className="border-t-2 border-amber-100 pt-6"
                     >
-                      <h4 className="text-lg font-bold text-gray-800 mb-1">{testimonial.name}</h4>
-                      <p className="text-gray-600 mb-1">{testimonial.title}</p>
-                      <p className="text-gray-500 text-sm">{testimonial.location}</p>
+                      <h4 className="text-lg font-bold text-white mb-1">{testimonial.name}</h4>
+                      <p className="text-gray-300 mb-1">{testimonial.title}</p>
+                      <p className="text-gray-400 text-sm">{testimonial.location}</p>
                     </motion.div>
 
                     {/* Decorative elements */}

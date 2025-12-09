@@ -12,7 +12,7 @@ const MeetTheFounder = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -73,7 +73,7 @@ const MeetTheFounder = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block mt-8 bg-charcoal text-white px-8 py-3 rounded-full font-bold hover:bg-charcoal/90 transition-colors"
+              className="inline-block mt-8 bg-charcoal text-black px-8 py-3 rounded-full font-bold hover:bg-charcoal/90 transition-colors"
             >
               Work With Me →
             </motion.a>

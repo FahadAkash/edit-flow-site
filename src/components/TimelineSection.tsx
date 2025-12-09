@@ -89,12 +89,12 @@ const ProcessTimeline = () => {
   ];
 
   return (
-    <section className="py-20 px-4 relative overflow-hidden bg-[#faf9f6]">
-      {/* Paper texture background */}
+    <section className="py-20 px-4 relative overflow-hidden bg-transparent">
+      {/* Paper texture background - reduced opacity for dark mode */}
       <div 
-        className="absolute inset-0 opacity-30 pointer-events-none"
+        className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' patternUnits='userSpaceOnUse' width='100' height='100'%3E%3Crect fill='%23f8f6f0' width='100' height='100'/%3E%3Cpath d='M0 0L50 50L100 0' stroke='%23e8e4d9' stroke-width='0.5' fill='none'/%3E%3Cpath d='M0 100L50 50L100 100' stroke='%23e8e4d9' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23paper)'/%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='paper' patternUnits='userSpaceOnUse' width='100' height='100'%3E%3Crect fill='%23ffffff' width='100' height='100'/%3E%3Cpath d='M0 0L50 50L100 0' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3Cpath d='M0 100L50 50L100 100' stroke='%23ffffff' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23paper)'/%3E%3C/svg%3E")`
         }}
       />
       
@@ -141,7 +141,7 @@ const ProcessTimeline = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-charcoal/70 max-w-2xl mx-auto font-medium"
+            className="text-xl text-white/70 max-w-2xl mx-auto font-medium"
           >
             From concept to viral sensation in 5 simple steps
           </motion.p>
@@ -190,11 +190,11 @@ const ProcessTimeline = () => {
                       className="relative"
                     >
                       <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} p-1 shadow-lg shadow-black/5`}>
-                        <div className="w-full h-full bg-white rounded-full flex items-center justify-center border-4 border-transparent">
-                          <Icon className="w-6 h-6 text-charcoal" />
+                        <div className="w-full h-full bg-black rounded-full flex items-center justify-center border-4 border-transparent">
+                          <Icon className="w-6 h-6 text-white" />
                         </div>
                       </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-charcoal text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md border-2 border-white">
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center font-bold text-sm shadow-md border-2 border-black">
                         {item.step}
                       </div>
                     </motion.div>
@@ -208,13 +208,13 @@ const ProcessTimeline = () => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.5 }}
                     >
-                      <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300 border-none shadow-md bg-white/80 backdrop-blur-sm">
+                      <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300 border-none shadow-md bg-white/5 backdrop-blur-sm">
                         <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${item.color}`} />
                         <div className="p-8">
-                          <h3 className="text-2xl font-bold text-charcoal mb-3 group-hover:text-coral-accent transition-colors">
+                          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-coral-accent transition-colors">
                             {item.title}
                           </h3>
-                          <p className="text-charcoal/70 leading-relaxed text-lg">
+                          <p className="text-white/70 leading-relaxed text-lg">
                             {item.description}
                           </p>
                         </div>
@@ -240,7 +240,7 @@ const ProcessTimeline = () => {
             viewport={{ once: true }}
             className="inline-block"
           >
-            <div className="bg-charcoal text-white px-8 py-4 rounded-full shadow-xl hover:scale-105 transition-transform cursor-pointer flex items-center gap-3">
+            <div className="bg-white text-charcoal px-8 py-4 rounded-full shadow-xl hover:scale-105 transition-transform cursor-pointer flex items-center gap-3">
               <span className="font-bold text-lg">Start Your Project</span>
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

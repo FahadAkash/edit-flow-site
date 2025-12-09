@@ -24,7 +24,7 @@ const HeroSection = () => {
   const infiniteColumn3 = [...column3, ...column3, ...column3];
 
   return (
-    <section className="min-h-screen bg-charcoal text-white relative overflow-hidden pt-24 pb-16">
+    <section className="min-h-screen bg-transparent text-white relative overflow-hidden pt-24 pb-16">
       <div className="w-full px-4 lg:px-6">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           
@@ -294,8 +294,8 @@ const HeroSection = () => {
             </div>
 
             {/* Gradient Overlays for Smooth Fade */}
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-charcoal to-transparent pointer-events-none z-10" />
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-charcoal to-transparent pointer-events-none z-10" />
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
           </div>
         </div>
       </div>

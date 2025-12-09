@@ -331,7 +331,7 @@ const ReelsCarousel = () => {
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   activeTab === tab.id
                     ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-charcoal hover:bg-muted border-2 border-charcoal/20'
+                    : 'bg-transparent text-charcoal hover:bg-muted border-2 border-charcoal/20'
                 }`}
               >
                 {tab.label}
