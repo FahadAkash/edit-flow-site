@@ -9,10 +9,9 @@ const BrandLogos = () => {
   ];
 
   return (
-    <section className="w-full bg-[#E63946] py-16">
+    <section className="w-full bg-[#E63946] py-6">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Changed flex-wrap to flex-nowrap (default flex) and adjusted gap */}
-        <div className="flex items-center justify-center gap-8 md:gap-20 overflow-x-auto no-scrollbar py-2">
+        <div className="flex items-center justify-center gap-8 md:gap-20 overflow-x-auto no-scrollbar py-1">
           {brands.map((brand, idx) => (
             <div
               key={idx}
@@ -21,7 +20,7 @@ const BrandLogos = () => {
               <img 
                 src={brand.logo} 
                 alt={brand.name}
-                className="h-12 md:h-16 w-auto object-contain grayscale contrast-125 invert mix-blend-screen opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-110"
+                className="h-10 md:h-14 w-auto object-contain grayscale contrast-125 invert mix-blend-screen opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-110"
               />
             </div>
           ))}
