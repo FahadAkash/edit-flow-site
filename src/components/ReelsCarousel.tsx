@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Play } from "lucide-react";
+import { Play, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ReelsCarousel = () => {
   const [activeTab, setActiveTab] = useState("youtube");
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const [visibleItems, setVisibleItems] = useState(3);
 
   const tabs = [
     { id: "youtube", label: "Youtube Videos" },
@@ -162,7 +163,19 @@ const ReelsCarousel = () => {
     ]
   };
 
-  const currentVideos = videos[activeTab as keyof typeof videos];
+  const allCurrentVideos = videos[activeTab as keyof typeof videos];
+  const currentVideos = allCurrentVideos.slice(0, visibleItems);
+  const hasMore = visibleItems < allCurrentVideos.length;
+
+  const handleShowMore = () => {
+    setVisibleItems(prev => prev + 3);
+  };
+
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    setPlayingVideo(null);
+    setVisibleItems(3);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -191,35 +204,32 @@ const ReelsCarousel = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-background to-muted/20">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 bg-gradient-to-b from-background to-muted/20">
+      <div className="max-w-[1800px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-normal text-charcoal mb-8"
+            className="text-5xl md:text-7xl font-normal text-charcoal mb-12"
           >
             Featured Projects
           </motion.h2>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-6 mb-20">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
-                onClick={() => {
-                  setActiveTab(tab.id);
-                  setPlayingVideo(null);
-                }}
+                onClick={() => handleTabChange(tab.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-lg font-normal transition-all ${
+                className={`px-10 py-5 rounded-2xl font-normal text-xl transition-all ${
                   activeTab === tab.id
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-transparent text-charcoal hover:bg-muted border-2 border-charcoal/20'
+                    ? 'bg-blue-600 text-white shadow-2xl scale-105'
+                    : 'bg-transparent text-charcoal hover:bg-muted border-2 border-charcoal/10'
                 }`}
               >
                 {tab.label}
@@ -236,18 +246,18 @@ const ReelsCarousel = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
           >
             {currentVideos.map((video) => (
               <motion.div
                 key={video.id}
                 variants={itemVariants}
                 whileHover={{ 
-                  scale: 1.05,
+                  scale: 1.02,
                   y: -10,
                   transition: { type: "spring" as const, stiffness: 300, damping: 20 }
                 }}
-                className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-xl overflow-hidden shadow-xl transition-all duration-300 border border-white/10`}
+                className={`group relative ${activeTab === 'shorts' || activeTab === 'saas' ? 'aspect-[9/16]' : 'aspect-video'} bg-black rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 border border-white/10`}
               >
                 {activeTab === 'ads' ? (
                    // Thumbnails Rendering (Static)
@@ -257,8 +267,8 @@ const ReelsCarousel = () => {
                         alt={video.title} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                         <p className="text-white font-semibold text-lg">{video.title}</p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                         <p className="text-white font-semibold text-2xl">{video.title}</p>
                       </div>
                    </div>
                 ) : video.videoUrl.startsWith('/') ? (
@@ -278,15 +288,14 @@ const ReelsCarousel = () => {
                     />
                     {playingVideo !== video.id && (
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                           {/* Sound icon or Play icon to indicate click to unmute/control */}
-                           <Play className="w-6 h-6 text-white fill-white" />
+                        <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                           <Play className="w-10 h-10 text-white fill-white" />
                         </div>
                       </div>
                     )}
                     {/* Title Overlay for Local Video */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-100 transition-opacity pointer-events-none">
-                      <p className="text-white text-sm font-medium truncate">{video.title}</p>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 opacity-100 transition-opacity pointer-events-none">
+                      <p className="text-white text-xl font-medium truncate">{video.title}</p>
                     </div>
                   </div>
                 ) : (
@@ -315,35 +324,23 @@ const ReelsCarousel = () => {
                     >
                       {/* Play Button */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                          <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                        <div className="w-24 h-24 bg-[#e63946] rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300 shadow-2xl border-4 border-white/20">
+                          <Play className="w-12 h-12 text-white ml-2" fill="white" />
                         </div>
                       </div>
                     </div>
 
                     {/* Duration Badge */}
-                    <div className="absolute bottom-3 left-3 bg-black/80 text-white px-2 py-1 rounded text-sm font-medium pointer-events-none">
+                    <div className="absolute bottom-6 left-6 bg-black/80 text-white px-4 py-2 rounded-xl text-lg font-medium pointer-events-none backdrop-blur-md border border-white/10">
                       {video.duration}
                     </div>
 
-                    {/* Video Controls Bar (like YouTube) */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/90 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="flex items-center gap-2">
-                        {/* Play button */}
-                        <button className="text-white hover:text-red-500 transition-colors">
-                          <Play className="w-5 h-5" fill="currentColor" />
-                        </button>
-
-                        {/* Progress bar */}
-                        <div className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-red-600"
-                            style={{ width: '0%' }}
-                          ></div>
-                        </div>
-
-                        <div className="flex items-center gap-1">
-                             <div className="w-4 h-4 bg-white/50 rounded-full"></div>
+                    {/* Video Controls Bar (Visual only) */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/90 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="flex items-center gap-4">
+                        <Play className="w-6 h-6 text-white" fill="currentColor" />
+                        <div className="flex-1 h-2 bg-white/30 rounded-full overflow-hidden">
+                          <div className="h-full bg-[#e63946] w-1/3 rounded-full"></div>
                         </div>
                       </div>
                     </div>
@@ -353,6 +350,25 @@ const ReelsCarousel = () => {
             ))}
           </motion.div>
         </AnimatePresence>
+
+        {/* Show More Button */}
+        {hasMore && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center mt-20"
+          >
+            <button
+              onClick={handleShowMore}
+              className="group flex flex-col items-center gap-3 text-charcoal hover:text-[#e63946] transition-colors"
+            >
+              <span className="text-lg font-medium">Show More Projects</span>
+              <div className="w-14 h-14 rounded-full border-2 border-current flex items-center justify-center group-hover:bg-[#e63946] group-hover:border-[#e63946] group-hover:text-white transition-all duration-300">
+                <ChevronDown className="w-8 h-8 animate-bounce" />
+              </div>
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
