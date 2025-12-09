@@ -7,6 +7,9 @@ const HeroSection = () => {
     { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand" },
     { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality" },
     { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "" },
+    { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "" },
+  { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "" },
+  { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "" },
   ];
 
   // Video data for columns 2 and 3
@@ -33,11 +36,10 @@ const HeroSection = () => {
   // Column 3: Remaining 2 videos
   const column3 = videoData.slice(3, 5);
 
-  // Duplicate for infinite scroll effect
-  const infiniteColumn1 = [...column1, ...column1, ...column1];
-  const infiniteColumn2 = [...column2, ...column2, ...column2];
-  // More duplication for column 3 since it has fewer items
-  const infiniteColumn3 = [...column3, ...column3, ...column3, ...column3];
+  // Duplicate for infinite scroll effect (2x for seamless loop with percentage)
+  const infiniteColumn1 = [...column1, ...column1];
+  const infiniteColumn2 = [...column2, ...column2];
+  const infiniteColumn3 = [...column3, ...column3];
 
   return (
     <section className="min-h-screen bg-transparent text-white relative overflow-hidden pt-24 pb-16">
@@ -65,7 +67,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-10"
+              className="text-5xl md:text-6xl lg:text-7xl font-normal leading-tight mb-10"
               style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
               Helping Entrepreneurs build organic brands as{" "}
@@ -103,7 +105,7 @@ const HeroSection = () => {
                   transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
                 />
                 <motion.div 
-                  className="w-14 h-14 rounded-full border-2 border-charcoal bg-blue-600 flex items-center justify-center text-white font-bold text-xs"
+                  className="w-14 h-14 rounded-full border-2 border-charcoal bg-blue-600 flex items-center justify-center text-white font-normal text-xs"
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
                 >
@@ -149,7 +151,7 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#FFB300] text-charcoal px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-shadow relative z-10"
+                className="bg-[#FFB300] text-charcoal px-8 py-4 rounded-lg font-normal text-lg shadow-lg hover:shadow-xl transition-shadow relative z-10"
               >
                 Book a Discovery Call
               </motion.button>
@@ -185,19 +187,19 @@ const HeroSection = () => {
               {/* Column 1 - Scroll Down */}
               <motion.div
                 animate={{
-                  y: [0, -1400]
+                  y: ["-50%", "0%"]
                 }}
                 transition={{
-                  duration: 22,
+                  duration: 40,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="flex flex-col gap-6 w-1/2"
+                className="flex flex-col w-1/2"
               >
                 {infiniteColumn1.map((client, idx) => (
                   <div
                     key={`col1-${idx}`}
-                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[600px] shadow-2xl"
+                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[600px] shadow-2xl mb-6"
                   >
                     <img
                       src={client.img}
@@ -208,11 +210,9 @@ const HeroSection = () => {
                       }}
                     />
                     
-
-
                     {/* Name & Followers Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
-                      <p className="text-white font-bold text-base mb-1">{client.handle}</p>
+                      <p className="text-white font-normal text-base mb-1">{client.handle}</p>
                       <p className="text-white/80 text-sm">{client.followers}</p>
                     </div>
                   </div>
@@ -222,21 +222,21 @@ const HeroSection = () => {
               {/* Column 2 - Scroll Up (Videos) */}
               <motion.div
                 animate={{
-                  y: [-1500, 0]
+                  y: ["0%", "-50%"]
                 }}
                 transition={{
-                  duration: 26,
+                  duration: 45,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="flex flex-col gap-6 w-1/2"
+                className="flex flex-col w-1/2"
               >
                 {infiniteColumn2.map((video, idx) => {
                   const videoId = getYoutubeId(video.link);
                   return (
                     <div
                       key={`col2-${idx}`}
-                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[650px] shadow-2xl bg-black"
+                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[650px] shadow-2xl bg-black mb-6"
                     >
                       {videoId ? (
                         <iframe
@@ -259,7 +259,7 @@ const HeroSection = () => {
 
                       {/* Name & Followers Overlay */}
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                        <p className="text-white font-bold text-sm">{video.handle}</p>
+                        <p className="text-white font-normal text-sm">{video.handle}</p>
                         <p className="text-white/80 text-xs">{video.followers} Followers</p>
                       </div>
                     </div>
@@ -270,21 +270,21 @@ const HeroSection = () => {
               {/* Column 3 - Scroll Down (Videos) */}
               <motion.div
                 animate={{
-                  y: [0, -1300]
+                  y: ["-50%", "0%"]
                 }}
                 transition={{
-                  duration: 20,
+                  duration: 38,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="flex flex-col gap-6 w-1/3"
+                className="flex flex-col w-1/3"
               >
                 {infiniteColumn3.map((video, idx) => {
                   const videoId = getYoutubeId(video.link);
                   return (
                     <div
                       key={`col3-${idx}`}
-                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[620px] shadow-2xl bg-black"
+                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[620px] shadow-2xl bg-black mb-6"
                     >
                       {videoId ? (
                         <iframe
@@ -307,7 +307,7 @@ const HeroSection = () => {
 
                       {/* Name & Followers Overlay */}
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                        <p className="text-white font-bold text-sm">{video.handle}</p>
+                        <p className="text-white font-normal text-sm">{video.handle}</p>
                         <p className="text-white/80 text-xs">{video.followers} Followers</p>
                       </div>
                     </div>
