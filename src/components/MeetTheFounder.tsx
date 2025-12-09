@@ -12,7 +12,7 @@ const MeetTheFounder = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-background">
+    <section className="py-20 px-4 bg-[#e63946]">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -23,25 +23,25 @@ const MeetTheFounder = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Tag */}
-            <span className="inline-block bg-coral-accent text-white text-sm font-semibold px-4 py-1.5 rounded mb-6">
+            <span className="inline-block bg-black/20 backdrop-blur-sm text-white text-sm font-normal px-4 py-1.5 rounded mb-6 border border-white/10">
               Behind the Brand
             </span>
 
             {/* Title */}
-            <h2 className="text-4xl md:text-5xl   text-charcoal mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl text-white mb-4 tracking-tight font-normal">
               MEET PARVIR
             </h2>
 
             {/* Underline with Social Icons */}
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-1 bg-coral-accent"></div>
+              <div className="w-16 h-1 bg-white/30"></div>
               <div className="flex items-center gap-3">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
                     aria-label={social.label}
-                    className="text-charcoal hover:text-coral-accent transition-colors text-lg"
+                    className="text-white/80 hover:text-white transition-colors text-lg"
                   >
                     {social.icon}
                   </a>
@@ -50,16 +50,16 @@ const MeetTheFounder = () => {
             </div>
 
             {/* Bio Paragraphs */}
-            <div className="space-y-4 text-charcoal/90 leading-relaxed font-normal">
+            <div className="space-y-4 text-white/90 leading-relaxed font-normal">
               <p>
                 Parvir is the founder of EditFlow, a premier video editing agency that has helped 
-                <span className="text-white"> hundreds of content creators</span> transform 
+                <span className="text-white font-medium border-b border-white/30"> hundreds of content creators</span> transform 
                 their raw footage into viral, engaging content.
               </p>
               <p>
                 He's grown his agency from a solo freelancer to a full team of editors, 
-                serving clients who have collectively gained <span className="text-white">millions of views</span> and 
-                <span className="text-white"> thousands of subscribers</span>.
+                serving clients who have collectively gained <span className="text-white font-medium border-b border-white/30">millions of views</span> and 
+                <span className="text-white font-medium border-b border-white/30"> thousands of subscribers</span>.
               </p>
               <p>
                 With years of experience in video editing and a deep understanding of what makes 
@@ -73,7 +73,7 @@ const MeetTheFounder = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block mt-8 bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-white/90 transition-colors"
+              className="inline-block mt-8 bg-black text-white px-8 py-3 rounded-full font-normal hover:bg-gray-900 transition-colors shadow-lg"
             >
               Work With Me →
             </motion.a>
@@ -88,13 +88,13 @@ const MeetTheFounder = () => {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Coral Circle Background */}
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-coral-accent overflow-hidden shadow-2xl">
+              {/* Circle Background - Changed to complement red */}
+              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-black/10 overflow-hidden shadow-2xl border-4 border-white/10">
                 {/* Profile Image - Replace with actual image */}
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face"
                   alt="Parvir - Founder of EditFlow"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
               
@@ -102,14 +102,14 @@ const MeetTheFounder = () => {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-12 h-12 bg-tape-yellow rounded-full shadow-lg flex items-center justify-center text-2xl"
+                className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-2xl"
               >
                 ✨
               </motion.div>
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-charcoal rounded-full shadow-lg flex items-center justify-center text-white text-2xl"
+                className="absolute -bottom-4 -left-4 w-16 h-16 bg-black rounded-full shadow-lg flex items-center justify-center text-white text-2xl"
               >
                 🎬
               </motion.div>
