@@ -28,7 +28,7 @@ const MeetTheFounder = () => {
             </span>
 
             {/* Title */}
-            <h2 className="text-4xl md:text-5xl font-black text-charcoal mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl   text-charcoal mb-4 tracking-tight">
               MEET PARVIR
             </h2>
 
@@ -50,16 +50,16 @@ const MeetTheFounder = () => {
             </div>
 
             {/* Bio Paragraphs */}
-            <div className="space-y-4 text-charcoal/80 leading-relaxed">
+            <div className="space-y-4 text-charcoal/90 leading-relaxed font-light">
               <p>
                 Parvir is the founder of EditFlow, a premier video editing agency that has helped 
-                <span className="font-semibold text-charcoal"> hundreds of content creators</span> transform 
+                <span className="text-white"> hundreds of content creators</span> transform 
                 their raw footage into viral, engaging content.
               </p>
               <p>
                 He's grown his agency from a solo freelancer to a full team of editors, 
-                serving clients who have collectively gained <span className="font-semibold text-charcoal">millions of views</span> and 
-                <span className="font-semibold text-charcoal"> thousands of subscribers</span>.
+                serving clients who have collectively gained <span className="text-white">millions of views</span> and 
+                <span className="text-white"> thousands of subscribers</span>.
               </p>
               <p>
                 With years of experience in video editing and a deep understanding of what makes 
@@ -73,7 +73,7 @@ const MeetTheFounder = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block mt-8 bg-charcoal text-black px-8 py-3 rounded-full font-bold hover:bg-charcoal/90 transition-colors"
+              className="inline-block mt-8 bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-white/90 transition-colors"
             >
               Work With Me →
             </motion.a>

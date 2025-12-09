@@ -15,7 +15,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["'Europa Grotesk SH'", 'system-ui', 'sans-serif'],
+        sans: ["'Outfit'", "'Europa Grotesk SH'", 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -23,14 +23,14 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        
+
         // Brand colors
         "tape-yellow": "hsl(var(--tape-yellow))",
         "coral-accent": "hsl(var(--coral-accent))",
         charcoal: "hsl(var(--charcoal))",
         "off-white": "hsl(var(--off-white))",
         "paper-white": "hsl(var(--paper-white))",
-        
+
         // Sticky note colors
         "mint-green": "hsl(var(--mint-green))",
         "peach-orange": "hsl(var(--peach-orange))",
@@ -38,7 +38,7 @@ export default {
         "sky-blue": "hsl(var(--sky-blue))",
         "lemon-yellow": "hsl(var(--lemon-yellow))",
         "coral-pink": "hsl(var(--coral-pink))",
-        
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -95,23 +95,23 @@ export default {
           "100%": { transform: "translateX(-100%)" },
         },
         "slide-in-left": {
-          from: { 
-            opacity: "0", 
-            transform: "translateX(-50px)" 
+          from: {
+            opacity: "0",
+            transform: "translateX(-50px)"
           },
-          to: { 
-            opacity: "1", 
-            transform: "translateX(0)" 
+          to: {
+            opacity: "1",
+            transform: "translateX(0)"
           },
         },
         "slide-in-right": {
-          from: { 
-            opacity: "0", 
-            transform: "translateX(50px)" 
+          from: {
+            opacity: "0",
+            transform: "translateX(50px)"
           },
-          to: { 
-            opacity: "1", 
-            transform: "translateX(0)" 
+          to: {
+            opacity: "1",
+            transform: "translateX(0)"
           },
         },
         "fade-in-up": {

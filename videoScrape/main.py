@@ -1,182 +1,113 @@
-import yt_dlp
-import requests
-from bs4 import BeautifulSoup
-import json
-import re
+import os
+from pathlib import Path
+import time
 
-# ----------------------------------------------------------
-# YOUTUBE SCRAPER
-# ----------------------------------------------------------
-def scrape_youtube(url):
-    ydl_opts = {
-        "quiet": True,
-        "extract_flat": True,
-        "skip_download": True
-    }
+try:
+    from pytubefix import YouTube
+except ImportError:
+    print("Installing pytubefix...")
+    os.system("pip install pytubefix")
+    from pytubefix import YouTube
 
+def download_video(url, output_path="downloads"):
+    """
+    Download a YouTube video to the specified folder.
+    
+    Args:
+        url (str): YouTube video URL
+        output_path (str): Folder path where video will be saved
+    
+    Returns:
+        bool: True if successful, False otherwise
+    """
     try:
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            data = ydl.extract_info(url, download=False)
-
-        channel_name = data.get("title")
-        subs = data.get("channel_follower_count")
-        shorts_link = None
-
-        # detect shorts
-        if "entries" in data:
-            for item in data["entries"]:
-                if item and "shorts" in item.get("url", "").lower():
-                    shorts_link = f"https://www.youtube.com/shorts/{item['id']}"
-                    break
-
-        return {
-            "source": "youtube",
-            "channel name": channel_name,
-            "total followers": subs,
-            "short video link": shorts_link
-        }
-
+        # Create output directory if it doesn't exist
+        Path(output_path).mkdir(parents=True, exist_ok=True)
+        
+        print(f"\nFetching video info from: {url}")
+        yt = YouTube(url)
+        
+        # Display video information
+        print(f"Title: {yt.title}")
+        print(f"Duration: {yt.length} seconds")
+        
+        # Get the highest resolution stream
+        stream = yt.streams.get_highest_resolution()
+        
+        print(f"Downloading: {stream.resolution} - {stream.mime_type}")
+        
+        # Download the video
+        stream.download(output_path=output_path)
+        
+        print(f"✓ Download completed: {yt.title}")
+        return True
+        
     except Exception as e:
-        return {
-            "source": "youtube",
-            "channel name": url,
-            "total followers": None,
-            "short video link": None,
-            "error": str(e)
-        }
+        print(f"✗ Error downloading {url}: {str(e)}")
+        return False
 
+def download_multiple_videos(urls, output_path="downloads"):
+    """
+    Download multiple YouTube videos from a list of URLs.
+    
+    Args:
+        urls (list): List of YouTube video URLs
+        output_path (str): Folder path where videos will be saved
+    """
+    total = len(urls)
+    successful = 0
+    failed = 0
+    
+    print(f"Starting download of {total} videos...")
+    print(f"Output folder: {os.path.abspath(output_path)}")
+    print("=" * 60)
+    
+    for i, url in enumerate(urls, 1):
+        print(f"\n[{i}/{total}] Processing video...")
+        
+        if download_video(url, output_path):
+            successful += 1
+        else:
+            failed += 1
+        
+        # Small delay to avoid rate limiting
+        if i < total:
+            time.sleep(2)
+    
+    print("\n" + "=" * 60)
+    print(f"Download Summary:")
+    print(f"  Total videos: {total}")
+    print(f"  Successful: {successful}")
+    print(f"  Failed: {failed}")
+    print(f"\nAll videos saved to: {os.path.abspath(output_path)}")
 
-# ----------------------------------------------------------
-# INSTAGRAM SCRAPER
-# ----------------------------------------------------------
-def scrape_instagram(url):
-    try:
-        headers = {
-            "User-Agent": "Mozilla/5.0"
-        }
-        req = requests.get(url, headers=headers)
-        soup = BeautifulSoup(req.text, "html.parser")
-
-        # Extract shared data JSON
-        scripts = soup.find_all("script", type="application/ld+json")
-
-        followers = None
-        profile_name = None
-
-        for s in scripts:
-            data = json.loads(s.text)
-            if "name" in data:
-                profile_name = data["name"]
-            if "interactionStatistic" in data:
-                followers = data["interactionStatistic"]["userInteractionCount"]
-
-        return {
-            "source": "instagram",
-            "profile name": profile_name,
-            "total followers": followers,
-            "profile url": url
-        }
-
-    except Exception as e:
-        return {
-            "source": "instagram",
-            "profile name": url,
-            "total followers": None,
-            "error": str(e)
-        }
-
-
-# ----------------------------------------------------------
-# WEBSITE METADATA SCRAPER
-# ----------------------------------------------------------
-def scrape_website(url):
-    try:
-        req = requests.get(url, timeout=10)
-        soup = BeautifulSoup(req.text, "html.parser")
-
-        title = soup.title.string if soup.title else None
-        desc = None
-
-        d = soup.find("meta", attrs={"name": "description"})
-        if d:
-            desc = d.get("content")
-
-        return {
-            "source": "website",
-            "site": url,
-            "title": title,
-            "description": desc
-        }
-
-    except Exception as e:
-        return {
-            "source": "website",
-            "site": url,
-            "title": None,
-            "description": None,
-            "error": str(e)
-        }
-
-
-# ----------------------------------------------------------
-# INPUT LISTS
-# ----------------------------------------------------------
-youtube_channels = [
-    "https://www.youtube.com/@AlexanderFYoung",
-    "https://www.youtube.com/@TotalTech_",
-    "https://www.youtube.com/@suhitamin",
-    "https://www.youtube.com/@antoniowebbmd",
-    "https://www.youtube.com/@10kmiles",
-    "https://www.youtube.com/@TwoMinutePapers",
-    "https://www.youtube.com/@LoganBurchett",
-    "https://www.youtube.com/@ProjectGaiaTravel",
-    "https://www.youtube.com/medicalsecrets",
-    "https://www.youtube.com/@AlfieMarsh"
-]
-
-instagram_profiles = [
-    "https://www.instagram.com/mellanda_reese/",
-    "https://www.instagram.com/the_studio_alexander/",
-    "https://www.instagram.com/amytangerine/",
-    "https://www.instagram.com/theascensioncoach/",
-    "https://www.instagram.com/realdirkthejager/",
-    "https://www.instagram.com/an_imperfectly_perfect_life/",
-    "https://www.instagram.com/cawanosizemore/"
-]
-
-websites = [
-    "https://mannavitality.com/",
-    "https://kreaturesofhabit.com/",
-    "https://www.hypex.au/",
-    "https://attnlabs.com/"
-]
-
-# ----------------------------------------------------------
-# RUN SCRAPERS
-# ----------------------------------------------------------
-final_data = []
-
-col = 1
-
-for y in youtube_channels:
-    d = scrape_youtube(y)
-    d["column"] = col
-    final_data.append(d)
-    col += 1
-
-for insta in instagram_profiles:
-    d = scrape_instagram(insta)
-    d["column"] = col
-    final_data.append(d)
-    col += 1
-
-for w in websites:
-    d = scrape_website(w)
-    d["column"] = col
-    final_data.append(d)
-    col += 1
-
-# ----------------------------------------------------------
-# OUTPUT JSON
-# ----------------------------------------------------------
-print(json.dumps(final_data, indent=2))
+if __name__ == "__main__":
+    # Your list of YouTube URLs
+    video_urls = [
+        "https://youtube.com/shorts/znnEzV2Qg3k?feature=share",
+        "https://youtube.com/shorts/P607YNcJB_Y?feature=share",
+        "https://youtube.com/shorts/UC_ZDK12twU?feature=share",
+        "https://youtube.com/shorts/E3GvLiB8jJc?feature=share",
+        "https://www.youtube.com/watch?v=l2fqM7kAloU&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=35&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=9laQbHLnczY&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=1&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=agsjS22hjlU&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=2&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=hxwegX1x6uk&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=3&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=fVg5M5sCFws&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=4&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=T-opIb5aC7Q&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=5&pp=gAQBiAQB",
+        "https://youtu.be/n31V5HG5dgI?list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW",
+        "https://www.youtube.com/watch?v=MTqdQoZdNRo&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=14&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=4t0golxJb8A&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=19&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=705h0CtyRSc&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=28&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=91O4UvjuKr8&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=30&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=QoRRyLNo4-s&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=32&pp=gAQBiAQB",
+        "https://www.youtube.com/watch?v=_PrR7VWPTas&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=34&pp=gAQBiAQB",
+    ]
+    
+    # Remove duplicate URL (705h0CtyRSc appears twice)
+    video_urls = list(dict.fromkeys(video_urls))
+    
+    # Specify output folder
+    output_folder = "youtube_downloads"
+    
+    # Start downloading
+    download_multiple_videos(video_urls, output_folder)

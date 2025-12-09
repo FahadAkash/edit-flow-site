@@ -8,48 +8,147 @@ const VideoPortfolio = () => {
   const portfolioItems = [
     {
       id: 1,
-      name: "Pete Soderling",
+      name: "Aliyah Hook",
       flowers: "2.4M",
-      logo: { text: "D", color: "from-purple-500 to-blue-500" },
-      company: "Data Council",
-      video: "/video/videoplayback_2.mp4",
+      logo: { text: "A", color: "from-purple-500 to-blue-500" },
+      company: "Viral Content",
+      video: "/video/Aliyah hook 5.mp4",
       bgColor: "bg-black"
     },
     {
       id: 2,
-      name: "Sarah Chen",
+      name: "Compton ALV",
       flowers: "1.8M",
-      logo: { text: "S", color: "from-yellow-500 to-orange-500" },
-      company: "Tech Trends",
-      video: "/video/videoplayback_2.mp4",
+      logo: { text: "C", color: "from-yellow-500 to-orange-500" },
+      company: "Urban Pulse",
+      video: "/video/Compton ALV1.mp4",
       bgColor: "bg-zinc-900"
     },
     {
       id: 3,
-      name: "Market Watch",
+      name: "Dr. Lockhart",
       flowers: "500K",
-      logo: { text: "M", color: "from-green-500 to-emerald-700" },
-      company: "Daily Brief",
-      video: "/video/videoplayback_2.mp4",
+      logo: { text: "D", color: "from-green-500 to-emerald-700" },
+      company: "Medical Insights",
+      video: "/video/Dr Lockhart S 01.mp4",
       bgColor: "bg-slate-900"
     },
     {
       id: 4,
-      name: "Alex Morgan",
+      name: "Elijah Kanoho",
       flowers: "1.2M",
-      logo: { text: "A", color: "from-red-500 to-pink-500" },
-      company: "Future Scale",
-      video: "/video/videoplayback_2.mp4",
+      logo: { text: "E", color: "from-red-500 to-pink-500" },
+      company: "Creator Hub",
+      video: "/video/Elijah Kanoho 9 16.mp4",
       bgColor: "bg-neutral-900"
     },
     {
       id: 5,
-      name: "David Kim",
+      name: "Finished Track",
       flowers: "900K",
-      logo: { text: "K", color: "from-blue-400 to-cyan-500" },
-      company: "Next Gen",
-      video: "/video/videoplayback_2.mp4",
+      logo: { text: "F", color: "from-blue-400 to-cyan-500" },
+      company: "Audio Visual",
+      video: "/video/Finished Track Video.mp4",
       bgColor: "bg-stone-900"
+    },
+    {
+      id: 6,
+      name: "Formula 1",
+      flowers: "3.5M",
+      logo: { text: "F", color: "from-red-600 to-orange-600" },
+      company: "Racing Daily",
+      video: "/video/Formula 1 Principle.mp4",
+      bgColor: "bg-black"
+    },
+    {
+      id: 7,
+      name: "GetKing",
+      flowers: "750K",
+      logo: { text: "G", color: "from-purple-600 to-indigo-600" },
+      company: "Lifestyle",
+      video: "/video/Getking ALV.mp4",
+      bgColor: "bg-zinc-900"
+    },
+    {
+      id: 8,
+      name: "Law Firm Owners",
+      flowers: "420K",
+      logo: { text: "L", color: "from-slate-500 to-slate-700" },
+      company: "Legal Growth",
+      video: "/video/Law firm owners 2.mp4",
+      bgColor: "bg-slate-900"
+    },
+    {
+      id: 9,
+      name: "Lifestyle Vlog",
+      flowers: "1.1M",
+      logo: { text: "L", color: "from-pink-400 to-rose-500" },
+      company: "Daily Vlog",
+      video: "/video/Life Style Vlog Style video.mp4",
+      bgColor: "bg-neutral-900"
+    },
+    {
+      id: 10,
+      name: "Devin Style",
+      flowers: "880K",
+      logo: { text: "D", color: "from-amber-400 to-yellow-600" },
+      company: "Tech Master",
+      video: "/video/Mastering Devin Style.mp4",
+      bgColor: "bg-stone-900"
+    },
+    {
+      id: 11,
+      name: "Nano Tech",
+      flowers: "2.1M",
+      logo: { text: "N", color: "from-cyan-400 to-blue-600" },
+      company: "Science Today",
+      video: "/video/Nano Tech.mp4",
+      bgColor: "bg-black"
+    },
+    {
+      id: 12,
+      name: "Proven System",
+      flowers: "600K",
+      logo: { text: "P", color: "from-emerald-400 to-green-600" },
+      company: "Growth Hacking",
+      video: "/video/Proven System Finale.mp4",
+      bgColor: "bg-zinc-900"
+    },
+    {
+      id: 13,
+      name: "Real Estate",
+      flowers: "1.5M",
+      logo: { text: "R", color: "from-teal-400 to-cyan-600" },
+      company: "Property Pro",
+      video: "/video/Real estate.mp4",
+      bgColor: "bg-slate-900"
+    },
+    {
+      id: 14,
+      name: "Thrive Revival",
+      flowers: "300K",
+      logo: { text: "T", color: "from-violet-400 to-purple-600" },
+      company: "Retail News",
+      video: "/video/Thrive Revival Walmart.mp4",
+      bgColor: "bg-neutral-900"
+    },
+    {
+      id: 15,
+      name: "Testimonial",
+      flowers: "950K",
+      logo: { text: "T", color: "from-indigo-400 to-blue-600" },
+      company: "Client Success",
+      video: "/video/testimonial lockhart.mp4",
+      bgColor: "bg-stone-900"
+    },
+    {
+      id: 16,
+      name: "Playback Demo",
+      flowers: "120K",
+      logo: { text: "P", color: "from-gray-400 to-slate-600" },
+      company: "Demo Reel",
+      video: "/video/videoplayback_2.mp4",
+      bgColor: "bg-black"
     }
   ];
 
