@@ -20,12 +20,12 @@ const Index = () => {
       <BrandLogos />
       {/* <GrowthShowcase /> */}
       {/* <TestimonialCarousel /> */}
-       <VideoPortfolio />
-      <CaseStudies />
-      <ReelsCarousel />
-      <SocialProof />
-      <MeetTheFounder />
-      <AboutSection />
+       <VideoPortfolio/>
+      <CaseStudies/>
+      <ReelsCarousel/>
+      <SocialProof/>
+      <MeetTheFounder/>
+      <AboutSection/>
       {/* After Effects Style Visual Break */}
       <AfterEffectsBackground />
       <TimelineSection />
