@@ -1,27 +1,42 @@
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  // Client images data with Instagram handles and followers
+  // Client images data for Column 1
   const clientImages = [
     { img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop", handle: "Daniel Del Carmen", followers: "25k+" },
     { img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop", handle: "Shalen", followers: "10k+" },
     { img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=800&fit=crop", handle: "Andrew Ross Sorkin", followers: "66.5k+" },
-    { img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&h=800&fit=crop", handle: "Sarah Chen", followers: "45k+" },
-    { img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop", handle: "Mike Johnson", followers: "32k+" },
-    { img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=800&fit=crop", handle: "Emma Wilson", followers: "58k+" },
-    { img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop", handle: "Alex Martinez", followers: "21k+" },
-    { img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop", handle: "Lisa Anderson", followers: "39k+" },
   ];
 
-  // Split images into 3 columns
-  const column1 = clientImages.slice(0, 3);
-  const column2 = clientImages.slice(3, 6);
-  const column3 = clientImages.slice(6, 8);
+  // Video data for columns 2 and 3
+  const videoData = [
+    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k" },
+    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k" },
+    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k" },
+    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k" },
+    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k" }
+  ];
+
+  // Helper to extract YouTube ID
+  const getYoutubeId = (url: string) => {
+    const match = url.match(/shorts\/([\w-]+)/);
+    return match ? match[1] : "";
+  };
+
+  // Column 1: Images
+  const column1 = clientImages;
+  
+  // Column 2: First 3 videos
+  const column2 = videoData.slice(0, 3);
+  
+  // Column 3: Remaining 2 videos
+  const column3 = videoData.slice(3, 5);
 
   // Duplicate for infinite scroll effect
   const infiniteColumn1 = [...column1, ...column1, ...column1];
   const infiniteColumn2 = [...column2, ...column2, ...column2];
-  const infiniteColumn3 = [...column3, ...column3, ...column3];
+  // More duplication for column 3 since it has fewer items
+  const infiniteColumn3 = [...column3, ...column3, ...column3, ...column3];
 
   return (
     <section className="min-h-screen bg-transparent text-white relative overflow-hidden pt-24 pb-16">
@@ -208,7 +223,7 @@ const HeroSection = () => {
                 ))}
               </motion.div>
 
-              {/* Column 2 - Scroll Up */}
+              {/* Column 2 - Scroll Up (Videos) */}
               <motion.div
                 animate={{
                   y: [-1500, 0]
@@ -220,37 +235,43 @@ const HeroSection = () => {
                 }}
                 className="flex flex-col gap-6 w-1/2"
               >
-                {infiniteColumn2.map((client, idx) => (
-                  <div
-                    key={`col2-${idx}`}
-                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[650px] shadow-2xl"
-                  >
-                    <img
-                      src={client.img}
-                      alt={client.handle}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://images.unsplash.com/photo-${1600000000000 + idx}?w=400&h=550&fit=crop`;
-                      }}
-                    />
-                    
-                    {/* Instagram Badge */}
-                    <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full p-2">
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                      </svg>
-                    </div>
+                {infiniteColumn2.map((video, idx) => {
+                  const videoId = getYoutubeId(video.link);
+                  return (
+                    <div
+                      key={`col2-${idx}`}
+                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[650px] shadow-2xl bg-black"
+                    >
+                      {videoId ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`}
+                          title={video.handle}
+                          className="w-full h-full object-cover pointer-events-none"
+                          allow="autoplay; encrypted-media; loop"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-charcoal flex items-center justify-center">
+                          <p className="text-white">Video not available</p>
+                        </div>
+                      )}
+                      
+                      {/* YouTube Badge */}
+                      <div className="absolute top-4 left-4 bg-red-600 rounded-full p-2 z-10 shadow-lg">
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>                        </svg>
+                      </div>
 
-                    {/* Name & Followers Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <p className="text-white font-bold text-sm">{client.handle}</p>
-                      <p className="text-white/80 text-xs">{client.followers} Followers</p>
+                      {/* Name & Followers Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                        <p className="text-white font-bold text-sm">{video.handle}</p>
+                        <p className="text-white/80 text-xs">{video.followers} Followers</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </motion.div>
 
-              {/* Column 3 - Scroll Down (Different Speed) */}
+              {/* Column 3 - Scroll Down (Videos) */}
               <motion.div
                 animate={{
                   y: [0, -1300]
@@ -262,40 +283,46 @@ const HeroSection = () => {
                 }}
                 className="flex flex-col gap-6 w-1/3"
               >
-                {infiniteColumn3.map((client, idx) => (
-                  <div
-                    key={`col3-${idx}`}
-                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[620px] shadow-2xl"
-                  >
-                    <img
-                      src={client.img}
-                      alt={client.handle}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://images.unsplash.com/photo-${1700000000000 + idx}?w=400&h=520&fit=crop`;
-                      }}
-                    />
-                    
-                    {/* Instagram Badge */}
-                    <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full p-2">
-                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                      </svg>
-                    </div>
+                {infiniteColumn3.map((video, idx) => {
+                  const videoId = getYoutubeId(video.link);
+                  return (
+                    <div
+                      key={`col3-${idx}`}
+                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[620px] shadow-2xl bg-black"
+                    >
+                      {videoId ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`}
+                          title={video.handle}
+                          className="w-full h-full object-cover pointer-events-none"
+                          allow="autoplay; encrypted-media; loop"
+                        />
+                      ) : (
+                         <div className="w-full h-full bg-charcoal flex items-center justify-center">
+                          <p className="text-white">Video not available</p>
+                        </div>
+                      )}
+                      
+                      {/* YouTube Badge */}
+                      <div className="absolute top-4 left-4 bg-red-600 rounded-full p-2 z-10 shadow-lg">
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>                        </svg>
+                      </div>
 
-                    {/* Name & Followers Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <p className="text-white font-bold text-sm">{client.handle}</p>
-                      <p className="text-white/80 text-xs">{client.followers} Followers</p>
+                      {/* Name & Followers Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                        <p className="text-white font-bold text-sm">{video.handle}</p>
+                        <p className="text-white/80 text-xs">{video.followers} Followers</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </motion.div>
             </div>
 
             {/* Gradient Overlays for Smooth Fade */}
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none z-10" />
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0a0908] to-transparent pointer-events-none z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0908] to-transparent pointer-events-none z-10" />
           </div>
         </div>
       </div>
