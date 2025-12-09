@@ -84,23 +84,10 @@ def download_multiple_videos(urls, output_path="downloads"):
 if __name__ == "__main__":
     # Your list of YouTube URLs
     video_urls = [
-        "https://youtube.com/shorts/znnEzV2Qg3k?feature=share",
-        "https://youtube.com/shorts/P607YNcJB_Y?feature=share",
-        "https://youtube.com/shorts/UC_ZDK12twU?feature=share",
-        "https://youtube.com/shorts/E3GvLiB8jJc?feature=share",
-        "https://www.youtube.com/watch?v=l2fqM7kAloU&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=35&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=9laQbHLnczY&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=1&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=agsjS22hjlU&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=2&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=hxwegX1x6uk&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=3&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=fVg5M5sCFws&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=4&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=T-opIb5aC7Q&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=5&pp=gAQBiAQB",
-        "https://youtu.be/n31V5HG5dgI?list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW",
-        "https://www.youtube.com/watch?v=MTqdQoZdNRo&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=14&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=4t0golxJb8A&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=19&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=705h0CtyRSc&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=28&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=91O4UvjuKr8&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=30&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=QoRRyLNo4-s&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=32&pp=gAQBiAQB",
-        "https://www.youtube.com/watch?v=_PrR7VWPTas&list=PLugQ8yL8yep9Ao2QvnOLq6bn68H0dXPIW&index=34&pp=gAQBiAQB",
+        "https://youtu.be/84bPjnTG6hg",
+        "https://youtube.com/shorts/I4DfnXOWu6E",
+        "https://youtube.com/shorts/dRfEYs-SFPE",
+        "https://youtube.com/shorts/CSw91MyV5Ig"
     ]
     
     # Remove duplicate URL (705h0CtyRSc appears twice)
