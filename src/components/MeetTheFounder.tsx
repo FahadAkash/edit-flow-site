@@ -23,12 +23,12 @@ const MeetTheFounder = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Tag */}
-            <span className="inline-block bg-white text-[#e63946] text-sm font-bold px-4 py-1.5 rounded-full mb-6 shadow-sm">
+            <span className="inline-block bg-white text-[#e63946] text-sm font-medium px-4 py-1.5 rounded-full mb-6 shadow-sm">
               Behind the Brand
             </span>
 
-            {/* Title */}
-            <h2 className="text-4xl md:text-5xl text-white mb-4 tracking-tight font-normal">
+            {/* Title - Changed to font-normal */}
+            <h2 className="text-4xl md:text-5xl text-white mb-4 font-normal tracking-normal">
               Ahmed Yousuf
             </h2>
 
@@ -55,8 +55,7 @@ const MeetTheFounder = () => {
                 Ahmed Yousuf is the founder of Kontent Protocol, a results-driven content growth agency helping entrepreneurs turn educational YouTube and Instagram content into high-converting digital assets. With 1,500+ client reviews and experience working with brands like Coursera, Neutonic (baverage brand of Chris Williamson) and Microsoft and many more.
               </p>
               <p>
-                  
-He and his team specializes in premium video editing, YouTube strategy, and scalable content systems that drive real business outcomes. Starting as a solo editor and growing into a full-stack content system and personal Brand partner, Ahmed and his team blends storytelling, strategy, and AI-powered workflows to help creators grow, monetize, and build authority online.
+                He and his team specializes in premium video editing, YouTube strategy, and scalable content systems that drive real business outcomes. Starting as a solo editor and growing into a full-stack content system and personal Brand partner, Ahmed and his team blends storytelling, strategy, and AI-powered workflows to help creators grow, monetize, and build authority online.
               </p>
                
             </div>
@@ -66,7 +65,7 @@ He and his team specializes in premium video editing, YouTube strategy, and scal
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block mt-8 bg-white text-[#e63946] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors shadow-lg"
+              className="inline-block mt-8 bg-white text-[#e63946] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors shadow-lg"
             >
               Work With Me →
             </motion.a>
@@ -87,7 +86,7 @@ He and his team specializes in premium video editing, YouTube strategy, and scal
                   {/* Profile Image - Replace with actual image */}
                   <img
                     src="/founder/founder.png"
-                    alt="Parvir - Founder of EditFlow"
+                    alt="Ahmed Yousuf - Founder"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
