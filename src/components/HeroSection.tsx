@@ -1,45 +1,56 @@
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  // 1. Normalize data
-  const rawClientImages = [
-    { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education", type: 'image' },
-    { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand", type: 'image' },
-    { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality", type: 'image' },
-    { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "", type: 'image' },
-    { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "", type: 'image' },
-    { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "", type: 'image' },
-    { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "", type: 'image' },
+  // Column 1 Data: Client/Brand Images (Vertical 9:16)
+  const clientImages = [
+    { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education" },
+    { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand" },
+    { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality" },
+    { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "" },
+    { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "" },
+    { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "" },
+    { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "" },
   ];
 
-  const rawVideoData = [
-    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers", type: 'video' },
-    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers", type: 'video' },
-    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers", type: 'video' },
-    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers", type: 'video' },
-    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers", type: 'video' }
+  // Column 2 Data: Reels/Shorts (Vertical 9:16)
+  const shortsData = [
+    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers", type: 'short' },
+    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers", type: 'short' },
+    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers", type: 'short' },
+    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers", type: 'short' },
+    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers", type: 'short' }
   ];
 
-  const allItems = [...rawClientImages, ...rawVideoData];
+  // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
+  const videosData = [
+    { link: "https://www.youtube.com/embed/eOt0VgC8tks", handle: "Drake vs UMG", followers: "Music Industry", type: 'video' },
+    { link: "https://www.youtube.com/embed/2iQ6clokEPo", handle: "Sales Career", followers: "Career Guide", type: 'video' },
+    { link: "https://www.youtube.com/embed/u_12sSli1Uk", handle: "Trading Premium", followers: "Finance", type: 'video' },
+    { link: "https://www.youtube.com/embed/sC8ydMWDSUM", handle: "Broke to $75k", followers: "Entrepreneurship", type: 'video' },
+    { link: "https://www.youtube.com/embed/K7Wfih1vK00", handle: "TicketMaster", followers: "Case Study", type: 'video' }
+  ];
 
-  // 2. Distribute into 3 columns (4 items each)
-  const column1Data = allItems.slice(0, 4);
-  const column2Data = allItems.slice(4, 8);
-  const column3Data = allItems.slice(8, 12);
+  // Infinite Scroll Duplication
+  const infiniteColumn1 = [...clientImages, ...clientImages];
+  const infiniteColumn2 = [...shortsData, ...shortsData];
+  const infiniteColumn3 = [...videosData, ...videosData];
 
-  // 3. Infinite scroll duplication
-  const infiniteColumn1 = [...column1Data, ...column1Data];
-  const infiniteColumn2 = [...column2Data, ...column2Data];
-  const infiniteColumn3 = [...column3Data, ...column3Data];
-
-  // Helper to extract YouTube ID
   const getYoutubeId = (url: string) => {
-    const match = url.match(/shorts\/([\w-]+)/);
-    return match ? match[1] : "";
+    // Handle both short URLs and standard embed/watch URLs if needed, 
+    // though here we are being specific with data sources.
+    if (url.includes('shorts/')) {
+        const match = url.match(/shorts\/([\w-]+)/);
+        return match ? match[1] : "";
+    }
+    if (url.includes('embed/')) {
+        const parts = url.split('embed/');
+        return parts[1] || "";
+    }
+    return "";
   };
 
   const renderCard = (item: any, idx: number, aspectClass: string) => {
-    const isVideo = item.type === 'video';
+    const isVideo = item.type === 'short' || item.type === 'video';
     
     return (
       <div
@@ -231,7 +242,7 @@ const HeroSection = () => {
           <div className="lg:col-span-7 relative h-[650px] lg:h-[750px] overflow-hidden">
             <div className="flex gap-4 h-full">
               
-              {/* Column 1 - Scroll Up (Vertical 9:16) */}
+              {/* Column 1 - Brands (Images) - 9:16 Vertical */}
               <motion.div
                 animate={{ y: ["0%", "-50%"] }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -240,7 +251,7 @@ const HeroSection = () => {
                 {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
               </motion.div>
 
-              {/* Column 2 - Scroll Down (Vertical 9:16) */}
+              {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
               <motion.div
                 animate={{ y: ["-50%", "0%"] }}
                 transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
@@ -249,7 +260,7 @@ const HeroSection = () => {
                 {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
               </motion.div>
 
-              {/* Column 3 - Scroll Up (Widescreen 16:9) */}
+              {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
               <motion.div
                 animate={{ y: ["0%", "-50%"] }}
                 transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
