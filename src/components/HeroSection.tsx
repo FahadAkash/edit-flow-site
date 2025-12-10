@@ -1,25 +1,36 @@
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  // Client images data for Column 1 (Brands)
-  const clientImages = [
-    { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education" },
-    { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand" },
-    { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality" },
-    { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "" },
-    { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "" },
-    { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "" },
-    { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "" },
+  // 1. Normalize data
+  const rawClientImages = [
+    { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education", type: 'image' },
+    { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand", type: 'image' },
+    { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality", type: 'image' },
+    { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "", type: 'image' },
+    { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "", type: 'image' },
+    { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "", type: 'image' },
+    { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "", type: 'image' },
   ];
 
-  // Video data for columns 2 and 3
-  const videoData = [
-    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers" },
-    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers" },
-    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers" },
-    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers" },
-    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers" }
+  const rawVideoData = [
+    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers", type: 'video' },
+    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers", type: 'video' },
+    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers", type: 'video' },
+    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers", type: 'video' },
+    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers", type: 'video' }
   ];
+
+  const allItems = [...rawClientImages, ...rawVideoData];
+
+  // 2. Distribute into 3 columns (4 items each)
+  const column1Data = allItems.slice(0, 4);
+  const column2Data = allItems.slice(4, 8);
+  const column3Data = allItems.slice(8, 12);
+
+  // 3. Infinite scroll duplication
+  const infiniteColumn1 = [...column1Data, ...column1Data];
+  const infiniteColumn2 = [...column2Data, ...column2Data];
+  const infiniteColumn3 = [...column3Data, ...column3Data];
 
   // Helper to extract YouTube ID
   const getYoutubeId = (url: string) => {
@@ -27,19 +38,57 @@ const HeroSection = () => {
     return match ? match[1] : "";
   };
 
-  // Column 1: Images
-  const column1 = clientImages;
-  
-  // Column 2: First 3 videos
-  const column2 = videoData.slice(0, 3);
-  
-  // Column 3: Remaining 2 videos
-  const column3 = videoData.slice(3, 5);
+  const renderCard = (item: any, idx: number, aspectClass: string) => {
+    const isVideo = item.type === 'video';
+    
+    return (
+      <div
+        key={`${item.handle}-${idx}`}
+        className={`relative rounded-2xl overflow-hidden flex-shrink-0 ${aspectClass} shadow-2xl mb-6 bg-black group`}
+      >
+        {isVideo ? (
+          (() => {
+            const videoId = getYoutubeId(item.link);
+            return videoId ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`}
+                title={item.handle}
+                className="w-full h-full object-cover pointer-events-none" 
+                allow="autoplay; encrypted-media; loop"
+              />
+            ) : (
+              <div className="w-full h-full bg-charcoal flex items-center justify-center">
+                <p className="text-white">Video not available</p>
+              </div>
+            );
+          })()
+        ) : (
+          <img
+            src={item.img}
+            alt={item.handle}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=800&h=600&fit=crop`;
+            }}
+          />
+        )}
 
-  // Duplicate for infinite scroll effect (2x for seamless loop with percentage)
-  const infiniteColumn1 = [...column1, ...column1];
-  const infiniteColumn2 = [...column2, ...column2];
-  const infiniteColumn3 = [...column3, ...column3];
+        {/* YouTube Badge for videos */}
+        {isVideo && (
+          <div className="absolute top-4 left-4 bg-red-600 rounded-full p-2 z-10 shadow-lg">
+            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>            </svg>
+          </div>
+        )}
+
+        {/* Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex flex-col justify-end opacity-100 transition-opacity">
+          <p className="text-white font-medium text-sm mb-0.5">{item.handle}</p>
+          {item.followers && <p className="text-white/70 text-xs">{item.followers}</p>}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section className="min-h-screen bg-transparent text-white relative overflow-hidden pt-24 pb-16">
@@ -88,7 +137,6 @@ const HeroSection = () => {
 
             {/* Overlapping Entrepreneur Profiles - Social Proof */}
             <div className="mb-6 flex items-center gap-3">
-              {/* Overlapping Profile Circles with Individual Animations */}
               <div className="flex items-center -space-x-4">
                 <motion.img 
                   src="/entrepreneurs/1644180906552.png" 
@@ -177,142 +225,37 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-
           </div>
 
           {/* Right - Scrolling Client Images - Takes 7 columns */}
           <div className="lg:col-span-7 relative h-[650px] lg:h-[750px] overflow-hidden">
-            <div className="flex gap-8 h-full">
+            <div className="flex gap-4 h-full">
               
-              {/* Column 1 - Scroll Up (Faster 10s) */}
+              {/* Column 1 - Scroll Up (Vertical 9:16) */}
               <motion.div
-                animate={{
-                  y: ["0%", "-50%"]
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="flex flex-col w-1/2"
-              >
-                {infiniteColumn1.map((client, idx) => (
-                  <div
-                    key={`col1-${idx}`}
-                    className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[600px] shadow-2xl mb-6"
-                  >
-                    <img
-                      src={client.img}
-                      alt={client.handle}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=400&h=500&fit=crop`;
-                      }}
-                    />
-                    
-                    {/* Name & Followers Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
-                      <p className="text-white font-normal text-base mb-1">{client.handle}</p>
-                      <p className="text-white/80 text-sm">{client.followers}</p>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* Column 2 - Scroll Down (Faster 12s) */}
-              <motion.div
-                animate={{
-                  y: ["-50%", "0%"]
-                }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="flex flex-col w-1/2"
-              >
-                {infiniteColumn2.map((video, idx) => {
-                  const videoId = getYoutubeId(video.link);
-                  return (
-                    <div
-                      key={`col2-${idx}`}
-                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[650px] shadow-2xl bg-black mb-6"
-                    >
-                      {videoId ? (
-                        <iframe
-                          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`}
-                          title={video.handle}
-                          className="w-full h-full object-cover pointer-events-none"
-                          allow="autoplay; encrypted-media; loop"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-charcoal flex items-center justify-center">
-                          <p className="text-white">Video not available</p>
-                        </div>
-                      )}
-                      
-                      {/* YouTube Badge */}
-                      <div className="absolute top-4 left-4 bg-red-600 rounded-full p-2 z-10 shadow-lg">
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>                        </svg>
-                      </div>
-
-                      {/* Name & Followers Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                        <p className="text-white font-normal text-sm">{video.handle}</p>
-                        <p className="text-white/80 text-xs">{video.followers} Followers</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </motion.div>
-
-              {/* Column 3 - Scroll Up (Faster 11s) */}
-              <motion.div
-                animate={{
-                  y: ["0%", "-50%"]
-                }}
-                transition={{
-                  duration: 11,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
+                animate={{ y: ["0%", "-50%"] }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 className="flex flex-col w-1/3"
               >
-                {infiniteColumn3.map((video, idx) => {
-                  const videoId = getYoutubeId(video.link);
-                  return (
-                    <div
-                      key={`col3-${idx}`}
-                      className="relative rounded-2xl overflow-hidden flex-shrink-0 h-[620px] shadow-2xl bg-black mb-6"
-                    >
-                      {videoId ? (
-                        <iframe
-                          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`}
-                          title={video.handle}
-                          className="w-full h-full object-cover pointer-events-none"
-                          allow="autoplay; encrypted-media; loop"
-                        />
-                      ) : (
-                         <div className="w-full h-full bg-charcoal flex items-center justify-center">
-                          <p className="text-white">Video not available</p>
-                        </div>
-                      )}
-                      
-                      {/* YouTube Badge */}
-                      <div className="absolute top-4 left-4 bg-red-600 rounded-full p-2 z-10 shadow-lg">
-                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>                        </svg>
-                      </div>
+                {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
+              </motion.div>
 
-                      {/* Name & Followers Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                        <p className="text-white font-normal text-sm">{video.handle}</p>
-                        <p className="text-white/80 text-xs">{video.followers} Followers</p>
-                      </div>
-                    </div>
-                  );
-                })}
+              {/* Column 2 - Scroll Down (Vertical 9:16) */}
+              <motion.div
+                animate={{ y: ["-50%", "0%"] }}
+                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                className="flex flex-col w-1/3"
+              >
+                {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
+              </motion.div>
+
+              {/* Column 3 - Scroll Up (Widescreen 16:9) */}
+              <motion.div
+                animate={{ y: ["0%", "-50%"] }}
+                transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+                className="flex flex-col w-1/3"
+              >
+                {infiniteColumn3.map((item, idx) => renderCard(item, idx, "aspect-video"))}
               </motion.div>
             </div>
 

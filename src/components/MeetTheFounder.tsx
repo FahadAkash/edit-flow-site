@@ -29,7 +29,7 @@ const MeetTheFounder = () => {
 
             {/* Title */}
             <h2 className="text-4xl md:text-5xl text-white mb-4 tracking-tight font-normal">
-              MEET PARVIR
+              Ahmed Yousuf
             </h2>
 
             {/* Underline with Social Icons */}
@@ -50,22 +50,15 @@ const MeetTheFounder = () => {
             </div>
 
             {/* Bio Paragraphs */}
-            <div className="space-y-4 text-white leading-relaxed font-normal text-lg">
+            <div className="space-y-4 font-normal text-white leading-relaxed text-lg">
               <p>
-                Parvir is the founder of EditFlow, a premier video editing agency that has helped 
-                <span className="font-semibold border-b-2 border-white/40"> hundreds of content creators</span> transform 
-                their raw footage into viral, engaging content.
+                Ahmed Yousuf is the founder of Kontent Protocol, a results-driven content growth agency helping entrepreneurs turn educational YouTube and Instagram content into high-converting digital assets. With 1,500+ client reviews and experience working with brands like Coursera, Neutonic (baverage brand of Chris Williamson) and Microsoft and many more.
               </p>
               <p>
-                He's grown his agency from a solo freelancer to a full team of editors, 
-                serving clients who have collectively gained <span className="font-semibold border-b-2 border-white/40">millions of views</span> and 
-                <span className="font-semibold border-b-2 border-white/40"> thousands of subscribers</span>.
+                  
+He and his team specializes in premium video editing, YouTube strategy, and scalable content systems that drive real business outcomes. Starting as a solo editor and growing into a full-stack content system and personal Brand partner, Ahmed and his team blends storytelling, strategy, and AI-powered workflows to help creators grow, monetize, and build authority online.
               </p>
-              <p>
-                With years of experience in video editing and a deep understanding of what makes 
-                content perform on YouTube, TikTok, and Instagram, Parvir is passionate about 
-                helping creators focus on what they do best while his team handles the editing magic.
-              </p>
+               
             </div>
 
             {/* CTA Button */}
@@ -93,7 +86,7 @@ const MeetTheFounder = () => {
                 <div className="w-full h-full rounded-full overflow-hidden">
                   {/* Profile Image - Replace with actual image */}
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop&crop=face"
+                    src="/founder/founder.png"
                     alt="Parvir - Founder of EditFlow"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
