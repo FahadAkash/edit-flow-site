@@ -23,51 +23,95 @@ const MeetTheFounder = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Tag */}
-            <span className="inline-block bg-white text-[#e63946] text-sm font-medium px-4 py-1.5 rounded-full mb-6 shadow-sm">
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-block bg-white text-[#e63946] text-sm font-medium px-4 py-1.5 rounded-full mb-6 shadow-sm"
+            >
               Behind the Brand
-            </span>
+            </motion.span>
 
-            {/* Title - Changed to font-normal */}
-            <h2 className="text-4xl md:text-5xl text-white mb-4 font-normal tracking-normal">
+            {/* Title */}
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-5xl md:text-6xl text-white mb-4 font-bold tracking-tight"
+            >
               Ahmed Yousuf
-            </h2>
+            </motion.h2>
 
             {/* Underline with Social Icons */}
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-1 bg-white"></div>
-              <div className="flex items-center gap-4">
+            <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex items-center gap-4 mb-8"
+            >
+              <motion.div 
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="w-16 h-1 bg-white origin-left"
+              ></motion.div>
+              <div className="flex items-center gap-3">
                 {socialLinks.map((social, index) => (
-                  <a
+                  <motion.a
                     key={index}
                     href={social.url}
                     aria-label={social.label}
-                    className="text-white hover:text-white/80 transition-colors text-lg"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                    whileHover={{ scale: 1.2, y: -3 }}
+                    className="text-white hover:text-white/80 transition-all text-lg"
                   >
                     {social.icon}
-                  </a>
+                  </motion.a>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Bio Paragraphs */}
-            <div className="space-y-4 font-normal text-white leading-relaxed text-lg">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="space-y-5 text-white/95 leading-relaxed text-base md:text-lg font-light"
+            >
               <p>
                 Ahmed Yousuf is the founder of Kontent Protocol, a results-driven content growth agency helping entrepreneurs turn educational YouTube and Instagram content into high-converting digital assets. With 1,500+ client reviews and experience working with brands like Coursera, Neutonic (baverage brand of Chris Williamson) and Microsoft and many more.
               </p>
               <p>
                 He and his team specializes in premium video editing, YouTube strategy, and scalable content systems that drive real business outcomes. Starting as a solo editor and growing into a full-stack content system and personal Brand partner, Ahmed and his team blends storytelling, strategy, and AI-powered workflows to help creators grow, monetize, and build authority online.
               </p>
-               
-            </div>
+            </motion.div>
 
             {/* CTA Button */}
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block mt-8 bg-white text-[#e63946] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 mt-10 bg-white text-[#e63946] px-10 py-4 rounded-full font-semibold hover:bg-gray-50 transition-all shadow-xl"
             >
-              Work With Me →
+              Work With Me 
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                →
+              </motion.span>
             </motion.a>
           </motion.div>
 
@@ -81,7 +125,13 @@ const MeetTheFounder = () => {
           >
             <div className="relative">
               {/* Circle Background - Solid White for contrast against Red */}
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-white p-2 shadow-2xl">
+              <motion.div 
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-white p-2 shadow-2xl"
+              >
                 <div className="w-full h-full rounded-full overflow-hidden">
                   {/* Profile Image - Replace with actual image */}
                   <img
@@ -90,10 +140,14 @@ const MeetTheFounder = () => {
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
-              </div>
+              </motion.div>
               
               {/* Decorative elements */}
               <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6, type: "spring" }}
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-4 -right-4 w-12 h-12 bg-[#FFB300] rounded-full shadow-lg flex items-center justify-center text-2xl"
@@ -101,6 +155,10 @@ const MeetTheFounder = () => {
                 ✨
               </motion.div>
               <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -bottom-4 -left-4 w-16 h-16 bg-black rounded-full shadow-lg flex items-center justify-center text-white text-2xl"

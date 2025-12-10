@@ -93,15 +93,15 @@ const Footer = () => {
             <div className="space-y-3 text-white/70">
               <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-coral-accent" />
-                <span>hello@videocreators.pro</span>
+                <span></span>
               </motion.div>
               <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-coral-accent" />
-                <span>+1 (555) 123-4567</span>
+                <span></span>
               </motion.div>
               <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-coral-accent" />
-                <span>Los Angeles, CA</span>
+                <span>Mirpur1 , Bangladesh</span>
               </motion.div>
             </div>
           </motion.div>
@@ -116,7 +116,7 @@ const Footer = () => {
           className="border-t border-white/20 pt-4 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <div className="text-white/60 text-sm">
-            © 2024 VideoCreators Pro. All rights reserved.
+            © 2026 VideoCreators Pro. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm text-white/60">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

@@ -23,11 +23,14 @@ const HeroSection = () => {
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
-    { link: "https://www.youtube.com/embed/eOt0VgC8tks", handle: "Drake vs UMG", followers: "Music Industry", type: 'video' },
-    { link: "https://www.youtube.com/embed/2iQ6clokEPo", handle: "Sales Career", followers: "Career Guide", type: 'video' },
-    { link: "https://www.youtube.com/embed/u_12sSli1Uk", handle: "Trading Premium", followers: "Finance", type: 'video' },
-    { link: "https://www.youtube.com/embed/sC8ydMWDSUM", handle: "Broke to $75k", followers: "Entrepreneurship", type: 'video' },
-    { link: "https://www.youtube.com/embed/K7Wfih1vK00", handle: "TicketMaster", followers: "Case Study", type: 'video' }
+    { link: "https://www.youtube.com/embed/tl3as05qpmM", handle: "  ", followers: " ", type: 'video' },
+    { link: "https://www.youtube.com/embed/dh1VhkMYWxU", handle: " ", followers: " ", type: 'video' },
+    { link: "https://www.youtube.com/embed/Q8YC5ctL1Tc", handle: " ", followers: " ", type: 'video' },
+    { link: "https://www.youtube.com/embed/kEUutj8CL_k", handle: " ", followers: " ", type: 'video' },
+    { link: "https://www.youtube.com/embed/ixgGErMp668", handle: "", followers: " ", type: 'video' },
+    { link: "https://www.youtube.com/embed/olXGVhiyl-Q", handle: "", followers: " ", type: 'video' }
+    
+    
   ];
 
   // Infinite Scroll Duplication
