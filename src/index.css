@@ -1,3 +1,6 @@
+/* Import Outfit from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 /* Register local Europa Grotesk font - Keeping for fallback/specific use if needed */
 @font-face {
   font-family: 'Europa Grotesk SH';
@@ -6,9 +9,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-/* Import Outfit from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;

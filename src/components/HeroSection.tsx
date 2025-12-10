@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   // Column 1 Data: Client/Brand Images (Vertical 9:16)
   const clientImages = [
-    { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education" },
-    { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand" },
-    { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality" },
-    { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "" },
-    { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "" },
-    { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "" },
-    { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "" },
+    { img: "/profile_brands/first.jpg", handle: "Coursera", followers: "Global Education", type: 'image', logo: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
+    { img: "/profile_brands/sec.jpg", handle: "Kreatures of Habit", followers: "Wellness Brand", type: 'image', logo: "/brands/1667599512761.png" },
+    { img: "/profile_brands/thirds.jpg", handle: "Manna Vitality", followers: "Health & Vitality", type: 'image', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png" },
+    { img: "/profile_brands/5th.png", handle: "Microsoft Team", followers: "", type: 'image', logo: "/brands/microsoft.png" }, // Using specific microsoft logo
+    { img: "/profile_brands/sixth.jpg", handle: "*Create", followers: "", type: 'image', logo: "/brands/Logo_Blackberry_Large_a979164e-916a-4c09-bbac-51df3d96f65a_1200x1200.png" },
+    { img: "/profile_brands/seven.jpg", handle: "Mara Labs", followers: "", type: 'image', logo: "/brands/acer-predator-logo-png_seeklogo-441422.png" },
+    { img: "/profile_brands/eight.jpg", handle: "Organifi", followers: "", type: 'image', logo: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" }, // Recurring logo for filler
   ];
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
@@ -23,14 +23,11 @@ const HeroSection = () => {
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
-    { link: "https://www.youtube.com/embed/tl3as05qpmM", handle: "  ", followers: " ", type: 'video' },
-    { link: "https://www.youtube.com/embed/dh1VhkMYWxU", handle: " ", followers: " ", type: 'video' },
-    { link: "https://www.youtube.com/embed/Q8YC5ctL1Tc", handle: " ", followers: " ", type: 'video' },
-    { link: "https://www.youtube.com/embed/kEUutj8CL_k", handle: " ", followers: " ", type: 'video' },
-    { link: "https://www.youtube.com/embed/ixgGErMp668", handle: "", followers: " ", type: 'video' },
-    { link: "https://www.youtube.com/embed/olXGVhiyl-Q", handle: "", followers: " ", type: 'video' }
-    
-    
+    { link: "https://www.youtube.com/embed/eOt0VgC8tks", handle: "Drake vs UMG", followers: "Music Industry", type: 'video' },
+    { link: "https://www.youtube.com/embed/2iQ6clokEPo", handle: "Sales Career", followers: "Career Guide", type: 'video' },
+    { link: "https://www.youtube.com/embed/u_12sSli1Uk", handle: "Trading Premium", followers: "Finance", type: 'video' },
+    { link: "https://www.youtube.com/embed/sC8ydMWDSUM", handle: "Broke to $75k", followers: "Entrepreneurship", type: 'video' },
+    { link: "https://www.youtube.com/embed/K7Wfih1vK00", handle: "TicketMaster", followers: "Case Study", type: 'video' }
   ];
 
   // Infinite Scroll Duplication
@@ -39,8 +36,7 @@ const HeroSection = () => {
   const infiniteColumn3 = [...videosData, ...videosData];
 
   const getYoutubeId = (url: string) => {
-    // Handle both short URLs and standard embed/watch URLs if needed, 
-    // though here we are being specific with data sources.
+    // Handle both short URLs and standard embed/watch URLs if needed
     if (url.includes('shorts/')) {
         const match = url.match(/shorts\/([\w-]+)/);
         return match ? match[1] : "";
@@ -77,14 +73,26 @@ const HeroSection = () => {
             );
           })()
         ) : (
-          <img
-            src={item.img}
-            alt={item.handle}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=800&h=600&fit=crop`;
-            }}
-          />
+          <>
+            <img
+              src={item.img}
+              alt={item.handle}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=800&h=600&fit=crop`;
+              }}
+            />
+            {/* Logo Overlay for Brand Cards (Column 1) */}
+            {item.logo && (
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 w-32 h-16 flex items-center justify-center pointer-events-none">
+                 <img 
+                   src={item.logo} 
+                   alt="Brand Logo" 
+                   className="w-full h-full object-contain grayscale contrast-125 invert mix-blend-screen opacity-90 drop-shadow-lg"
+                 />
+              </div>
+            )}
+          </>
         )}
 
         {/* YouTube Badge for videos */}
