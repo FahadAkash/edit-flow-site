@@ -95,14 +95,6 @@ const HeroSection = () => {
           </>
         )}
 
-        {/* YouTube Badge for videos */}
-        {isVideo && (
-          <div className="absolute top-4 left-4 bg-red-600 rounded-full p-2 z-10 shadow-lg">
-            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>            </svg>
-          </div>
-        )}
-
         {/* Overlay */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex flex-col justify-end opacity-100 transition-opacity">
           <p className="text-white font-medium text-sm mb-0.5">{item.handle}</p>
@@ -266,18 +258,40 @@ const HeroSection = () => {
               <motion.div
                 animate={{ y: ["-50%", "0%"] }}
                 transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                className="flex flex-col w-1/3"
+                className="flex flex-col w-1/3 relative"
               >
                 {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
+                {/* Profile Picture for Column 2 */}
+                <div className="absolute bottom-4 left-4 z-20">
+                  <div className="flex items-center gap-2 bg-black/70 backdrop-blur-sm rounded-full p-1 pr-3 border border-white/20 shadow-lg">
+                    <img 
+                      src="/entrepreneurs/1644180906552.png" 
+                      alt="Profile" 
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                    <span className="text-white text-xs font-medium">Creator</span>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
               <motion.div
                 animate={{ y: ["0%", "-50%"] }}
                 transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-                className="flex flex-col w-1/3"
+                className="flex flex-col w-1/3 relative"
               >
                 {infiniteColumn3.map((item, idx) => renderCard(item, idx, "aspect-video"))}
+                {/* Profile Picture for Column 3 */}
+                <div className="absolute bottom-4 left-4 z-20">
+                  <div className="flex items-center gap-2 bg-black/70 backdrop-blur-sm rounded-full p-1 pr-3 border border-white/20 shadow-lg">
+                    <img 
+                      src="/entrepreneurs/7HdwNsOD_400x400.png" 
+                      alt="Profile" 
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                    <span className="text-white text-xs font-medium">Editor</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
 
