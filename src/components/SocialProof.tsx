@@ -203,13 +203,13 @@ const SocialProof = () => {
           animate={{ opacity: 1 }}
           className="text-center mt-4 text-muted-foreground"
         >
-          Showing {visibleReviews.length > allScreenshots.length ? allScreenshots.length : visibleCount <= allScreenshots.length ? visibleCount : allScreenshots.length} of {allScreenshots.length} reviews
+          {/* Showing {visibleReviews.length > allScreenshots.length ? allScreenshots.length : visibleCount <= allScreenshots.length ? visibleCount : allScreenshots.length} of {allScreenshots.length} reviews */}
         </motion.p>
 
         {/* Stats Footer - Simplified */}
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
              <p className="text-gray-500 text-sm">Join hundreds of satisfied creators</p>
-        </div>
+        </div> */}
 
       </div>
     </section>

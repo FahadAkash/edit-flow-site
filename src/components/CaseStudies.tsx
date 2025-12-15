@@ -60,7 +60,7 @@ const CaseStudies = () => {
     {
       id: 5,
       title: "build.withcrystal Success Story",
-      client: "build.withcrystal",
+      client: "Crystal Drury",
       clientRole: "YouTube Entrepreneur",
       clientAvatar: "/culturecodemusic2.jpg",
       comment: "Another amazing collaboration! The creativity and professionalism never disappoints. Each project brings something fresh and exciting. Can't wait to work on more videos together!",
@@ -73,7 +73,7 @@ const CaseStudies = () => {
       id: 6,
       title: "James Mullinger Success Story",
       client: "jamesmullinger",
-      clientRole: "YouTube Entrepreneur",
+      clientRole: "Comedian",
       clientAvatar: "/culturecodemusic3.jpg",
       comment: "Perfect for social media! They know exactly how to create engaging short-form content that captures attention instantly. My reels and shorts are getting way more views now!",
       videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU",

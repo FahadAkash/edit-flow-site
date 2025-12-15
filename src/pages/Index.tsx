@@ -28,7 +28,7 @@ const Index = () => {
       <MeetTheFounder/>
       <AboutSection/>
       {/* After Effects Style Visual Break */}
-      <AfterEffectsBackground />
+      {/* <AfterEffectsBackground /> */}
       <TimelineSection />
       <Footer />
     </div>

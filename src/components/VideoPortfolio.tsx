@@ -30,10 +30,10 @@ const VideoPortfolio = () => {
     },
     {
       id: 3,
-      name: "MO",
+      name: "Mohamed Elhawary ",
       flowers: "500K",
       logo: { text: "M", color: "from-green-500 to-emerald-700" },
-      company: "Medical Insights",
+      company: "Internet Entrepreneur",
       video: "/testmonial/MO Review.mp4",
       bgColor: "bg-slate-900",
       testimonial: "They understand how to present complex medical topics in an engaging, digestible format.",
@@ -49,6 +49,17 @@ const VideoPortfolio = () => {
       bgColor: "bg-neutral-900",
       testimonial: "Top-tier editing that keeps retention high. My average view duration is up 40%.",
       profileImage: "/testmonial/testmonial_pic/kamil.png"
+    },
+    {
+      id: 5,
+      name: "Julian ",
+      flowers: "1.5M",
+      logo: { text: "J", color: "from-red-500 to-pink-500" },
+      company: "Fitness Coach",
+      video: "/testmonial/Julian Testimonial.mp4",
+      bgColor: "bg-neutral-900",
+      testimonial: "Top-tier editing that keeps retention high. My average view duration is up 40%.",
+      profileImage: "/testmonial/testmonial_pic/Julian.png"
     },
      
   ];
