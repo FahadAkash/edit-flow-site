@@ -109,29 +109,26 @@ const VideoPortfolio = () => {
               
               const getArcPosition = () => {
                 if (isCenter) {
-                  return { x: 0, z: 0, rotate: 0, scale: 1, opacity: 1 };
+                  return { x: 0, z: 0, rotate: 0, scale: 1, opacity: 1, filter: "blur(0px)" };
                 } else if (isLeft) {
-                  return { x: -380, z: -100, rotate: -15, scale: 0.85, opacity: 0.8 };
+                  return { x: -380, z: -100, rotate: -15, scale: 0.85, opacity: 0.4, filter: "blur(4px)" };
                 } else {
                   // isRight
-                  return { x: 380, z: -100, rotate: 15, scale: 0.85, opacity: 0.8 };
+                  return { x: 380, z: -100, rotate: 15, scale: 0.85, opacity: 0.4, filter: "blur(4px)" };
                 }
               };
 
               const position = getArcPosition();
-              const delay = Math.abs(item.position) * 0.1; // Stagger effect
 
               return (
                 <motion.div
-                  key={`${item.id}-${item.position}`}
-                  initial={{ x: 0, z: -200, rotate: 0, scale: 0.5, opacity: 0 }}
-                  whileInView={position}
-                  viewport={{ once: true, margin: "-100px" }}
+                  key={item.id}
+                  initial={{ x: 0, z: -100, rotate: 0, scale: 0.8, opacity: 0 }}
+                  animate={position}
                   transition={{ 
                     type: "spring",
-                    stiffness: 200,
-                    damping: 24,
-                    delay: delay
+                    stiffness: 260,
+                    damping: 20,
                   }}
                   whileHover={{ 
                     scale: isCenter ? 1.05 : 0.9,
