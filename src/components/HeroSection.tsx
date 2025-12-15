@@ -14,20 +14,20 @@ const HeroSection = () => {
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
   const shortsData = [
-    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers", type: 'short' },
-    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers", type: 'short' },
-    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers", type: 'short' },
-    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers", type: 'short' },
-    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers", type: 'short' }
+    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers", type: 'short', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
+    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers", type: 'short', profileImg: "/entrepreneurs/VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers", type: 'short', profileImg: "/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" }
   ];
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
-    { link: "https://www.youtube.com/embed/eOt0VgC8tks", handle: "Drake vs UMG", followers: "Music Industry", type: 'video' },
-    { link: "https://www.youtube.com/embed/2iQ6clokEPo", handle: "Sales Career", followers: "Career Guide", type: 'video' },
-    { link: "https://www.youtube.com/embed/u_12sSli1Uk", handle: "Trading Premium", followers: "Finance", type: 'video' },
-    { link: "https://www.youtube.com/embed/sC8ydMWDSUM", handle: "Broke to $75k", followers: "Entrepreneurship", type: 'video' },
-    { link: "https://www.youtube.com/embed/K7Wfih1vK00", handle: "TicketMaster", followers: "Case Study", type: 'video' }
+    { link: "https://www.youtube.com/embed/eOt0VgC8tks", handle: "Drake vs UMG", followers: "1.2M Subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "https://www.youtube.com/embed/2iQ6clokEPo", handle: "Sales Career", followers: "450k Subscribers", type: 'video', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
+    { link: "https://www.youtube.com/embed/u_12sSli1Uk", handle: "Trading Premium", followers: "890k Subscribers", type: 'video', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "https://www.youtube.com/embed/sC8ydMWDSUM", handle: "Broke to $75k", followers: "2.1M Subscribers", type: 'video', profileImg: "/entrepreneurs/VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "https://www.youtube.com/embed/K7Wfih1vK00", handle: "TicketMaster", followers: "675k Subscribers", type: 'video', profileImg: "/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" }
   ];
 
   // Infinite Scroll Duplication
@@ -96,9 +96,15 @@ const HeroSection = () => {
         )}
 
         {/* Overlay */}
+        {/* Overlay */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex flex-col justify-end opacity-100 transition-opacity">
-          <p className="text-white font-medium text-sm mb-0.5">{item.handle}</p>
-          {item.followers && <p className="text-white/70 text-xs">{item.followers}</p>}
+          <p className="text-white font-medium text-sm mb-1.5">{item.handle}</p>
+          <div className="flex items-center gap-2">
+            {item.profileImg && (
+              <img src={item.profileImg} alt={item.handle} className="w-10 h-10 rounded-full object-cover border border-white/20" />
+            )}
+            {item.followers && <p className="text-white/70 text-sm">{item.followers}</p>}
+          </div>
         </div>
       </div>
     );
@@ -248,8 +254,8 @@ const HeroSection = () => {
               {/* Column 1 - Brands (Images) - 9:16 Vertical */}
               <motion.div
                 animate={{ y: ["0%", "-50%"] }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="flex flex-col w-1/3"
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                className="flex flex-col w-[27%]"
               >
                 {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
               </motion.div>
@@ -257,41 +263,20 @@ const HeroSection = () => {
               {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
               <motion.div
                 animate={{ y: ["-50%", "0%"] }}
-                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                className="flex flex-col w-1/3 relative"
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                className="flex flex-col w-[27%] relative"
               >
                 {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
-                {/* Profile Picture for Column 2 */}
-                <div className="absolute bottom-4 left-4 z-20">
-                  <div className="flex items-center gap-2 bg-black/70 backdrop-blur-sm rounded-full p-1 pr-3 border border-white/20 shadow-lg">
-                    <img 
-                      src="/entrepreneurs/1644180906552.png" 
-                      alt="Profile" 
-                      className="w-8 h-8 rounded-full object-cover"
-                    />
-                    <span className="text-white text-xs font-medium">Creator</span>
-                  </div>
-                </div>
+                 
               </motion.div>
 
               {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
               <motion.div
                 animate={{ y: ["0%", "-50%"] }}
-                transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-                className="flex flex-col w-1/3 relative"
+                transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
+                className="flex flex-col w-[42%] relative"
               >
                 {infiniteColumn3.map((item, idx) => renderCard(item, idx, "aspect-video"))}
-                {/* Profile Picture for Column 3 */}
-                <div className="absolute bottom-4 left-4 z-20">
-                  <div className="flex items-center gap-2 bg-black/70 backdrop-blur-sm rounded-full p-1 pr-3 border border-white/20 shadow-lg">
-                    <img 
-                      src="/entrepreneurs/7HdwNsOD_400x400.png" 
-                      alt="Profile" 
-                      className="w-8 h-8 rounded-full object-cover"
-                    />
-                    <span className="text-white text-xs font-medium">Editor</span>
-                  </div>
-                </div>
               </motion.div>
             </div>
 
