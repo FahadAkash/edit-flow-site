@@ -15,15 +15,16 @@ const HeroSection = () => {
     { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers", type: 'short', profileImg: "/entrepreneurs/1644180906552.png" },
     { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
     { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "https://www.youtube.com/shorts/fNy-CAZdoI", handle: "Suhit Amin", followers: "45k Followers", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
     { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers", type: 'short', profileImg: "/entrepreneurs/VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png" },
     { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers", type: 'short', profileImg: "/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" }
   ];
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
-    { link: "https://www.youtube.com/embed/5gmZtZQTeZWhlylH", handle: "ALEX YOUNG", followers: "80K+ subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/embed/iJUQ75U-1DxgxUGZ", handle: "Lifestyle Video Premium", followers: "30K+ subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/embed/UugmSTM6OrVVJwDj", handle: "Suhit Amin", followers: "15.1K subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "ALEX YOUNG", followers: "80K+ subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "Lifestyle Video Premium", followers: "30K+ subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "Suhit Amin", followers: "15.1K subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
     { link: "https://www.youtube.com/embed/eOt0VgC8tks", handle: "Drake vs UMG", followers: "1.2M Subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
     { link: "https://www.youtube.com/embed/2iQ6clokEPo", handle: "Sales Career", followers: "450k Subscribers", type: 'video', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
     { link: "https://www.youtube.com/embed/u_12sSli1Uk", handle: "Trading Premium", followers: "890k Subscribers", type: 'video', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
@@ -31,22 +32,28 @@ const HeroSection = () => {
     { link: "https://www.youtube.com/embed/K7Wfih1vK00", handle: "TicketMaster", followers: "675k Subscribers", type: 'video', profileImg: "/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" }
   ];
 
-  // Infinite Scroll Duplication (Quadrupled for seamless loop and performance)
-  const infiniteColumn1 = [...clientImages, ...clientImages, ...clientImages, ...clientImages];
-  const infiniteColumn2 = [...shortsData, ...shortsData, ...shortsData, ...shortsData];
-  const infiniteColumn3 = [...videosData, ...videosData, ...videosData, ...videosData];
+  // Infinite Scroll Duplication (5x for seamless loop)
+  const infiniteColumn1 = [...clientImages, ...clientImages, ...clientImages, ...clientImages, ...clientImages];
+  const infiniteColumn2 = [...shortsData, ...shortsData, ...shortsData, ...shortsData, ...shortsData];
+  const infiniteColumn3 = [...videosData, ...videosData, ...videosData, ...videosData, ...videosData];
 
   const getYoutubeId = (url: string) => {
+    let videoId = "";
     // Handle both short URLs and standard embed/watch URLs if needed
     if (url.includes('shorts/')) {
         const match = url.match(/shorts\/([\w-]+)/);
-        return match ? match[1] : "";
-    }
-    if (url.includes('embed/')) {
+        videoId = match ? match[1] : "";
+    } else if (url.includes('embed/')) {
         const parts = url.split('embed/');
-        return parts[1] || "";
+        videoId = parts[1] || "";
     }
-    return "";
+    
+    // Remove query parameters (e.g. ?si=...)
+    if (videoId.includes('?')) {
+      videoId = videoId.split('?')[0];
+    }
+    
+    return videoId;
   };
 
   const renderCard = (item: any, idx: number, aspectClass: string, isLargeProfile: boolean = false) => {
@@ -66,7 +73,6 @@ const HeroSection = () => {
                 title={item.handle}
                 className="w-full h-full object-cover pointer-events-none" 
                 allow="autoplay; encrypted-media; loop"
-                loading="lazy"
               />
             ) : (
               <div className="w-full h-full bg-charcoal flex items-center justify-center">
@@ -261,8 +267,8 @@ const HeroSection = () => {
               
               {/* Column 1 - Brands (Images) - 9:16 Vertical */}
               <motion.div
-                animate={{ y: ["0%", "-25%"] }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                animate={{ y: ["0%", "-20%"] }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 className="flex flex-col w-[27%]"
               >
                 {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]", true))}
@@ -270,8 +276,8 @@ const HeroSection = () => {
 
               {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
               <motion.div
-                animate={{ y: ["-25%", "0%"] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                animate={{ y: ["-20%", "0%"] }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 className="flex flex-col w-[27%] relative"
               >
                 {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
@@ -280,8 +286,8 @@ const HeroSection = () => {
 
               {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
               <motion.div
-                animate={{ y: ["0%", "-25%"] }}
-                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                animate={{ y: ["0%", "-20%"] }}
+                transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
                 className="flex flex-col w-[42%] relative"
               >
                 {infiniteColumn3.map((item, idx) => renderCard(item, idx, "aspect-video"))}

@@ -115,25 +115,47 @@ const MeetTheFounder = () => {
             </motion.a>
           </motion.div>
 
-          {/* Right Image */}
+          {/* Right Image Composition */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center lg:justify-end relative"
           >
-            <div className="relative">
-              {/* Circle Background - Solid White for contrast against Red */}
+            <div className="relative w-[340px] h-[340px] md:w-[450px] md:h-[450px] flex items-center justify-center">
+              
+              {/* Studio Image 1 (Top Left) */}
+              <motion.div
+                initial={{ opacity: 0, x: -20, rotate: -10 }}
+                whileInView={{ opacity: 1, x: 0, rotate: -6 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="absolute top-0 left-0 md:-left-8 w-40 h-32 md:w-56 md:h-40 rounded-xl overflow-hidden border-4 border-white shadow-xl z-0"
+              >
+                <img src="/founder/1.png" alt="Studio Setup" className="w-full h-full object-cover" />
+              </motion.div>
+
+              {/* Studio Image 2 (Bottom Right) */}
+              <motion.div
+                initial={{ opacity: 0, x: 20, rotate: 10 }}
+                whileInView={{ opacity: 1, x: 0, rotate: 6 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute bottom-4 right-0 md:-right-4 w-40 h-32 md:w-56 md:h-40 rounded-xl overflow-hidden border-4 border-white shadow-xl z-0"
+              >
+                <img src="/founder/2.png" alt="Recording Room" className="w-full h-full object-cover" />
+              </motion.div>
+
+              {/* Main Profile Circle */}
               <motion.div 
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-white p-2 shadow-2xl"
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="w-56 h-56 md:w-80 md:h-80 rounded-full bg-white p-2 shadow-2xl relative z-10"
               >
                 <div className="w-full h-full rounded-full overflow-hidden">
-                  {/* Profile Image - Replace with actual image */}
                   <img
                     src="/founder/founder.png"
                     alt="Ahmed Yousuf - Founder"
@@ -141,30 +163,20 @@ const MeetTheFounder = () => {
                   />
                 </div>
               </motion.div>
-              
-              {/* Decorative elements */}
+
+               
+
+              {/* Decorative Sparkle */}
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6, type: "spring" }}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-12 h-12 bg-[#FFB300] rounded-full shadow-lg flex items-center justify-center text-2xl"
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="absolute -bottom-2 left-8 md:left-4 text-4xl"
               >
                 ✨
               </motion.div>
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-black rounded-full shadow-lg flex items-center justify-center text-white text-2xl"
-              >
-                🎬
-              </motion.div>
+
             </div>
           </motion.div>
         </div>
