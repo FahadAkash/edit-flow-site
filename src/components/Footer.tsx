@@ -93,12 +93,12 @@ const Footer = () => {
             <div className="space-y-3 text-white/70">
               <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-coral-accent" />
-                <span></span>
+                <span>kontentprotocol@gmail.com</span>
               </motion.div>
-              <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
+              {/* <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-coral-accent" />
                 <span></span>
-              </motion.div>
+              </motion.div> */}
               <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-coral-accent" />
                 <span>Mirpur1 , Bangladesh</span>

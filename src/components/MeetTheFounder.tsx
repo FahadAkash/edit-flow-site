@@ -180,11 +180,8 @@ const MeetTheFounder = () => {
                 </motion.div>
               </motion.div>
 
-              {/* Small Decor: Recording Indicator */}
-              <div className="absolute bottom-10 left-10 md:bottom-12 md:left-4 bg-black/80 backdrop-blur text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-2 z-30 shadow-lg border border-white/10">
-                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-                ON AIR
-              </div>
+              
+              
 
             </div>
           </motion.div>
