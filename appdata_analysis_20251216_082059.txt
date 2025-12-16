@@ -1,0 +1,93 @@
+APPDATA ANALYSIS REPORT
+================================================================================
+
+LARGEST FOLDERS:
+--------------------------------------------------------------------------------
+    14.87 GB - C:\Users\fahad\AppData\Local\Android
+    14.87 GB - C:\Users\fahad\AppData\Local\Android\Sdk
+    10.75 GB - C:\Users\fahad\AppData\Local\Android\Sdk\ndk
+     8.26 GB - C:\Users\fahad\AppData\Local\Google
+     7.20 GB - C:\Users\fahad\AppData\Local\Programs
+     6.55 GB - C:\Users\fahad\AppData\Local\Google\Chrome\User Data
+     6.55 GB - C:\Users\fahad\AppData\Local\Google\Chrome
+     5.62 GB - C:\Users\fahad\AppData\Local\Microsoft
+     5.28 GB - C:\Users\fahad\AppData\Local\npm-cache
+     4.81 GB - C:\Users\fahad\AppData\Local\uv
+     4.81 GB - C:\Users\fahad\AppData\Local\uv\cache
+     4.79 GB - C:\Users\fahad\AppData\Local\uv\cache\archive-v0
+     4.35 GB - C:\Users\fahad\AppData\Local\audacity
+     4.35 GB - C:\Users\fahad\AppData\Local\audacity\SessionData
+     4.03 GB - C:\Users\fahad\AppData\Local\CapCut
+     3.69 GB - C:\Users\fahad\AppData\Local\npm-cache\_cacache
+     3.69 GB - C:\Users\fahad\AppData\Local\npm-cache\_cacache\content-v2
+     3.53 GB - C:\Users\fahad\AppData\Local\Roblox
+     3.41 GB - C:\Users\fahad\AppData\Local\UnrealEngine
+     3.40 GB - C:\Users\fahad\AppData\Local\Programs\Ollama
+     3.37 GB - C:\Users\fahad\AppData\Local\Programs\Ollama\lib
+     3.33 GB - C:\Users\fahad\AppData\Local\Packages
+     3.31 GB - C:\Users\fahad\AppData\Local\UnrealEngine\Common
+     3.31 GB - C:\Users\fahad\AppData\Local\UnrealEngine\Common\Zen
+     3.24 GB - C:\Users\fahad\AppData\Local\CapCut\User Data
+     3.13 GB - C:\Users\fahad\AppData\Local\CapCut\User Data\Cache
+     3.03 GB - C:\Users\fahad\AppData\Local\Temp
+     2.73 GB - C:\Users\fahad\AppData\Local\NuGet
+     2.70 GB - C:\Users\fahad\AppData\Local\NuGet\v3-cache
+     2.66 GB - C:\Users\fahad\AppData\Local\NuGet\v3-cache\670c1461c29885f9aa22c281d8b7da90845b38e4$ps_api.nuget.org_v3_index.json
+     2.52 GB - C:\Users\fahad\AppData\Local\pip
+     2.52 GB - C:\Users\fahad\AppData\Local\pip\cache
+     2.22 GB - C:\Users\fahad\AppData\Local\pip\cache\http-v2
+     2.09 GB - C:\Users\fahad\AppData\Local\Android\Sdk\system-images
+     1.98 GB - C:\Users\fahad\AppData\Local\Microsoft\Edge
+     1.98 GB - C:\Users\fahad\AppData\Local\Microsoft\Edge\User Data
+     1.91 GB - C:\Users\fahad\AppData\Local\Roblox\Versions
+     1.80 GB - C:\Users\fahad\AppData\Local\Yarn
+     1.80 GB - C:\Users\fahad\AppData\Local\Yarn\Cache
+     1.80 GB - C:\Users\fahad\AppData\Local\Yarn\Cache\v6
+     1.59 GB - C:\Users\fahad\AppData\Local\npm-cache\_npx
+     1.53 GB - C:\Users\fahad\AppData\Local\Microsoft\VisualStudio
+     1.21 GB - C:\Users\fahad\AppData\Local\Mesh Intelligent Technologies, Inc
+     1.21 GB - C:\Users\fahad\AppData\Local\Mesh Intelligent Technologies, Inc\Pieces OS
+     1.17 GB - C:\Users\fahad\AppData\Local\Ollama
+     1.17 GB - C:\Users\fahad\AppData\Local\Ollama\updates
+     1.17 GB - C:\Users\fahad\AppData\Local\Ollama\updates\0x8DE3918181551D4
+     1.13 GB - C:\Users\fahad\AppData\Local\Google\Cloud SDK
+     1.13 GB - C:\Users\fahad\AppData\Local\Google\Cloud SDK\google-cloud-sdk
+     1.02 GB - C:\Users\fahad\AppData\Local\GitHubDesktop
+
+
+SPACE BY APPLICATION:
+--------------------------------------------------------------------------------
+    10.64 GB - Android (212 files)
+     5.47 GB - Programs (99 files)
+     4.34 GB - audacity (21 files)
+     3.36 GB - UnrealEngine (36 files)
+     2.97 GB - Microsoft (60 files)
+     2.90 GB - CapCut (44 files)
+     2.09 GB - pip (46 files)
+     1.86 GB - Temp (42 files)
+     1.83 GB - Roblox (58 files)
+     1.64 GB - Google (60 files)
+     1.60 GB - npm-cache (96 files)
+     1.24 GB - NuGet (51 files)
+     1.17 GB - Ollama (1 files)
+     1.03 GB - Mesh Intelligent Technologies, Inc (6 files)
+   828.77 MB - ms-playwright (12 files)
+   744.61 MB - Postman (5 files)
+   733.90 MB - Packages (27 files)
+   730.65 MB - Chromium (6 files)
+   669.43 MB - GitHubDesktop (9 files)
+   627.89 MB - SquirrelTemp (6 files)
+   594.72 MB - AnthropicClaude (7 files)
+   576.76 MB - Yarn (20 files)
+   462.90 MB - lm-studio-updater (1 files)
+   438.27 MB - electron (4 files)
+   348.55 MB - Discord (6 files)
+   318.79 MB - Downloaded Installations (1 files)
+   296.20 MB - kando (2 files)
+   291.64 MB - unityhub-updater (2 files)
+   275.48 MB - Package Cache (1 files)
+   236.58 MB - podman-desktop-updater (1 files)
+
+
+LARGEST FILES:
+--------------------------------------------------------------------------------

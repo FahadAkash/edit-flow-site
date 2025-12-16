@@ -115,67 +115,76 @@ const MeetTheFounder = () => {
             </motion.a>
           </motion.div>
 
-          {/* Right Image Composition */}
+          {/* Right Image Composition - Circular with Floating Widgets */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
             className="flex justify-center lg:justify-end relative"
           >
-            <div className="relative w-[340px] h-[340px] md:w-[450px] md:h-[450px] flex items-center justify-center">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/40 blur-[120px] rounded-full pointer-events-none" />
+
+            <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px] flex items-center justify-center">
               
-              {/* Studio Image 1 (Top Left) */}
+              {/* Studio Image 1 (Top Left Widget) */}
               <motion.div
-                initial={{ opacity: 0, x: -20, rotate: -10 }}
-                whileInView={{ opacity: 1, x: 0, rotate: -6 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="absolute top-0 left-0 md:-left-8 w-40 h-32 md:w-56 md:h-40 rounded-xl overflow-hidden border-4 border-white shadow-xl z-0"
+                initial={{ opacity: 0, x: -30, y: 20 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="absolute top-0 left-0 md:top-4 md:-left-4 z-20"
               >
-                <img src="/founder/1.png" alt="Studio Setup" className="w-full h-full object-cover" />
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl backdrop-blur-sm bg-white/5"
+                >
+                  <img src="/founder/1.png" alt="Studio Setup" className="w-full h-full object-cover opacity-90 hover:opacity-100 hover:scale-110 transition-all duration-500" />
+                </motion.div>
               </motion.div>
 
-              {/* Studio Image 2 (Bottom Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20, rotate: 10 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 6 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute bottom-4 right-0 md:-right-4 w-40 h-32 md:w-56 md:h-40 rounded-xl overflow-hidden border-4 border-white shadow-xl z-0"
-              >
-                <img src="/founder/2.png" alt="Recording Room" className="w-full h-full object-cover" />
-              </motion.div>
-
-              {/* Main Profile Circle */}
+              {/* Main Profile Circle (Center) */}
               <motion.div 
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="w-56 h-56 md:w-80 md:h-80 rounded-full bg-white p-2 shadow-2xl relative z-10"
+                transition={{ duration: 0.6 }}
+                className="relative z-10 w-64 h-64 md:w-80 md:h-80 rounded-full p-2 bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_60px_rgba(0,0,0,0.3)]"
               >
-                <div className="w-full h-full rounded-full overflow-hidden">
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner">
                   <img
                     src="/founder/founder.png"
                     alt="Ahmed Yousuf - Founder"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover"
                   />
                 </div>
+                
+                {/* Decorative Ring */}
+                <div className="absolute -inset-4 border border-white/10 rounded-full animate-[spin_10s_linear_infinite]" />
               </motion.div>
 
-               
-
-              {/* Decorative Sparkle */}
+              {/* Studio Image 2 (Bottom Right Widget) */}
               <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -bottom-2 left-8 md:left-4 text-4xl"
+                initial={{ opacity: 0, x: 30, y: -20 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="absolute bottom-0 right-0 md:bottom-4 md:-right-4 z-20"
               >
-                ✨
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl backdrop-blur-sm bg-white/5"
+                >
+                  <img src="/founder/2.png" alt="Recording Room" className="w-full h-full object-cover opacity-90 hover:opacity-100 hover:scale-110 transition-all duration-500" />
+                </motion.div>
               </motion.div>
+
+              {/* Small Decor: Recording Indicator */}
+              <div className="absolute bottom-10 left-10 md:bottom-12 md:left-4 bg-black/80 backdrop-blur text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-2 z-30 shadow-lg border border-white/10">
+                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                ON AIR
+              </div>
 
             </div>
           </motion.div>

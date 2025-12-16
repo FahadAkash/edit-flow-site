@@ -4,32 +4,27 @@ const HeroSection = () => {
   // Column 1 Data: Client/Brand Images (Vertical 9:16)
   // Column 1 Data: Brand Shorts (Vertical 9:16)
   const clientImages = [
-    { link: "https://youtube.com/shorts/TuBv-hf3H5k", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "https://www.google.com/s2/favicons?domain=neutonic.com&sz=128" },
-    { link: "https://youtube.com/shorts/GzFoWnf_7zk", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "https://www.google.com/s2/favicons?domain=dangercoffee.com&sz=128" },
-    { link: "https://youtube.com/shorts/Nx90iyLGhJM", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "https://www.google.com/s2/favicons?domain=kreaturesofhabit.com&sz=128" },
-    { link: "https://youtube.com/shorts/oLr3AARGDQ0", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "https://www.google.com/s2/favicons?domain=mannavitality.com&sz=128" },
+    { link: "https://youtube.com/shorts/TuBv-hf3H5k", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
+    { link: "https://youtube.com/shorts/GzFoWnf_7zk", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
+    { link: "https://youtube.com/shorts/Nx90iyLGhJM", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
+    { link: "https://youtube.com/shorts/oLr3AARGDQ0", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
   ];
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
   const shortsData = [
-    { link: "https://www.youtube.com/shorts/jcqHNfjlo-U", handle: "alexanderfyoung", followers: "79k Followers", type: 'short', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/shorts/tgUnQrQiaUk", handle: "Total Tech", followers: "90k Followers", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
-    { link: "https://www.youtube.com/shorts/fNy-CAZdo4I", handle: "Suhit Amin", followers: "45k Followers", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
-    { link: "https://www.youtube.com/shorts/fNy-CAZdoI", handle: "Suhit Amin", followers: "45k Followers", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
-    { link: "https://www.youtube.com/shorts/IkQ_Wv0RBWg", handle: "Ten Thousand Miles", followers: "65k Followers", type: 'short', profileImg: "/entrepreneurs/VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png" },
-    { link: "https://www.youtube.com/shorts/0AVLNtMvJxg", handle: "Two Minute Papers", followers: "65k Followers", type: 'short', profileImg: "/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" }
+    { link: "https://www.youtube.com/shorts/WoqwTZkWCqI", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "public/hero/comun3/channels4_profile.jpg" },
+    { link: "https://www.instagram.com/reel/DRDj6lhDOge/", handle: "Transfer Kingdom", followers: "20k", type: 'instagram', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "https://www.youtube.com/shorts/B4YWI--bCQs", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
+    { link: "https://www.youtube.com/shorts/J96yVI50LJY", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" }
   ];
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
-    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "ALEX YOUNG", followers: "80K+ subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "Lifestyle Video Premium", followers: "30K+ subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "Suhit Amin", followers: "15.1K subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/embed/eOt0VgC8tks", handle: "Drake vs UMG", followers: "1.2M Subscribers", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/embed/2iQ6clokEPo", handle: "Sales Career", followers: "450k Subscribers", type: 'video', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
-    { link: "https://www.youtube.com/embed/u_12sSli1Uk", handle: "Trading Premium", followers: "890k Subscribers", type: 'video', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
-    { link: "https://www.youtube.com/embed/sC8ydMWDSUM", handle: "Broke to $75k", followers: "2.1M Subscribers", type: 'video', profileImg: "/entrepreneurs/VYCKwtkM9XtsZ2yy5JfT3PUzSXZYB1yuvOuYrDEj2HdL6RU47T4JAmC-9HL2rsoH_BUog1KaGgs900-c-k-c0x00ffffff-no-rj.png" },
-    { link: "https://www.youtube.com/embed/K7Wfih1vK00", handle: "TicketMaster", followers: "675k Subscribers", type: 'video', profileImg: "/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" }
+    { link: "https://www.youtube.com/embed/sw32JXFdGV8", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "public/hero/comun3/channels4_profile.jpg" },
+    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "drantoniowebbmd", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "https://www.youtube.com/embed/ZyY5xKs8fkU", handle: "Lifestyle Video Premium", followers: "30K+", type: 'video', profileImg: "public/hero/comun3/third.png" },
+    { link: "https://www.youtube.com/embed/BcWScmU0IbQ", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "public/hero/comun3/second.png" },
+    { link: "https://www.youtube.com/embed/tl3as05qpmM", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "public/hero/comun3/first.png" }
   ];
 
   // Infinite Scroll Duplication (5x for seamless loop)
@@ -57,7 +52,7 @@ const HeroSection = () => {
   };
 
   const renderCard = (item: any, idx: number, aspectClass: string, isLargeProfile: boolean = false) => {
-    const isVideo = item.type === 'short' || item.type === 'video';
+    const isVideo = item.type === 'short' || item.type === 'video' || item.type === 'instagram';
     
     return (
       <div
@@ -66,6 +61,19 @@ const HeroSection = () => {
       >
         {isVideo ? (
           (() => {
+            if (item.type === 'instagram') {
+               return (
+                  <iframe 
+                    src={`${item.link}embed`}
+                    className="w-full h-full object-cover pointer-events-none"
+                    title={item.handle}
+                    frameBorder="0" 
+                    scrolling="no" 
+                    allowTransparency={true}
+                  />
+               );
+            }
+
             const videoId = getYoutubeId(item.link);
             return videoId ? (
               <iframe
@@ -114,7 +122,7 @@ const HeroSection = () => {
               <img 
                 src={item.profileImg} 
                 alt={item.handle} 
-                className={`${isLargeProfile ? 'w-14 h-14 border-2' : 'w-10 h-10 border'} rounded-full object-cover border-white/20`} 
+                className={`${isLargeProfile ? 'w-14 h-14 border-2 object-contain bg-white p-1' : 'w-10 h-10 border object-cover'} rounded-full border-white/20`} 
               />
             )}
             {item.followers && <p className={`text-white/80 ${isLargeProfile ? 'text-sm' : 'text-xs'}`}>{item.followers}</p>}
