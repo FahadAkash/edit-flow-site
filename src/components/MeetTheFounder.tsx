@@ -116,6 +116,7 @@ const MeetTheFounder = () => {
           </motion.div>
 
           {/* Right Image Composition - Circular with Floating Widgets */}
+           {/* Right Image Composition - Modern Circular Profile */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -124,65 +125,58 @@ const MeetTheFounder = () => {
             className="flex justify-center lg:justify-end relative"
           >
             {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/40 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/30 blur-[100px] rounded-full pointer-events-none" />
 
-            <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px] flex items-center justify-center">
-              
-              {/* Studio Image 1 (Top Left Widget) */}
-              <motion.div
-                initial={{ opacity: 0, x: -30, y: 20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute top-0 left-0 md:top-4 md:-left-4 z-20"
-              >
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl backdrop-blur-sm bg-white/5"
-                >
-                  <img src="/founder/1.png" alt="Studio Setup" className="w-full h-full object-cover opacity-90 hover:opacity-100 hover:scale-110 transition-all duration-500" />
-                </motion.div>
-              </motion.div>
-
-              {/* Main Profile Circle (Center) */}
+            <div className="relative">
+              {/* Main Circular Profile */}
               <motion.div 
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="relative z-10 w-64 h-64 md:w-80 md:h-80 rounded-full p-2 bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_0_60px_rgba(0,0,0,0.3)]"
+                className="relative z-10 w-72 h-72 md:w-96 md:h-96 rounded-full p-3 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-white/30 shadow-[0_0_80px_rgba(0,0,0,0.3)]"
               >
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner">
-                  <img
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
                     src="/founder/founder.png"
                     alt="Ahmed Yousuf - Founder"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 
-                {/* Decorative Ring */}
-                <div className="absolute -inset-4 border border-white/10 rounded-full animate-[spin_10s_linear_infinite]" />
+                {/* Animated Decorative Rings */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute -inset-3 border-2 border-white/20 rounded-full"
+                  style={{ 
+                    borderStyle: "dashed",
+                    borderSpacing: "10px"
+                  }}
+                />
+                <motion.div 
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute -inset-6 border border-white/10 rounded-full"
+                />
               </motion.div>
 
-              {/* Studio Image 2 (Bottom Right Widget) */}
+              {/* Floating Stats/Badge */}
               <motion.div
-                initial={{ opacity: 0, x: 30, y: -20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute bottom-0 right-0 md:bottom-4 md:-right-4 z-20"
+                className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20"
               >
                 <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl backdrop-blur-sm bg-white/5"
+                  whileHover={{ y: -5, scale: 1.05 }}
+                  className="bg-white text-[#e63946] px-8 py-3 rounded-full shadow-2xl font-bold text-sm md:text-base border-2 border-white/50 backdrop-blur-sm"
                 >
-                  <img src="/founder/2.png" alt="Recording Room" className="w-full h-full object-cover opacity-90 hover:opacity-100 hover:scale-110 transition-all duration-500" />
+                  1,500+ Happy Clients
                 </motion.div>
               </motion.div>
-
-              
-              
-
             </div>
           </motion.div>
         </div>
