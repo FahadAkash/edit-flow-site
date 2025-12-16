@@ -5,9 +5,9 @@ const HeroSection = () => {
   // Column 1 Data: Brand Shorts (Vertical 9:16)
   const clientImages = [
     { link: "https://youtube.com/shorts/TuBv-hf3H5k", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
-    { link: "https://youtube.com/shorts/GzFoWnf_7zk", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
+    { link: "https://youtube.com/shorts/GzFoWnf_7zk", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png" },
     { link: "https://youtube.com/shorts/Nx90iyLGhJM", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
-    { link: "https://youtube.com/shorts/oLr3AARGDQ0", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
+    { link: "https://youtube.com/shorts/oLr3AARGDQ0", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/1667599512761.png" },
   ];
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
@@ -28,10 +28,10 @@ const HeroSection = () => {
     { link: "https://www.youtube.com/embed/tl3as05qpmM", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "public/hero/comun3/first.png" }
   ];
 
-  // Infinite Scroll Duplication (5x for seamless loop)
-  const infiniteColumn1 = [...clientImages, ...clientImages, ...clientImages, ...clientImages, ...clientImages];
-  const infiniteColumn2 = [...shortsData, ...shortsData, ...shortsData, ...shortsData, ...shortsData];
-  const infiniteColumn3 = [...videosData, ...videosData, ...videosData, ...videosData, ...videosData];
+  // Infinite Scroll Duplication (3x for seamless loop - simpler and more efficient)
+  const infiniteColumn1 = [...clientImages, ...clientImages, ...clientImages];
+  const infiniteColumn2 = [...shortsData, ...shortsData, ...shortsData];
+  const infiniteColumn3 = [...videosData, ...videosData, ...videosData];
 
   const getYoutubeId = (url: string) => {
     let videoId = "";
@@ -276,8 +276,8 @@ const HeroSection = () => {
               
               {/* Column 1 - Brands (Images) - 9:16 Vertical */}
               <motion.div
-                animate={{ y: ["0%", "-20%"] }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                animate={{ y: ["0%", "-66.666%"] }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[27%]"
               >
                 {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]", true))}
@@ -285,8 +285,8 @@ const HeroSection = () => {
 
               {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
               <motion.div
-                animate={{ y: ["-20%", "0%"] }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                animate={{ y: ["0%", "-66.666%"] }}
+                transition={{ duration: 45, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[27%] relative"
               >
                 {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
@@ -295,8 +295,8 @@ const HeroSection = () => {
 
               {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
               <motion.div
-                animate={{ y: ["0%", "-20%"] }}
-                transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+                animate={{ y: ["-66.666%", "0%"] }}
+                transition={{ duration: 42, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[42%] relative"
               >
                 {infiniteColumn3.map((item, idx) => renderCard(item, idx, "aspect-video"))}
