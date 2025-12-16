@@ -49,7 +49,7 @@ const HeroSection = () => {
     return "";
   };
 
-  const renderCard = (item: any, idx: number, aspectClass: string) => {
+  const renderCard = (item: any, idx: number, aspectClass: string, isLargeProfile: boolean = false) => {
     const isVideo = item.type === 'short' || item.type === 'video';
     
     return (
@@ -100,12 +100,18 @@ const HeroSection = () => {
         {/* Overlay */}
         {/* Overlay */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex flex-col justify-end opacity-100 transition-opacity">
-          <p className="text-white font-medium text-sm mb-1.5">{item.handle}</p>
-          <div className="flex items-center gap-2">
+          <p className={`text-white font-medium ${isLargeProfile ? 'text-lg font-semibold mb-2' : 'text-sm mb-1.5'}`}>
+            {item.handle}
+          </p>
+          <div className={`flex items-center ${isLargeProfile ? 'gap-3' : 'gap-2'}`}>
             {item.profileImg && (
-              <img src={item.profileImg} alt={item.handle} className="w-10 h-10 rounded-full object-cover border border-white/20" />
+              <img 
+                src={item.profileImg} 
+                alt={item.handle} 
+                className={`${isLargeProfile ? 'w-14 h-14 border-2' : 'w-10 h-10 border'} rounded-full object-cover border-white/20`} 
+              />
             )}
-            {item.followers && <p className="text-white/70 text-sm">{item.followers}</p>}
+            {item.followers && <p className={`text-white/80 ${isLargeProfile ? 'text-sm' : 'text-xs'}`}>{item.followers}</p>}
           </div>
         </div>
       </div>
@@ -259,7 +265,7 @@ const HeroSection = () => {
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 className="flex flex-col w-[27%]"
               >
-                {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
+                {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]", true))}
               </motion.div>
 
               {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
