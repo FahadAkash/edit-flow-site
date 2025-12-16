@@ -13,8 +13,9 @@ const HeroSection = () => {
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
   const shortsData = [
     { link: "https://www.youtube.com/shorts/WoqwTZkWCqI", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "public/hero/comun3/channels4_profile.jpg" },
-    { link: "https://www.instagram.com/reel/DRDj6lhDOge/", handle: "Transfer Kingdom", followers: "20k", type: 'instagram', profileImg: "/entrepreneurs/1644180906552.png" },
+    
     { link: "https://www.youtube.com/shorts/B4YWI--bCQs", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
+    { link: "https://www.instagram.com/reel/DRDj6lhDOge/", handle: "Transfer Kingdom", followers: "20k", type: 'instagram', profileImg: "public/hero/comun3/channels4_profile.jpg" },
     { link: "https://www.youtube.com/shorts/J96yVI50LJY", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" }
   ];
 
