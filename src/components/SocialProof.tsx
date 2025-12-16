@@ -85,9 +85,9 @@ const SocialProof = () => {
     let i = 0;
     let cardId = 1;
 
-    // Pattern for sizes to keep grid interesting: normal, wide, tall, big
-    // Mix of 1x1, 2x1, 1x2, 2x2
-    const sizePattern = ["normal", "wide", "tall", "normal", "big", "wide", "normal", "tall", "wide", "normal", "normal", "wide"];
+    // Pattern for sizes to keep grid interesting but legible: wide (2x1), big (2x2), mega (2x3)
+    // Eliminating 'normal' (1x1) to prevent small screenshots, adding 'mega' for varied height
+    const sizePattern = ["wide", "big", "wide", "mega", "big", "wide", "mega", "wide"];
 
     while (i < allScreenshots.length) {
       const sizeIndex = (cardId - 1) % sizePattern.length;
@@ -122,6 +122,8 @@ const SocialProof = () => {
         return "col-span-2";
       case "big":
         return "col-span-2 row-span-2";
+      case "mega":
+        return "col-span-2 row-span-3";
       default:
         return "";
     }

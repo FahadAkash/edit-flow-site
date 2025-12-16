@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Play, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const ReelsCarousel = () => {
   const [activeTab, setActiveTab] = useState("youtube");
@@ -202,7 +202,7 @@ const ReelsCarousel = () => {
       }
     },
     exit: { opacity: 0, scale: 0.5, transition: { duration: 0.2 } }
-  };
+  } as Variants;
 
   return (
     <section className="py-32 px-4 bg-black relative overflow-hidden">
