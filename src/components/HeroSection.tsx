@@ -203,7 +203,7 @@ const HeroSection = () => {
                   COURSE
                 </motion.div>
                 <motion.img 
-                  src="/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" 
+                  src="/entrepreneurs/zS8KNLhN29kcM_wg0sriI0Jg4yMZS-GcIPSu8icVFIG82IC4dpwFaFn0dfVfWH4NB8Hlmli1Hgs900-c-k-c0x00ffffff-no-rj.png" 
                   alt="Entrepreneur" 
                   className="w-14 h-14 rounded-full border-2 border-charcoal object-cover"
                   animate={{ y: [0, -11, 0] }}
@@ -216,15 +216,7 @@ const HeroSection = () => {
                   animate={{ y: [0, -9, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                 />
-                <motion.div 
-                  className="w-14 h-14 rounded-full border-2 border-charcoal bg-yellow-500 flex items-center justify-center"
-                  animate={{ y: [0, -13, 0] }}
-                  transition={{ duration: 2.7, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                >
-                  <svg className="w-7 h-7 text-black" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 11.75A2.25 2.25 0 1 1 11.25 14 2.25 2.25 0 0 1 9 11.75zM12.75 9A2.25 2.25 0 1 0 15 11.25 2.25 2.25 0 0 0 12.75 9zM8.25 9A2.25 2.25 0 1 0 6 11.25 2.25 2.25 0 0 0 8.25 9z"/>
-                  </svg>
-                </motion.div>
+                 
               </div>
               
               <p className="text-white/80 text-sm ml-2">
