@@ -1,17 +1,18 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, Play, Volume2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const VideoPortfolio = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
 
   const portfolioItems = [
     {
       id: 1,
-      name: "Mellanda Review",
+      name: "Mellanda",
       flowers: "2.4M",
       logo: { text: "M", color: "from-purple-500 to-blue-500" },
-      company: "Real Estate agent",
+      company: "",
       video: "/testmonial/Mellanda Review.mp4",
       bgColor: "bg-black",
       testimonial: "Ahmed’s been a huge help as I grow my business. Quality is consistently strong, communication is smooth, and everything gets delivered on time. Super reliable team they are.",
@@ -19,7 +20,7 @@ const VideoPortfolio = () => {
     },
     {
       id: 2,
-      name: "Bryan Review",
+      name: "Bryan",
       flowers: "1.8M",
       logo: { text: "B", color: "from-yellow-500 to-orange-500" },
       company: "Internet Entrepreneur and Politician",
@@ -63,6 +64,11 @@ const VideoPortfolio = () => {
     },
      
   ];
+
+  /* Reset mute state when changing slides */
+  useEffect(() => {
+    setIsMuted(true);
+  }, [currentIndex]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % portfolioItems.length);
@@ -152,21 +158,21 @@ const VideoPortfolio = () => {
                   >
                     
                     {/* Video Header / Company */}
-                    <div className="absolute top-4 left-4 right-4 z-20 flex items-center gap-3">
+                    {/* <div className="absolute top-4 left-4 right-4 z-20 flex items-center gap-3">
                       <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${item.logo.color} flex items-center justify-center text-white font-normal shadow-lg text-xs`}>
                         {item.logo.text}
                       </div>
                       <div className="text-white text-xs font-normal drop-shadow-md bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">
                         {item.company}
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Video Player */}
                     <div className="absolute inset-0 bg-black">
                       <video
                         src={item.video}
                         autoPlay
-                        muted
+                        muted={isCenter ? isMuted : true}
                         loop
                         playsInline
                         className="w-full h-full object-cover opacity-80"
@@ -178,8 +184,18 @@ const VideoPortfolio = () => {
                     
                     {/* Play Button Overlay (Center only) */}
                      {isCenter && (
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all cursor-pointer group z-30 border border-white/20">
-                        <Play className="w-6 h-6 text-white ml-1 fill-white group-hover:scale-110 transition-transform" />
+                      <div 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setIsMuted(!isMuted);
+                        }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all cursor-pointer group z-30 border border-white/20"
+                      >
+                        {isMuted ? (
+                          <Play className="w-6 h-6 text-white ml-1 fill-white group-hover:scale-110 transition-transform" />
+                        ) : (
+                          <Volume2 className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                        )}
                       </div>
                      )}
 
