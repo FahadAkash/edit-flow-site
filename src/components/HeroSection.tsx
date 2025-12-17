@@ -14,11 +14,13 @@ const HeroSection = () => {
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
   const shortsData = [
-    { link: "https://www.youtube.com/shorts/WoqwTZkWCqI", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "public/hero/comun3/channels4_profile.jpg" },
-    
-    { link: "https://www.youtube.com/shorts/B4YWI--bCQs", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
-    { link: "https://www.instagram.com/reel/DRDj6lhDOge/", handle: "Transfer Kingdom", followers: "20k", type: 'instagram', profileImg: "public/hero/comun3/channels4_profile.jpg" },
-    { link: "https://www.youtube.com/shorts/J96yVI50LJY", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" }
+    { link: "/videos/compressed_shorts/short_01_Suhit Amin_20k.f137.mp4", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "public/hero/comun3/channels4_profile.jpg" },
+    { link: "/videos/compressed_shorts/short_02_Transfer Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "public/hero/comun3/channels4_profile.jpg" },
+    { link: "/videos/compressed_shorts/short_04_DMVAUL_21k.f137.mp4", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
+    { link: "/videos/compressed_shorts/short_05_Spine Surgeon_1.07M.f137.mp4", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "/videos/compressed_shorts/short_06_Microsoft_Tech_Giant.f137.mp4", handle: "Microsoft", followers: "Tech Giant", type: 'short', profileImg: "/brands/microsoft.png" },
+    { link: "/videos/compressed_shorts/short_07_Acer_Gaming.f137.mp4", handle: "Acer", followers: "Gaming", type: 'short', profileImg: "/brands/acer-predator-logo-png_seeklogo-441422.png" },
+    { link: "/videos/compressed_shorts/short_10_MANNA_Health_&_Vitality.f137.mp4", handle: "MANNA", followers: "Health & Vitality", type: 'short', profileImg: "/brands/1667599512761.png" }
   ];
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
