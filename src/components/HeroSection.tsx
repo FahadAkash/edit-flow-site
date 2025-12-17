@@ -183,11 +183,10 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-normal leading-tight mb-10"
+              className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8 tracking-tight"
               style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
-              Helping Entrepreneurs build organic brands as{" "}
-              <span className="text-[#FFB300]">niche authorities</span>
+              Reach a <span className="text-[#FFB300]">Loyal, Paying Audience</span> on YouTube in <span className="text-[#FFB300]">Just 30 Days</span> – Completely Hands-Off & Done-For-You
             </motion.h1>
 
             {/* Subtext */}
