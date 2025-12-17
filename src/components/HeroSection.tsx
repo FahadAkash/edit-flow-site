@@ -131,11 +131,8 @@ const HeroSection = () => {
 
         {/* Overlay */}
         {/* Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex flex-col justify-end opacity-100 transition-opacity">
-          <p className={`text-white font-medium ${isLargeProfile ? 'text-lg font-semibold mb-2' : 'text-sm mb-1.5'}`}>
-            {item.handle}
-          </p>
-          <div className={`flex items-center ${isLargeProfile ? 'gap-3' : 'gap-2'}`}>
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 flex items-end opacity-100 transition-opacity">
+          <div className={`flex items-center ${isLargeProfile ? 'gap-4' : 'gap-3'} w-full`}>
             {item.profileImg && (
               <img 
                 src={item.profileImg} 
@@ -143,7 +140,17 @@ const HeroSection = () => {
                 className={`${isLargeProfile ? 'w-14 h-14 border-2 object-contain bg-white p-1' : 'w-10 h-10 border object-cover'} rounded-full border-white/20`} 
               />
             )}
-            {item.followers && <p className={`text-white/80 ${isLargeProfile ? 'text-sm' : 'text-xs'}`}>{item.followers}</p>}
+            
+            <div className="flex flex-col justify-center">
+              <p className={`text-white font-medium leading-tight ${isLargeProfile ? 'text-lg font-semibold' : 'text-sm'}`}>
+                {item.handle}
+              </p>
+              {item.followers && (
+                <p className={`text-white/80 ${isLargeProfile ? 'text-sm' : 'text-xs'}`}>
+                   Followers: {item.followers}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>
