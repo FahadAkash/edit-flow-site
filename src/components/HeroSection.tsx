@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 
+import CachedVideo from "./CachedVideo";
+
 const HeroSection = () => {
   // Column 1 Data: Client/Brand Images (Vertical 9:16)
   // Column 1 Data: Brand Shorts (Vertical 9:16)
@@ -21,11 +23,11 @@ const HeroSection = () => {
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
-    { link: "https://www.youtube.com/embed/sw32JXFdGV8", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "public/hero/comun3/channels4_profile.jpg" },
-    { link: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "drantoniowebbmd", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "https://www.youtube.com/embed/ZyY5xKs8fkU", handle: "Lifestyle Video Premium", followers: "30K+", type: 'video', profileImg: "public/hero/comun3/third.png" },
-    { link: "https://www.youtube.com/embed/BcWScmU0IbQ", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "public/hero/comun3/second.png" },
-    { link: "https://www.youtube.com/embed/tl3as05qpmM", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "public/hero/comun3/first.png" }
+    { link: "/videos/compressed_long_videos/01_Suhit Amin_30K+_Followers.f137_compressed.mp4", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "public/hero/comun3/channels4_profile.jpg" },
+    { link: "/videos/compressed_long_videos/02_drantoniowebbmd_1.43_Mil.f137_compressed.mp4", handle: "drantoniowebbmd", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "/videos/compressed_long_videos/03_Lifestyle Video Premium_30K+.f299.mp4", handle: "Lifestyle Video Premium", followers: "30K+", type: 'video', profileImg: "public/hero/comun3/third.png" },
+    { link: "/videos/compressed_long_videos/04_Total Tech_90K+.f137_compressed.mp4", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "public/hero/comun3/second.png" },
+    { link: "/videos/compressed_long_videos/05_ALEX YOUNG_84k.f137_compressed.mp4", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "public/hero/comun3/first.png" }
   ];
 
   // Infinite Scroll Duplication (3x for seamless loop - simpler and more efficient)
@@ -46,7 +48,7 @@ const HeroSection = () => {
     
     // Remove query parameters (e.g. ?si=...)
     if (videoId.includes('?')) {
-      videoId = videoId.split('?')[0];
+        videoId = videoId.split('?')[0];
     }
     
     return videoId;
@@ -62,6 +64,19 @@ const HeroSection = () => {
       >
         {isVideo ? (
           (() => {
+            if (item.link && item.link.endsWith('.mp4')) {
+                return (
+                    <CachedVideo
+                        src={item.link}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover"
+                    />
+                );
+            }
+
             if (item.type === 'instagram') {
                return (
                   <iframe 
@@ -269,7 +284,7 @@ const HeroSection = () => {
               {/* Column 1 - Brands (Images) - 9:16 Vertical */}
               <motion.div
                 animate={{ y: ["0%", "-66.666%"] }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[27%]"
               >
                 {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]", true))}
@@ -278,7 +293,7 @@ const HeroSection = () => {
               {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
               <motion.div
                 animate={{ y: ["0%", "-66.666%"] }}
-                transition={{ duration: 45, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[27%] relative"
               >
                 {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
@@ -288,7 +303,7 @@ const HeroSection = () => {
               {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
               <motion.div
                 animate={{ y: ["-66.666%", "0%"] }}
-                transition={{ duration: 42, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+                transition={{ duration: 14, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[42%] relative"
               >
                 {infiniteColumn3.map((item, idx) => renderCard(item, idx, "aspect-video"))}
