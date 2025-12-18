@@ -57,7 +57,11 @@ const HeroSection = () => {
   };
 
   const renderCard = (item: any, idx: number, aspectClass: string, isLargeProfile: boolean = false) => {
-    const isVideo = item.type === 'short' || item.type === 'video' || item.type === 'instagram';
+    const isLocalVideo = item.link && item.link.endsWith('.mp4');
+    const isInstagram = item.type === 'instagram';
+    
+    // Check for YouTube ID
+    const youtubeId = !isLocalVideo && !isInstagram ? getYoutubeId(item.link) : null;
     
     return (
       <motion.div
@@ -69,64 +73,64 @@ const HeroSection = () => {
         {/* Glow Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#FFB300]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
 
-        {isVideo ? (
-          (() => {
-            if (item.link && item.link.endsWith('.mp4')) {
-                return (
-                    <CachedVideo
-                        src={item.link}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
-                    />
-                );
-            }
-
-            if (item.type === 'instagram') {
-               return (
-                  <iframe 
-                    src={`${item.link}embed`}
-                    className="w-full h-full object-cover pointer-events-none opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
-                    title={item.handle}
-                    frameBorder="0" 
-                    scrolling="no" 
-                    allowTransparency={true}
-                  />
-               );
-            }
-
-            const videoId = getYoutubeId(item.link);
-            return videoId ? (
-              <iframe
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`}
-                title={item.handle}
-                className="w-full h-full object-cover pointer-events-none opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out" 
-                allow="autoplay; encrypted-media; loop"
-              />
-            ) : (
-              <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
-                <p className="text-white/50 text-sm">Video unavailable</p>
-              </div>
-            );
-          })()
+        {/* --- MEDIA RENDERING --- */}
+        {isLocalVideo ? (
+           <CachedVideo
+               src={item.link}
+               autoPlay
+               muted
+               loop
+               playsInline
+               preload="metadata" 
+               className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+           />
+        ) : isInstagram ? (
+           <iframe 
+             src={`${item.link}embed`}
+             className="w-full h-full object-cover pointer-events-none opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+             title={item.handle}
+             frameBorder="0" 
+             scrolling="no" 
+             loading="lazy"
+             allowTransparency={true}
+           />
+        ) : youtubeId ? (
+            /* YOUTUBE OPTIMIZATION: Replacing heavy Iframe with Thumbnail Image */
+            <div className="w-full h-full relative group-hover:scale-110 transition-transform duration-700">
+               <img 
+                 src={`https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`}
+                 alt={item.handle}
+                 loading="lazy"
+                 decoding="async"
+                 className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+               />
+               {/* Play Icon Overlay */}
+               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                     <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                  </div>
+               </div>
+            </div>
         ) : (
+          /* FALLBACK / STATIC IMAGE CARD */
           <>
             <img
               src={item.img}
               alt={item.handle}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
               onError={(e) => {
                 e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=800&h=600&fit=crop`;
               }}
             />
-            {/* Logo Overlay for Brand Cards (Column 1) */}
+            {/* Logo Overlay for Brand Cards */}
             {item.logo && (
               <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 w-32 h-16 flex items-center justify-center pointer-events-none">
                  <img 
                    src={item.logo} 
                    alt="Brand Logo" 
+                   loading="lazy"
                    className="w-full h-full object-contain grayscale contrast-125 invert mix-blend-screen opacity-70 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-xl"
                  />
               </div>
@@ -146,6 +150,7 @@ const HeroSection = () => {
                 <img 
                   src={item.profileImg} 
                   alt={item.handle} 
+                  loading="lazy"
                   className={`relative w-10 h-10 rounded-full border border-white/20 ${item.profileBg ? 'object-contain p-1.5' : 'object-cover'}`} 
                   style={{ backgroundColor: item.profileBg || '#18181b' }}
                 />
@@ -169,10 +174,69 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black text-white relative overflow-hidden pt-24 pb-16">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#FFB300] opacity-[0.08] blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[0%] right-[-10%] w-[40%] h-[40%] bg-[#FFB300] opacity-[0.05] blur-[120px] rounded-full pointer-events-none" />
+    <section className="min-h-screen bg-[#050505] text-white relative overflow-hidden pt-24 pb-16 selection:bg-[#FFB300]/30">
+      
+      {/* --- TECH BACKGROUND LAYER --- */}
+      
+      {/* 1. Base Grid Pattern (The "Workspace" look) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
+      
+      {/* 2. Abstract "Video Timeline" UI Elements (Floating in background) */}
+      <div className="absolute top-20 left-[-5%] w-[600px] h-[400px] opacity-[0.15] pointer-events-none -rotate-12 blur-[2px] z-0 select-none">
+          {/* Track 1 */}
+          <motion.div 
+            animate={{ x: [0, 10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-full h-12 bg-white/5 rounded-lg mb-4 flex overflow-hidden border border-white/5"
+          >
+             <div className="w-1/3 h-full bg-[#FFB300]/20 border-r border-[#FFB300]/30"></div>
+             <div className="w-1/4 h-full bg-transparent mx-4 border-x border-white/10"></div>
+          </motion.div>
+          
+          {/* Track 2 (Active Clip) */}
+          <motion.div 
+             animate={{ x: [0, -15, 0] }}
+             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+             className="w-[80%] ml-12 h-12 bg-[#FFB300]/10 rounded-lg mb-4 border-l-4 border-[#FFB300] flex items-center px-4"
+          >
+              <div className="w-full h-[2px] bg-[#FFB300]/20"></div>
+          </motion.div>
+
+          {/* Track 3 */}
+          <div className="w-full h-12 bg-white/5 rounded-lg mb-4 flex items-center space-x-2 px-2">
+             {[1,2,3,4].map(i => <div key={i} className="h-8 w-8 bg-white/10 rounded-sm" />)}
+          </div>
+          
+          {/* Playhead Line */}
+          <motion.div 
+            animate={{ x: [0, 200, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[-20px] bottom-[-20px] left-1/3 w-[2px] bg-[#FFB300]/50 shadow-[0_0_10px_#FFB300]"
+          >
+             <div className="absolute top-0 -translate-x-1/2 -ml-[4px] w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#FFB300]"></div>
+          </motion.div>
+      </div>
+
+       {/* 3. Floating "Keyframe" Diamonds */}
+       <motion.div 
+         animate={{ y: [0, -20, 0], opacity: [0.1, 0.3, 0.1] }}
+         transition={{ duration: 4, repeat: Infinity }}
+         className="absolute top-1/2 left-[10%] w-6 h-6 border-2 border-[#FFB300] rotate-45 opacity-20 pointer-events-none z-0"
+       />
+       <motion.div 
+         animate={{ y: [0, 30, 0], opacity: [0.1, 0.2, 0.1] }}
+         transition={{ duration: 6, repeat: Infinity, delay: 2 }}
+         className="absolute bottom-1/3 right-[45%] w-4 h-4 bg-[#FFB300] rotate-45 opacity-10 pointer-events-none z-0"
+       />
+
+      {/* 4. Ambient Colored Glows */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#FFB300]/10 opacity-60 blur-[130px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[60%] bg-[#212121] opacity-100 blur-[100px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] right-[30%] w-[20%] h-[20%] bg-[#FFB300]/5 opacity-40 blur-[80px] rounded-full pointer-events-none z-0" />
+
+      {/* 5. Vignette Overlay to Focus Center */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#050505_100%)] pointer-events-none z-10" />
+
 
       <div className="w-full px-4 lg:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
