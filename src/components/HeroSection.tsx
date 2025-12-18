@@ -6,10 +6,10 @@ const HeroSection = () => {
   // Column 1 Data: Client/Brand Images (Vertical 9:16)
   // Column 1 Data: Brand Shorts (Vertical 9:16)
   const clientImages = [
-    { link: "https://youtube.com/shorts/TuBv-hf3H5k", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
-    { link: "https://youtube.com/shorts/GzFoWnf_7zk", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png" },
-    { link: "https://youtube.com/shorts/Nx90iyLGhJM", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png" },
-    { link: "https://youtube.com/shorts/oLr3AARGDQ0", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/1667599512761.png" },
+    { link: "https://youtube.com/shorts/TuBv-hf3H5k", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#3b82f6" }, // Blue
+    { link: "https://youtube.com/shorts/GzFoWnf_7zk", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileBg: "#ef4444" }, // Red
+    { link: "https://youtube.com/shorts/Nx90iyLGhJM", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#ffffff" }, // White
+    { link: "https://youtube.com/shorts/oLr3AARGDQ0", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/1667599512761.png", profileBg: "#3b82f6" }, // Blue
   ];
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
@@ -60,10 +60,15 @@ const HeroSection = () => {
     const isVideo = item.type === 'short' || item.type === 'video' || item.type === 'instagram';
     
     return (
-      <div
+      <motion.div
         key={`${item.handle}-${idx}`}
-        className={`relative rounded-2xl overflow-hidden flex-shrink-0 ${aspectClass} mb-6 bg-[#0a0a0a] group border border-white/5 hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:shadow-[#FFB300]/10`}
+        whileHover={{ scale: 1.05, y: -5, zIndex: 10 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        className={`relative rounded-2xl overflow-hidden flex-shrink-0 ${aspectClass} mb-6 bg-[#0a0a0a] group border border-white/10 hover:border-[#FFB300]/50 shadow-lg hover:shadow-[0_0_30px_rgba(255,179,0,0.15)]`}
       >
+        {/* Glow Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FFB300]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
+
         {isVideo ? (
           (() => {
             if (item.link && item.link.endsWith('.mp4')) {
@@ -74,7 +79,7 @@ const HeroSection = () => {
                         muted
                         loop
                         playsInline
-                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                        className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
                     />
                 );
             }
@@ -83,7 +88,7 @@ const HeroSection = () => {
                return (
                   <iframe 
                     src={`${item.link}embed`}
-                    className="w-full h-full object-cover pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                    className="w-full h-full object-cover pointer-events-none opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
                     title={item.handle}
                     frameBorder="0" 
                     scrolling="no" 
@@ -97,7 +102,7 @@ const HeroSection = () => {
               <iframe
                 src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1`}
                 title={item.handle}
-                className="w-full h-full object-cover pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
+                className="w-full h-full object-cover pointer-events-none opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out" 
                 allow="autoplay; encrypted-media; loop"
               />
             ) : (
@@ -111,7 +116,7 @@ const HeroSection = () => {
             <img
               src={item.img}
               alt={item.handle}
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:scale-105 duration-700 ease-out"
+              className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
               onError={(e) => {
                 e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=800&h=600&fit=crop`;
               }}
@@ -122,32 +127,33 @@ const HeroSection = () => {
                  <img 
                    src={item.logo} 
                    alt="Brand Logo" 
-                   className="w-full h-full object-contain grayscale contrast-125 invert mix-blend-screen opacity-80 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
+                   className="w-full h-full object-contain grayscale contrast-125 invert mix-blend-screen opacity-70 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-xl"
                  />
               </div>
             )}
           </>
         )}
 
-        {/* Cinematic Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-300 pointer-events-none" />
+        {/* Cinematic Bottom Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none z-10" />
 
         {/* Content Info */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end translate-y-2 group-hover:translate-y-0 transition-transform duration-300 ease-out">
+        <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
           <div className="flex items-center gap-3 w-full">
             {item.profileImg && (
-              <div className="relative">
-                <div className="absolute inset-0 bg-[#FFB300] rounded-full blur-[2px] opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
+              <div className="relative group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-[#FFB300] rounded-full blur-[4px] opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
                 <img 
                   src={item.profileImg} 
                   alt={item.handle} 
-                  className="relative w-10 h-10 rounded-full border border-white/20 object-cover bg-zinc-900" 
+                  className={`relative w-10 h-10 rounded-full border border-white/20 ${item.profileBg ? 'object-contain p-1.5' : 'object-cover'}`} 
+                  style={{ backgroundColor: item.profileBg || '#18181b' }}
                 />
               </div>
             )}
             
             <div className="flex flex-col justify-center">
-              <p className="text-white font-semibold text-sm leading-tight drop-shadow-md">
+              <p className="text-white font-bold text-sm leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300">
                 {item.handle}
               </p>
               {item.followers && (
@@ -158,7 +164,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   };
 
