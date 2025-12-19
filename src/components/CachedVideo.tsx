@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 interface CachedVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
+  fallbackSrc?: string;
 }
 
-const CachedVideo: React.FC<CachedVideoProps> = ({ src, ...props }) => {
+const CachedVideo: React.FC<CachedVideoProps> = ({ src, fallbackSrc, ...props }) => {
   const [videoSrc, setVideoSrc] = useState(src);
+  const [hasError, setHasError] = useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const CachedVideo: React.FC<CachedVideoProps> = ({ src, ...props }) => {
 
   // Force play on mount/update because some browsers are picky about autoplay in lazy/cached components
   useEffect(() => {
-      if (videoRef.current) {
+      if (videoRef.current && !hasError) {
           videoRef.current.defaultMuted = true; // Crucial for some browsers
           videoRef.current.muted = true;
           const playPromise = videoRef.current.play();
@@ -47,7 +49,20 @@ const CachedVideo: React.FC<CachedVideoProps> = ({ src, ...props }) => {
               });
           }
       }
-  }, [videoSrc]);
+  }, [videoSrc, hasError]);
+
+  if (hasError && fallbackSrc) {
+    return (
+       <iframe 
+         src={`${fallbackSrc}?autoplay=1&mute=1&controls=0&loop=1&playlist=${fallbackSrc.split('/').pop()}`}
+         className={props.className}
+         title="Video fallback"
+         frameBorder="0" 
+         allow="autoplay; encrypted-media; loop"
+         allowFullScreen
+       />
+    );
+  }
 
   return (
     <video
@@ -55,6 +70,7 @@ const CachedVideo: React.FC<CachedVideoProps> = ({ src, ...props }) => {
       src={videoSrc}
       muted
       playsInline
+      onError={() => setHasError(true)}
       {...props}
     />
   );
