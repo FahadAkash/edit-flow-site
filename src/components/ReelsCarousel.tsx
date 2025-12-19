@@ -232,14 +232,14 @@ const ReelsCarousel = () => {
           </motion.h2>
           
           {/* Tabs - Glass Pill Design */}
-          <div className="flex flex-wrap justify-center gap-4 mb-24">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-24">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 relative overflow-hidden ${
+                className={`px-5 py-2 md:px-8 md:py-4 rounded-full font-medium text-sm md:text-lg transition-all duration-300 relative overflow-hidden ${
                   activeTab === tab.id
                     ? 'text-white shadow-xl shadow-red-900/40'
                     : 'text-gray-400 hover:text-white hover:bg-white/10 bg-white/5 backdrop-blur-sm border border-white/10'

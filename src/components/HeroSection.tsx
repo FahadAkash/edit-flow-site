@@ -385,36 +385,36 @@ const HeroSection = () => {
           </div>
 
           {/* Right - Scrolling Client Images - Takes 7 columns */}
-          <div className="lg:col-span-7 relative h-[700px] lg:h-[800px] overflow-hidden mask-gradient-vertical">
+          <div className="lg:col-span-7 relative h-[500px] lg:h-[800px] overflow-hidden mask-gradient-vertical mt-10 lg:mt-0">
              {/* Gradient Masks for Top/Bottom Fading */}
-             <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20 pointer-events-none" />
-             <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
+             <div className="absolute top-0 left-0 right-0 h-20 lg:h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20 pointer-events-none" />
+             <div className="absolute bottom-0 left-0 right-0 h-20 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
 
-            <div className="flex gap-5 h-full transform skew-x-[-2deg] opacity-90 hover:opacity-100 transition-opacity duration-700">
+            <div className="flex gap-3 lg:gap-5 h-full transform lg:skew-x-[-2deg] opacity-90 hover:opacity-100 transition-opacity duration-700 justify-center">
               
-              {/* Column 1 - Brands (Images) - 9:16 Vertical */}
+              {/* Column 1 - Brands (Images) - 9:16 Vertical - Hidden on Mobile */}
               <motion.div
                 animate={{ y: ["0%", "-66.666%"] }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear", repeatType: "loop" }}
-                className="flex flex-col w-[28%] gap-5 pt-10"
+                className="hidden lg:flex flex-col w-[28%] gap-5 pt-10"
               >
                 {infiniteColumn1.map((item, idx) => <HeroCard key={`${item.handle}-c1-${idx}`} item={item} idx={idx} aspectClass="aspect-[9/16]" />)}
               </motion.div>
 
-              {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
+              {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical - Full Width on Mobile */}
               <motion.div
                 animate={{ y: ["-20%", "-86.666%"] }}
                 transition={{ duration: 35, repeat: Infinity, ease: "linear", repeatType: "loop" }}
-                className="flex flex-col w-[28%] gap-5 pt-0"
+                className="flex flex-col w-2/3 md:w-1/2 lg:w-[28%] gap-5 pt-0"
               >
                 {infiniteColumn2.map((item, idx) => <HeroCard key={`${item.handle}-c2-${idx}`} item={item} idx={idx} aspectClass="aspect-[9/16]" />)}
               </motion.div>
 
-              {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
+              {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen - Hidden on Mobile */}
               <motion.div
                 animate={{ y: ["-40%", "26.666%"] }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "loop" }}
-                className="flex flex-col w-[44%] gap-5 pt-20"
+                className="hidden lg:flex flex-col w-[44%] gap-5 pt-20"
               >
                 {infiniteColumn3.map((item, idx) => <HeroCard key={`${item.handle}-c3-${idx}`} item={item} idx={idx} aspectClass="aspect-video" />)}
               </motion.div>

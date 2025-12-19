@@ -119,11 +119,11 @@ const SocialProof = () => {
       case "tall":
         return "row-span-2";
       case "wide":
-        return "col-span-2";
+        return "md:col-span-2";
       case "big":
-        return "col-span-2 row-span-2";
+        return "md:col-span-2 row-span-2";
       case "mega":
-        return "col-span-2 row-span-3";
+        return "md:col-span-2 row-span-3";
       default:
         return "";
     }

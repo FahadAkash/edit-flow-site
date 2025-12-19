@@ -23,7 +23,7 @@ const BrandLogos = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col gap-6">
           {/* First Row */}
-          <div className="flex items-center justify-center gap-8 md:gap-20 overflow-x-auto no-scrollbar py-1">
+          <div className="flex items-center justify-start md:justify-center gap-6 md:gap-20 overflow-x-auto no-scrollbar py-1">
             {otherbrands.map((otherbrands, idx) => (
               <div
                 key={`row1-${idx}`}
@@ -39,7 +39,7 @@ const BrandLogos = () => {
           </div>
 
           {/* Second Row (Reversed for variety) */}
-          <div className="flex items-center justify-center gap-8 md:gap-20 overflow-x-auto no-scrollbar py-1">
+          <div className="flex items-center justify-start md:justify-center gap-6 md:gap-20 overflow-x-auto no-scrollbar py-1">
             {[...brands].reverse().map((brand, idx) => (
               <div
                 key={`row2-${idx}`}
