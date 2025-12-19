@@ -128,6 +128,28 @@ const MeetTheFounder = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/30 blur-[100px] rounded-full pointer-events-none" />
 
             <div className="relative">
+              {/* Office Image 1 (Behind - Top Left) */}
+              <motion.div
+                initial={{ opacity: 0, x: -30, rotate: -15 }}
+                whileInView={{ opacity: 0.9, x: 0, rotate: -12 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute -top-12 -left-4 md:-left-20 w-48 h-36 md:w-60 md:h-44 rounded-xl overflow-hidden border-4 border-white/10 shadow-lg z-0"
+              >
+                <img src="/founder/1.png" alt="Office" className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500" />
+              </motion.div>
+
+              {/* Office Image 2 (Behind - Bottom Right) */}
+              <motion.div
+                initial={{ opacity: 0, x: 30, rotate: 15 }}
+                whileInView={{ opacity: 0.9, x: 0, rotate: 12 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="absolute top-20 -right-4 md:-right-20 w-48 h-36 md:w-60 md:h-44 rounded-xl overflow-hidden border-4 border-white/10 shadow-lg z-0"
+              >
+                <img src="/founder/2.png" alt="Office" className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500" />
+              </motion.div>
+
               {/* Main Circular Profile */}
               <motion.div 
                 initial={{ scale: 0.8, opacity: 0 }}
