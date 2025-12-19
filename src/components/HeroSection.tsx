@@ -1,6 +1,137 @@
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import CachedVideo from "./CachedVideo";
+
+// Helper to extract ID
+const getYoutubeId = (url: string) => {
+  if (!url) return null;
+  let videoId = "";
+  if (url.includes('shorts/')) {
+      const match = url.match(/shorts\/([\w-]+)/);
+      videoId = match ? match[1] : "";
+  } else if (url.includes('embed/')) {
+      const parts = url.split('embed/');
+      videoId = parts[1] || "";
+  }
+  if (videoId.includes('?')) {
+      videoId = videoId.split('?')[0];
+  }
+  return videoId;
+};
+
+const HeroCard = ({ item, idx, aspectClass }: { item: any, idx: number, aspectClass: string }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const isLocalVideo = item.link && item.link.endsWith('.mp4');
+  const isInstagram = item.type === 'instagram';
+  const youtubeId = !isLocalVideo && !isInstagram ? getYoutubeId(item.link) : null;
+
+  return (
+    <motion.div
+      key={`${item.handle}-${idx}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ scale: 1.05, y: -5, zIndex: 10 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={`relative rounded-2xl overflow-hidden flex-shrink-0 ${aspectClass} mb-6 bg-[#0a0a0a] group border border-white/10 hover:border-[#FFB300]/50 shadow-lg hover:shadow-[0_0_30px_rgba(255,179,0,0.15)]`}
+    >
+      {/* Glow Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#FFB300]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
+
+      {/* --- MEDIA RENDERING --- */}
+      {isLocalVideo ? (
+         <CachedVideo
+             src={item.link}
+             fallbackSrc={item.youtubeLink}
+             autoPlay
+             muted
+             loop
+             playsInline
+             preload="metadata" 
+             className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+         />
+      ) : isInstagram ? (
+         <iframe 
+           src={`${item.link}embed`}
+           className="w-full h-full object-cover pointer-events-none opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+           title={item.handle}
+           frameBorder="0" 
+           scrolling="no" 
+           loading="lazy"
+           allowTransparency={true}
+         />
+      ) : youtubeId ? (
+          /* YOUTUBE OPTIMIZATION: Always Autoplay (Muted) */
+          <div className="w-full h-full relative group-hover:scale-110 transition-transform duration-700">
+             <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&playsinline=1&rel=0&showinfo=0&modestbranding=1`}
+                title={item.handle}
+                className="w-full h-full object-cover absolute inset-0 z-10 pointer-events-none"
+                allow="autoplay; encrypted-media; loop"
+                loading="lazy"
+              />
+          </div>
+      ) : (
+        /* FALLBACK / STATIC IMAGE CARD */
+        <>
+          <img
+            src={item.img}
+            alt={item.handle}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+            onError={(e) => {
+              e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=800&h=600&fit=crop`;
+            }}
+          />
+          {/* Logo Overlay for Brand Cards */}
+          {item.logo && (
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 w-32 h-16 flex items-center justify-center pointer-events-none">
+               <img 
+                 src={item.logo} 
+                 alt="Brand Logo" 
+                 loading="lazy"
+                 className="w-full h-full object-contain grayscale contrast-125 invert mix-blend-screen opacity-70 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-xl"
+               />
+            </div>
+          )}
+        </>
+      )}
+
+      {/* Cinematic Bottom Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none z-10" />
+
+      {/* Content Info */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+        <div className="flex items-center gap-3 w-full">
+          {item.profileImg && (
+            <div className="relative group-hover:scale-110 transition-transform duration-300">
+              <div className="absolute inset-0 bg-[#FFB300] rounded-full blur-[4px] opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
+              <img 
+                src={item.profileImg} 
+                alt={item.handle} 
+                loading="lazy"
+                className={`relative w-10 h-10 rounded-full border border-white/20 ${item.profileBg ? 'object-contain p-1.5' : 'object-cover'}`} 
+                style={{ backgroundColor: item.profileBg || '#18181b' }}
+              />
+            </div>
+          )}
+          
+          <div className="flex flex-col justify-center">
+            <p className="text-white font-bold text-sm leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300">
+              {item.handle}
+            </p>
+            {item.followers && (
+              <p className="text-white/60 text-xs font-medium tracking-wide mt-0.5">
+                 {item.followers}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const HeroSection = () => {
   // Column 1 Data: Client/Brand Images (Vertical 9:16)
@@ -37,142 +168,7 @@ const HeroSection = () => {
   const infiniteColumn2 = [...shortsData, ...shortsData, ...shortsData];
   const infiniteColumn3 = [...videosData, ...videosData, ...videosData];
 
-  const getYoutubeId = (url: string) => {
-    let videoId = "";
-    // Handle both short URLs and standard embed/watch URLs if needed
-    if (url.includes('shorts/')) {
-        const match = url.match(/shorts\/([\w-]+)/);
-        videoId = match ? match[1] : "";
-    } else if (url.includes('embed/')) {
-        const parts = url.split('embed/');
-        videoId = parts[1] || "";
-    }
-    
-    // Remove query parameters (e.g. ?si=...)
-    if (videoId.includes('?')) {
-        videoId = videoId.split('?')[0];
-    }
-    
-    return videoId;
-  };
 
-  const renderCard = (item: any, idx: number, aspectClass: string, isLargeProfile: boolean = false) => {
-    const isLocalVideo = item.link && item.link.endsWith('.mp4');
-    const isInstagram = item.type === 'instagram';
-    
-    // Check for YouTube ID
-    const youtubeId = !isLocalVideo && !isInstagram ? getYoutubeId(item.link) : null;
-    
-    return (
-      <motion.div
-        key={`${item.handle}-${idx}`}
-        whileHover={{ scale: 1.05, y: -5, zIndex: 10 }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        className={`relative rounded-2xl overflow-hidden flex-shrink-0 ${aspectClass} mb-6 bg-[#0a0a0a] group border border-white/10 hover:border-[#FFB300]/50 shadow-lg hover:shadow-[0_0_30px_rgba(255,179,0,0.15)]`}
-      >
-        {/* Glow Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FFB300]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
-
-        {/* --- MEDIA RENDERING --- */}
-        {isLocalVideo ? (
-           <CachedVideo
-               src={item.link}
-               fallbackSrc={item.youtubeLink}
-               autoPlay
-               muted
-               loop
-               playsInline
-               preload="metadata" 
-               className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
-           />
-        ) : isInstagram ? (
-           <iframe 
-             src={`${item.link}embed`}
-             className="w-full h-full object-cover pointer-events-none opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
-             title={item.handle}
-             frameBorder="0" 
-             scrolling="no" 
-             loading="lazy"
-             allowTransparency={true}
-           />
-        ) : youtubeId ? (
-            /* YOUTUBE OPTIMIZATION: Replacing heavy Iframe with Thumbnail Image */
-            <div className="w-full h-full relative group-hover:scale-110 transition-transform duration-700">
-               <img 
-                 src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
-                 alt={item.handle}
-                 loading="lazy"
-                 decoding="async"
-                 className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-               />
-               {/* Play Icon Overlay */}
-               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
-                     <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                  </div>
-               </div>
-            </div>
-        ) : (
-          /* FALLBACK / STATIC IMAGE CARD */
-          <>
-            <img
-              src={item.img}
-              alt={item.handle}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
-              onError={(e) => {
-                e.currentTarget.src = `https://images.unsplash.com/photo-${1500000000000 + idx}?w=800&h=600&fit=crop`;
-              }}
-            />
-            {/* Logo Overlay for Brand Cards */}
-            {item.logo && (
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 w-32 h-16 flex items-center justify-center pointer-events-none">
-                 <img 
-                   src={item.logo} 
-                   alt="Brand Logo" 
-                   loading="lazy"
-                   className="w-full h-full object-contain grayscale contrast-125 invert mix-blend-screen opacity-70 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-xl"
-                 />
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Cinematic Bottom Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none z-10" />
-
-        {/* Content Info */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
-          <div className="flex items-center gap-3 w-full">
-            {item.profileImg && (
-              <div className="relative group-hover:scale-110 transition-transform duration-300">
-                <div className="absolute inset-0 bg-[#FFB300] rounded-full blur-[4px] opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
-                <img 
-                  src={item.profileImg} 
-                  alt={item.handle} 
-                  loading="lazy"
-                  className={`relative w-10 h-10 rounded-full border border-white/20 ${item.profileBg ? 'object-contain p-1.5' : 'object-cover'}`} 
-                  style={{ backgroundColor: item.profileBg || '#18181b' }}
-                />
-              </div>
-            )}
-            
-            <div className="flex flex-col justify-center">
-              <p className="text-white font-bold text-sm leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300">
-                {item.handle}
-              </p>
-              {item.followers && (
-                <p className="text-white/60 text-xs font-medium tracking-wide mt-0.5">
-                   {item.followers}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    );
-  };
 
   return (
     <section className="min-h-screen bg-[#050505] text-white relative overflow-hidden pt-24 pb-16 selection:bg-[#FFB300]/30">
@@ -384,7 +380,7 @@ const HeroSection = () => {
                 transition={{ duration: 25, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[28%] gap-5 pt-10"
               >
-                {infiniteColumn1.map((item, idx) => renderCard(item, idx, "aspect-[9/16]", true))}
+                {infiniteColumn1.map((item, idx) => <HeroCard key={`${item.handle}-c1-${idx}`} item={item} idx={idx} aspectClass="aspect-[9/16]" />)}
               </motion.div>
 
               {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical */}
@@ -393,7 +389,7 @@ const HeroSection = () => {
                 transition={{ duration: 35, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[28%] gap-5 pt-0"
               >
-                {infiniteColumn2.map((item, idx) => renderCard(item, idx, "aspect-[9/16]"))}
+                {infiniteColumn2.map((item, idx) => <HeroCard key={`${item.handle}-c2-${idx}`} item={item} idx={idx} aspectClass="aspect-[9/16]" />)}
               </motion.div>
 
               {/* Column 3 - Videos (Landscape Video) - 16:9 Widescreen */}
@@ -402,7 +398,7 @@ const HeroSection = () => {
                 transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="flex flex-col w-[44%] gap-5 pt-20"
               >
-                {infiniteColumn3.map((item, idx) => renderCard(item, idx, "aspect-video"))}
+                {infiniteColumn3.map((item, idx) => <HeroCard key={`${item.handle}-c3-${idx}`} item={item} idx={idx} aspectClass="aspect-video" />)}
               </motion.div>
             </div>
             
