@@ -9,7 +9,7 @@ const VideoPortfolio = () => {
   const portfolioItems = [
     {
       id: 1,
-      name: "Mellanda",
+      name: "Mellanda Reese",
       flowers: "2.4M",
       logo: { text: "M", color: "from-purple-500 to-blue-500" },
       company: "",

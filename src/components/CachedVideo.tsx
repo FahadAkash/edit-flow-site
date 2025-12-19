@@ -51,6 +51,8 @@ const CachedVideo: React.FC<CachedVideoProps> = ({ src, fallbackSrc, ...props })
       }
   }, [videoSrc, hasError]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   if (hasError && fallbackSrc) {
     return (
        <iframe 
@@ -65,14 +67,26 @@ const CachedVideo: React.FC<CachedVideoProps> = ({ src, fallbackSrc, ...props })
   }
 
   return (
-    <video
-      ref={videoRef}
-      src={videoSrc}
-      muted
-      playsInline
-      onError={() => setHasError(true)}
-      {...props}
-    />
+    <div className="relative w-full h-full block">
+        {/* Loading Spinner */}
+        <div 
+            className={`absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-300 pointer-events-none ${isLoading ? 'opacity-100' : 'opacity-0'}`}
+        >
+             <div className="w-10 h-10 border-4 border-white/10 border-t-[#FFB300] rounded-full animate-spin"></div>
+        </div>
+
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          muted
+          playsInline
+          {...props}
+          onError={() => setHasError(true)}
+          onWaiting={() => setIsLoading(true)}
+          onCanPlay={() => setIsLoading(false)}
+          onPlaying={() => setIsLoading(false)}
+        />
+    </div>
   );
 };
 export default CachedVideo;
