@@ -14,10 +14,10 @@ const HeroSection = () => {
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
   const shortsData = [
-    { link: "/videos/compressed_shorts/short_01_Suhit Amin_20k.f137.mp4", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "/hero/comun3/channels4_profile.jpg" },
-    { link: "/videos/compressed_shorts/short_02_Transfer Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "/hero/comun3/channels4_profile.jpg" },
+    { link: "/videos/compressed_shorts/short_01_Suhit%20Amin_20k.f137.mp4", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "/hero/comun3/channels4_profile.jpg" },
+    { link: "/videos/compressed_shorts/short_02_Transfer%20Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "/hero/comun3/channels4_profile.jpg" },
     { link: "/videos/compressed_shorts/short_04_DMVAUL_21k.f137.mp4", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
-    { link: "/videos/compressed_shorts/short_05_Spine Surgeon_1.07M.f137.mp4", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "/videos/compressed_shorts/short_05_Spine%20Surgeon_1.07M.f137.mp4", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
     { link: "/videos/compressed_shorts/short_06_Microsoft_Tech_Giant.f137.mp4", handle: "Microsoft", followers: "Tech Giant", type: 'short', profileImg: "/brands/microsoft.png" },
     { link: "/videos/compressed_shorts/short_07_Acer_Gaming.f137.mp4", handle: "Acer", followers: "Gaming", type: 'short', profileImg: "/brands/acer-predator-logo-png_seeklogo-441422.png" },
     { link: "/videos/compressed_shorts/short_10_MANNA_Health_&_Vitality.f137.mp4", handle: "MANNA", followers: "Health & Vitality", type: 'short', profileImg: "/brands/1667599512761.png" }
@@ -25,11 +25,11 @@ const HeroSection = () => {
 
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
-    { link: "/videos/compressed_long_videos/01_Suhit Amin_30K+_Followers.f137_compressed.mp4", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "/hero/comun3/channels4_profile.jpg" },
+    { link: "/videos/compressed_long_videos/01_Suhit%20Amin_30K+_Followers.f137_compressed.mp4", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "/hero/comun3/channels4_profile.jpg" },
     { link: "/videos/compressed_long_videos/02_drantoniowebbmd_1.43_Mil.f137_compressed.mp4", handle: "drantoniowebbmd", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "/videos/compressed_long_videos/03_Lifestyle Video Premium_30K+.f299.mp4", handle: "Lifestyle Video Premium", followers: "30K+", type: 'video', profileImg: "/hero/comun3/third.png" },
-    { link: "/videos/compressed_long_videos/04_Total Tech_90K+.f137_compressed.mp4", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "/hero/comun3/second.png" },
-    { link: "/videos/compressed_long_videos/05_ALEX YOUNG_84k.f137_compressed.mp4", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "/hero/comun3/first.png" }
+    { link: "/videos/compressed_long_videos/03_Lifestyle%20Video%20Premium_30K+.f299.mp4", handle: "Lifestyle Video Premium", followers: "30K+", type: 'video', profileImg: "/hero/comun3/third.png" },
+    { link: "/videos/compressed_long_videos/04_Total%20Tech_90K+.f137_compressed.mp4", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "/hero/comun3/second.png" },
+    { link: "/videos/compressed_long_videos/05_ALEX%20YOUNG_84k.f137_compressed.mp4", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "/hero/comun3/first.png" }
   ];
 
   // Infinite Scroll Duplication (3x for seamless loop - simpler and more efficient)
