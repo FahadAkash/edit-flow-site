@@ -61,15 +61,33 @@ const HeroCard = ({ item, idx, aspectClass }: { item: any, idx: number, aspectCl
            allowTransparency={true}
          />
       ) : youtubeId ? (
-          /* YOUTUBE OPTIMIZATION: Always Autoplay (Muted) */
+          /* YOUTUBE OPTIMIZATION: Thumbnail by default, Iframe on Hover */
           <div className="w-full h-full relative group-hover:scale-110 transition-transform duration-700">
-             <iframe
+             {isHovered ? (
+                <iframe
                 src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&playsinline=1&rel=0&showinfo=0&modestbranding=1`}
                 title={item.handle}
-                className="w-full h-full object-cover absolute inset-0 z-10 pointer-events-none"
+                className="w-full h-full object-cover absolute inset-0 z-10"
                 allow="autoplay; encrypted-media; loop"
                 loading="lazy"
               />
+             ) : (
+               <>
+                 <img 
+                   src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
+                   alt={item.handle}
+                   loading="lazy"
+                   decoding="async"
+                   className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                 />
+                 {/* Play Icon Overlay */}
+                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+                       <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    </div>
+                 </div>
+               </>
+             )}
           </div>
       ) : (
         /* FALLBACK / STATIC IMAGE CARD */
@@ -137,10 +155,10 @@ const HeroSection = () => {
   // Column 1 Data: Client/Brand Images (Vertical 9:16)
   // Column 1 Data: Brand Shorts (Vertical 9:16)
   const clientImages = [
-    { link: "https://youtube.com/shorts/TuBv-hf3H5k", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#3b82f6" }, // Blue
-    { link: "https://youtube.com/shorts/GzFoWnf_7zk", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileBg: "#ef4444" }, // Red
-    { link: "https://youtube.com/shorts/Nx90iyLGhJM", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#ffffff" }, // White
-    { link: "https://youtube.com/shorts/oLr3AARGDQ0", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/1667599512761.png", profileBg: "#3b82f6" }, // Blue
+    { link: "/videos/compreess_short_column1/Neutonic_Ad_1.mp4", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#3b82f6" }, // Blue
+    { link: "/videos/compreess_short_column1/DANGER_COFFEE_MINERALS_VID_APR_9X16_V1.mp4", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileBg: "#ef4444" }, // Red
+    { link: "/videos/compreess_short_column1/ATTN_Labs_Air.mp4", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#ffffff" }, // White
+    { link: "/videos/compreess_short_column1/Neutonic_Ad_1.mp4", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/1667599512761.png", profileBg: "#3b82f6" }, // Blue
   ];
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
