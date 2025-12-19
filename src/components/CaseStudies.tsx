@@ -38,7 +38,7 @@ const CaseStudies = () => {
       title: "Bryan Guerra Success Story",
       client: "Bryan Guerra",
       clientRole: "YouTube Entrepreneur",
-      clientAvatar: "public/testmonial/brayen.jpg",
+      clientAvatar: "/testmonial/brayen.jpg",
       comment: "Incredible video editing that took my YouTube channel to the next level! The attention to detail and professional quality helped me grow my audience significantly. Highly recommend their services!",
       videoUrl: "https://www.youtube.com/embed/cyabAl8I0bA",
       videoThumbnail: "https://img.youtube.com/vi/cyabAl8I0bA/maxresdefault.jpg",
