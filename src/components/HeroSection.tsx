@@ -164,7 +164,7 @@ const HeroSection = () => {
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
   const shortsData = [
     { link: "/videos/compressed_shorts/short_01_Suhit_Amin_20k.mp4", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "/hero/comun3/channels4_profile.jpg" },
-    { link: "/videos/compressed_shorts/short_02_Transfer_Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "/hero/comun3/channels4_profile.jpg" },
+    { link: "/videos/compressed_shorts/short_02_Transfer_Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "public/transer_kindom.jpg" },
     { link: "/videos/compressed_shorts/short_04_DMVAUL_21k.mp4", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
     { link: "/videos/compressed_shorts/short_05_Spine_Surgeon_1.07M.mp4", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
     { link: "/videos/compressed_shorts/short_06_Microsoft_Tech_Giant.mp4", handle: "Microsoft", followers: "Tech Giant", type: 'short', profileImg: "/brands/microsoft.png" },
@@ -175,8 +175,8 @@ const HeroSection = () => {
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
     { link: "/videos/compressed_long_videos/01_Suhit_Amin_30K_Followers.mp4", youtubeLink: "https://www.youtube.com/embed/sw32JXFdGV8", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "/hero/comun3/channels4_profile.jpg" },
-    { link: "/videos/compressed_long_videos/dr_antoniowebbmd_new.mp4", youtubeLink: "https://www.youtube.com/embed/IypyqrD8b5s", handle: "dr_antoniowebbmd", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "/videos/compressed_long_videos/03_Lifestyle_Video_Premium_30K.mp4", youtubeLink: "https://www.youtube.com/embed/ZyY5xKs8fkU", handle: "Lifestyle Video Premium", followers: "30K+", type: 'video', profileImg: "/hero/comun3/third.png" },
+    { link: "/videos/compressed_long_videos/dr_antoniowebbmd_new.mp4", youtubeLink: "https://www.youtube.com/embed/IypyqrD8b5s", handle: "Dr Antonio J. Webb, M.D", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "/videos/compressed_long_videos/03_Lifestyle_Video_Premium_30K.mp4", youtubeLink: "https://www.youtube.com/embed/ZyY5xKs8fkU", handle: "Lukas Schanderl", followers: "30K+", type: 'video', profileImg: "/hero/comun3/third.png" },
     { link: "/videos/compressed_long_videos/04_Total_Tech_90K.mp4", youtubeLink: "https://www.youtube.com/embed/BcWScmU0IbQ", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "/hero/comun3/second.png" },
     { link: "/videos/compressed_long_videos/05_ALEX_YOUNG_84k.mp4", youtubeLink: "https://www.youtube.com/embed/tl3as05qpmM", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "/hero/comun3/first.png" }
   ];
