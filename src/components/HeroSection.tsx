@@ -124,13 +124,15 @@ const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: numbe
         <div className={`flex ${isColumn1 ? 'flex-col items-start gap-2.5' : 'items-center gap-3'} w-full`}>
           {item.profileImg && (
             <div className="relative group-hover:scale-110 transition-transform duration-300">
-              <div className={`absolute inset-0 bg-[#FFB300] rounded-full blur-[6px] opacity-0 group-hover:opacity-80 transition-opacity duration-300 ${isColumn1 ? 'scale-125' : ''}`} />
+              {!isColumn1 && (
+                <div className="absolute inset-0 bg-[#FFB300] rounded-full blur-[6px] opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
+              )}
               <img 
                 src={item.profileImg} 
                 alt={item.handle} 
                 loading="lazy"
-                className={`relative ${isColumn1 ? 'w-20 h-20' : 'w-10 h-10'} rounded-full border border-white/20 ${item.profileBg ? 'object-contain p-2.5' : 'object-cover'}`} 
-                style={{ backgroundColor: item.profileBg || '#18181b' }}
+                className={`relative ${isColumn1 ? 'w-32 h-16 object-contain filter brightness-0 invert' : 'w-10 h-10 rounded-full border border-white/20 object-cover'}`} 
+                style={!isColumn1 ? { backgroundColor: item.profileBg || '#18181b' } : {}}
               />
             </div>
           )}
