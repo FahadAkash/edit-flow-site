@@ -9,6 +9,7 @@ import TimelineSection from "@/components/TimelineSection";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import SocialProof from "@/components/SocialProof";
 import MeetTheFounder from "@/components/MeetTheFounder";
+import StudioPreview from "@/components/StudioPreview";
 import VideoPortfolio from "@/components/VideoPortfolio";
 import BrandLogos from "@/components/BrandLogos";
 import Footer from "@/components/Footer";
@@ -25,6 +26,7 @@ const Index = () => {
       <ReelsCarousel/>
       <SocialProof/>
       <MeetTheFounder/>
+      <StudioPreview />
       <AboutSection/>
       {/* After Effects Style Visual Break */}
       {/* <AfterEffectsBackground /> */}
