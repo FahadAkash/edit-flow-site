@@ -175,7 +175,7 @@ const HeroSection = () => {
   // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
   const videosData = [
     { link: "/videos/compressed_long_videos/01_Suhit_Amin_30K_Followers.mp4", youtubeLink: "https://www.youtube.com/embed/sw32JXFdGV8", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "/hero/comun3/channels4_profile.jpg" },
-    { link: "/videos/compressed_long_videos/02_drantoniowebbmd_1.43_Mil.mp4", youtubeLink: "https://www.youtube.com/embed/w7OWXeBV8Ro", handle: "drantoniowebbmd", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "/videos/compressed_long_videos/dr_antoniowebbmd_new.mp4", youtubeLink: "https://www.youtube.com/embed/IypyqrD8b5s", handle: "dr_antoniowebbmd", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
     { link: "/videos/compressed_long_videos/03_Lifestyle_Video_Premium_30K.mp4", youtubeLink: "https://www.youtube.com/embed/ZyY5xKs8fkU", handle: "Lifestyle Video Premium", followers: "30K+", type: 'video', profileImg: "/hero/comun3/third.png" },
     { link: "/videos/compressed_long_videos/04_Total_Tech_90K.mp4", youtubeLink: "https://www.youtube.com/embed/BcWScmU0IbQ", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "/hero/comun3/second.png" },
     { link: "/videos/compressed_long_videos/05_ALEX_YOUNG_84k.mp4", youtubeLink: "https://www.youtube.com/embed/tl3as05qpmM", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "/hero/comun3/first.png" }

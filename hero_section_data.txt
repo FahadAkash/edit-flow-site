@@ -1,0 +1,133 @@
+HERO SECTION DATA EXPORT
+=========================
+
+COLUMN 1: BRAND SHORTS (VERTICAL 9:16)
+--------------------------------------
+1. NEUTONIC
+   - Local video: /videos/compreess_short_column1/Neutonic_Ad_1.mp4
+   - YouTube Link: Not provided in script
+   - Category: Productivity
+   - Type: short
+   - Profile Image: /brands/01HZPHHYKN7PRCHF92X9KV8BPG.png
+   - Profile Bg: #3b82f6
+
+2. DANGER KOFFEE
+   - Local video: /videos/compreess_short_column1/DANGER_COFFEE_MINERALS_VID_APR_9X16_V1.mp4
+   - YouTube Link: Not provided in script
+   - Category: Lifestyle
+   - Type: short
+   - Profile Image: /brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png
+   - Profile Bg: #ef4444
+
+3. KOH
+   - Local video: /videos/compreess_short_column1/ATTN_Labs_Air.mp4
+   - YouTube Link: Not provided in script
+   - Category: Wellness Brand
+   - Type: short
+   - Logo Overlay: /brands/1667599512761.png
+   - Profile Image: /brands/01HZPHHYKN7PRCHF92X9KV8BPG.png
+   - Profile Bg: #ffffff
+
+4. MANNA
+   - Local video: /videos/compreess_short_column1/Neutonic_Ad_1.mp4
+   - YouTube Link: Not provided in script
+   - Category: Health & Vitality
+   - Type: short
+   - Logo Overlay: /brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png
+   - Profile Image: /brands/1667599512761.png
+   - Profile Bg: #3b82f6
+
+
+COLUMN 2: REELS/SHORTS (VERTICAL 9:16)
+--------------------------------------
+1. Suhit Amin
+   - Local video: /videos/compressed_shorts/short_01_Suhit_Amin_20k.mp4
+   - YouTube Link: Not provided in script
+   - Followers/Niche: 20k
+   - Type: short
+   - Profile Image: /hero/comun3/channels4_profile.jpg
+
+2. Transfer Kingdom
+   - Local video: /videos/compressed_shorts/short_02_Transfer_Kingdom_20k.mp4
+   - YouTube Link: Not provided in script
+   - Followers/Niche: 20k
+   - Type: short
+   - Profile Image: /hero/comun3/channels4_profile.jpg
+
+3. DMVAUL
+   - Local video: /videos/compressed_shorts/short_04_DMVAUL_21k.mp4
+   - YouTube Link: Not provided in script
+   - Followers/Niche: 21k
+   - Type: short
+   - Profile Image: /entrepreneurs/7HdwNsOD_400x400.png
+
+4. Spine Surgeon
+   - Local video: /videos/compressed_shorts/short_05_Spine_Surgeon_1.07M.mp4
+   - YouTube Link: Not provided in script
+   - Followers/Niche: 1.07M
+   - Type: short
+   - Profile Image: /entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png
+
+5. Microsoft
+   - Local video: /videos/compressed_shorts/short_06_Microsoft_Tech_Giant.mp4
+   - YouTube Link: Not provided in script
+   - Followers/Niche: Tech Giant
+   - Type: short
+   - Profile Image: /brands/microsoft.png
+
+6. Acer
+   - Local video: /videos/compressed_shorts/short_07_Acer_Gaming.mp4
+   - YouTube Link: Not provided in script
+   - Followers/Niche: Gaming
+   - Type: short
+   - Profile Image: /brands/acer-predator-logo-png_seeklogo-441422.png
+
+7. MANNA
+   - Local video: /videos/compressed_shorts/short_10_MANNA_Health_Vitality.mp4
+   - YouTube Link: Not provided in script
+   - Followers/Niche: Health & Vitality
+   - Type: short
+   - Profile Image: /brands/1667599512761.png
+
+
+COLUMN 3: STANDARD VIDEOS (LANDSCAPE 16:9)
+------------------------------------------
+1. Suhit Amin
+   - Local video: /videos/compressed_long_videos/01_Suhit_Amin_30K_Followers.mp4
+   - YouTube Link: https://www.youtube.com/embed/sw32JXFdGV8
+   - YouTube Page: https://www.youtube.com/watch?v=sw32JXFdGV8
+   - Followers/Niche: 30K+ Followers
+   - Type: video
+   - Profile Image: /hero/comun3/channels4_profile.jpg
+
+2. dr_antoniowebbmd
+   - Local video: /videos/compressed_long_videos/dr_antoniowebbmd_new.mp4
+   - YouTube Link: https://www.youtube.com/embed/IypyqrD8b5s
+   - YouTube Page: https://www.youtube.com/watch?v=IypyqrD8b5s
+   - Followers/Niche: 1.43 Mil
+   - Type: video
+   - Profile Image: /entrepreneurs/1644180906552.png
+
+3. Lifestyle Video Premium
+   - Local video: /videos/compressed_long_videos/03_Lifestyle_Video_Premium_30K.mp4
+   - YouTube Link: https://www.youtube.com/embed/ZyY5xKs8fkU
+   - YouTube Page: https://www.youtube.com/watch?v=ZyY5xKs8fkU
+   - Followers/Niche: 30K+
+   - Type: video
+   - Profile Image: /hero/comun3/third.png
+
+4. Total Tech
+   - Local video: /videos/compressed_long_videos/04_Total_Tech_90K.mp4
+   - YouTube Link: https://www.youtube.com/embed/BcWScmU0IbQ
+   - YouTube Page: https://www.youtube.com/watch?v=BcWScmU0IbQ
+   - Followers/Niche: 90K+
+   - Type: video
+   - Profile Image: /hero/comun3/second.png
+
+5. ALEX YOUNG
+   - Local video: /videos/compressed_long_videos/05_ALEX_YOUNG_84k.mp4
+   - YouTube Link: https://www.youtube.com/embed/tl3as05qpmM
+   - YouTube Page: https://www.youtube.com/watch?v=tl3as05qpmM
+   - Followers/Niche: 84k
+   - Type: video
+   - Profile Image: /hero/comun3/first.png
