@@ -131,23 +131,25 @@ const MeetTheFounder = () => {
               {/* Office Image 1 (Behind - Top Left) */}
               <motion.div
                 initial={{ opacity: 0, x: -30, rotate: -15 }}
-                whileInView={{ opacity: 0.9, x: 0, rotate: -12 }}
+                whileInView={{ opacity: 1, x: 0, rotate: -12 }}
+                whileHover={{ scale: 1.15, rotate: 0, zIndex: 50, x: 10, y: 10 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute -top-12 -left-4 md:-left-20 w-48 h-36 md:w-60 md:h-44 rounded-xl overflow-hidden border-4 border-white/10 shadow-lg z-0"
+                className="absolute -top-12 -left-4 md:-left-20 w-48 h-36 md:w-60 md:h-44 rounded-xl overflow-hidden border-2 border-white/30 shadow-2xl z-0 cursor-pointer"
               >
-                <img src="/founder/1.png" alt="Office" className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500" />
+                <img src="/founder/1.png" alt="Office" className="w-full h-full object-cover brightness-110 contrast-110 hover:brightness-100 transition-all duration-500" />
               </motion.div>
 
               {/* Office Image 2 (Behind - Bottom Right) */}
               <motion.div
-                initial={{ opacity: 0, x: 30, rotate: 15 }}
-                whileInView={{ opacity: 0.9, x: 0, rotate: 12 }}
+                initial={{ opacity: 0, x: 40, rotate: 15 }}
+                whileInView={{ opacity: 1, x: 0, rotate: 15 }}
+                whileHover={{ scale: 1.15, rotate: 0, zIndex: 50, x: -10, y: -10 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="absolute top-20 -right-4 md:-right-20 w-48 h-36 md:w-60 md:h-44 rounded-xl overflow-hidden border-4 border-white/10 shadow-lg z-0"
+                className="absolute top-24 -right-12 md:-right-32 w-56 h-40 md:w-72 md:h-52 rounded-xl overflow-hidden border-2 border-white/40 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-0 cursor-pointer"
               >
-                <img src="/founder/2.png" alt="Office" className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500" />
+                <img src="/founder/2.png" alt="Office" className="w-full h-full object-cover brightness-125 contrast-110 hover:brightness-100 transition-all duration-500" />
               </motion.div>
 
               {/* Main Circular Profile */}
