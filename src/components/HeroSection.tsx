@@ -33,7 +33,7 @@ const HeroCard = ({ item, idx, aspectClass }: { item: any, idx: number, aspectCl
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ scale: 1.05, y: -5, zIndex: 10 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className={`relative rounded-2xl overflow-hidden flex-shrink-0 ${aspectClass} mb-6 bg-[#0a0a0a] group border border-white/10 hover:border-[#FFB300]/50 shadow-lg hover:shadow-[0_0_30px_rgba(255,179,0,0.15)]`}
+      className={`relative rounded-2xl overflow-hidden flex-shrink-0 ${aspectClass} mb-6 bg-[#0a0a0a] group border border-white/10 shadow-lg transition-all duration-300`}
     >
       {/* Glow Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#FFB300]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
@@ -423,6 +423,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      
+
     </section>
   );
 };
