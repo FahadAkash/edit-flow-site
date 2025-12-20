@@ -30,7 +30,8 @@ const MeetTheFounder = () => {
               transition={{ duration: 0.5 }}
               className="inline-block bg-white text-[#e63946] text-sm font-medium px-4 py-1.5 rounded-full mb-6 shadow-sm"
             >
-              Behind the Brand
+             
+MEET THE FOUNDER AND CEO!
             </motion.span>
 
             {/* Title */}
@@ -117,50 +118,28 @@ const MeetTheFounder = () => {
 
           {/* Right Image Composition - Circular with Floating Widgets */}
            {/* Right Image Composition - Modern Circular Profile */}
+          {/* Right Image Composition - Modern Circular Profile */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 50, rotate: 0 }}
+            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex justify-center lg:justify-end relative"
+            style={{ transform: 'none' }}
           >
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/30 blur-[100px] rounded-full pointer-events-none" />
 
-            <div className="relative">
-              {/* Office Image 1 (Behind - Top Left) */}
-              <motion.div
-                initial={{ opacity: 0, x: -30, rotate: -15 }}
-                whileInView={{ opacity: 1, x: 0, rotate: -12 }}
-                whileHover={{ scale: 1.15, rotate: 0, zIndex: 50, x: 10, y: 10 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute -top-12 -left-4 md:-left-20 w-48 h-36 md:w-60 md:h-44 rounded-xl overflow-hidden border-2 border-white/30 shadow-2xl z-0 cursor-pointer"
-              >
-                <img src="/founder/1.png" alt="Office" className="w-full h-full object-cover brightness-110 contrast-110 hover:brightness-100 transition-all duration-500" />
-              </motion.div>
-
-              {/* Office Image 2 (Behind - Bottom Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 40, rotate: 15 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 15 }}
-                whileHover={{ scale: 1.15, rotate: 0, zIndex: 50, x: -10, y: -10 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="absolute top-24 -right-12 md:-right-32 w-56 h-40 md:w-72 md:h-52 rounded-xl overflow-hidden border-2 border-white/40 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-0 cursor-pointer"
-              >
-                <img src="/founder/2.png" alt="Office" className="w-full h-full object-cover brightness-125 contrast-110 hover:brightness-100 transition-all duration-500" />
-              </motion.div>
-
+            <div className="relative" style={{ transform: 'none' }}>
               {/* Main Circular Profile */}
               <motion.div 
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                initial={{ scale: 0.8, opacity: 0, rotate: 0 }}
+                whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="relative z-10 w-72 h-72 md:w-96 md:h-96 rounded-full p-3 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-white/30 shadow-[0_0_80px_rgba(0,0,0,0.3)]"
+                className="relative z-10 w-72 h-72 md:w-[450px] md:h-[450px] rounded-full p-4 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-white/30 shadow-[0_0_100px_rgba(0,0,0,0.4)]"
               >
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-black">
                   <motion.img
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4 }}
@@ -173,30 +152,26 @@ const MeetTheFounder = () => {
                 {/* Animated Decorative Rings */}
                 <motion.div 
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-3 border-2 border-white/20 rounded-full"
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  className="absolute -inset-4 border-2 border-white/10 rounded-full"
                   style={{ 
                     borderStyle: "dashed",
-                    borderSpacing: "10px"
+                    borderSpacing: "12px"
                   }}
-                />
-                <motion.div 
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-6 border border-white/10 rounded-full"
                 />
               </motion.div>
 
               {/* Floating Stats/Badge */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20, rotate: 0 }}
+                whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20"
+                className="absolute -bottom-8 left-1/2 -translate-x-1/2 z-30"
+                style={{ transform: 'translateX(-50%) rotate(0deg)' }}
               >
                 <motion.div
                   whileHover={{ y: -5, scale: 1.05 }}
-                  className="bg-white text-[#e63946] px-8 py-3 rounded-full shadow-2xl font-bold text-sm md:text-base border-2 border-white/50 backdrop-blur-sm"
+                  className="bg-white text-[#e63946] px-10 py-4 rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.3)] font-black text-sm md:text-lg border-2 border-white/50 backdrop-blur-md whitespace-nowrap"
                 >
                   1,500+ Happy Clients
                 </motion.div>

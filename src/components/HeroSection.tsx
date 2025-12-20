@@ -137,16 +137,18 @@ const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: numbe
             </div>
           )}
           
-          <div className="flex flex-col justify-center">
-            <p className={`text-white font-bold ${isColumn1 ? 'text-lg' : 'text-sm'} leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300`}>
-              {item.handle}
-            </p>
-            {item.followers && (
-              <p className="text-white/60 text-xs font-medium tracking-wide mt-0.5">
-                 {item.followers}
+          {!isColumn1 && (
+            <div className="flex flex-col justify-center">
+              <p className="text-white font-bold text-sm leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300">
+                {item.handle}
               </p>
-            )}
-          </div>
+              {item.followers && (
+                <p className="text-white/60 text-xs font-medium tracking-wide mt-0.5">
+                   {item.followers}
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
