@@ -272,7 +272,7 @@ const HeroSection = () => {
               <img 
                 src="/logo/logo.png" 
                 alt="Metro Media House" 
-                className="h-12 md:h-14 w-auto object-contain opacity-90"
+                className="h-20 md:h-24 w-auto object-contain opacity-90"
               />
             </motion.div>
 

@@ -124,7 +124,7 @@ MEET THE FOUNDER AND CEO!
             whileInView={{ opacity: 1, x: 0, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex justify-center lg:justify-end relative"
+            className="flex justify-start lg:justify-start relative ml-12 md:ml-24"
             style={{ transform: 'none' }}
           >
             {/* Background Glow */}
@@ -137,7 +137,7 @@ MEET THE FOUNDER AND CEO!
                 whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="relative z-10 w-72 h-72 md:w-[450px] md:h-[450px] rounded-full p-4 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-white/30 shadow-[0_0_100px_rgba(0,0,0,0.4)]"
+                className="relative z-10 w-80 h-80 md:w-[500px] md:h-[500px] rounded-full p-4 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md border border-white/30 shadow-[0_0_100px_rgba(0,0,0,0.4)]"
               >
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-black">
                   <motion.img
