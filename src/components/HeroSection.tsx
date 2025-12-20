@@ -20,7 +20,7 @@ const getYoutubeId = (url: string) => {
   return videoId;
 };
 
-const HeroCard = ({ item, idx, aspectClass }: { item: any, idx: number, aspectClass: string }) => {
+const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: number, aspectClass: string, isColumn1?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
   const isLocalVideo = item.link && item.link.endsWith('.mp4');
   const isInstagram = item.type === 'instagram';
@@ -104,7 +104,7 @@ const HeroCard = ({ item, idx, aspectClass }: { item: any, idx: number, aspectCl
           />
           {/* Logo Overlay for Brand Cards */}
           {item.logo && (
-            <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 w-32 h-16 flex items-center justify-center pointer-events-none">
+            <div className={`absolute top-6 left-1/2 -translate-x-1/2 z-20 ${isColumn1 ? 'w-48 h-24' : 'w-32 h-16'} flex items-center justify-center pointer-events-none`}>
                <img 
                  src={item.logo} 
                  alt="Brand Logo" 
@@ -121,22 +121,22 @@ const HeroCard = ({ item, idx, aspectClass }: { item: any, idx: number, aspectCl
 
       {/* Content Info */}
       <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
-        <div className="flex items-center gap-3 w-full">
+        <div className={`flex ${isColumn1 ? 'flex-col items-start gap-2.5' : 'items-center gap-3'} w-full`}>
           {item.profileImg && (
             <div className="relative group-hover:scale-110 transition-transform duration-300">
-              <div className="absolute inset-0 bg-[#FFB300] rounded-full blur-[4px] opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
+              <div className={`absolute inset-0 bg-[#FFB300] rounded-full blur-[6px] opacity-0 group-hover:opacity-80 transition-opacity duration-300 ${isColumn1 ? 'scale-125' : ''}`} />
               <img 
                 src={item.profileImg} 
                 alt={item.handle} 
                 loading="lazy"
-                className={`relative w-10 h-10 rounded-full border border-white/20 ${item.profileBg ? 'object-contain p-1.5' : 'object-cover'}`} 
+                className={`relative ${isColumn1 ? 'w-20 h-20' : 'w-10 h-10'} rounded-full border border-white/20 ${item.profileBg ? 'object-contain p-2.5' : 'object-cover'}`} 
                 style={{ backgroundColor: item.profileBg || '#18181b' }}
               />
             </div>
           )}
           
           <div className="flex flex-col justify-center">
-            <p className="text-white font-bold text-sm leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300">
+            <p className={`text-white font-bold ${isColumn1 ? 'text-lg' : 'text-sm'} leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300`}>
               {item.handle}
             </p>
             {item.followers && (
@@ -398,7 +398,7 @@ const HeroSection = () => {
                 transition={{ duration: 25, repeat: Infinity, ease: "linear", repeatType: "loop" }}
                 className="hidden lg:flex flex-col w-[28%] gap-5 pt-10"
               >
-                {infiniteColumn1.map((item, idx) => <HeroCard key={`${item.handle}-c1-${idx}`} item={item} idx={idx} aspectClass="aspect-[9/16]" />)}
+                {infiniteColumn1.map((item, idx) => <HeroCard key={`${item.handle}-c1-${idx}`} item={item} idx={idx} aspectClass="aspect-[9/16]" isColumn1 />)}
               </motion.div>
 
               {/* Column 2 - Shorts (Vertical Video) - 9:16 Vertical - Full Width on Mobile */}
