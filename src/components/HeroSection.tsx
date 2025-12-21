@@ -131,23 +131,23 @@ const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: numbe
 
       {/* Content Info */}
       <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
-        <div className={`flex ${isColumn1 ? 'flex-col items-start gap-2.5' : 'items-center gap-3'} w-full`}>
+        <div className={`flex ${(isColumn1 || item.isBranded) ? 'flex-col items-start gap-2.5' : 'items-center gap-3'} w-full`}>
           {item.profileImg && (
             <div className="relative group-hover:scale-110 transition-transform duration-300">
-              {!isColumn1 && (
+              {(!isColumn1 && !item.isBranded) && (
                 <div className="absolute inset-0 bg-[#FFB300] rounded-full blur-[6px] opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
               )}
               <img 
                 src={item.profileImg} 
                 alt={item.handle} 
                 loading="lazy"
-                className={`relative ${isColumn1 ? 'w-32 h-16 object-contain filter brightness-0 invert' : 'w-10 h-10 rounded-full border border-white/20 object-cover'}`} 
-                style={!isColumn1 ? { backgroundColor: item.profileBg || '#18181b' } : {}}
+                className={`relative ${(isColumn1 || item.isBranded) ? 'w-32 h-16 object-contain filter brightness-0 invert' : 'w-10 h-10 rounded-full border border-white/20 object-cover'}`} 
+                style={(!isColumn1 && !item.isBranded) ? { backgroundColor: item.profileBg || '#18181b' } : {}}
               />
             </div>
           )}
           
-          {!isColumn1 && (
+          {(!isColumn1 && !item.isBranded) && (
             <div className="flex flex-col justify-center">
               <p className="text-white font-bold text-sm leading-tight drop-shadow-md group-hover:text-[#FFB300] transition-colors duration-300">
                 {item.handle}
@@ -159,6 +159,7 @@ const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: numbe
               )}
             </div>
           )}
+
         </div>
       </div>
     </motion.div>
@@ -182,7 +183,7 @@ const HeroSection = () => {
 
   // Column 2 Data: Reels/Shorts (Vertical 9:16) - Using GIFs!
   const shortsData = [
-    { link: "/gifs/shorts/coursera_short.gif", handle: "Coursera", followers: "520k", type: 'short', profileImg: "public/profile_brands/first.jpg" },
+    { link: "/gifs/shorts/coursera_short.gif", handle: "Coursera", followers: "520k", type: 'short', profileImg: "/brands/coursera.png", isBranded: true },
     { link: "/gifs/shorts/transfer_kingdom_short.gif", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "/hero/transer_kindom.jpg" },
     { link: "/gifs/shorts/dmvaul_short.gif", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
     { link: "/gifs/shorts/spine_surgeon_short.gif", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
