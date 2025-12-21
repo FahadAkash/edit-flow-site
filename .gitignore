@@ -23,3 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# FFmpeg and Conversion Tools
+ffmpeg-portable/
+ffmpeg-*-essentials_build/
+ffmpeg-temp.zip
+auto_convert_to_gifs.ps1
+update_hero_to_gifs.ps1
+convert_videos_to_gifs.ps1
+quick_convert.ps1
+convert_to_gifs.bat
+GIF_CONVERSION_GUIDE.md
