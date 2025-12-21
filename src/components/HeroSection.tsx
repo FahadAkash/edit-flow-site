@@ -187,8 +187,8 @@ const HeroSection = () => {
     { link: "/gifs/shorts/dmvaul_short.gif", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
     { link: "/gifs/shorts/spine_surgeon_short.gif", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
     { link: "/gifs/shorts/microsoft_short.gif", handle: "Microsoft", followers: "Tech Giant", type: 'short', profileImg: "/brands/microsoft.png" },
-    { link: "/gifs/shorts/acer_short.gif", handle: "Acer", followers: "Gaming", type: 'short', profileImg: "/brands/acer-predator-logo-png_seeklogo-441422.png" },
-    { link: "/gifs/shorts/manna_short.gif", handle: "MANNA", followers: "Health & Vitality", type: 'short', profileImg: "/brands/1667599512761.png" }
+    { link: "/videos/compressed_shorts/short_07_Acer_Gaming.mp4", handle: "Acer", followers: "Gaming", type: 'short', profileImg: "/brands/acer-predator-logo-png_seeklogo-441422.png" },
+    { link: "/videos/compressed_shorts/short_10_MANNA_Health_Vitality.mp4", handle: "MANNA", followers: "Health & Vitality", type: 'short', profileImg: "/brands/1667599512761.png" }
   ];
 
   // Column 3 Data: Long Videos (Landscape 16:9) - Using GIFs!
