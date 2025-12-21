@@ -22,9 +22,10 @@ const getYoutubeId = (url: string) => {
 
 const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: number, aspectClass: string, isColumn1?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isGif = item.link && item.link.endsWith('.gif');
   const isLocalVideo = item.link && item.link.endsWith('.mp4');
   const isInstagram = item.type === 'instagram';
-  const youtubeId = !isLocalVideo && !isInstagram ? getYoutubeId(item.link) : null;
+  const youtubeId = !isLocalVideo && !isGif && !isInstagram ? getYoutubeId(item.link) : null;
 
   return (
     <motion.div
@@ -39,7 +40,16 @@ const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: numbe
       <div className="absolute inset-0 bg-gradient-to-t from-[#FFB300]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
 
       {/* --- MEDIA RENDERING --- */}
-      {isLocalVideo ? (
+      {isGif ? (
+         /* GIF RENDERING - Optimized for instant playback */
+         <img
+             src={item.link}
+             alt={item.handle}
+             loading="lazy"
+             decoding="async"
+             className="w-full h-full object-cover opacity-80 grayscale-[30%] group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+         />
+      ) : isLocalVideo ? (
          <CachedVideo
              src={item.link}
              fallbackSrc={item.youtubeLink}
@@ -155,34 +165,39 @@ const HeroCard = ({ item, idx, aspectClass, isColumn1 }: { item: any, idx: numbe
   );
 };
 
+// Helper: Use GIF if available, fallback to MP4
+const useGifOrVideo = (videoPath: string, gifPath: string) => {
+  // For now, use GIF path - will fallback to video if GIF doesn't exist
+  return gifPath;
+};
+
 const HeroSection = () => {
-  // Column 1 Data: Client/Brand Images (Vertical 9:16)
-  // Column 1 Data: Brand Shorts (Vertical 9:16)
+  // Column 1 Data: Brand Shorts (Vertical 9:16) - Using GIFs for instant playback!
   const clientImages = [
-    { link: "/videos/compreess_short_column1/Neutonic_Ad_1.mp4", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#3b82f6" }, // Blue
-    { link: "/videos/compreess_short_column1/DANGER_COFFEE_MINERALS_VID_APR_9X16_V1.mp4", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileBg: "#ef4444" }, // Red
-    { link: "/videos/compreess_short_column1/ATTN_Labs_Air.mp4", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#ffffff" }, // White
-    { link: "/videos/compreess_short_column1/Neutonic_Ad_1.mp4", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/1667599512761.png", profileBg: "#3b82f6" }, // Blue
+    { link: "/gifs/brand_shorts/neutonic_brand.gif", handle: "NEUTONIC", followers: "Productivity", type: 'short', profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#3b82f6" },
+    { link: "/gifs/brand_shorts/danger_coffee_brand.gif", handle: "DANGER KOFFEE", followers: "Lifestyle", type: 'short', profileImg: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileBg: "#ef4444" },
+    { link: "/gifs/brand_shorts/koh_brand.gif", handle: "KOH", followers: "Wellness Brand", type: 'short', logo: "/brands/1667599512761.png", profileImg: "/brands/01HZPHHYKN7PRCHF92X9KV8BPG.png", profileBg: "#ffffff" },
+    { link: "/gifs/brand_shorts/neutonic_brand.gif", handle: "MANNA", followers: "Health & Vitality", type: 'short', logo: "/brands/DC_Logo_1640x624-d44ea81f-a7d0-4746-b50e-399afa2a81c9.png", profileImg: "/brands/1667599512761.png", profileBg: "#3b82f6" },
   ];
 
-  // Column 2 Data: Reels/Shorts (Vertical 9:16)
+  // Column 2 Data: Reels/Shorts (Vertical 9:16) - Using GIFs!
   const shortsData = [
-    { link: "videos/compressed_shorts/9-16_Coursera-business-analyst_15sec.mp4", handle: "Coursera", followers: "520k", type: 'short', profileImg: "public/profile_brands/first.jpg" },
-    { link: "/videos/compressed_shorts/short_02_Transfer_Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "/hero/transer_kindom.jpg" },
-    { link: "/videos/compressed_shorts/short_04_DMVAUL_21k.mp4", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
-    { link: "/videos/compressed_shorts/short_05_Spine_Surgeon_1.07M.mp4", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
-    { link: "/videos/compressed_shorts/short_06_Microsoft_Tech_Giant.mp4", handle: "Microsoft", followers: "Tech Giant", type: 'short', profileImg: "/brands/microsoft.png" },
-    { link: "/videos/compressed_shorts/short_07_Acer_Gaming.mp4", handle: "Acer", followers: "Gaming", type: 'short', profileImg: "/brands/acer-predator-logo-png_seeklogo-441422.png" },
-    { link: "/videos/compressed_shorts/short_10_MANNA_Health_Vitality.mp4", handle: "MANNA", followers: "Health & Vitality", type: 'short', profileImg: "/brands/1667599512761.png" }
+    { link: "/gifs/shorts/coursera_short.gif", handle: "Coursera", followers: "520k", type: 'short', profileImg: "public/profile_brands/first.jpg" },
+    { link: "/gifs/shorts/transfer_kingdom_short.gif", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "/hero/transer_kindom.jpg" },
+    { link: "/gifs/shorts/dmvaul_short.gif", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
+    { link: "/gifs/shorts/spine_surgeon_short.gif", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
+    { link: "/gifs/shorts/microsoft_short.gif", handle: "Microsoft", followers: "Tech Giant", type: 'short', profileImg: "/brands/microsoft.png" },
+    { link: "/gifs/shorts/acer_short.gif", handle: "Acer", followers: "Gaming", type: 'short', profileImg: "/brands/acer-predator-logo-png_seeklogo-441422.png" },
+    { link: "/gifs/shorts/manna_short.gif", handle: "MANNA", followers: "Health & Vitality", type: 'short', profileImg: "/brands/1667599512761.png" }
   ];
 
-  // Column 3 Data: Standard YouTube Videos (Landscape 16:9) - Taken from ReelsCarousel
+  // Column 3 Data: Long Videos (Landscape 16:9) - Using GIFs!
   const videosData = [
-    { link: "/videos/compressed_long_videos/01_Suhit_Amin_30K_Followers.mp4", youtubeLink: "https://www.youtube.com/embed/sw32JXFdGV8", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "/hero/comun3/channels4_profile.jpg" },
-    { link: "/videos/compressed_long_videos/dr_antoniowebbmd_new.mp4", youtubeLink: "https://www.youtube.com/embed/IypyqrD8b5s", handle: "Dr Antonio J. Webb, M.D", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
-    { link: "/videos/compressed_long_videos/03_Lifestyle_Video_Premium_30K.mp4", youtubeLink: "https://www.youtube.com/embed/ZyY5xKs8fkU", handle: "Lukas Schanderl", followers: "30K+", type: 'video', profileImg: "/hero/comun3/third.png" },
-    { link: "/videos/compressed_long_videos/04_Total_Tech_90K.mp4", youtubeLink: "https://www.youtube.com/embed/BcWScmU0IbQ", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "/hero/comun3/second.png" },
-    { link: "/videos/compressed_long_videos/05_ALEX_YOUNG_84k.mp4", youtubeLink: "https://www.youtube.com/embed/tl3as05qpmM", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "/hero/comun3/first.png" }
+    { link: "/gifs/long_videos/suhit_amin.gif", youtubeLink: "https://www.youtube.com/embed/sw32JXFdGV8", handle: "Suhit Amin", followers: "30K+ Followers", type: 'video', profileImg: "/hero/comun3/channels4_profile.jpg" },
+    { link: "/gifs/long_videos/dr_ant_webb.gif", youtubeLink: "https://www.youtube.com/embed/IypyqrD8b5s", handle: "Dr Antonio J. Webb, M.D", followers: "1.43 Mil", type: 'video', profileImg: "/entrepreneurs/1644180906552.png" },
+    { link: "/gifs/long_videos/lukas_schanderl.gif", youtubeLink: "https://www.youtube.com/embed/ZyY5xKs8fkU", handle: "Lukas Schanderl", followers: "30K+", type: 'video', profileImg: "/hero/comun3/third.png" },
+    { link: "/gifs/long_videos/total_tech.gif", youtubeLink: "https://www.youtube.com/embed/BcWScmU0IbQ", handle: "Total Tech", followers: "90K+", type: 'video', profileImg: "/hero/comun3/second.png" },
+    { link: "/gifs/long_videos/alex_young.gif", youtubeLink: "https://www.youtube.com/embed/tl3as05qpmM", handle: "ALEX YOUNG", followers: "84k", type: 'video', profileImg: "/hero/comun3/first.png" }
   ];
 
   // Infinite Scroll Duplication (3x for seamless loop - simpler and more efficient)

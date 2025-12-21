@@ -88,22 +88,22 @@ const ReelsCarousel = () => {
       }
     ],
     shorts: [
-      { id: 11, title: "Aliyah Hook", duration: "00:30", videoUrl: "/video/Aliyah hook 5.mp4", thumbnail: "" },
-      { id: 12, title: "Compton ALV", duration: "00:30", videoUrl: "/video/Compton ALV1.mp4", thumbnail: "" },
-      { id: 13, title: "Dr. Lockhart", duration: "00:30", videoUrl: "/video/Dr Lockhart S 01.mp4", thumbnail: "" },
-      { id: 14, title: "Elijah Kanoho", duration: "00:30", videoUrl: "/video/Elijah Kanoho 9 16.mp4", thumbnail: "" },
-      { id: 15, title: "Finished Track", duration: "00:30", videoUrl: "/video/Finished Track Video.mp4", thumbnail: "" },
-      { id: 16, title: "Formula 1", duration: "00:30", videoUrl: "/video/Formula 1 Principle.mp4", thumbnail: "" },
-      { id: 17, title: "GetKing", duration: "00:30", videoUrl: "/video/Getking ALV.mp4", thumbnail: "" },
-      { id: 18, title: "Law Firm Owners", duration: "00:30", videoUrl: "/video/Law firm owners 2.mp4", thumbnail: "" },
-      { id: 19, title: "Lifestyle Vlog", duration: "00:30", videoUrl: "/video/Life Style Vlog Style video.mp4", thumbnail: "" },
-      { id: 20, title: "Devin Style", duration: "00:30", videoUrl: "/video/Mastering Devin Style.mp4", thumbnail: "" },
-      { id: 21, title: "Nano Tech", duration: "00:30", videoUrl: "/video/Nano Tech.mp4", thumbnail: "" },
-      { id: 22, title: "Proven System", duration: "00:30", videoUrl: "/video/Proven System Finale.mp4", thumbnail: "" },
-      { id: 23, title: "Real Estate", duration: "00:30", videoUrl: "/video/Real estate.mp4", thumbnail: "" },
-      { id: 24, title: "Thrive Revival", duration: "00:30", videoUrl: "/video/Thrive Revival Walmart.mp4", thumbnail: "" },
-      { id: 25, title: "Testimonial", duration: "00:30", videoUrl: "/video/testimonial lockhart.mp4", thumbnail: "" },
-      { id: 26, title: "Playback Demo", duration: "00:30", videoUrl: "/video/videoplayback_2.mp4", thumbnail: "" }
+      { id: 11, title: "Aliyah Hook", duration: "00:30", videoUrl: "/gifs/carousel_shorts/aliyah_hook_5.gif", thumbnail: "" },
+      { id: 12, title: "Compton ALV", duration: "00:30", videoUrl: "/gifs/carousel_shorts/compton_alv1.gif", thumbnail: "" },
+      { id: 13, title: "Dr. Lockhart", duration: "00:30", videoUrl: "/gifs/carousel_shorts/dr_lockhart_s_01.gif", thumbnail: "" },
+      { id: 14, title: "Elijah Kanoho", duration: "00:30", videoUrl: "/gifs/carousel_shorts/elijah_kanoho_9_16.gif", thumbnail: "" },
+      { id: 15, title: "Finished Track", duration: "00:30", videoUrl: "/gifs/carousel_shorts/finished_track_video.gif", thumbnail: "" },
+      { id: 16, title: "Formula 1", duration: "00:30", videoUrl: "/gifs/carousel_shorts/formula_1_principle.gif", thumbnail: "" },
+      { id: 17, title: "GetKing", duration: "00:30", videoUrl: "/gifs/carousel_shorts/getking_alv.gif", thumbnail: "" },
+      { id: 18, title: "Law Firm Owners", duration: "00:30", videoUrl: "/gifs/carousel_shorts/law_firm_owners_2.gif", thumbnail: "" },
+      { id: 19, title: "Lifestyle Vlog", duration: "00:30", videoUrl: "/gifs/carousel_shorts/life_style_vlog_style_video.gif", thumbnail: "" },
+      { id: 20, title: "Devin Style", duration: "00:30", videoUrl: "/gifs/carousel_shorts/mastering_devin_style.gif", thumbnail: "" },
+      { id: 21, title: "Nano Tech", duration: "00:30", videoUrl: "/gifs/carousel_shorts/nano_tech.gif", thumbnail: "" },
+      { id: 22, title: "Proven System", duration: "00:30", videoUrl: "/gifs/carousel_shorts/proven_system_finale.gif", thumbnail: "" },
+      { id: 23, title: "Real Estate", duration: "00:30", videoUrl: "/gifs/carousel_shorts/real_estate.gif", thumbnail: "" },
+      { id: 24, title: "Thrive Revival", duration: "00:30", videoUrl: "/gifs/carousel_shorts/thrive_revival_walmart.gif", thumbnail: "" },
+      { id: 25, title: "Testimonial", duration: "00:30", videoUrl: "/gifs/carousel_shorts/testimonial_lockhart.gif", thumbnail: "" },
+      { id: 26, title: "Playback Demo", duration: "00:30", videoUrl: "/gifs/carousel_shorts/videoplayback_2.gif", thumbnail: "" }
     ],
     saas: [
       {
@@ -290,21 +290,29 @@ const ReelsCarousel = () => {
                       </div>
                    </div>
                 ) : video.videoUrl.startsWith('/') ? (
-                  // Local Video Rendering
+                  // Local Video or GIF Rendering
                   <div 
                     className="w-full h-full cursor-pointer relative"
                     onClick={() => setPlayingVideo(playingVideo === video.id ? null : video.id)}
                   >
-                    <video
-                      src={video.videoUrl}
-                      className="w-full h-full object-cover"
-                      autoPlay={true}
-                      muted={playingVideo !== video.id}
-                      loop
-                      playsInline
-                      controls={playingVideo === video.id}
-                    />
-                    {playingVideo !== video.id && (
+                    {video.videoUrl.endsWith('.gif') ? (
+                      <img 
+                        src={video.videoUrl} 
+                        className="w-full h-full object-cover" 
+                        alt={video.title} 
+                      />
+                    ) : (
+                      <video
+                        src={video.videoUrl}
+                        className="w-full h-full object-cover"
+                        autoPlay={true}
+                        muted={playingVideo !== video.id}
+                        loop
+                        playsInline
+                        controls={playingVideo === video.id}
+                      />
+                    )}
+                    {playingVideo !== video.id && !video.videoUrl.endsWith('.gif') && (
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                         <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 transform scale-90 group-hover:scale-110 transition-all duration-500 shadow-2xl group-hover:bg-[#e63946] group-hover:border-transparent">
                            <Play className="w-8 h-8 text-white fill-white ml-1" />
