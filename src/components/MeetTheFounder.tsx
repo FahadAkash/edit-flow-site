@@ -31,7 +31,7 @@ const MeetTheFounder = () => {
               className="inline-block bg-white text-[#e63946] text-sm font-medium px-4 py-1.5 rounded-full mb-6 shadow-sm"
             >
              
-MEET THE FOUNDER AND CEO!
+MEET THE FOUNDER & CEO!
             </motion.span>
 
             {/* Title */}
