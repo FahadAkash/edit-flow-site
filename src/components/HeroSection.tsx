@@ -168,7 +168,7 @@ const HeroSection = () => {
   // Column 2 Data: Reels/Shorts (Vertical 9:16)
   const shortsData = [
     { link: "/videos/compressed_shorts/short_01_Suhit_Amin_20k.mp4", handle: "Suhit Amin", followers: "20k", type: 'short', profileImg: "/hero/comun3/channels4_profile.jpg" },
-    { link: "/videos/compressed_shorts/short_02_Transfer_Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "public/transer_kindom.jpg" },
+    { link: "/videos/compressed_shorts/short_02_Transfer_Kingdom_20k.mp4", handle: "Transfer Kingdom", followers: "20k", type: 'short', profileImg: "/hero/transer_kindom.jpg" },
     { link: "/videos/compressed_shorts/short_04_DMVAUL_21k.mp4", handle: "DMVAUL", followers: "21k", type: 'short', profileImg: "/entrepreneurs/7HdwNsOD_400x400.png" },
     { link: "/videos/compressed_shorts/short_05_Spine_Surgeon_1.07M.mp4", handle: "Spine Surgeon", followers: "1.07M", type: 'short', profileImg: "/entrepreneurs/FR8QOqkdsCPqaLh59ht9JqMHlgjxEU3A5ATylOLLOSrsxem1zQY5HTUJ1R3nW6Os0J9Uos1wWAs900-c-k-c0x00ffffff-no-rj.png" },
     { link: "/videos/compressed_shorts/short_06_Microsoft_Tech_Giant.mp4", handle: "Microsoft", followers: "Tech Giant", type: 'short', profileImg: "/brands/microsoft.png" },
