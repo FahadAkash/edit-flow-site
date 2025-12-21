@@ -94,7 +94,7 @@ const StudioPreview = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-2xl font-bold text-white">Ahmed Yousuf</p>
-                    <p className="text-[#e63946] font-medium text-sm">Founder n CEO</p>
+                    <p className="text-[#e63946] font-medium text-sm">Founder & CEO</p>
                   </div>
                   <div className="h-12 w-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
                      <span className="text-xl">✍️</span>
