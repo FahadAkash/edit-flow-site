@@ -25,31 +25,44 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    { name: "Home", href: "#hero" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Case Studies", href: "#case-studies" },
-    { name: "Shorts", href: "#shorts" },
-    { name: "Founder", href: "#founder" },
-    { name: "Process", href: "#process" },
+    { name: "Home", href: "/#hero" },
+    { name: "Portfolio", href: "/#portfolio" },
+    { name: "Case Studies", href: "/#case-studies" },
+    { name: "Shorts", href: "/#shorts" },
+    { name: "Founder", href: "/#founder" },
+    { name: "Process", href: "/#process" },
+    { name: "Careers", href: "/careers" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: typeof menuItems[0]) => {
-    e.preventDefault();
-    setActiveItem(item.name);
-    const targetId = item.href.replace("#", "");
-    const elem = document.getElementById(targetId);
-    if (elem) {
-      const offset = 100;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = elem.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+    // If it's a direct page link like /careers, allow default navigation
+    if (!item.href.includes("#")) {
+      return; 
     }
+
+    const isHomePage = window.location.pathname === "/";
+    
+    // If we're on the home page and clicking a hash link, smooth scroll
+    if (isHomePage) {
+      e.preventDefault();
+      const targetId = item.href.replace(/^.*#/, "");
+      const elem = document.getElementById(targetId);
+      
+      if (elem) {
+        const offset = 100;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = elem.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+    // If not on home page, let the <a> tag handle navigation to /#section
+    
     setMobileMenuOpen(false);
   };
 
