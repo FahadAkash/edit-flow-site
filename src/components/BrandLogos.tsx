@@ -29,9 +29,9 @@ const BrandLogos = () => {
     const duplicatedItems = [...items, ...items, ...items, ...items];
     return (
       <div className="relative w-full overflow-hidden py-4">
-        {/* Gradient fades using the Brand Red (#E63946) */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[#E63946] to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[#E63946] to-transparent pointer-events-none" />
+        {/* Gradient fades using the Background Color (#050505) */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none" />
         
         <motion.div
           className="flex whitespace-nowrap items-center gap-12"
@@ -55,11 +55,14 @@ const BrandLogos = () => {
   };
 
   return (
-    <section className="w-full bg-[#E63946] py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full bg-[#050505] py-16 md:py-24 relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-[#FFB300]/5 blur-[120px] rounded-full pointer-events-none" />
+      
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
-          <p className="text-white/60 text-xs font-black uppercase tracking-[0.4em] mb-4">Trusted by Industry Leaders</p>
-          <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto" />
+          <p className="text-white/40 text-xs font-black uppercase tracking-[0.4em] mb-4">Trusted by Market Leaders</p>
+          <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#FFB300] to-transparent mx-auto" />
         </div>
 
         {/* Desktop View (Static, Centered) */}
