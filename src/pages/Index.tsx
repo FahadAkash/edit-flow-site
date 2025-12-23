@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import GrowthShowcase from "@/components/GrowthShowcase";
 import ReelsCarousel from "@/components/ReelsCarousel";
@@ -16,21 +17,34 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <HeroSection />
+    <div className="min-h-screen bg-[#050505]">
+      <Navbar />
+      <div id="hero">
+        <HeroSection />
+      </div>
       <BrandLogos />
       {/* <GrowthShowcase /> */}
       {/* <TestimonialCarousel /> */}
-       <VideoPortfolio/>
-      <CaseStudies/>
-      <ReelsCarousel/>
+      <div id="portfolio">
+        <VideoPortfolio/>
+      </div>
+      <div id="case-studies">
+        <CaseStudies/>
+      </div>
+      <div id="shorts">
+        <ReelsCarousel/>
+      </div>
       <SocialProof/>
-      <MeetTheFounder/>
+      <div id="founder">
+        <MeetTheFounder/>
+      </div>
       <StudioPreview />
       <AboutSection/>
       {/* After Effects Style Visual Break */}
       {/* <AfterEffectsBackground /> */}
-      <TimelineSection />
+      <div id="process">
+        <TimelineSection />
+      </div>
       <Footer />
     </div>
   );
