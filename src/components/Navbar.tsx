@@ -26,10 +26,10 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Home", href: "/#hero" },
-    { name: "Portfolio", href: "/#portfolio" },
-    { name: "Case Studies", href: "/#case-studies" },
+    { name: "Testimonials", href: "/#portfolio" },
+    { name: "Portfolio", href: "/#case-studies" },
     { name: "Shorts", href: "/#shorts" },
-    { name: "Founder", href: "/#founder" },
+    { name: "About us", href: "/#founder" },
     { name: "Process", href: "/#process" },
     { name: "Careers", href: "/careers" },
   ];
@@ -145,7 +145,7 @@ const Navbar = () => {
               <div className="absolute -inset-2 bg-gradient-to-r from-[#FFB300] to-[#FFA500] rounded-full blur-xl opacity-0 group-hover:opacity-50 transition duration-700" />
               
               <div className="relative bg-[#FFB300] text-black px-8 py-3 rounded-full font-black text-[11px] uppercase tracking-[0.1em] flex items-center gap-2 shadow-xl shadow-[#FFB300]/20 border border-white/30 overflow-hidden">
-                <span className="relative z-10">Hire Now</span>
+                <span className="relative z-10">HIRE US</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform stroke-[3px] relative z-10" />
                 
                 {/* High-End Shimmer Effect */}
