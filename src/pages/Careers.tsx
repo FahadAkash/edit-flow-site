@@ -61,16 +61,15 @@ const Careers = () => {
                 
                 <div className="flex-1 space-y-6">
                     <div>
-                        <h3 className="text-3xl font-bold mb-4 group-hover:text-purple-300 transition-colors duration-300">Product Designer</h3>
+                        <h3 className="text-3xl font-bold mb-4 group-hover:text-purple-300 transition-colors duration-300">Video Editor</h3>
                         <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
-                            We're looking for a skilled Product Designer to work on impactful projects, craft user-centric solutions, and guide teams with clarity. 
-                            You'll own the design process from start to finish, turning complex problems into intuitive experiences.
+                            We’re looking for a skilled Video Editor to craft high-impact content, transform raw footage into engaging stories, and elevate videos through pacing, visuals, and sound. You’ll own the editing process end-to-end, turning ideas into polished content that holds attention and delivers results.
                         </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-3 pt-2">
-                        {["UPTO BDT 80K", "2", "Full Time", "Remote"].map((tag, i) => (
-                           <span key={i} className={`bg-white/5 border border-white/5 text-white/70 px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors ${i===1 && "w-8 h-8 !p-0 flex items-center justify-center font-serif italic"}`}>
+                        {["UP TO BDT 50K", "Full Time", "In-House"].map((tag, i) => (
+                           <span key={i} className={`bg-white/5 border border-white/5 text-white/70 px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors`}>
                               {tag}
                            </span>
                         ))}
