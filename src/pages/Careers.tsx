@@ -257,55 +257,55 @@ const Careers = () => {
                         icon: <Gift className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Festival Bonuses", 
                         desc: "Values that matter. We reward hard work with festival bonuses and performance incentives. 🎁",
-                        image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop"
+                        image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop" // Gift Box
                       },
                       { 
                         icon: <Calendar className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Generous Leave Policy", 
                         desc: "Annual leaves, sick leaves, and flexible breaks for a healthy work-life balance. ✈️",
-                        image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop"
+                        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop" // Plane/Travel
                       },
                       { 
                         icon: <Plus className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Premium Resources", 
                         desc: "Full access to a massive library of premium assets, stock footage, and editing tools. 💎",
-                        image: "https://images.unsplash.com/photo-1626785774573-4b7993143a2d?q=80&w=800&auto=format&fit=crop"
+                        image: "/founder/2.png"
                       },
                       { 
                         icon: <Wifi className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Supportive Environment", 
                         desc: "A collaborative team culture with zero micro-management. We trust you. 🤝",
-                        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+                        image: "/founder/1.png"
                       },
                       { 
                         icon: <Star className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Emergency Fund", 
                         desc: "We stand by our long-term team members with financial support when life happens. 🛡️",
-                        image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=800&auto=format&fit=crop"
+                        image: "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?q=80&w=800&auto=format&fit=crop" // Abstract Shield/Protection vibe
                       },
                       { 
                         icon: <Megaphone className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Fast Skill Growth", 
                         desc: "Rapid skill development through dedicated training and international client exposure. 🚀",
-                        image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop"
+                        image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop" // Abstract Growth/Color Burst
                       },
                       { 
                         icon: <Coffee className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Snacks & Beverages", 
                         desc: "Unlimited tea, coffee, and quality snacks to keep you energized. ☕",
-                        image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop"
+                        image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" // Coffee Art
                       },
                       { 
                         icon: <Gamepad2 className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Rest & Gaming Zone", 
                         desc: "A dedicated rest zone featuring a PS5 (coming soon) for your breaks. 🎮",
-                        image: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?q=80&w=800&auto=format&fit=crop"
+                        image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop" // Neon Console
                       },
                       { 
                         icon: <Trophy className="w-6 h-6" strokeWidth={1.5} />, 
                         title: "Indoor Sports", 
                         desc: "Unwind with table tennis, pool, and other indoor games. 🏓",
-                        image: "https://images.unsplash.com/photo-1534158914592-07fc701cb5a6?q=80&w=800&auto=format&fit=crop"
+                        image: "https://images.unsplash.com/photo-1626248318376-74bb653a0673?q=80&w=800&auto=format&fit=crop" // Table Tennis
                       },
                   ].map((item, idx) => (
                       <motion.div
