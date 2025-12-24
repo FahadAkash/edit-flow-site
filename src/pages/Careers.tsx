@@ -64,15 +64,18 @@ const Careers = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="text-5xl md:text-8xl font-bold tracking-tight mb-16 text-center leading-tight"
           >
-            Be an <span className="font-serif italic font-light text-white">Editing Rockstar!</span> <br /> Like Us
+            Be an <span className="font-serif italic font-light text-white"><span className="text-red-500">Editing</span> Rockstar!</span> <br /> Like Us
           </motion.h1>
 
           {/* Job Card - Glassmorphism Masterpiece */}
-          <motion.div 
+          <motion.a 
+            href="https://forms.gle/E6gHyKiCQjVPQDiP8"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="w-full max-w-5xl group cursor-pointer"
+            className="w-full max-w-5xl group cursor-pointer block"
           >
             <div className="relative rounded-[2rem] bg-[#0A0A0A]/80 border border-white/10 p-10 md:p-14 overflow-hidden backdrop-blur-xl transition-all duration-300 hover:border-purple-500/30 hover:shadow-[0_0_50px_-15px_rgba(124,58,237,0.15)]">
               {/* Internal Glow Effect */}
@@ -128,11 +131,11 @@ const Careers = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.a>
         </div>
 
         {/* Blend Gradient to White Section */}
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-white pointer-events-none z-20" />
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-transparent to-white pointer-events-none z-20" />
       </section>
 
       {/* 2. MOTIVE & GOALS SECTION - Precise Layout Match */}
