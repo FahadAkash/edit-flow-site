@@ -57,7 +57,7 @@ const Footer = () => {
           {/* Company info */}
           <motion.div variants={itemVariants} className="md:col-span-2">
             <h3 className="text-2xl font-bold text-tape-yellow mb-4">
-              VideoCreators Pro
+              Kontent Protocol 
             </h3>
             <p className="text-white/70 mb-6 leading-relaxed">
               We're a team of creative professionals who specialize in turning raw footage 

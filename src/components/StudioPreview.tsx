@@ -28,7 +28,7 @@ const StudioPreview = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-4 left-6">
-                <span className="text-xs font-bold tracking-widest text-[#e63946] uppercase">Main Workspace</span>
+                
               </div>
             </motion.div>
 
@@ -46,7 +46,7 @@ const StudioPreview = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-4 left-6">
-                <span className="text-xs font-bold tracking-widest text-[#e63946] uppercase">Creative Corner</span>
+ 
               </div>
             </motion.div>
           </div>
@@ -76,31 +76,36 @@ const StudioPreview = () => {
             </motion.div>
           </div>
 
-          {/* Right: Founder Image */}
-          <div className="lg:col-span-4">
+          {/* Right: Modern Showcase (2 images) */}
+          <div className="lg:col-span-4 grid grid-cols-1 gap-6">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(230,57,70,0.1)] group"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group"
             >
               <img 
-                src="/founder/founder.png" 
-                alt="Ahmed Yousuf" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+                src="https://media.discordapp.net/attachments/778188386262581288/1453265213225701467/3.png?ex=694cd233&is=694b80b3&hm=93f6c41a0694be9cd2bf32b98b447d9655bd6c203e5cc19891a57212cb90818b&=&format=webp&quality=lossless&width=902&height=902" 
+                alt="Showcase 1" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
               />
-              <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/40 to-transparent">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-2xl font-bold text-white">Ahmed Yousuf</p>
-                    <p className="text-[#e63946] font-medium text-sm">Founder & CEO</p>
-                  </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                     <span className="text-xl">✍️</span>
-                  </div>
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group"
+            >
+              <img 
+                src="https://media.discordapp.net/attachments/778188386262581288/1453265214102569031/4.png?ex=694cd233&is=694b80b3&hm=3d6038f6dd79cbc7e4779a920ebbc54b6d569c8ad06df9c88e2d3f3b46c4cb69&=&format=webp&quality=lossless&width=902&height=902" 
+                alt="Showcase 2" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
             </motion.div>
           </div>
 
