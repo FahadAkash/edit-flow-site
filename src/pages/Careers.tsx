@@ -113,12 +113,11 @@ const Careers = () => {
                      {/* Scroll-Triggered Text Reveal */}
                      <div className="text-xl md:text-[1.7rem] leading-[1.6] font-medium text-gray-300 space-y-1">
                         {[
-                          "At Design Monks, we believe great design is",
-                          "where creativity meets technology. Our",
-                          "mantra? Fuse the magic of visuals with the",
-                          "logic of development. We create",
-                          "experiences that are visually aesthetic and",
-                          "effortlessly developer-friendly."
+                          "At Kontent Protocol, we believe great videos come",
+                          "from focus and intention. Our goal is",
+                          "simple: turn raw footage into clear,",
+                          "high-impact content through disciplined",
+                          "editing and high standards."
                         ].map((line, i) => (
                           <div key={i} className="overflow-hidden">
                              <motion.div
@@ -146,15 +145,14 @@ const Careers = () => {
                        whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0,0,0,0.1)" }}
                        className="bg-[#F9FAFB] p-10 rounded-[2rem] border border-gray-100 shadow-sm cursor-pointer group transition-all"
                      >
-                        <div className="flex gap-2 mb-6">
-                            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center font-bold text-xl text-blue-600">G</div>
-                            <div className="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center font-bold text-xl text-indigo-600 -ml-5 border-4 border-white">C</div>
+                        <div className="flex gap-4 mb-8 items-center">
+                            <img src="/brands/fiverrr.png" alt="Fiverr" className="h-8 md:h-10 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+                            {/* Upwork & Google Logos - Using text fallback until assets are added */}
+                            <span className="text-xl font-bold text-gray-400 group-hover:text-[#14a800] transition-colors">Upwork</span>
+                            <span className="text-xl font-bold text-gray-400 group-hover:text-[#4285F4] transition-colors">Google</span>
                         </div>
-                        <div className="flex text-yellow-500 gap-1 mb-3">
-                             {[...Array(5)].map((_, i) => <Star key={i} className="fill-current w-5 h-5" />)}
-                        </div>
-                        <h3 className="text-4xl font-bold mb-3 text-gray-900">4.9 Rating</h3>
-                        <p className="text-gray-500 text-base leading-relaxed">A premier firm renowned for its outstanding design quality and exceptional client satisfaction.</p>
+                        <h3 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900 tracking-tight">2000+</h3>
+                        <p className="text-gray-500 text-lg font-medium">5-Star Verified Reviews</p>
                      </motion.div>
 
                      {/* Stats Card */}
@@ -190,34 +188,34 @@ const Careers = () => {
                   {/* Benefit Items */}
                   {[
                       { 
-                        icon: <Wifi className="w-8 h-8" strokeWidth={1.5} />, 
-                        title: "Remote Work = Freedom", 
-                        desc: "Stop being worried about missing your bus to the office, we've been remote since day one." 
-                      },
-                      { 
                         icon: <Gift className="w-8 h-8" strokeWidth={1.5} />, 
-                        title: "Two Festival Bonuses", 
-                        desc: "Twice the celebrations, twice the bonuses. You'll get 2 yearly bonuses each worth 50% of your gross salary." 
+                        title: "Festival & Performance Bonuses", 
+                        desc: "Values that matter. We reward hard work with festival bonuses and performance-based incentives." 
                       },
                       { 
                         icon: <Calendar className="w-8 h-8" strokeWidth={1.5} />, 
-                        title: "Generous Leave Benefits", 
-                        desc: "Annual breaks, sick days, and marriage leaves, our leave policies always let you balance your life." 
-                      },
-                      { 
-                        icon: <Wifi className="w-8 h-8" strokeWidth={1.5} />, 
-                        title: "Device & Internet Allowance", 
-                        desc: "Design Monks helps employees stay productive with financial support for their devices and internet needs." 
+                        title: "Generous Leave Policy", 
+                        desc: "Annual leaves, sick leaves, and flexible breaks to help you maintain a healthy work-life balance." 
                       },
                       { 
                         icon: <Plus className="w-8 h-8" strokeWidth={1.5} />, 
-                        title: "Health & Wellness Allowance", 
-                        desc: "We prioritize your health and your family's. Our medical allowance never leaves you alone at your worst time." 
+                        title: "Premium Resources", 
+                        desc: "Full access to a massive library of premium assets, stock footage, and editing tools." 
+                      },
+                      { 
+                        icon: <Wifi className="w-8 h-8" strokeWidth={1.5} />, 
+                        title: "Supportive Environment", 
+                        desc: "A collaborative team culture with zero micro-management. We trust you to do your best work." 
                       },
                       { 
                         icon: <Star className="w-8 h-8" strokeWidth={1.5} />, 
-                        title: "Performance Bonuses", 
-                        desc: "Your hard work never goes unnoticed at Design Monks. You'll earn bonuses for outstanding contributions." 
+                        title: "Emergency Fund Loans", 
+                        desc: "We stand by our long-term team members with financial support when life happens." 
+                      },
+                      { 
+                        icon: <Megaphone className="w-8 h-8" strokeWidth={1.5} />, 
+                        title: "Fast Skill Growth", 
+                        desc: "Rapid skill development through dedicated training, constructive feedback, and international client exposure." 
                       },
                   ].map((item, idx) => (
                       <motion.div

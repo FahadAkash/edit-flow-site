@@ -55,7 +55,7 @@ const BrandLogos = () => {
   };
 
   return (
-    <section className="w-full bg-[#050505] py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full bg-[#050505] pt-4 pb-16 md:pt-8 md:pb-24 relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-[#FFB300]/5 blur-[120px] rounded-full pointer-events-none" />
       

@@ -101,7 +101,7 @@ const Footer = () => {
               </motion.div> */}
               <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-coral-accent" />
-                <span>Mirpur1 , Bangladesh</span>
+                <span>Mirpur-1 (Near Delta Hospital)</span>
               </motion.div>
             </div>
           </motion.div>
