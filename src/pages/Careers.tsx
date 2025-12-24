@@ -191,7 +191,7 @@ const Careers = () => {
                  </div>
 
                  {/* Right Cards Column - Staggered Slide In */}
-                 <div className="space-y-8 lg:mt-24">
+                 <div className="space-y-8">
                      {/* Rating Card */}
                      <motion.div
                        initial={{ opacity: 0, y: 40 }}
@@ -317,16 +317,9 @@ const Careers = () => {
                         transition={{ delay: idx * 0.1, duration: 0.5, type: "spring" }}
                         className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0A0A] h-full min-h-[300px] group"
                       >
-                          {/* Background Image with Zoom Effect */}
+                          {/* Background removed - keeping solid dark background */}
                           <div className="absolute inset-0 z-0">
-                             <motion.img 
-                               src={item.image} 
-                               alt={item.title}
-                               className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
-                               whileHover={{ scale: 1.1 }}
-                               transition={{ duration: 0.7 }}
-                             />
-                             <div className="absolute inset-0 bg-gradient-to-t from-black via-[#050505]/90 to-transparent" />
+                             <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#050505] to-black" />
                           </div>
 
                           {/* Content */}
