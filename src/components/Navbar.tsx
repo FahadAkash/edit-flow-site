@@ -134,7 +134,7 @@ const Navbar = () => {
           {/* RIGHT: Action & Mobile Toggle */}
           <div className="flex items-center gap-4">
             <motion.a
-              href="https://forms.gle/925ARc2RbCocoS5A7"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
