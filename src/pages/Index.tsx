@@ -13,6 +13,7 @@ import MeetTheFounder from "@/components/MeetTheFounder";
 import StudioPreview from "@/components/StudioPreview";
 import VideoPortfolio from "@/components/VideoPortfolio";
 import BrandLogos from "@/components/BrandLogos";
+import ManagingDirector from "@/components/ManagingDirector";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -38,6 +39,7 @@ const Index = () => {
       <div id="founder">
         <MeetTheFounder/>
       </div>
+      <ManagingDirector />
       <StudioPreview />
       <AboutSection/>
       {/* After Effects Style Visual Break */}
