@@ -32,7 +32,7 @@ const ManagingDirector = () => {
   ];
 
   return (
-    <section className="py-32 px-4 bg-[#050505] relative overflow-hidden">
+    <section className="pt-0 pb-32 px-4 bg-[#050505] relative overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,rgba(255,179,0,0.03)_0%,transparent_50%)] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(255,179,0,0.02)_0%,transparent_50%)] pointer-events-none" />
@@ -47,13 +47,13 @@ const ManagingDirector = () => {
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative order-2 lg:order-1"
+            className="lg:col-span-4 relative order-2 lg:order-1 lg:ml-auto"
           >
             <div className="relative group">
               {/* Animated Glow Border */}
               <div className="absolute -inset-1 bg-gradient-to-bl from-[#FFB300] to-[#FF8000] rounded-[60px] blur-[2px] opacity-20 group-hover:opacity-40 transition duration-1000" />
               
-              <div className="relative z-10 w-full aspect-[4/5] rounded-[50px] overflow-hidden border border-white/10 shadow-2xl bg-[#111]">
+              <div className="relative z-10 w-full aspect-square rounded-[50px] overflow-hidden border border-white/10 shadow-2xl bg-[#111]">
                 <motion.img
                   whileHover={{ scale: 1.08 }}
                   transition={{ duration: 1, ease: "easeOut" }}
@@ -83,7 +83,7 @@ const ManagingDirector = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-7 order-1 lg:order-2"
+            className="lg:col-span-8 order-1 lg:order-2"
           >
             {/* Tagline */}
             <motion.div 
@@ -118,7 +118,7 @@ const ManagingDirector = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-white/40 text-sm font-bold uppercase tracking-widest mb-12"
             >
-              Managing Director — Edit Flow
+              Managing Director
             </motion.p>
 
             {/* Narrative */}

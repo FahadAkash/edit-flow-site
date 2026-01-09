@@ -38,8 +38,8 @@ const Index = () => {
       <SocialProof/>
       <div id="founder">
         <MeetTheFounder/>
+        <ManagingDirector />
       </div>
-      <ManagingDirector />
       <StudioPreview />
       <AboutSection/>
       {/* After Effects Style Visual Break */}
