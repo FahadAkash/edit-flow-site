@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Briefcase, Target, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowRight, Linkedin, Twitter, Mail } from "lucide-react";
 
 /**
  * ManagingDirector Section
@@ -11,24 +11,6 @@ const ManagingDirector = () => {
     { icon: <Linkedin size={20} />, url: "#", label: "LinkedIn" },
     { icon: <Twitter size={20} />, url: "#", label: "Twitter" },
     { icon: <Mail size={20} />, url: "mailto:contact@editflow.com", label: "Email" }
-  ];
-
-  const highlights = [
-    { 
-      icon: <ShieldCheck className="text-[#FFB300]" size={20} />, 
-      title: "Operational Excellence",
-      desc: "Streamlining complex post-production workflows for maximum efficiency."
-    },
-    { 
-      icon: <Briefcase className="text-[#FFB300]" size={20} />, 
-      title: "Strategic Growth",
-      desc: "Scaling digital presence for creators and brands globally."
-    },
-    { 
-      icon: <Target className="text-[#FFB300]" size={20} />, 
-      title: "Visionary Leadership",
-      desc: "Directing the creative path of Edit Flow's most ambitious projects."
-    }
   ];
 
   return (
@@ -47,7 +29,7 @@ const ManagingDirector = () => {
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 relative order-2 lg:order-1 lg:ml-auto"
+            className="lg:col-span-5 relative order-2 lg:order-1"
           >
             <div className="relative group">
               {/* Animated Glow Border */}
@@ -83,7 +65,7 @@ const ManagingDirector = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-8 order-1 lg:order-2"
+            className="lg:col-span-7 order-1 lg:order-2"
           >
             {/* Tagline */}
             <motion.div 
@@ -105,7 +87,8 @@ const ManagingDirector = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-6xl md:text-8xl text-white mb-6 font-black tracking-tighter leading-[0.85]"
+              className="text-7xl md:text-9xl text-white mb-6 font-black tracking-tighter leading-[0.85]"
+              style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Esmam <br/> 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] via-[#FFD700] to-[#FF8000]">Ahsan</span>
@@ -127,30 +110,15 @@ const ManagingDirector = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-8 text-white/50 leading-relaxed text-lg max-w-2xl mb-12"
+              className="space-y-8 text-white/50 leading-relaxed text-xl font-medium max-w-2xl mb-12"
             >
-              <p className="border-l-2 border-[#FFB300]/30 pl-8">
+              <p className="border-l-2 border-[#FFB300]/30 pl-8 italic">
                 Esmam orchestrates the synergy between <span className="text-white font-bold">creative vision</span> and <span className="text-white font-bold">operational scale</span>. With a focus on delivering high-retention content at speed, he ensures every project exceeds industry standards.
               </p>
+              <p className="text-lg font-normal leading-loose pl-8">
+                Leading an elite team of editors and strategists, he has built a production ecosystem where creativity thrives without bottlenecks. His systems-first approach ensures that quality remains pristine even as project volume scales, effectively bridging the gap between artistic intent and reliable delivery.
+              </p>
             </motion.div>
-
-            {/* Feature Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-              {highlights.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5 + (idx * 0.1) }}
-                  className="p-6 bg-white/[0.02] border border-white/5 rounded-3xl hover:bg-white/[0.04] transition-colors group"
-                >
-                  <div className="mb-4 group-hover:scale-110 transition-transform">{item.icon}</div>
-                  <h4 className="text-white font-bold text-sm mb-2">{item.title}</h4>
-                  <p className="text-white/40 text-xs leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
 
             {/* Socials & CTA */}
             <div className="flex flex-wrap items-center gap-8">
