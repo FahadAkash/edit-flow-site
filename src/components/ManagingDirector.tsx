@@ -113,44 +113,7 @@ const ManagingDirector = () => {
             </motion.div>
 
             {/* Socials & CTA */}
-            <div className="flex flex-wrap items-center gap-10">
-              <motion.div 
-                className="flex items-center gap-6"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 }}
-              >
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.url}
-                    aria-label={social.label}
-                    whileHover={{ scale: 1.2, color: "#FFB300" }}
-                    className="text-white/20 transition-all hover:drop-shadow-[0_0_8px_rgba(255,179,0,0.5)]"
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-              >
-                {/* <motion.a
-                  href="#contact"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-4 bg-white/5 hover:bg-white/10 text-white px-10 py-5 rounded-2xl font-bold text-xs uppercase tracking-widest border border-white/10 transition-all shadow-xl"
-                >
-                  <span>Get in Touch</span>
-                  <ArrowRight size={18} />
-                </motion.a> */}
-              </motion.div>
-            </div>
+             
           </motion.div>
 
         </div>

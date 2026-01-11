@@ -86,7 +86,7 @@ const StudioPreview = () => {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group"
             >
               <img 
-                src="https://media.discordapp.net/attachments/778188386262581288/1453265213225701467/3.png?ex=694cd233&is=694b80b3&hm=93f6c41a0694be9cd2bf32b98b447d9655bd6c203e5cc19891a57212cb90818b&=&format=webp&quality=lossless&width=902&height=902" 
+                src="/founder/3.png" 
                 alt="Showcase 1" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
               />
@@ -101,7 +101,7 @@ const StudioPreview = () => {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group"
             >
               <img 
-                src="https://media.discordapp.net/attachments/778188386262581288/1453265214102569031/4.png?ex=694cd233&is=694b80b3&hm=3d6038f6dd79cbc7e4779a920ebbc54b6d569c8ad06df9c88e2d3f3b46c4cb69&=&format=webp&quality=lossless&width=902&height=902" 
+                src="/founder/4.png" 
                 alt="Showcase 2" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
               />
