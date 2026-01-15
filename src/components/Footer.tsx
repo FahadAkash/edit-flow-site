@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="text-center mb-12">
           <div className="sticky-note p-8 max-w-2xl mx-auto bg-card">
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
-              Ready to Go <span className="text-coral-accent">Viral?</span>
+              READY TO UPLIFT <span className="text-coral-accent">YOUR BRAND?</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-6">
               Let's create content that doesn't just get views - it drives real results for your business.

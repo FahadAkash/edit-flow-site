@@ -146,7 +146,7 @@ const MeetTheFounder = () => {
                 />
                 
                 {/* Immersive Overlay Badge */}
-                <div className="absolute bottom-8 right-8 left-8 p-8 bg-black/60 backdrop-blur-3xl border border-white/10 rounded-[35px] flex items-center gap-6 shadow-2xl translate-y-2 group-hover:translate-y-0 transition-transform duration-700">
+                {/* <div className="absolute bottom-8 right-8 left-8 p-8 bg-black/60 backdrop-blur-3xl border border-white/10 rounded-[35px] flex items-center gap-6 shadow-2xl translate-y-2 group-hover:translate-y-0 transition-transform duration-700">
                   <div className="w-16 h-16 bg-[#FFB300] rounded-2xl flex items-center justify-center shadow-lg shadow-[#FFB300]/20 rotate-3 group-hover:rotate-0 transition-transform">
                     <Zap className="text-black fill-black" size={32} />
                   </div>
@@ -154,7 +154,7 @@ const MeetTheFounder = () => {
                     <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.3em] mb-1">Impact Driven</p>
                     <p className="text-3xl font-black text-white leading-none tracking-tighter">1,500+ <span className="text-lg font-bold text-white/60">REV</span></p>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Decorative Accents */}
