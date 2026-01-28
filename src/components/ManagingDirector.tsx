@@ -14,13 +14,13 @@ const ManagingDirector = () => {
   ];
 
   return (
-    <section className="pt-32 pb-32 px-4 bg-[#050505] relative overflow-hidden">
-      {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,rgba(255,179,0,0.03)_0%,transparent_50%)] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(255,179,0,0.02)_0%,transparent_50%)] pointer-events-none" />
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#FFB300]/5 blur-[150px] rounded-full pointer-events-none" />
+    <section className="pt-40 pb-40 px-4 bg-[#050505] relative overflow-hidden">
+      {/* Background Ambience - Intensified */}
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,rgba(255,179,0,0.06)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(255,179,0,0.04)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-[#FFB300]/8 blur-[180px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 items-center">
           
           {/* Left Visual Column (5 cols) - Flipped from Founder section */}

@@ -73,7 +73,7 @@ const Navbar = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className={`w-full max-w-[1200px] pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${
+        className={`w-full max-w-[1400px] pointer-events-auto transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${
           isScrolled 
             ? "bg-black/40 backdrop-blur-2xl px-4 rounded-full border border-white/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)] scale-[0.98]" 
             : "bg-transparent px-6 rounded-none border-transparent scale-100"

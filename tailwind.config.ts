@@ -14,6 +14,9 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        "hero": ["clamp(3rem, 4.5vw, 4.8rem)", { lineHeight: "1", letterSpacing: "-0.04em" }],
+      },
       fontFamily: {
         sans: ["'Outfit'", "'Europa Grotesk SH'", 'system-ui', 'sans-serif'],
       },

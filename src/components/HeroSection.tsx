@@ -219,8 +219,8 @@ const HeroSection = () => {
       
       {/* --- TECH BACKGROUND LAYER --- */}
       
-      {/* 1. Base Grid Pattern (The "Workspace" look) */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
+      {/* 1. Base Grid Pattern (Large scale for 2K) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
       
       {/* 2. Abstract "Video Timeline" UI Elements (Floating in background) */}
       <div className="absolute top-20 left-[-5%] w-[600px] h-[400px] opacity-[0.15] pointer-events-none -rotate-12 blur-[2px] z-0 select-none hidden md:block">
@@ -270,20 +270,20 @@ const HeroSection = () => {
          className="absolute bottom-1/3 right-[45%] w-4 h-4 bg-[#FFB300] rotate-45 opacity-10 pointer-events-none z-0 hidden md:block"
        />
 
-      {/* 4. Ambient Colored Glows */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#FFB300]/10 opacity-60 blur-[130px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[60%] bg-[#212121] opacity-100 blur-[100px] rounded-full pointer-events-none z-0" />
-      <div className="absolute bottom-[20%] right-[30%] w-[20%] h-[20%] bg-[#FFB300]/5 opacity-40 blur-[80px] rounded-full pointer-events-none z-0 hidden md:block" />
+      {/* 4. Ambient Colored Glows - Cinematic Tuning for 2K */}
+      <div className="absolute top-[-5%] left-[-5%] w-[50%] h-[50%] bg-[#FFB300]/10 opacity-60 blur-[140px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[60%] bg-[#212121] opacity-90 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/4 right-[5%] w-[20%] h-[40%] bg-[#FFB300]/5 opacity-30 blur-[100px] rounded-full pointer-events-none z-0 hidden lg:block" />
 
-      {/* 5. Vignette Overlay to Focus Center */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#050505_100%)] pointer-events-none z-10" />
+      {/* 5. Softer Vignette Overlay (Less 'dull' corners on 2K) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#050505_120%)] pointer-events-none z-10" />
 
 
-      <div className="w-full px-4 lg:px-6 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          {/* Left Content - Takes full width on mobile, 5 columns on desktop */}
-          <div className="lg:col-span-5 relative z-10 pl-0 md:pl-2">
+          {/* Left Content - Adjusted to 6 columns for better text flow on 2K */}
+          <div className="lg:col-span-6 relative z-10 pl-0 md:pl-2">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -303,10 +303,10 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-hero font-bold leading-[1.1] mb-6 tracking-tight text-center md:text-left"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-hero font-bold leading-[1.05] mb-8 tracking-tighter text-center md:text-left"
               style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}
             >
-              Reach a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85]">Loyal, Paying Audience</span> on YouTube in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85]">Just 30 Days</span> <br/> <span className="text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mt-2 block">– Completely Hands-Off & Done-For-You</span>
+              Reach a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85] animate-gradient">Loyal, Paying Audience</span> on YouTube in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85] animate-gradient">Just 30 Days</span> <br/> <span className="text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium mt-4 block">– Completely Hands-Off & Done-For-You</span>
             </motion.h1>
 
             {/* Subtext */}
@@ -314,7 +314,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-base sm:text-lg text-gray-400 mb-8 max-w-lg leading-relaxed font-light text-center md:text-left mx-auto md:mx-0"
+              className="text-lg sm:text-xl text-gray-400 mb-10 max-w-xl leading-relaxed font-light text-center md:text-left mx-auto md:mx-0"
             >
               Scaling brands for <span className="text-gray-200 font-medium">niche authorities</span> with world class organic content. 
               Currently working with personal brands, funded startups, Crypto/trading ventures.
@@ -410,8 +410,8 @@ const HeroSection = () => {
 
           </div>
 
-          {/* Right - Scrolling Client Images - Takes full width on mobile, 7 columns on desktop */}
-          <div className="lg:col-span-7 relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden mask-gradient-vertical mt-6 md:mt-10 lg:mt-0">
+          {/* Right - Scrolling Client Images - Adjusted to 6 columns */}
+          <div className="lg:col-span-6 relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden mask-gradient-vertical mt-6 md:mt-10 lg:mt-0">
              {/* Gradient Masks for Top/Bottom Fading */}
              <div className="absolute top-0 left-0 right-0 h-16 sm:h-20 lg:h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20 pointer-events-none" />
              <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
