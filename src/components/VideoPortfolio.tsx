@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Play, Volume2 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const VideoPortfolio = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
   const portfolioItems = [
     {
@@ -65,9 +67,10 @@ const VideoPortfolio = () => {
      
   ];
 
-  /* Reset mute state when changing slides */
+  /* Reset playing state when changing slides */
   useEffect(() => {
     setIsMuted(true);
+    setIsPlaying(false);
   }, [currentIndex]);
 
   const nextSlide = () => {
@@ -170,11 +173,14 @@ const VideoPortfolio = () => {
                     {/* Video Player */}
                     <div className="absolute inset-0 bg-black">
                       <video
+                        ref={(el) => (videoRefs.current[item.id] = el)}
                         src={item.video}
                         autoPlay
                         muted={isCenter ? isMuted : true}
                         loop
                         playsInline
+                        controlsList="nodownload"
+                        onContextMenu={(e) => e.preventDefault()}
                         className="w-full h-full object-cover opacity-80"
                       />
                     </div>
@@ -182,19 +188,43 @@ const VideoPortfolio = () => {
                     {/* Simple Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
                     
-                    {/* Play Button Overlay (Center only) */}
+                    {/* Watermark - Center Bottom (Shifted Up) */}
+                    <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 text-center opacity-25 pointer-events-none select-none">
+                      <div className="text-white text-sm font-black tracking-wider leading-tight">
+                        AHMED YOUSUF
+                      </div>
+                      <div className="text-white/80 text-[10px] font-bold tracking-widest">
+                        KONTENT PROTOCOL
+                      </div>
+                    </div>
+                    
+                    {/* Play/Pause Button Overlay (Center only) */}
                      {isCenter && (
                       <div 
                         onClick={(e) => {
                           e.stopPropagation();
-                          setIsMuted(!isMuted);
+                          const video = videoRefs.current[item.id];
+                          if (video) {
+                            if (isPlaying) {
+                              // Pause video
+                              video.pause();
+                              setIsPlaying(false);
+                            } else {
+                              // Play video from start with sound
+                              video.currentTime = 0;
+                              video.muted = false;
+                              setIsMuted(false);
+                              video.play();
+                              setIsPlaying(true);
+                            }
+                          }
                         }}
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all cursor-pointer group z-30 border border-white/20"
                       >
-                        {isMuted ? (
-                          <Play className="w-6 h-6 text-white ml-1 fill-white group-hover:scale-110 transition-transform" />
+                        {isPlaying ? (
+                          <Pause className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
                         ) : (
-                          <Volume2 className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                          <Play className="w-6 h-6 text-white ml-1 fill-white group-hover:scale-110 transition-transform" />
                         )}
                       </div>
                      )}

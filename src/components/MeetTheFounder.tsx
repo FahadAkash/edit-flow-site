@@ -53,12 +53,22 @@ const MeetTheFounder = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-7xl md:text-9xl text-white mb-10 font-black tracking-tighter leading-[0.85]"
+              className="text-7xl md:text-9xl text-white mb-6 font-black tracking-tighter leading-[0.85]"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Ahmed <br/> 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] via-[#FFD700] to-[#FF8000]">Yousuf</span>
             </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-white/40 text-sm font-bold uppercase tracking-widest mb-12"
+            >
+              Founder and CEO
+            </motion.p>
 
             {/* Social Engagement Bar */}
             <motion.div 
