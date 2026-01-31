@@ -212,7 +212,7 @@ const ReelsCarousel = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-900/20 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-[1600px] mx-auto relative z-10">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
           <motion.span 
@@ -226,7 +226,7 @@ const ReelsCarousel = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight"
+            className="text-5xl md:text-7xl 2xl:text-9xl font-bold text-white mb-8 tracking-tight"
           >
             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-[#ff6b6b]">Works</span>
           </motion.h2>
@@ -239,7 +239,7 @@ const ReelsCarousel = () => {
                 onClick={() => handleTabChange(tab.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-5 py-2 md:px-8 md:py-4 rounded-full font-medium text-sm md:text-lg transition-all duration-300 relative overflow-hidden ${
+                className={`px-5 py-2 md:px-8 md:py-4 2xl:px-12 2xl:py-6 rounded-full font-medium text-sm md:text-lg 2xl:text-2xl transition-all duration-300 relative overflow-hidden ${
                   activeTab === tab.id
                     ? 'text-white shadow-xl shadow-red-900/40'
                     : 'text-gray-400 hover:text-white hover:bg-white/10 bg-white/5 backdrop-blur-sm border border-white/10'
@@ -267,7 +267,7 @@ const ReelsCarousel = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 min-[2000px]:grid-cols-5 gap-8 md:gap-10 2xl:gap-16"
           >
             {currentVideos.map((video) => (
               <motion.div

@@ -67,20 +67,20 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="py-12 px-4 bg-[#f6f7eb]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+    <section className="py-24 px-4 bg-[#f6f7eb]">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20">
+        <div className="text-center mb-16 2xl:mb-24">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="sticky-peach push-pin p-8 max-w-2xl mx-auto"
+            className="sticky-peach push-pin p-8 md:p-12 2xl:p-16 max-w-2xl 2xl:max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            <h2 className="text-4xl md:text-5xl 2xl:text-7xl font-bold text-black mb-4">
               Why Choose <span className="text-[#d72638]">Us?</span>
             </h2>
-            <p className="text-xl text-gray-700">
+            <p className="text-xl 2xl:text-3xl text-gray-700">
               We're not just another video editing service. Here's what makes us different.
             </p>
           </motion.div>

@@ -152,16 +152,16 @@ const SocialProof = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-paper-noise">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-4 bg-paper-noise overflow-hidden">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16 2xl:mb-24">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-normal text-black mb-4"
+            className="text-4xl md:text-6xl 2xl:text-9xl font-normal text-black mb-4"
           >
             Client <span className="text-coral-accent">Results</span>
           </motion.h2>
@@ -170,7 +170,7 @@ const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl 2xl:text-3xl text-gray-600 max-w-4xl mx-auto mt-4"
           >
             Real feedback from real clients across all platforms
           </motion.p>
@@ -182,7 +182,7 @@ const SocialProof = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-auto gap-4" 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 min-[2000px]:grid-cols-6 auto-rows-auto gap-4 md:gap-6 2xl:gap-8" 
           style={{ gridAutoFlow: 'dense' }}
         >
           <AnimatePresence>

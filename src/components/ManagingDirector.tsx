@@ -20,7 +20,7 @@ const ManagingDirector = () => {
       <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(255,179,0,0.04)_0%,transparent_50%)] pointer-events-none" />
       <div className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-[#FFB300]/8 blur-[180px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 items-center">
           
           {/* Left Visual Column (5 cols) - Flipped from Founder section */}
@@ -81,7 +81,7 @@ const ManagingDirector = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-5xl md:text-7xl text-white mb-6 font-black tracking-tighter leading-[0.85]"
+              className="text-5xl md:text-7xl 2xl:text-9xl text-white mb-6 font-black tracking-tighter leading-[0.85]"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Esmam <br/> 
@@ -93,7 +93,7 @@ const ManagingDirector = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-white/40 text-sm font-bold uppercase tracking-widest mb-12"
+              className="text-white/40 text-sm 2xl:text-2xl font-bold uppercase tracking-widest mb-12"
             >
               Managing Director
             </motion.p>
@@ -104,7 +104,7 @@ const ManagingDirector = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-8 text-white/50 leading-relaxed text-xl font-medium max-w-4xl mb-12"
+              className="space-y-8 text-white/50 leading-relaxed text-xl 2xl:text-4xl font-medium max-w-4xl 2xl:max-w-6xl mb-12"
             >
               <p className="border-l-2 border-[#FFB300]/30 pl-8 italic">
                 Esmam orchestrates the synergy between <span className="text-white font-bold">creative vision</span> and <span className="text-white font-bold">operational scale</span>. With a focus on delivering high-retention content at speed, he ensures every project exceeds industry standards.

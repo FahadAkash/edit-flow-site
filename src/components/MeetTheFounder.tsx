@@ -22,7 +22,7 @@ const MeetTheFounder = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(255,179,0,0.04)_0%,transparent_50%)] pointer-events-none" />
       <div className="absolute -bottom-24 -right-24 w-[500px] h-[500px] bg-[#FFB300]/12 blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 items-center">
           
           {/* Left Content Column (7 cols) */}
@@ -53,7 +53,7 @@ const MeetTheFounder = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-7xl md:text-9xl text-white mb-6 font-black tracking-tighter leading-[0.85]"
+              className="text-7xl md:text-9xl 2xl:text-[12rem] text-white mb-6 font-black tracking-tighter leading-[0.85]"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Ahmed <br/> 
@@ -65,7 +65,7 @@ const MeetTheFounder = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-white/40 text-sm font-bold uppercase tracking-widest mb-12"
+              className="text-white/40 text-sm 2xl:text-2xl font-bold uppercase tracking-widest mb-12"
             >
               Founder and CEO
             </motion.p>
@@ -102,12 +102,12 @@ const MeetTheFounder = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="space-y-8 text-white/50 leading-relaxed text-xl font-medium max-w-2xl"
+              className="space-y-8 text-white/50 leading-relaxed text-xl 2xl:text-4xl font-medium max-w-2xl 2xl:max-w-6xl"
             >
               <p className="border-l-2 border-[#FFB300]/30 pl-8 italic">
                 Ahmed is the founder of <span className="text-white font-bold tracking-tight">Kontent Protocol</span>, a results-driven agency helping entrepreneurs transform educational content into high-converting digital assets.
               </p>
-              <p className="text-lg font-normal leading-loose pl-8">
+              <p className="text-lg 2xl:text-3xl font-normal leading-loose pl-8">
                 Specializing in premium video systems for industry titans like <span className="text-white">Coursera</span>, <span className="text-[#FFB300]">Neutonic</span>, and <span className="text-white">Microsoft</span>, Ahmed's team blends cinematic storytelling with AI-driven strategies to dominate digital attention.
               </p>
             </motion.div>

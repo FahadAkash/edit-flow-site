@@ -100,14 +100,14 @@ const VideoPortfolio = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="max-w-[1400px] mx-auto px-4"
+        className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20"
       >
-        <h2 className="text-4xl md:text-5xl  text-center mb-16 text-foreground">
+        <h2 className="text-4xl md:text-5xl 2xl:text-7xl text-center mb-16 text-foreground">
           What Our <span className="text-primary">Client Says</span>
         </h2>
         
         {/* Circular Arc Cards Container */}
-        <div className="relative w-full h-[600px] flex items-center justify-center">
+        <div className="relative w-full h-[600px] 2xl:h-[800px] flex items-center justify-center">
 
           {/* Cards positioned along arc */}
           <div className="relative w-full h-full flex items-center justify-center perspective-[1000px]">
@@ -120,10 +120,13 @@ const VideoPortfolio = () => {
                 if (isCenter) {
                   return { x: 0, z: 0, rotate: 0, scale: 1, opacity: 1, filter: "blur(0px)" };
                 } else if (isLeft) {
-                  return { x: -380, z: -100, rotate: -15, scale: 0.85, opacity: 0.4, filter: "blur(4px)" };
+                  // Scale X position for larger screens
+                  const xPos = typeof window !== 'undefined' && window.innerWidth > 2000 ? -550 : -380;
+                  return { x: xPos, z: -100, rotate: -15, scale: 0.85, opacity: 0.4, filter: "blur(4px)" };
                 } else {
                   // isRight
-                  return { x: 380, z: -100, rotate: 15, scale: 0.85, opacity: 0.4, filter: "blur(4px)" };
+                  const xPos = typeof window !== 'undefined' && window.innerWidth > 2000 ? 550 : 380;
+                  return { x: xPos, z: -100, rotate: 15, scale: 0.85, opacity: 0.4, filter: "blur(4px)" };
                 }
               };
 
@@ -145,7 +148,7 @@ const VideoPortfolio = () => {
                     filter: "brightness(1.1)",
                     transition: { duration: 0.2 }
                   }}
-                  className={`absolute w-[320px] h-[560px] rounded-3xl overflow-hidden shadow-2xl ${item.bgColor} border border-white/10`}
+                  className={`absolute w-[320px] h-[560px] 2xl:w-[450px] 2xl:h-[750px] rounded-3xl overflow-hidden shadow-2xl ${item.bgColor} border border-white/10`}
                 >
                   <motion.div 
                     className="relative w-full h-full"
@@ -237,7 +240,7 @@ const VideoPortfolio = () => {
         </div>
 
         {/* Active Testimonial / Detail Box */}
-        <div className="max-w-3xl mx-auto mt-12 relative z-20">
+        <div className="max-w-3xl 2xl:max-w-5xl mx-auto mt-12 2xl:mt-24 relative z-20">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentIndex}
@@ -245,11 +248,11 @@ const VideoPortfolio = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left shadow-2xl"
+                    className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-10 2xl:p-16 flex flex-col md:flex-row gap-8 2xl:gap-16 items-center md:items-start text-center md:text-left shadow-2xl"
                 >
                     {/* Profile Image */}
                     <div className="relative shrink-0">
-                        <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-br from-primary via-purple-500 to-blue-500">
+                        <div className="w-24 h-24 2xl:w-32 2xl:h-32 rounded-full p-1 bg-gradient-to-br from-primary via-purple-500 to-blue-500">
                             <div className="w-full h-full rounded-full overflow-hidden border-2 border-black bg-black">
                                 <img 
                                     src={portfolioItems[currentIndex].profileImage} 
@@ -262,19 +265,19 @@ const VideoPortfolio = () => {
                             </div>
                         </div>
                         <div className="absolute -bottom-2 -right-2 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5 shadow-lg">
-                            <span className="text-secondary font-normal text-sm">{portfolioItems[currentIndex].flowers}</span>
+                            <span className="text-secondary font-normal text-sm 2xl:text-base">{portfolioItems[currentIndex].flowers}</span>
                         </div>
                     </div>
 
                     {/* Content */}
-                    <div className="flex-1 space-y-4">
+                    <div className="flex-1 space-y-4 2xl:space-y-8">
                         <div className="space-y-1">
-                            <h3 className="text-2xl font-normal text-white">{portfolioItems[currentIndex].name}</h3>
-                            <p className="text-primary font-normal">{portfolioItems[currentIndex].company}</p>
+                            <h3 className="text-2xl 2xl:text-4xl font-normal text-white">{portfolioItems[currentIndex].name}</h3>
+                            <p className="text-primary 2xl:text-2xl font-normal">{portfolioItems[currentIndex].company}</p>
                         </div>
                         
                         <div className="relative">
-                            <p className="text-gray-300 text-lg leading-relaxed italic">
+                            <p className="text-gray-300 text-lg 2xl:text-2xl leading-relaxed italic">
                                 "{portfolioItems[currentIndex].testimonial}"
                             </p>
                         </div>

@@ -279,22 +279,22 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#050505_120%)] pointer-events-none z-10" />
 
 
-      <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="w-full max-w-[2800px] mx-auto px-4 md:px-8 xl:px-16 2xl:px-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 items-center">
           
           {/* Left Content - Adjusted to 6 columns for better text flow on 2K */}
-          <div className="lg:col-span-6 relative z-10 pl-0 md:pl-2">
+          <div className="lg:col-span-6 2xl:col-span-5 relative z-10 pl-0 md:pl-2">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-2 flex justify-center md:justify-start"
+              className="mb-4 flex justify-center md:justify-start"
             >
               <img 
                 src="/logo/logo.png" 
                 alt="Metro Media House" 
-                className="h-16 md:h-20 w-auto object-contain opacity-90"
+                className="h-16 md:h-20 2xl:h-28 w-auto object-contain opacity-90"
               />
             </motion.div>
 
@@ -303,10 +303,10 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-hero font-bold leading-[1.05] mb-8 tracking-tighter text-center md:text-left"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-hero 2xl:text-[5.5rem] min-[2000px]:text-[7rem] font-bold leading-[1.05] mb-8 tracking-tighter text-center md:text-left"
               style={{ fontFamily: "'Inter', -apple-system, sans-serif" }}
             >
-              Reach a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85] animate-gradient">Loyal, Paying Audience</span> on YouTube in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85] animate-gradient">Just 30 Days</span> <br/> <span className="text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-5xl font-medium mt-4 block">– Completely Hands-Off & Done-For-You</span>
+              Reach a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85] animate-gradient">Loyal, Paying Audience</span> on YouTube in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB300] to-[#FFDA85] animate-gradient">Just 30 Days</span> <br/> <span className="text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl font-medium mt-4 block">– Completely Hands-Off & Done-For-You</span>
             </motion.h1>
 
             {/* Subtext */}
@@ -314,7 +314,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg sm:text-xl text-gray-400 mb-10 max-w-xl leading-relaxed font-light text-center md:text-left mx-auto md:mx-0"
+              className="text-lg sm:text-xl 2xl:text-2xl text-gray-400 mb-10 max-w-xl 2xl:max-w-3xl leading-relaxed font-light text-center md:text-left mx-auto md:mx-0"
             >
               Scaling brands for <span className="text-gray-200 font-medium">niche authorities</span> with world class organic content. 
               Currently working with personal brands, funded startups, Crypto/trading ventures.
@@ -339,7 +339,7 @@ const HeroSection = () => {
                     <img 
                       src={item.src} 
                       alt="Entrepreneur" 
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-black object-cover ring-2 ring-white/10"
+                      className="w-10 h-10 sm:w-12 sm:h-12 2xl:w-16 2xl:h-16 rounded-full border-2 border-black object-cover ring-2 ring-white/10"
                     />
                   </motion.div>
                 ))}
@@ -348,7 +348,7 @@ const HeroSection = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.9 }}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-black bg-gradient-to-br from-[#FFB300] to-[#FF9000] flex items-center justify-center text-black font-bold text-xs shadow-lg z-10"
+                  className="w-10 h-10 sm:w-12 sm:h-12 2xl:w-16 2xl:h-16 rounded-full border-2 border-black bg-gradient-to-br from-[#FFB300] to-[#FF9000] flex items-center justify-center text-black font-bold text-xs 2xl:text-sm shadow-lg z-10"
                 >
                   500+
                 </motion.div>
@@ -357,12 +357,12 @@ const HeroSection = () => {
               <div className="flex flex-col items-center md:items-start">
                 <div className="flex gap-1 mb-2">
                   {[1,2,3,4,5].map(i => (
-                    <svg key={i} className="w-4 h-4 text-[#FFB300] fill-current" viewBox="0 0 20 20">
+                    <svg key={i} className="w-4 h-4 2xl:w-6 2xl:h-6 text-[#FFB300] fill-current" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <p className="text-white/60 text-sm font-medium text-center md:text-left">
+                <p className="text-white/60 text-sm 2xl:text-lg font-medium text-center md:text-left">
                   Trusted by top entrepreneurs
                 </p>
               </div>
@@ -379,10 +379,10 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative bg-[#FFB300] hover:bg-[#ffae00] text-black px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-xl shadow-[#FFB300]/20 flex items-center gap-2 sm:gap-3 transition-all w-full sm:w-auto justify-center"
+                className="relative bg-[#FFB300] hover:bg-[#ffae00] text-black px-6 py-3 sm:px-8 sm:py-4 2xl:px-12 2xl:py-6 rounded-xl font-bold text-base sm:text-lg 2xl:text-2xl shadow-xl shadow-[#FFB300]/20 flex items-center gap-2 sm:gap-3 transition-all w-full sm:w-auto justify-center"
               >
                 Book a Discovery Call
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 2xl:w-8 2xl:h-8 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </motion.button>
@@ -404,17 +404,17 @@ const HeroSection = () => {
                     />
                     <polygon points="68,16 75,20 68,24" fill="white" opacity="0.4" />
                   </svg>
-                 <span className="text-white/40 font-handwriting text-sm absolute top-2 left-6 -rotate-12 whitespace-nowrap">It's Free</span>
+                 <span className="text-white/40 font-handwriting text-sm 2xl:text-lg absolute top-2 left-6 -rotate-12 whitespace-nowrap">It's Free</span>
               </motion.div>
             </motion.div>
 
           </div>
 
           {/* Right - Scrolling Client Images - Adjusted to 6 columns */}
-          <div className="lg:col-span-6 relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] overflow-hidden mask-gradient-vertical mt-6 md:mt-10 lg:mt-0">
+          <div className="lg:col-span-6 2xl:col-span-7 relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[850px] 2xl:h-[1100px] overflow-hidden mask-gradient-vertical mt-6 md:mt-10 lg:mt-0">
              {/* Gradient Masks for Top/Bottom Fading */}
-             <div className="absolute top-0 left-0 right-0 h-16 sm:h-20 lg:h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-20 pointer-events-none" />
-             <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 lg:h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
+             <div className="absolute top-0 left-0 right-0 h-16 sm:h-20 lg:h-24 2xl:h-32 bg-gradient-to-b from-black/90 via-black/50 to-transparent z-20 pointer-events-none" />
+             <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 lg:h-24 2xl:h-32 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-20 pointer-events-none" />
 
             <div className="flex gap-2 sm:gap-3 lg:gap-5 h-full transform opacity-90 hover:opacity-100 transition-opacity duration-700 justify-center">
               
@@ -449,8 +449,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
-
     </section>
   );
 };

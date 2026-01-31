@@ -21,25 +21,25 @@ const Footer = () => {
 
   return (
     <footer className="py-12 px-4 bg-background text-white overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20">
         {/* Main CTA */}
-        <div className="text-center mb-12">
-          <div className="sticky-note p-8 max-w-2xl mx-auto bg-card">
-            <h2 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
+        <div className="text-center mb-12 2xl:mb-24">
+          <div className="sticky-note p-8 md:p-12 2xl:p-20 max-w-2xl 2xl:max-w-6xl mx-auto bg-card">
+            <h2 className="text-4xl md:text-5xl 2xl:text-8xl font-bold text-charcoal mb-4">
               READY TO UPLIFT <span className="text-coral-accent">YOUR BRAND?</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-6">
+            <p className="text-xl md:text-2xl 2xl:text-4xl text-muted-foreground mb-6 2xl:mb-12">
               Let's create content that doesn't just get views - it drives real results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="text-lg px-8 w-full sm:w-auto">
-                  Start Your Project
+                <Button size="lg" className="text-lg 2xl:text-3xl px-8 2xl:px-16 2xl:py-6 w-full sm:w-auto h-auto">
+                   Start Your Project
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button variant="outline" size="lg" className="text-lg px-8 w-full sm:w-auto">
-                  Book Free Consultation
+                <Button variant="outline" size="lg" className="text-lg 2xl:text-3xl px-8 2xl:px-16 2xl:py-6 w-full sm:w-auto h-auto">
+                   Book Free Consultation
                 </Button>
               </motion.div>
             </div>

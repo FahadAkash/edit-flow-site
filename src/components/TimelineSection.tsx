@@ -117,9 +117,9 @@ const ProcessTimeline = () => {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 2xl:mb-32">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +127,7 @@ const ProcessTimeline = () => {
             className="inline-block relative"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-red-200 to-gray-200 rounded-lg blur opacity-30"></div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 relative ink-text text-[#0a0908]">
+            <h2 className="text-5xl md:text-6xl 2xl:text-9xl font-bold mb-6 relative ink-text text-[#0a0908]">
               Our <span className="text-[#d72638] relative inline-block">
                 Process
                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#d72638] -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -141,7 +141,7 @@ const ProcessTimeline = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-[#0a0908]/80 max-w-2xl mx-auto font-medium"
+            className="text-xl md:text-2xl 2xl:text-4xl text-[#0a0908]/80 max-w-4xl mx-auto font-medium"
           >
             From concept to viral sensation in 5 simple steps
           </motion.p>
@@ -210,11 +210,11 @@ const ProcessTimeline = () => {
                     >
                       <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300 border border-[#d72638]/20 shadow-sm bg-white hover:bg-gray-50">
                         <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${item.color}`} />
-                        <div className="p-8">
-                          <h3 className="text-2xl font-bold text-[#0a0908] mb-3 group-hover:text-[#d72638] transition-colors">
+                        <div className="p-8 2xl:p-16">
+                          <h3 className="text-2xl 2xl:text-5xl font-bold text-[#0a0908] mb-3 group-hover:text-[#d72638] transition-colors">
                             {item.title}
                           </h3>
-                          <p className="text-[#0a0908]/70 leading-relaxed text-lg">
+                          <p className="text-[#0a0908]/70 leading-relaxed text-lg 2xl:text-3xl">
                             {item.description}
                           </p>
                         </div>

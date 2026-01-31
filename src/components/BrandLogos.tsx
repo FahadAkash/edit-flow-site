@@ -59,7 +59,7 @@ const BrandLogos = () => {
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-[#FFB300]/5 blur-[120px] rounded-full pointer-events-none" />
       
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+      <div className="max-w-[2800px] mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-12">
           <p className="text-white/40 text-xs font-black uppercase tracking-[0.4em] mb-4">Trusted by Market Leaders</p>
           <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#FFB300] to-transparent mx-auto" />
@@ -67,7 +67,7 @@ const BrandLogos = () => {
 
         {/* Desktop View (Static, Centered) */}
         <div className="hidden md:flex flex-col gap-12">
-          <div className="flex items-center justify-center gap-24 lg:gap-32">
+          <div className="flex items-center justify-center gap-24 lg:gap-32 xl:gap-40">
             {otherbrands.map((brand, idx) => (
               <motion.div 
                 key={`row1-${idx}`} 
@@ -85,7 +85,7 @@ const BrandLogos = () => {
               </motion.div>
             ))}
           </div>
-          <div className="flex items-center justify-center gap-24 lg:gap-32">
+          <div className="flex items-center justify-center gap-24 lg:gap-32 xl:gap-40">
             {[...brands].reverse().map((brand, idx) => (
               <motion.div 
                 key={`row2-${idx}`} 

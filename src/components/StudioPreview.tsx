@@ -9,7 +9,7 @@ const StudioPreview = () => {
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-red-900/10 blur-[100px] rounded-full" />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+      <div className="max-w-[2800px] mx-auto px-4 md:px-12 2xl:px-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left: Office Images (2 images) */}
@@ -59,18 +59,18 @@ const StudioPreview = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-[#e63946] font-bold tracking-widest uppercase text-sm mb-4">Quality Over Gigs</h3>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">Stop Hiring <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-red-400">Freelancers!!!</span></h2>
+              <h3 className="text-[#e63946] font-bold tracking-widest uppercase text-sm 2xl:text-2xl mb-4">Quality Over Gigs</h3>
+              <h2 className="text-4xl md:text-5xl 2xl:text-8xl font-bold mb-8 leading-tight">Stop Hiring <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e63946] to-red-400">Freelancers!!!</span></h2>
               
-              <div className="space-y-6 text-left max-w-sm mx-auto">
-                <p className="text-gray-200 text-lg leading-relaxed font-medium">
-                  We work with a dedicated <span className="text-white border-b-2 border-[#e63946]">in-house team</span> that operates full-time, not scattered freelancers.
+              <div className="space-y-6 text-left max-w-sm 2xl:max-w-2xl mx-auto">
+                <p className="text-gray-200 text-lg 2xl:text-3xl leading-relaxed font-medium">
+                   We work with a dedicated <span className="text-white border-b-2 border-[#e63946]">in-house team</span> that operates full-time, not scattered freelancers.
                 </p>
-                <p className="text-gray-400 text-base leading-relaxed">
-                  Every project follows a structured workflow with internal quality checks, ensuring consistency, reliability, and high standards. 
+                <p className="text-gray-400 text-base 2xl:text-2xl leading-relaxed">
+                   Every project follows a structured workflow with internal quality checks, ensuring consistency, reliability, and high standards. 
                 </p>
-                <p className="text-gray-400 text-base leading-relaxed">
-                  We take your work seriously, meet deadlines, and treat your content as a long-term partnership, not a quick gig — which has helped us maintain a <span className="text-white font-bold">4.9/5-star rating</span> across major platforms like Fiverr and Upwork.
+                <p className="text-gray-400 text-base 2xl:text-2xl leading-relaxed">
+                   We take your work seriously, meet deadlines, and treat your content as a long-term partnership, not a quick gig — which has helped us maintain a <span className="text-white font-bold">4.9/5-star rating</span> across major platforms like Fiverr and Upwork.
                 </p>
               </div>
             </motion.div>

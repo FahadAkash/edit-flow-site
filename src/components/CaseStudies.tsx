@@ -179,7 +179,7 @@ const CaseStudies = () => {
       viewport={{ once: true }}
       className="py-12 px-4 bg-[#d72638]"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[2800px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10">
           <motion.h2 
@@ -187,7 +187,7 @@ const CaseStudies = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-normal text-foregorund"
+            className="text-4xl md:text-6xl 2xl:text-8xl font-normal text-foregorund"
           >
             <span className="text-white">Success</span> Stories
           </motion.h2>
@@ -196,14 +196,14 @@ const CaseStudies = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-white/90"
+            className="text-xl md:text-2xl 2xl:text-3xl text-white/90 mt-4"
           >
             Real challenges, creative solutions, measurable results
           </motion.p>
         </div>
 
         {/* Video and Client Comments */}
-        <div className="max-w-5xl mx-auto relative overflow-hidden">
+        <div className="max-w-[1600px] 2xl:max-w-[2000px] mx-auto relative overflow-hidden">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentIndex}
@@ -221,7 +221,7 @@ const CaseStudies = () => {
               <div className="mb-6 flex justify-center">
                 <div className={`relative ${
                   currentCase.videoFormat === "short" 
-                    ? "aspect-[9/16] w-full max-w-md" 
+                    ? "aspect-[9/16] w-full max-w-md 2xl:max-w-xl" 
                     : "aspect-video w-full"
                 } bg-black/10 rounded-2xl overflow-hidden group border-8 border-white/20 shadow-lg`}>
                   {currentCase.videoUrl ? (
@@ -267,10 +267,10 @@ const CaseStudies = () => {
               </div>
 
               {/* Client Comment Card */}
-              <div className="bg-white p-8 max-w-3xl mx-auto rounded-xl shadow-2xl rotate-[-1deg] border border-black/5 transform hover:rotate-0 transition-transform duration-300">
+              <div className="bg-white p-8 md:p-12 2xl:p-16 max-w-3xl 2xl:max-w-5xl mx-auto rounded-xl shadow-2xl rotate-[-1deg] border border-black/5 transform hover:rotate-0 transition-transform duration-300">
                 <div className="flex flex-col items-center">
                   {/* Client Avatar */}
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[#d72638]/20 mb-4">
+                  <div className="w-20 h-20 2xl:w-28 2xl:h-28 rounded-full overflow-hidden border-4 border-[#d72638]/20 mb-4">
                     <img 
                       src={currentCase.clientAvatar}
                       alt={currentCase.client}
@@ -280,16 +280,16 @@ const CaseStudies = () => {
 
                   {/* Client Name */}
                   <div className="text-center mb-4">
-                    <h4 className="text-2xl font-bold text-black mb-1">
+                    <h4 className="text-2xl 2xl:text-4xl font-bold text-black mb-1">
                       {currentCase.client}
                     </h4>
-                    <p className="text-gray-500 font-medium">
+                    <p className="text-gray-500 2xl:text-xl font-medium">
                       {currentCase.clientRole}
                     </p>
                   </div>
 
                   {/* Comment Text */}
-                  <p className="text-gray-700 text-lg leading-relaxed text-center italic">
+                  <p className="text-gray-700 text-lg 2xl:text-2xl leading-relaxed text-center italic">
                     "{currentCase.comment}"
                   </p>
                 </div>
