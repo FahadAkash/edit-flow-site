@@ -15,10 +15,10 @@ const VideoPortfolio = () => {
       flowers: "2.4M",
       logo: { text: "M", color: "from-purple-500 to-blue-500" },
       company: "",
-      video: "/testmonial/Mellanda Review.mp4",
+      video: "/testimonials/Mellanda Review.mp4",
       bgColor: "bg-black",
       testimonial: "Ahmed’s been a huge help as I grow my business. Quality is consistently strong, communication is smooth, and everything gets delivered on time. Super reliable team they are.",
-      profileImage: "/testmonial/testmonial_pic/Mellanda Review 0-2 screenshot.png"
+      profileImage: "/testimonials/testimonial_pics/Mellanda Review 0-2 screenshot.png"
     },
     {
       id: 2,
@@ -26,10 +26,10 @@ const VideoPortfolio = () => {
       flowers: "1.8M",
       logo: { text: "B", color: "from-yellow-500 to-orange-500" },
       company: "Internet Entrepreneur and Politician",
-      video: "/testmonial/Bryan Review.mp4",
+      video: "/testimonials/Bryan Review.mp4",
       bgColor: "bg-zinc-900",
       testimonial: "Professional, fast, and exactly the vibe we needed. Highly recommended for any serious creator.",
-      profileImage: "/testmonial/testmonial_pic/brayen.png"
+      profileImage: "/testimonials/testimonial_pics/brayen.png"
     },
     {
       id: 3,
@@ -37,10 +37,10 @@ const VideoPortfolio = () => {
       flowers: "500K",
       logo: { text: "M", color: "from-green-500 to-emerald-700" },
       company: "Internet Entrepreneur",
-      video: "/testmonial/MO Review.mp4",
+      video: "/testimonials/MO Review.mp4",
       bgColor: "bg-slate-900",
       testimonial: "They understand how to present complex medical topics in an engaging, digestible format.",
-      profileImage: "/testmonial/testmonial_pic/mo.png"
+      profileImage: "/testimonials/testimonial_pics/mo.png"
     },
     {
       id: 4,
@@ -48,10 +48,10 @@ const VideoPortfolio = () => {
       flowers: "1.2M",
       logo: { text: "K", color: "from-red-500 to-pink-500" },
       company: "Internet Entrepreneur and Coach",
-      video: "/testmonial/Kamil Review.mp4",
+      video: "/testimonials/Kamil Review.mp4",
       bgColor: "bg-neutral-900",
       testimonial: "Top-tier editing that keeps retention high. My average view duration is up 40%.",
-      profileImage: "/testmonial/testmonial_pic/kamil.png"
+      profileImage: "/testimonials/testimonial_pics/kamil.png"
     },
     {
       id: 5,
@@ -59,10 +59,10 @@ const VideoPortfolio = () => {
       flowers: "1.5M",
       logo: { text: "J", color: "from-red-500 to-pink-500" },
       company: "Fitness Coach",
-      video: "/testmonial/Julian Testimonial.mp4",
+      video: "/testimonials/Julian Testimonial.mp4",
       bgColor: "bg-neutral-900",
       testimonial: "Top-tier editing that keeps retention high. My average view duration is up 40%.",
-      profileImage: "/testmonial/testmonial_pic/Julian.png"
+      profileImage: "/testimonials/testimonial_pics/Julian.png"
     },
      
   ];

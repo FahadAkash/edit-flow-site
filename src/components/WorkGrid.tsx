@@ -26,7 +26,7 @@ const WorkGrid = () => {
       {
         id: 1,
         title: "Drake vs. Universal Music Group: The Legal Battle That Could Change the Music Industry",
-        thumbnail: "https://img.youtube.com/vi/eOt0VgC8tks/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/eOt0VgC8tks/hqdefault.jpg",
         category: "Documentary",
         duration: "10:00",
         client: "Music Industry",
@@ -39,7 +39,7 @@ const WorkGrid = () => {
       {
         id: 2,
         title: "💰Is Sales the Perfect Career for YOU? Career Deep Dive",
-        thumbnail: "https://img.youtube.com/vi/2iQ6clokEPo/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/2iQ6clokEPo/hqdefault.jpg",
         category: "Career",
         duration: "15:30",
         client: "Career Guide",
@@ -52,7 +52,7 @@ const WorkGrid = () => {
       {
         id: 3,
         title: "Trading Premium",
-        thumbnail: "https://img.youtube.com/vi/u_12sSli1Uk/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/u_12sSli1Uk/hqdefault.jpg",
         category: "Finance",
         duration: "8:45",
         client: "Trading Pro",
@@ -65,7 +65,7 @@ const WorkGrid = () => {
       {
         id: 4,
         title: "Broke to $75,000 week Easy Blueprint",
-        thumbnail: "https://img.youtube.com/vi/sC8ydMWDSUM/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/sC8ydMWDSUM/hqdefault.jpg",
         category: "Business",
         duration: "12:20",
         client: "Entrepreneur",
@@ -78,7 +78,7 @@ const WorkGrid = () => {
       {
         id: 5,
         title: "Video 4",
-        thumbnail: "https://img.youtube.com/vi/uHJD-18kEXg/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/uHJD-18kEXg/hqdefault.jpg",
         category: "Portfolio",
         duration: "5:00",
         client: "Client Work",
@@ -91,7 +91,7 @@ const WorkGrid = () => {
       {
         id: 6,
         title: "AMG Recording CAM 5 06",
-        thumbnail: "https://img.youtube.com/vi/tCVEG4oXaUM/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/tCVEG4oXaUM/hqdefault.jpg",
         category: "Production",
         duration: "3:15",
         client: "AMG",
@@ -104,7 +104,7 @@ const WorkGrid = () => {
       {
         id: 7,
         title: "Video 5",
-        thumbnail: "https://img.youtube.com/vi/jzrb54hJBBQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/jzrb54hJBBQ/hqdefault.jpg",
         category: "Portfolio",
         duration: "4:30",
         client: "Client Work",
@@ -117,7 +117,7 @@ const WorkGrid = () => {
       {
         id: 8,
         title: "5 Boring Business",
-        thumbnail: "https://img.youtube.com/vi/iyCTu_EpD2E/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/iyCTu_EpD2E/hqdefault.jpg",
         category: "Business",
         duration: "11:10",
         client: "Biz Insider",
@@ -130,7 +130,7 @@ const WorkGrid = () => {
       {
         id: 9,
         title: "What Is HEDIS",
-        thumbnail: "https://img.youtube.com/vi/BcuPrB26k5c/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/BcuPrB26k5c/hqdefault.jpg",
         category: "Healthcare",
         duration: "6:50",
         client: "HealthOrg",
@@ -143,7 +143,7 @@ const WorkGrid = () => {
       {
         id: 10,
         title: "How TicketMaster and Live Nation’s Dominance Hurts Fans and Artists",
-        thumbnail: "https://img.youtube.com/vi/K7Wfih1vK00/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/K7Wfih1vK00/hqdefault.jpg",
         category: "Documentary",
         duration: "14:20",
         client: "Music News",
@@ -158,7 +158,7 @@ const WorkGrid = () => {
       {
         id: 11,
         title: "Quick CSS Tip",
-        thumbnail: "https://img.youtube.com/vi/dRfEYs-SFPE/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/dRfEYs-SFPE/hqdefault.jpg",
         category: "Tips",
         duration: "0:45",
         client: "WebDev Pro",
@@ -171,7 +171,7 @@ const WorkGrid = () => {
       {
         id: 12,
         title: "JavaScript Hack",
-        thumbnail: "https://img.youtube.com/vi/CSw91MyV5Ig/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/CSw91MyV5Ig/hqdefault.jpg",
         category: "Coding",
         duration: "0:58",
         client: "Code Ninja",
@@ -184,7 +184,7 @@ const WorkGrid = () => {
       {
         id: 13,
         title: "Design in 60 Seconds",
-        thumbnail: "https://img.youtube.com/vi/9EoL1YkEIG8/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/9EoL1YkEIG8/hqdefault.jpg",
         category: "Design",
         duration: "1:00",
         client: "Design Studio",
@@ -200,7 +200,7 @@ const WorkGrid = () => {
       {
         id: 14,
         title: "SaaS Dashboard Demo",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
         category: "Demo",
         duration: "3:45",
         client: "SaaS Company",
@@ -212,7 +212,7 @@ const WorkGrid = () => {
       {
         id: 15,
         title: "Product Walkthrough",
-        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/hqdefault.jpg",
         category: "Product",
         duration: "5:20",
         client: "StartupXYZ",
@@ -226,7 +226,7 @@ const WorkGrid = () => {
       {
         id: 16,
         title: "Facebook Ad Campaign",
-        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
         category: "Advertisement",
         duration: "0:30",
         client: "Ad Agency",
@@ -238,7 +238,7 @@ const WorkGrid = () => {
       {
         id: 17,
         title: "VSL for E-commerce",
-        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/w7ejDZ8SWv8/hqdefault.jpg",
         category: "VSL",
         duration: "2:15",
         client: "E-commerce Brand",

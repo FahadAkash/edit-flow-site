@@ -18,70 +18,70 @@ const ReelsCarousel = () => {
     youtube: [
       {
         id: 1,
-        thumbnail: "https://img.youtube.com/vi/eOt0VgC8tks/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/eOt0VgC8tks/hqdefault.jpg",
         title: "Drake vs. Universal Music Group: The Legal Battle That Could Change the Music Industry",
         duration: "10:00",
         videoUrl: "https://www.youtube.com/embed/eOt0VgC8tks"
       },
       {
         id: 2,
-        thumbnail: "https://img.youtube.com/vi/2iQ6clokEPo/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/2iQ6clokEPo/hqdefault.jpg",
         title: "💰Is Sales the Perfect Career for YOU? Career Deep Dive",
         duration: "15:30",
         videoUrl: "https://www.youtube.com/embed/2iQ6clokEPo"
       },
       {
         id: 3,
-        thumbnail: "https://img.youtube.com/vi/u_12sSli1Uk/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/u_12sSli1Uk/hqdefault.jpg",
         title: "Trading Premium",
         duration: "08:45",
         videoUrl: "https://www.youtube.com/embed/u_12sSli1Uk"
       },
       {
         id: 4,
-        thumbnail: "https://img.youtube.com/vi/sC8ydMWDSUM/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/sC8ydMWDSUM/hqdefault.jpg",
         title: "Broke to $75,000 week Easy Blueprint",
         duration: "12:20",
         videoUrl: "https://www.youtube.com/embed/sC8ydMWDSUM"
       },
       {
         id: 5,
-        thumbnail: "https://img.youtube.com/vi/uHJD-18kEXg/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/uHJD-18kEXg/hqdefault.jpg",
         title: "Video 4",
         duration: "05:00",
         videoUrl: "https://www.youtube.com/embed/uHJD-18kEXg"
       },
       {
         id: 6,
-        thumbnail: "https://img.youtube.com/vi/tCVEG4oXaUM/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/tCVEG4oXaUM/hqdefault.jpg",
         title: "AMG Recording CAM 5 06",
         duration: "03:15",
         videoUrl: "https://www.youtube.com/embed/tCVEG4oXaUM"
       },
       {
         id: 7,
-        thumbnail: "https://img.youtube.com/vi/jzrb54hJBBQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/jzrb54hJBBQ/hqdefault.jpg",
         title: "Video 5",
         duration: "04:30",
         videoUrl: "https://www.youtube.com/embed/jzrb54hJBBQ"
       },
       {
         id: 8,
-        thumbnail: "https://img.youtube.com/vi/iyCTu_EpD2E/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/iyCTu_EpD2E/hqdefault.jpg",
         title: "5 Boring Business",
         duration: "11:10",
         videoUrl: "https://www.youtube.com/embed/iyCTu_EpD2E"
       },
       {
         id: 9,
-        thumbnail: "https://img.youtube.com/vi/BcuPrB26k5c/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/BcuPrB26k5c/hqdefault.jpg",
         title: "What Is HEDIS",
         duration: "06:50",
         videoUrl: "https://www.youtube.com/embed/BcuPrB26k5c"
       },
       {
         id: 10,
-        thumbnail: "https://img.youtube.com/vi/K7Wfih1vK00/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/K7Wfih1vK00/hqdefault.jpg",
         title: "How TicketMaster and Live Nation's Dominance Hurts Fans and Artists",
         duration: "14:20",
         videoUrl: "https://www.youtube.com/embed/K7Wfih1vK00"
@@ -108,58 +108,58 @@ const ReelsCarousel = () => {
     saas: [
       {
         id: 30,
-        thumbnail: "https://img.youtube.com/vi/EsQnJ82HPSQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/EsQnJ82HPSQ/hqdefault.jpg",
         title: "UGC Ad Creative 1",
         duration: "00:30",
         videoUrl: "https://www.youtube.com/embed/EsQnJ82HPSQ"
       },
       {
         id: 31,
-        thumbnail: "https://img.youtube.com/vi/TuBv-hf3H5k/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/TuBv-hf3H5k/hqdefault.jpg",
         title: "UGC Ad Creative 2",
         duration: "00:30",
         videoUrl: "https://www.youtube.com/embed/TuBv-hf3H5k"
       },
       {
         id: 32,
-        thumbnail: "https://img.youtube.com/vi/xbFtm0FefUM/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/xbFtm0FefUM/hqdefault.jpg",
         title: "UGC Ad Creative 3",
         duration: "00:30",
         videoUrl: "https://www.youtube.com/embed/xbFtm0FefUM"
       },
       {
         id: 33,
-        thumbnail: "https://img.youtube.com/vi/m8PdJJ-cChQ/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/m8PdJJ-cChQ/hqdefault.jpg",
         title: "UGC Ad Creative 4",
         duration: "00:30",
         videoUrl: "https://www.youtube.com/embed/m8PdJJ-cChQ"
       },
       {
         id: 34,
-        thumbnail: "https://img.youtube.com/vi/O6dDnh_49no/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/O6dDnh_49no/hqdefault.jpg",
         title: "UGC Ad Creative 5",
         duration: "00:30",
         videoUrl: "https://www.youtube.com/embed/O6dDnh_49no"
       },
       {
         id: 35,
-        thumbnail: "https://img.youtube.com/vi/2fv_OYUng7I/maxresdefault.jpg",
+        thumbnail: "https://img.youtube.com/vi/2fv_OYUng7I/hqdefault.jpg",
         title: "UGC Product Video",
         duration: "02:00",
         videoUrl: "https://www.youtube.com/embed/2fv_OYUng7I"
       }
     ],
     ads: [
-      { id: 40, thumbnail: "/Thubnails/AI-GOLDRUSH-thumbnail-deisgn.png", title: "AI Goldrush", videoUrl: "", duration: "" },
-      { id: 41, thumbnail: "/Thubnails/DIET-loagn-thumbnail-deisgn.jpg", title: "Diet Logan", videoUrl: "", duration: "" },
-      { id: 42, thumbnail: "/Thubnails/I--SCAMMED--MICROSOFT-thumbnail-design.png", title: "I Scammed Microsoft", videoUrl: "", duration: "" },
-      { id: 43, thumbnail: "/Thubnails/ITS-worth-it-thumbnail-deisgn.jpg", title: "It's Worth It", videoUrl: "", duration: "" },
-      { id: 44, thumbnail: "/Thubnails/Is-Marketing-Really-Worth-It.jpg", title: "Is Marketing Worth It", videoUrl: "", duration: "" },
-      { id: 45, thumbnail: "/Thubnails/Live-Here-In-thumbnail-design.jpg", title: "Live Here In", videoUrl: "", duration: "" },
-      { id: 46, thumbnail: "/Thubnails/Logan-breakfast-thumbnail-deisgn.jpg", title: "Logan Breakfast", videoUrl: "", duration: "" },
-      { id: 47, thumbnail: "/Thubnails/Multi-Agent-Explained--thumbnail-deisgn.jpg", title: "Multi Agent Explained", videoUrl: "", duration: "" },
-      { id: 48, thumbnail: "/Thubnails/OWN-PAYMENT-ASSISTANCE-PROGRAM-thumbnail-deisgn-.jpg", title: "Payment Assistance", videoUrl: "", duration: "" },
-      { id: 49, thumbnail: "/Thubnails/logan-face-with-chatgpt-03.jpg", title: "Logan with ChatGPT", videoUrl: "", duration: "" }
+      { id: 40, thumbnail: "/thumbnails/AI-GOLDRUSH-thumbnail.png", title: "AI Goldrush", videoUrl: "", duration: "" },
+      { id: 41, thumbnail: "/thumbnails/DIET-loagn-thumbnail.jpg", title: "Diet Logan", videoUrl: "", duration: "" },
+      { id: 42, thumbnail: "/thumbnails/I--SCAMMED--MICROSOFT-thumbnail.png", title: "I Scammed Microsoft", videoUrl: "", duration: "" },
+      { id: 43, thumbnail: "/thumbnails/ITS-worth-it-thumbnail.jpg", title: "It's Worth It", videoUrl: "", duration: "" },
+      { id: 44, thumbnail: "/thumbnails/Is-Marketing-Really-Worth-It.jpg", title: "Is Marketing Worth It", videoUrl: "", duration: "" },
+      { id: 45, thumbnail: "/thumbnails/Live-Here-In-thumbnail.jpg", title: "Live Here In", videoUrl: "", duration: "" },
+      { id: 46, thumbnail: "/thumbnails/Logan-breakfast-thumbnail.jpg", title: "Logan Breakfast", videoUrl: "", duration: "" },
+      { id: 47, thumbnail: "/thumbnails/Multi-Agent-Explained-thumbnail.jpg", title: "Multi Agent Explained", videoUrl: "", duration: "" },
+      { id: 48, thumbnail: "/thumbnails/OWN-PAYMENT-ASSISTANCE-PROGRAM-thumbnail.jpg", title: "Payment Assistance", videoUrl: "", duration: "" },
+      { id: 49, thumbnail: "/thumbnails/logan-face-with-chatgpt-03.jpg", title: "Logan with ChatGPT", videoUrl: "", duration: "" }
     ]
   };
 

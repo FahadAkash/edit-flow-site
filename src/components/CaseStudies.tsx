@@ -38,10 +38,10 @@ const CaseStudies = () => {
       title: "Bryan Guerra Success Story",
       client: "Bryan Guerra",
       clientRole: "YouTube Entrepreneur",
-      clientAvatar: "/testmonial/brayen.jpg",
+      clientAvatar: "/testimonials/brayen.jpg",
       comment: "Incredible video editing that took my YouTube channel to the next level! The attention to detail and professional quality helped me grow my audience significantly. Highly recommend their services!",
       videoUrl: "https://www.youtube.com/embed/cyabAl8I0bA",
-      videoThumbnail: "https://img.youtube.com/vi/cyabAl8I0bA/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/cyabAl8I0bA/hqdefault.jpg",
       result: "Channel Growth",
       videoFormat: "long" as VideoFormat
     },
@@ -53,7 +53,7 @@ const CaseStudies = () => {
       clientAvatar: "/culturecodemusic.jpg",
       comment: "The video production quality exceeded all my expectations! They perfectly captured the essence of my music and created visuals that resonate with my audience. My music videos have never looked better!",
       videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU",
-      videoThumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/hqdefault.jpg",
       result: "Viral Music Video",
       videoFormat: "long" as VideoFormat
     },
@@ -65,7 +65,7 @@ const CaseStudies = () => {
       clientAvatar: "/culturecodemusic2.jpg",
       comment: "Another amazing collaboration! The creativity and professionalism never disappoints. Each project brings something fresh and exciting. Can't wait to work on more videos together!",
       videoUrl: "https://www.youtube.com/embed/4t0golxJb8A",
-      videoThumbnail: "https://img.youtube.com/vi/4t0golxJb8A/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/4t0golxJb8A/hqdefault.jpg",
       result: "Hit Track Visual",
       videoFormat: "long" as VideoFormat
     },
@@ -77,7 +77,7 @@ const CaseStudies = () => {
       clientAvatar: "/culturecodemusic3.jpg",
       comment: "Perfect for social media! They know exactly how to create engaging short-form content that captures attention instantly. My reels and shorts are getting way more views now!",
       videoUrl: "https://www.youtube.com/embed/UC_ZDK12twU",
-      videoThumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/UC_ZDK12twU/hqdefault.jpg",
       result: "Viral Short",
       videoFormat: "short" as VideoFormat
     },
@@ -89,7 +89,7 @@ const CaseStudies = () => {
       clientAvatar: "/culturecodemusic4.jpg",
       comment: "The short-form content they create is absolutely fire! Every clip is perfectly optimized for maximum engagement. My YouTube Shorts are blowing up thanks to their editing magic!",
       videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk",
-      videoThumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/hqdefault.jpg",
       result: "Shorts Viral",
       videoFormat: "short" as VideoFormat
     },
@@ -101,7 +101,7 @@ const CaseStudies = () => {
       clientAvatar: "/hellcatpriime.jpg",
       comment: "These guys are absolute legends! They transformed my gaming content into cinematic masterpieces. The editing style is exactly what I was looking for - dynamic, engaging, and professional!",
       videoUrl: "https://www.youtube.com/embed/YUDeFFUHglc",
-      videoThumbnail: "https://img.youtube.com/vi/YUDeFFUHglc/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/YUDeFFUHglc/hqdefault.jpg",
       result: "",
       videoFormat: "long" as VideoFormat
     },
@@ -113,7 +113,7 @@ const CaseStudies = () => {
       clientAvatar: "/lawfirmowners.jpg",
       comment: "Short-form gaming content done right! They capture the most epic moments and turn them into viral clips. My TikTok and YouTube Shorts are crushing it!",
       videoUrl: "https://www.youtube.com/embed/hxwegX1x6uk",
-      videoThumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/hxwegX1x6uk/hqdefault.jpg",
       result: "Law Firm Growth",
       videoFormat: "short" as VideoFormat
     },
@@ -125,7 +125,7 @@ const CaseStudies = () => {
       clientAvatar: "/ai_alfie.jpg",
       comment: "Phenomenal work! The editing team perfectly understood my vision for AI content. They created stunning visuals that explain complex topics in an engaging way. My subscribers love the new production quality!",
       videoUrl: "https://www.youtube.com/embed/hLJTcVHW8_I",
-      videoThumbnail: "https://img.youtube.com/vi/hLJTcVHW8_I/maxresdefault.jpg",
+      videoThumbnail: "https://img.youtube.com/vi/hLJTcVHW8_I/hqdefault.jpg",
       result: "AI Content Star",
       videoFormat: "long" as VideoFormat
     } ,
